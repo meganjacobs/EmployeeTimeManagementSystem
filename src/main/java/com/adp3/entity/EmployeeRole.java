@@ -1,5 +1,11 @@
 package com.adp3.entity;
 
+
+/**
+ * @author Sonwabo Kasi
+ * 214293939
+ * desc: EmployeeRole class created using Builder Pattern
+ */
 public class EmployeeRole {
     private String empId, roleId;
 
