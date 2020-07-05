@@ -1,3 +1,9 @@
+/**
+ * Author: Ayanda Nongxa
+ *Class: Part Time
+ * Student number:204513723
+ * Class Description: Leave
+*/
 package com.adp3.entity;
 
 public class Leave {
@@ -65,6 +71,7 @@ public class Leave {
         this.leave_ID =leave.leave_ID;
         this.leave_Tittle =leave.leave_Tittle;
         this.days =leave.days;
+        return this;
     }
 
     public Leave build() {
