@@ -1,4 +1,4 @@
-package com.adp3;
+package com.adp3.entity;
 
 /**
  * @author meganjacobs
