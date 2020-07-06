@@ -48,28 +48,28 @@ public class EmployeeLeave {
         private String empID, leaveID;
         private String startDate, endDate;
 
-        public EmployeeLeave.Builder setEmpID(String empID) {
+        public Builder setEmpID(String empID) {
             this.empID = empID;
             return this;
         }
 
-        public EmployeeLeave.Builder setLeaveID(String leaveID) {
+        public Builder setLeaveID(String leaveID) {
             this.leaveID = leaveID;
             return this;
         }
 
-        public EmployeeLeave.Builder setStartDate(String startDate) {
+        public Builder setStartDate(String startDate) {
             this.startDate = startDate;
             return this;
         }
 
-        public EmployeeLeave.Builder setEndDate(String endDate) {
+        public Builder setEndDate(String endDate) {
             this.endDate = endDate;
             return this;
         }
 
 
-        public EmployeeLeave.Builder copy(EmployeeLeave employeeLeave) {
+        public Builder copy(EmployeeLeave employeeLeave) {
 
             this.empID = employeeLeave.empID;
             this.leaveID = employeeLeave.leaveID;
