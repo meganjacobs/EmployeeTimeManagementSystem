@@ -1,56 +1,57 @@
 package com.adp3.entity;
 
-
 /**
- * @author Sonwabo Kasi
- * 214293939
- * desc: EmployeeRole class created using Builder Pattern
+ * Author: Sonwabo Kasi
+ * Class: Part Time
+ * Student number: 214293939
+ * Class Description: EmployeeRole
  */
-public class EmployeeRole {
-    private String empId, roleId;
 
-    private EmployeeRole(Builder builder){
-        this.empId = builder.empId;
-        this.roleId = builder.roleId;
+public class EmployeeRole {
+    private String empID, roleID;
+
+    private EmployeeRole(Builder builder) {
+        this.empID = builder.empID;
+        this.roleID = builder.roleID;
     }
 
     @Override
     public String toString() {
         return "EmployeeRole{" +
-                "empId='" + empId + '\'' +
-                ", roleId='" + roleId + '\'' +
+                "empID='" + empID + '\'' +
+                ", roleID='" + roleID + '\'' +
                 '}';
     }
 
-    public String getEmpId() {
-        return empId;
+    public String getEmpID() {
+        return empID;
     }
 
-    public String getRoleId() {
-        return roleId;
+    public String getRoleID() {
+        return roleID;
     }
 
-    public static class Builder{
-        private String empId, roleId;
+    public static class Builder {
+        private String empID, roleID;
 
-        public Builder setEmployeeId(String empId){
-            this.empId = empId;
+        public Builder setEmployeeId(String empId) {
+            this.empID = empId;
             return this;
         }
 
-        public Builder setRoleId(String roleId){
-            this.roleId = roleId;
+        public Builder setRoleID(String roleID) {
+            this.roleID = roleID;
             return this;
         }
 
-        public Builder copy(EmployeeRole employeeR){
-            this.empId = employeeR.empId;
-            this.roleId = employeeR.roleId;
-            return  this;
+        public Builder copy(EmployeeRole employeeR) {
+            this.empID = employeeR.empID;
+            this.roleID = employeeR.roleID;
+            return this;
         }
 
-        public  EmployeeRole build(){
-            return new  EmployeeRole(this);
+        public EmployeeRole build() {
+            return new EmployeeRole(this);
         }
 
     }

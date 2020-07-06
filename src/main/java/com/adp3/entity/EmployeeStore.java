@@ -1,55 +1,55 @@
 package com.adp3.entity;
 
 /**
- * @Author : Munyaradzi Manyati 215211855
- * EmployeeStore Class
- * Using the Builder Patten
- * 2020.
+ * Author: Munyaradzi Manyati
+ * Class: Part Time
+ * Student number: 215211855
+ * Class Description: EmployeeStore
  */
 
 public class EmployeeStore {
-    private String empId, storeId;
+    private String empID, storeID;
 
     private EmployeeStore(Builder builder) {
-        this.empId = builder.empId;
-        this.storeId = builder.storeId;
+        this.empID = builder.empID;
+        this.storeID = builder.storeID;
 
     }
 
-    public String getEmpId() {
-        return empId;
+    public String getEmpID() {
+        return empID;
     }
 
-    public String getStoreId() {
-        return storeId;
+    public String getStoreID() {
+        return storeID;
     }
 
     @Override
     public String toString() {
         return "EmployeeStore{" +
-                "empId='" + empId + '\'' +
-                ", storeId='" + storeId + '\'' +
+                "empID='" + empID + '\'' +
+                ", storeID='" + storeID + '\'' +
                 '}';
     }
 
     public static class Builder {
 
-        private String empId, storeId;
+        private String empID, storeID;
 
-        public Builder setEmpId(String empId) {
-            this.empId = empId;
+        public Builder setEmpID(String empID) {
+            this.empID = empID;
             return this;
         }
 
-        public Builder setStoreId(String storeId) {
-            this.storeId = storeId;
+        public Builder setStoreID(String storeID) {
+            this.storeID = storeID;
             return this;
         }
 
         public Builder copy(EmployeeStore empStore) {
 
-            this.empId = empStore.empId;
-            this.storeId = empStore.storeId;
+            this.empID = empStore.empID;
+            this.storeID = empStore.storeID;
 
             return this;
         }
