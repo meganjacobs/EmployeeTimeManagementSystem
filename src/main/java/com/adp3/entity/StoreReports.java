@@ -8,7 +8,6 @@ package com.adp3.entity;
 
 public class StoreReports {
     private String ReportID,ReportDesc, StoredID;
-
     private StoreReports(StoreReports builder){
         this.ReportID = builder.ReportID;
         this.StoredID = builder.StoredID;
