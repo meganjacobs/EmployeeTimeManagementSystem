@@ -2,6 +2,7 @@ package com.adp3.entity;
 /*
 *Zangwa Steve
 * 217136664
+* Class Description : StoreReport
 * Using builder pattern
  */
 
