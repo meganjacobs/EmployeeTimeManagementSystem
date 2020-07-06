@@ -1,5 +1,12 @@
 package com.adp3.entity;
 
+/**
+ * Author: Lungisa Lucky Mkhasakhasa
+ * Class: Part Time
+ * Student number: 216060117
+ * Class Description: TimeKeepingService
+ */
+
 public class TimekeepingService {
     //time_in
     //time_out
