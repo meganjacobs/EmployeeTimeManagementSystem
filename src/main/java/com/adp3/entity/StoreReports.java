@@ -17,7 +17,6 @@ public class StoreReports {
     public String getReportID() {
         return ReportID;
     }
-
     public String getReportDesc() {
         return ReportDesc;
     }
