@@ -2,4 +2,6 @@
 
 .idea
 employeetimemanagementsystem.iml
+target/classes
+target/classes/
 target
