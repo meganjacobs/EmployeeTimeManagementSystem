@@ -7,77 +7,76 @@ package com.adp3.entity;
  */
 
 public class StoreReports {
-    private String ReportID,ReportDesc, StoredID;
+    private String reportID, reportDesc, storedID;
     private StoreReports(StoreReports builder){
-        this.ReportID = builder.ReportID;
-        this.StoredID = builder.StoredID;
-         this.ReportDesc = builder.ReportDesc;
+        this.reportID = builder.reportID;
+        this.storedID = builder.storedID;
+         this.reportDesc = builder.reportDesc;
 
     }
     public String getReportID() {
-        return ReportID;
+        return reportID;
     }
     public String getReportDesc() {
-        return ReportDesc;
+        return reportDesc;
     }
 
     public String getStoredID() {
-        return StoredID;
+        return storedID;
     }
 
     @Override
     public String toString() {
         return "Store_Reports{" +
-                "ReportID='" + ReportID + '\'' +
-                ", ReportDesc='" + ReportDesc + '\'' +
-                ", StoredID='" + StoredID + '\'' +
+                "ReportID='" + reportID + '\'' +
+                ", ReportDesc='" + reportDesc + '\'' +
+                ", StoredID='" + storedID + '\'' +
                 '}';
     }
 
     public void setReportID(String reportID) {
-        ReportID = reportID;
+        this.reportID = reportID;
     }
 
     public void setReportDesc(String reportDesc) {
-        ReportDesc = reportDesc;
+        this.reportDesc = reportDesc;
     }
 
     public void setStoredID(String storedID) {
-        StoredID = storedID;
+        this.storedID = storedID;
     }
-
 
     public static class Builder {
-        public String ReportID;
-        public String StoredID;
-        private String ReportDesc;
+        public String reportID;
+        public String storedID;
+        public String reportDesc;
 
         public void setReportID(String reportID) {
-            ReportID = reportID;
+            this.reportID = reportID;
         }
 
-        public void setReportDec(String reportDec) {
-            ReportDesc = reportDec;
+        public void setReportDesc(String reportDesc) {
+            this.reportDesc = reportDesc;
         }
-
         public void setStoredID(String storedID) {
-            StoredID = storedID;
+            this.storedID = storedID;
+
         }
-        public Builder copy (StoreReports store_reports){
-            this.ReportID = store_reports.ReportID;
-            this.StoredID = store_reports.StoredID;
-            this.ReportDesc = store_reports.ReportDesc;
+        public Builder copy (StoreReports storeReports){
+            this.reportID = storeReports.reportID;
+            this.storedID = storeReports.storedID;
+            this.reportDesc = storeReports.reportDesc;
            return this;
         }
-    }
 
+    }
 
     public StoreReports build() {  return new StoreReports(this);
     }
 
-private void generateReports(){
+   private void generateReports(){
 
-}
+  }
 }
 
 
