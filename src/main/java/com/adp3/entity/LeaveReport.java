@@ -1,9 +1,12 @@
 package com.adp3.entity;
 
 /**
- * @author meganjacobs
- * desc: LeaveReport class created using Builder Pattern
+ * Author: Megan Jacobs
+ * Class: Part Time
+ * Student number: 211137162
+ * Class Description: LeaveReport
  */
+
 public class LeaveReport {
 
     private String leaveReportID,leaveID,leaveReportDesc;

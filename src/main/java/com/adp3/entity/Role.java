@@ -1,66 +1,66 @@
 package com.adp3.entity;
 
-public class Role
-{
-    //Role_ID
-    //Role_Desc
-    //getRole()
-    //setRole()
+/**
+ * Author: Sanele Ngwenya
+ * Class: Part Time
+ * Student number: 216019699
+ * Class Description: Role
+ */
 
-    private String role_id;
-    private String role_desc;
+public class Role {
+    private String roleID;
+    private String roleDesc;
 
 
-    private Role(Builder builder){
-        this.role_id = builder.role_id;
-        this.role_desc = builder.role_desc;
+    private Role(Builder builder) {
+        this.roleID = builder.roleID;
+        this.roleDesc = builder.roleDesc;
 
 
     }
 
-    public String getRole_id() {
-        return role_id;
+    public String getRoleID() {
+        return roleID;
     }
 
-    public String getRole_desc() {
-        return role_desc;
+    public String getRoleDesc() {
+        return roleDesc;
     }
 
     @Override
     public String toString() {
         return "Role{" +
-                "role_id=" + role_id +
-                ", role_desc=" + role_desc +
+                "roleID=" + roleID +
+                ", roleDesc=" + roleDesc +
                 '}';
     }
 
-    public static class Builder{
-        private String role_id;
-        private String role_desc;
+    public static class Builder {
+        private String roleID;
+        private String roleDesc;
 
-        public Builder(String role_id, String role_desc) {
-            this.role_id = role_id;
-            this.role_desc = role_desc;
+        public Builder(String roleID, String roleDesc) {
+            this.roleID = roleID;
+            this.roleDesc = roleDesc;
         }
 
-        public Builder setRole_id(String role_id) {
-            this.role_id = role_id;
+        public Builder setRoleID(String roleID) {
+            this.roleID = roleID;
             return this;
         }
 
-        public Builder setRole_desc(String role_desc) {
-            this.role_desc = role_desc;
+        public Builder setRoleDesc(String roleDesc) {
+            this.roleDesc = roleDesc;
             return this;
         }
 
-        public Builder copy(Role role)
-        {
-            this.role_desc = role.role_desc;
-            this.role_id = role.role_id;
-            return  this;
+        public Builder copy(Role role) {
+            this.roleDesc = role.roleDesc;
+            this.roleID = role.roleID;
+            return this;
         }
 
-        public Role build(){
+        public Role build() {
             return new Role(this);
         }
 
