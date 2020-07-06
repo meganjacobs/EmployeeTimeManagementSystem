@@ -8,17 +8,15 @@ package com.adp3.entity;
  */
 
 public class TimekeepingService {
-    //time_in
-    //time_out
-    //empl_id
+
     private int time_In;
     private int time_Out;
-    private int employee_id;
+    private String empID;
 
     private TimekeepingService(Builder builder){
         this.time_In = builder.time_In;
         this.time_Out = builder.time_Out;
-        this.employee_id = builder.employee_id;
+        this.empID = builder.empID;
     }
 
     public int getTime_In() {
@@ -29,8 +27,8 @@ public class TimekeepingService {
         return time_Out;
     }
 
-    public int getEmployee_id() {
-        return employee_id;
+    public String getempID() {
+        return empID;
     }
 
     @Override
@@ -38,18 +36,18 @@ public class TimekeepingService {
         return "TimekeepingService{" +
                 "time_In=" + time_In +
                 ", time_Out=" + time_Out +
-                ", employee_id=" + employee_id +
+                ", empID=" + empID +
                 '}';
     }
     public static class Builder{
             private int time_In;
             private int time_Out;
-            private int employee_id;
+            private String empID;
 
-        public Builder(int time_In, int time_Out, int employee_id) {
+        public Builder(int time_In, int time_Out, String empID) {
             this.time_In = time_In;
             this.time_Out = time_Out;
-            this.employee_id = employee_id;
+            this.empID = empID;
         }
 
         public Builder setTime_In(int time_In) {
@@ -62,14 +60,14 @@ public class TimekeepingService {
             return this;
         }
 
-        public Builder setEmployee_id(int employee_id) {
-            this.employee_id = employee_id;
+        public Builder setEmployee_id(String empID) {
+            this.empID = empID;
             return this;
         }
 
         public Builder copy(TimekeepingService timekeepingService){
 
-            this.employee_id = timekeepingService.employee_id;
+            this.empID = timekeepingService.empID;
             this.time_Out= timekeepingService.time_Out;
             this.time_In= timekeepingService.time_In;
         return this;
