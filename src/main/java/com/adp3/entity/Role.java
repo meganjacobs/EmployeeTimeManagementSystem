@@ -7,8 +7,8 @@ public class Role
     //getRole()
     //setRole()
 
-    private int role_id;
-    private int role_desc;
+    private String role_id;
+    private String role_desc;
 
 
     private Role(Builder builder){
@@ -18,11 +18,11 @@ public class Role
 
     }
 
-    public int getRole_id() {
+    public String getRole_id() {
         return role_id;
     }
 
-    public int getRole_desc() {
+    public String getRole_desc() {
         return role_desc;
     }
 
@@ -35,20 +35,20 @@ public class Role
     }
 
     public static class Builder{
-        private int role_id;
-        private int role_desc;
+        private String role_id;
+        private String role_desc;
 
-        public Builder(int role_id, int role_desc) {
+        public Builder(String role_id, String role_desc) {
             this.role_id = role_id;
             this.role_desc = role_desc;
         }
 
-        public Builder setRole_id(int role_id) {
+        public Builder setRole_id(String role_id) {
             this.role_id = role_id;
             return this;
         }
 
-        public Builder setRole_desc(int role_desc) {
+        public Builder setRole_desc(String role_desc) {
             this.role_desc = role_desc;
             return this;
         }
