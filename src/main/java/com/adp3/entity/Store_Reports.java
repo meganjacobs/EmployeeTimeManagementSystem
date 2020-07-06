@@ -1,10 +1,9 @@
-package com.adp3;
+package com.adp3.entity;
 /*
 *Zangwa Steve
 * 217136664
 * Using builder pattern
  */
-import com.adp3.entity.LeaveReport;
 
 public class Store_Reports {
     private String ReportID,ReportDesc, StoredID;

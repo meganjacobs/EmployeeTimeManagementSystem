@@ -65,10 +65,12 @@ public class Leave {
         this.leave_ID =leave.leave_ID;
         this.leave_Tittle =leave.leave_Tittle;
         this.days =leave.days;
+
+        return this;
     }
 
     public Leave build() {
         return new Leave( this);
     }
-}
+    }
 }
