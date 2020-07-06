@@ -1,8 +1,8 @@
 package com.adp3.entity;
 
 /**
- * @Zubair Van Oudtshoorn
- * Createion of EmployeeLeave Class
+ * @Zubair Van Oudtshoorn - Part Time - 217203795
+ * Creation of EmployeeLeave Class
  *
  * **/
 
