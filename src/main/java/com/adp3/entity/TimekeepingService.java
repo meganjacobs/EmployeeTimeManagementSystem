@@ -8,9 +8,7 @@ package com.adp3.entity;
  */
 
 public class TimekeepingService {
-    //time_in
-    //time_out
-    //empl_id
+
     private int time_In;
     private int time_Out;
     private String empID;
