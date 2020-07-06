@@ -6,10 +6,10 @@ package com.adp3.entity;
 * Using builder pattern
  */
 
-public class Store_Reports {
+public class StoreReports {
     private String ReportID,ReportDesc, StoredID;
 
-    private Store_Reports(Store_Reports builder){
+    private StoreReports(StoreReports builder){
         this.ReportID = builder.ReportID;
         this.StoredID = builder.StoredID;
          this.ReportDesc = builder.ReportDesc;
@@ -65,7 +65,7 @@ public class Store_Reports {
         public void setStoredID(String storedID) {
             StoredID = storedID;
         }
-        public Builder copy (Store_Reports store_reports){
+        public Builder copy (StoreReports store_reports){
             this.ReportID = store_reports.ReportID;
             this.StoredID = store_reports.StoredID;
             this.ReportDesc = store_reports.ReportDesc;
@@ -74,7 +74,7 @@ public class Store_Reports {
     }
 
 
-    public Store_Reports build() {  return new Store_Reports(this);
+    public StoreReports build() {  return new StoreReports(this);
     }
 
 private void generateReports(){
