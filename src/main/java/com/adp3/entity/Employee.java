@@ -11,12 +11,12 @@ import java.util.Date;
 
 public class Employee {
 
-    private int empId;
+    private int empID;
     private String empName, empLastName, empPhoneNumber;
     private Date empDOB;
 
     public Employee(Builder builder) {
-        this.empId = builder.empId;
+        this.empID = builder.empID;
         this.empName = builder.empName;
         this.empLastName = builder.empLastName;
         this.empPhoneNumber = builder.empPhoneNumber;
@@ -27,7 +27,7 @@ public class Employee {
     public static void main(String [] args){
         Date date = new Date();
         Employee malusi = new Builder()
-                .setEmpId(234)
+                .setEmpID(234)
                 .setEmpName("Malusi")
                 .setEmpDOB(new Date(1986, 00, 12))
                 .setEmpLastName("Pakade")
@@ -40,7 +40,7 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "empId=" + empId + ", " +
+                "empID=" + empID + ", " +
                 "empName='" + empName + '\'' +
                 ", empLastName='" + empLastName + '\'' +
                 ", empPhoneNumber='" + empPhoneNumber + '\'' +
@@ -50,12 +50,12 @@ public class Employee {
 
     public static class Builder
     {
-        private int empId;
+        private int empID;
         private String empName, empLastName, empPhoneNumber;
         private Date empDOB;
 
-        public Builder setEmpId(int empId) {
-            this.empId = empId;
+        public Builder setEmpID(int empID) {
+            this.empID = empID;
             return this;
         }
 
