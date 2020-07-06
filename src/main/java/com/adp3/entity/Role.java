@@ -8,8 +8,8 @@ package com.adp3.entity;
  */
 
 public class Role {
-    private int roleID;
-    private int roleDesc;
+    private String roleID;
+    private String roleDesc;
 
 
     private Role(Builder builder) {
@@ -19,11 +19,11 @@ public class Role {
 
     }
 
-    public int getRoleID() {
+    public String getRoleID() {
         return roleID;
     }
 
-    public int getRoleDesc() {
+    public String getRoleDesc() {
         return roleDesc;
     }
 
@@ -36,20 +36,20 @@ public class Role {
     }
 
     public static class Builder {
-        private int roleID;
-        private int roleDesc;
+        private String roleID;
+        private String roleDesc;
 
-        public Builder(int roleID, int roleDesc) {
+        public Builder(String roleID, String roleDesc) {
             this.roleID = roleID;
             this.roleDesc = roleDesc;
         }
 
-        public Builder setRoleID(int roleID) {
+        public Builder setRoleID(String roleID) {
             this.roleID = roleID;
             return this;
         }
 
-        public Builder setRoleDesc(int roleDesc) {
+        public Builder setRoleDesc(String roleDesc) {
             this.roleDesc = roleDesc;
             return this;
         }
