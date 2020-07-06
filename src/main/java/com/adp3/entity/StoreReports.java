@@ -7,10 +7,10 @@ package com.adp3.entity;
  */
 
 public class StoreReports {
-    private String reportID, reportDesc, storedID;
+    private String reportID, reportDesc, storeID;
     private StoreReports(StoreReports builder){
         this.reportID = builder.reportID;
-        this.storedID = builder.storedID;
+        this.storeID = builder.storeID;
          this.reportDesc = builder.reportDesc;
 
     }
@@ -21,8 +21,8 @@ public class StoreReports {
         return reportDesc;
     }
 
-    public String getStoredID() {
-        return storedID;
+    public String getStoreID() {
+        return storeID;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class StoreReports {
         return "Store_Reports{" +
                 "ReportID='" + reportID + '\'' +
                 ", ReportDesc='" + reportDesc + '\'' +
-                ", StoredID='" + storedID + '\'' +
+                ", StoredID='" + storeID + '\'' +
                 '}';
     }
 
@@ -42,13 +42,13 @@ public class StoreReports {
         this.reportDesc = reportDesc;
     }
 
-    public void setStoredID(String storedID) {
-        this.storedID = storedID;
+    public void setStoreID(String storeID) {
+        this.storeID = storeID;
     }
 
     public static class Builder {
         public String reportID;
-        public String storedID;
+        public String storeID;
         public String reportDesc;
 
         public void setReportID(String reportID) {
@@ -58,13 +58,13 @@ public class StoreReports {
         public void setReportDesc(String reportDesc) {
             this.reportDesc = reportDesc;
         }
-        public void setStoredID(String storedID) {
-            this.storedID = storedID;
+        public void setStoreID(String storeID) {
+            this.storeID = storeID;
 
         }
         public Builder copy (StoreReports storeReports){
             this.reportID = storeReports.reportID;
-            this.storedID = storeReports.storedID;
+            this.storeID = storeReports.storeID;
             this.reportDesc = storeReports.reportDesc;
            return this;
         }
