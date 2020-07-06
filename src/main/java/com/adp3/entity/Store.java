@@ -1,10 +1,12 @@
 package com.adp3.entity;
 
-
 /**
- * @author riyaad ryklief
- * desc: store class created using Builder Pattern
+ * Author: Riyaad Ryklief
+ * Class: Part Time
+ * Student number: 215187849
+ * Class Description: Store
  */
+
 public class Store {
 
     private String storeID, storeName;
@@ -31,7 +33,7 @@ public class Store {
     }
 
     //inner class contains all setters
-    public static class Builder{
+    public static class Builder {
         private String storeID, storeName;
 
         public Builder setStoreID(String storeID) {
@@ -44,7 +46,7 @@ public class Store {
             return this;
         }
 
-        public Builder copy (Store store){
+        public Builder copy(Store store) {
 
             this.storeID = store.storeID;
             this.storeName = store.storeID;
@@ -52,8 +54,8 @@ public class Store {
 
         }
 
-        public Store build(){
-               return new Store(this);
+        public Store build() {
+            return new Store(this);
         }
     }
 }

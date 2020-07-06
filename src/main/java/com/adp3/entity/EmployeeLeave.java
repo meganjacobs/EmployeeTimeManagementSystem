@@ -1,4 +1,11 @@
 package com.adp3.entity;
 
-public class EmplyeeLeave {
+/**
+ * Author: Zubair Van Oudtshoorn
+ * Class: Part Time
+ * Student number: 217203795
+ * Class Description: EmployeeLeave
+ */
+
+public class EmployeeLeave {
 }
