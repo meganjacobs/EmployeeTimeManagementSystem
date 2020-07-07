@@ -11,8 +11,7 @@ import java.util.Date;
 
 public class Employee {
 
-    private int empID;
-    private String empName, empLastName, empPhoneNumber;
+    private String empID, empName, empLastName, empPhoneNumber;
     private Date empDOB;
 
     public Employee(Builder builder) {
@@ -27,7 +26,7 @@ public class Employee {
     public static void main(String [] args){
         Date date = new Date();
         Employee malusi = new Builder()
-                .setEmpID(234)
+                .setEmpID("Malusi")
                 .setEmpName("Malusi")
                 .setEmpDOB(new Date(1986, 00, 12))
                 .setEmpLastName("Pakade")
@@ -40,8 +39,8 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "empID=" + empID + ", " +
-                "empName='" + empName + '\'' +
+                "empID='" + empID + '\'' +
+                ", empName='" + empName + '\'' +
                 ", empLastName='" + empLastName + '\'' +
                 ", empPhoneNumber='" + empPhoneNumber + '\'' +
                 ", empDOB=" + empDOB +
@@ -50,11 +49,10 @@ public class Employee {
 
     public static class Builder
     {
-        private int empID;
-        private String empName, empLastName, empPhoneNumber;
+        private String empID, empName, empLastName, empPhoneNumber;
         private Date empDOB;
 
-        public Builder setEmpID(int empID) {
+        public Builder setEmpID(String empID) {
             this.empID = empID;
             return this;
         }
