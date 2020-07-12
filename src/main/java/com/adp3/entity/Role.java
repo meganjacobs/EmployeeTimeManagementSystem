@@ -39,7 +39,7 @@ public class Role {
         private String roleID;
         private String roleDesc;
 
-        public Builder(String roleID, String roleDesc) {
+        public Builder() {
             this.roleID = roleID;
             this.roleDesc = roleDesc;
         }
