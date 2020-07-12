@@ -1,16 +1,22 @@
 package com.adp3.factory;
 
-import org.junit.AfterClass;
+import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class LeaveReportFactoryTest {
+
     @Before
     public void setUp() throws Exception {
-
     }
 
-    @AfterClass
-    public static void afterClass() throws Exception {
+    @After
+    public void tearDown() throws Exception {
+    }
 
+    @Test
+    public void getLeaveReport() {
     }
 }
