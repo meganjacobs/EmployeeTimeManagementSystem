@@ -4,7 +4,7 @@ package com.adp3.entity;
  * Author: Riyaad Ryklief
  * Class: Part Time
  * Student number: 215187849
- * Class Description: Store
+ * Entity: Store
  */
 
 public class Store {
