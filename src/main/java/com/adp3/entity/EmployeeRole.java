@@ -39,7 +39,7 @@ public class EmployeeRole {
             return this;
         }
 
-        public Builder setRoleID(String roleID) {
+        public Builder setRoleId(String roleID) {
             this.roleID = roleID;
             return this;
         }
