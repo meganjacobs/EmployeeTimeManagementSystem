@@ -11,7 +11,7 @@ public class LeaveReport {
 
     private String leaveReportID,leaveID,leaveReportDesc;
 
-    private LeaveReport(Builder builder) {
+    public LeaveReport(Builder builder) {
         this.leaveReportID = builder.leaveReportID;
         this.leaveID = builder.leaveID;
         this.leaveReportDesc = builder.leaveReportDesc;
