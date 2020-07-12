@@ -20,7 +20,7 @@ public class EmployeeFactory {
                 .setEmpDOB(empDOB)
                 .setEmpLastName(empLastName)
                 .setEmpPhoneNumber(empPhoneNumber)
-                .getEmployee();
+                .build();
     }
 
 }

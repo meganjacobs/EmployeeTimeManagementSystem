@@ -24,14 +24,6 @@ public class Employee {
         this.empDOB = builder.empDOB;
     }
 
-    //testing the employee object using the builder pattern
-    public static void main(String [] args){
-        Date date = new Date();
-        Employee malusi = EmployeeFactory.getEmployee("emp1", "Malusi","Pakade","021 435 8768", new Date(1986, 00, 12) );
-
-        System.out.println(malusi);
-    }
-
     @Override
     public String toString() {
         return "Employee{" +
@@ -73,7 +65,7 @@ public class Employee {
             return this;
         }
 
-        public Employee getEmployee(){
+        public Employee build() {
             return new Employee(this);
         }
 
