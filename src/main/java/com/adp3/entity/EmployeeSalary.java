@@ -8,11 +8,11 @@ package com.adp3.entity;
 public class EmployeeSalary {
 
     private String empID;
-    private double empSalary;
+    private double empSalaryRate;
 
     private EmployeeSalary(Builder builder) {
         this.empID = builder.empID;
-        this.empSalary = builder.empSalary;
+        this.empSalaryRate = builder.empSalaryRate;
     }
 
 
@@ -22,36 +22,36 @@ public class EmployeeSalary {
     }
 
     public double getEmpSalary() {
-        return empSalary;
+        return empSalaryRate;
     }
 
     @Override
     public String toString() {
         return "EmployeeSalary{" +
                 "empID='" + empID + '\'' +
-                ", empSalary=" + empSalary +
+                ", empSalaryRate=" + empSalaryRate +
                 '}';
     }
 
 
     public static class Builder{
         private String empID;
-        private double empSalary;
+        private double empSalaryRate;
 
         public Builder setEmpID(String empID) {
             this.empID = empID;
             return this;
         }
 
-        public Builder setEmpSalary(double empSalary) {
-            this.empSalary= empSalary;
+        public Builder setEmpSalaryRate(double empSalaryRate) {
+            this.empSalaryRate= empSalaryRate;
             return this;
         }
 
 
         public Builder copy(EmployeeSalary employeeSalary) {
             this.empID = employeeSalary.empID;
-            this.empSalary = employeeSalary.empSalary;
+            this.empSalaryRate = employeeSalary.empSalaryRate;
 
             return this;
         }
