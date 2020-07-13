@@ -10,7 +10,7 @@ package com.adp3.entity;
 public class EmployeeRole {
     private String empID, roleID;
 
-    private EmployeeRole(Builder builder) {
+    public EmployeeRole(Builder builder) {
         this.empID = builder.empID;
         this.roleID = builder.roleID;
     }

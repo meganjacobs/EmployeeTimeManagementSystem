@@ -12,6 +12,7 @@ import com.adp3.entity.EmployeeRole;
 
 public class EmployeeRoleFactory {
 
+
     public static EmployeeRole getEmployeeRole(String empId, String roleId){
         return new EmployeeRole.Builder()
         .setEmployeeId(empId)
