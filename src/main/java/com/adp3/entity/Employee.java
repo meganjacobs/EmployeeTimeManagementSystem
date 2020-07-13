@@ -1,5 +1,7 @@
 package com.adp3.entity;
 
+import com.adp3.factory.EmployeeFactory;
+
 import java.util.Date;
 
 /**
@@ -20,20 +22,6 @@ public class Employee {
         this.empLastName = builder.empLastName;
         this.empPhoneNumber = builder.empPhoneNumber;
         this.empDOB = builder.empDOB;
-    }
-
-    //testing the employee object using the builder pattern
-    public static void main(String [] args){
-        Date date = new Date();
-        Employee malusi = new Builder()
-                .setEmpID("Malusi")
-                .setEmpName("Malusi")
-                .setEmpDOB(new Date(1986, 00, 12))
-                .setEmpLastName("Pakade")
-                .setEmpPhoneNumber("083 913 3030")
-                .getEmployee();
-        System.out.println(malusi);
-
     }
 
     @Override
@@ -77,7 +65,7 @@ public class Employee {
             return this;
         }
 
-        public Employee getEmployee(){
+        public Employee build() {
             return new Employee(this);
         }
 

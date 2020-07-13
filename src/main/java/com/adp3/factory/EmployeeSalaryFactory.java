@@ -9,7 +9,7 @@ import com.adp3.entity.EmployeeSalary;
 
 public class EmployeeSalaryFactory {
 
-    public static EmployeeSalary getEmployeeSalary(String empID, double rate){
+    public static EmployeeSalary CalcEmployeeSalary(String empID, double rate){
         return new EmployeeSalary.Builder()
                 .setEmpID(empID)
                 .setEmpSalaryRate(rate)
