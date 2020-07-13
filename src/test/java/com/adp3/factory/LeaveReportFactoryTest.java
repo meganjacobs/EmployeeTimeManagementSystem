@@ -32,7 +32,7 @@ public class LeaveReportFactoryTest {
         Assert.assertNotNull(leaveReport.getLeaveReportID());
     }
     @Test
-    public void testLeaveDoesNotReturnNull() {
+    public void testLeaveReportValuesEqual() {
         //Test object values are equal
         Assert.assertEquals(leaveReport.getLeaveID(), "001");
         Assert.assertEquals(leaveReport.getLeaveReportDesc(),"Sick Leave");
