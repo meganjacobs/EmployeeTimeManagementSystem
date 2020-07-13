@@ -10,7 +10,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-
+/**
+ * Author: Megan Jacobs
+ * Class: Part Time
+ * Student number: 211137162
+ * Test: LeaveReportFactory
+ */
 public class LeaveReportFactoryTest {
     private LeaveReport leaveReport;
 
