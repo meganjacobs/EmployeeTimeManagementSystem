@@ -4,6 +4,12 @@ import com.adp3.entity.EmployeeRole;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+/**
+ * Author: Sonwabo Kasi
+ * Class: Part Time
+ * Student number: 214293939
+ * Class Description: EmployeeRoleFactory Test
+ */
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,6 +20,7 @@ public class EmployeeRoleFactoryTest {
 
 
     }
+
 
 
     @Test
