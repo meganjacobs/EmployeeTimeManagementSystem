@@ -38,11 +38,11 @@ public class Role {
     public static class Builder {
         private String roleID;
         private String roleDesc;
-
-        public Builder(String roleID, String roleDesc) {
+/*
+        public Builder() {
             this.roleID = roleID;
             this.roleDesc = roleDesc;
-        }
+        } */
 
         public Builder setRoleID(String roleID) {
             this.roleID = roleID;
