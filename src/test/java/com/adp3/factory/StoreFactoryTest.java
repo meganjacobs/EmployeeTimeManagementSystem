@@ -26,6 +26,7 @@ public class StoreFactoryTest {
 
         assertSame("1",store.getStoreID());
         assertEquals("1",store.getStoreID());
+        assertNotNull(store.getStoreID());
 
     }
 
@@ -34,6 +35,7 @@ public class StoreFactoryTest {
 
         assertSame("PNP", store.getStoreName());
         assertEquals("PNP",store.getStoreName());
+        assertNotNull(store.getStoreName());
 
     }
 }
