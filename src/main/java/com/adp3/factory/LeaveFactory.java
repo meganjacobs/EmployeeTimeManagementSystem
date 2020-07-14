@@ -1,27 +1,29 @@
 package com.adp3.factory;
 
+import com.adp3.entity.Leave;
+import com.adp3.util.GenericHelper;
+
 /**
  * Author: Ayanda Nongxa
  * Class: Part Time
  * Student number:204513723
- * Class Description: Leave
+ * Class Description: LeaveFactory
  */
-
-import com.adp3.entity.Leave;
-
-
 
 public class LeaveFactory {
 
-    public static Leave BuildLeave(int leaveID, int leaveDesc, int leaveDaysAmt) {
+    private LeaveFactory(){
+    }
 
+    public static Leave createLeave(String leaveDesc, int leaveDaysAmt) {
+        String leaveID = GenericHelper.generateID();
         return new Leave.Builder()
-                .setLeaveDaysAmt(leaveDesc)
                 .setLeaveID(leaveID)
                 .setLeaveDesc(leaveDesc)
+                .setLeaveDaysAmt(leaveDaysAmt)
                 .build();
-
-
     }
+
 }
+
 
