@@ -18,7 +18,6 @@ public class Leave {
         this.leaveDesc = builder.leaveDesc;
         this.leaveDaysAmt = builder.leaveDaysAmt;
     }
-git
     public int getLeaveID() {
         return leaveID;
     }
@@ -45,12 +44,6 @@ git
         private int leaveDesc;
         private int leaveDaysAmt;
 
-
-        public Builder(int leaveID, int leaveDesc, int leaveDaysAmt) {
-            this.leaveID = leaveID;
-            this.leaveDesc = leaveDesc;
-            this.leaveDaysAmt = leaveDaysAmt;
-        }
 
         public Builder setLeaveID(int leaveID) {
             this.leaveID = leaveID;
