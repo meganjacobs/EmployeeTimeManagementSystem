@@ -6,11 +6,12 @@ import com.adp3.entity.EmployeeRole;
  * Author: Sonwabo Kasi
  * Class: Part Time
  * Student number: 214293939
- * Class Description: EmployeeRole
+ * Class Description: EmployeeRoleFactory
  */
 
 
 public class EmployeeRoleFactory {
+
 
     public static EmployeeRole getEmployeeRole(String empId, String roleId){
         return new EmployeeRole.Builder()
