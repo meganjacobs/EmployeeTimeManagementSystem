@@ -9,8 +9,8 @@ package com.adp3.entity;
 
 public class Leave {
 
-    private String leaveID;
-    private String leaveDesc;
+    private int leaveID;
+    private int leaveDesc;
     private int leaveDaysAmt;
 
     private Leave(Builder builder) {
@@ -19,11 +19,11 @@ public class Leave {
         this.leaveDaysAmt = builder.leaveDaysAmt;
     }
 
-    public String getLeaveID() {
+    public int getLeaveID() {
         return leaveID;
     }
 
-    public String getLeaveDesc() {
+    public int getLeaveDesc() {
         return leaveDesc;
     }
 
@@ -41,17 +41,24 @@ public class Leave {
     }
 
     public static class Builder {
-        private String leaveID;
-        private String leaveDesc;
+        private int leaveID;
+        private int leaveDesc;
         private int leaveDaysAmt;
 
-        public Builder setLeaveID(String leaveID) {
+
+        public Builder(int leaveID, int leaveDesc, int leaveDaysAmt) {
+            this.leaveID = leaveID;
+            this.leaveDesc = leaveDesc;
+            this.leaveDaysAmt = leaveDaysAmt;
+        }
+
+        public Builder setLeaveID(int leaveID) {
             this.leaveID = leaveID;
             return this;
 
         }
 
-        public Builder setLeaveDesc(String leaveDesc) {
+        public Builder setLeaveDesc(int leaveDesc) {
             this.leaveDesc = leaveDesc;
             return this;
         }
