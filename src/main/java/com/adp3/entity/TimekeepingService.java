@@ -44,11 +44,11 @@ public class TimekeepingService {
             private int time_Out;
             private String empID;
 
-        public Builder(int time_In, int time_Out, String empID) {
+        /*public Builder(int time_In, int time_Out, String empID) {
             this.time_In = time_In;
             this.time_Out = time_Out;
             this.empID = empID;
-        }
+        }*/
 
         public Builder setTime_In(int time_In) {
             this.time_In = time_In;
@@ -67,10 +67,10 @@ public class TimekeepingService {
 
         public Builder copy(TimekeepingService timekeepingService){
 
-            this.empID = timekeepingService.empID;
+          this.time_In= timekeepingService.time_In;
             this.time_Out= timekeepingService.time_Out;
-            this.time_In= timekeepingService.time_In;
-        return this;
+            this.empID = timekeepingService.empID;
+            return this;
 
 
         }
