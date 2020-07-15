@@ -12,7 +12,8 @@ import static org.junit.Assert.*;
  * Class Description: LeaveFactoryTest
  */
 public class LeaveFactoryTest {
-        Leave leave;
+  
+    Leave leave;
     @Before
     public void setUp() throws Exception {
         leave = LeaveFactory.createLeave("Annual",3);
