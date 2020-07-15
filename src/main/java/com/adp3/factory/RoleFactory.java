@@ -1,18 +1,33 @@
 package com.adp3.Factory;
 
+
 import com.adp3.entity.Role;
 import com.adp3.util.GenericHelper;
 
-public class RoleFactory {
+/*Sanele Ngwenya
+216019699
+part time
+ */
 
-    public Role getRole(String roleDesc){
+
+
+public class RoleFactory {
+    //private RoleFactory(){
+    //}
+
+    public static Role createRole(String roleDesc){
 
         String roleId = GenericHelper.generateID();
-        Role role = new Role.Builder()
+        return new Role.Builder()
                 .setRoleID(roleId)
                 .setRoleDesc(roleDesc)
                 .build();
 
-        return role;
+
     }
+
+
+    //public static Role createRole(String cashier) {
+    //    return null;
+    //}
 }

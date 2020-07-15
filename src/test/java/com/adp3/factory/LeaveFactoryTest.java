@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
  * Class Description: LeaveFactoryTest
  */
 public class LeaveFactoryTest {
+  
     Leave leave;
     @Before
     public void setUp() throws Exception {
