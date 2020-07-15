@@ -1,3 +1,10 @@
+/**
+ * Author: Steve Zangwa
+ * Class: Part Time
+ * Student number: 217136664
+ * Factory: StoreReportsFactory
+ */
+
 package com.adp3.factory;
 
 import com.adp3.entity.StoreReports;
@@ -7,8 +14,8 @@ public class StoreReportsFactory {
 
 
 
-    public static StoreReports createStoreReports(String reportID, String storeID, String reportDesc){
-
+    public static StoreReports createStoreReports( String storeID, String reportDesc){
+        String reportID = GenericHelper.generateID();
         StoreReports storeReports;
         StoreReports.Builder builder = new StoreReports.Builder();
         builder.setReportID(reportID);

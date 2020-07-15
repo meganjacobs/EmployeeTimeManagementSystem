@@ -35,6 +35,26 @@ public class Employee {
                 '}';
     }
 
+    public String getEmpID() {
+        return empID;
+    }
+
+    public String getEmpName() {
+        return empName;
+    }
+
+    public String getEmpLastName() {
+        return empLastName;
+    }
+
+    public String getEmpPhone() {
+        return empPhoneNumber;
+    }
+
+    public Date getEmpDOB() {
+        return empDOB;
+    }
+
     public static class Builder
     {
         private String empID, empName, empLastName, empPhoneNumber;
