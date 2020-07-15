@@ -13,7 +13,7 @@ import java.util.Date;
 
 public class EmployeeFactory {
 
-    public static Employee getEmployee(String empID, String  empName, String empLastName, String empPhoneNumber, Date empDOB){
+    public static Employee createEmployee(String empID, String  empName, String empLastName, String empPhoneNumber, Date empDOB){
         return new Employee.Builder()
                 .setEmpID(empID)
                 .setEmpName(empName)
