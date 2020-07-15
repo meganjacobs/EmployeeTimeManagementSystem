@@ -8,7 +8,7 @@ package com.adp3.entity;
 
 public class StoreReports {
     private String reportID, reportDesc, storeID;
-    private StoreReports(StoreReports builder){
+    public StoreReports(Builder builder){
         this.reportID = builder.reportID;
         this.storeID = builder.storeID;
          this.reportDesc = builder.reportDesc;
@@ -34,49 +34,51 @@ public class StoreReports {
                 '}';
     }
 
-    public void setReportID(String reportID) {
+    public void getReportID(String reportID) {
         this.reportID = reportID;
     }
 
-    public void setReportDesc(String reportDesc) {
+    public void getReportDesc(String reportDesc) {
         this.reportDesc = reportDesc;
     }
 
-    public void setStoreID(String storeID) {
+    public void getStoreID(String storeID) {
         this.storeID = storeID;
     }
 
     public static class Builder {
-        public String reportID;
-        public String storeID;
-        public String reportDesc;
+       private String reportID,storeID, reportDesc;
 
-        public void setReportID(String reportID) {
+        public Builder setReportID(String reportID) {
             this.reportID = reportID;
+            return this;
+
         }
 
-        public void setReportDesc(String reportDesc) {
-            this.reportDesc = reportDesc;
-        }
-        public void setStoreID(String storeID) {
+        public Builder setStoreID(String storeID) {
             this.storeID = storeID;
-
+            return this;
         }
+
+        public Builder setReportDesc(String reportDesc) {
+            this.reportDesc = reportDesc;
+            return this;
+        }
+
         public Builder copy (StoreReports storeReports){
             this.reportID = storeReports.reportID;
             this.storeID = storeReports.storeID;
             this.reportDesc = storeReports.reportDesc;
            return this;
         }
+        public StoreReports build() {
+            return new StoreReports(this);
+        }
+
 
     }
 
-    public StoreReports build() {  return new StoreReports(this);
-    }
 
-   private void generateReports(){
-
-  }
 }
 
 
