@@ -22,11 +22,10 @@ public class LeaveReportFactory {
     * @param: leaveID - eg. record 001, record 231 etc & leaveReportDesc - eg. Annual Leave, Sick Leave etc
     * @return:
     * */
-    public static LeaveReport createLeaveReport(String leaveID,String leaveReportDesc) {
+    public static LeaveReport buildLeaveReport(String leaveReportDesc) {
         String leaveReportID = GenericHelper.generateID();
         return new LeaveReport.Builder()
                 .setLeaveReportID(leaveReportID)
-                .setLeaveID(leaveID)
                 .setLeaveReportDesc(leaveReportDesc)
                 .build();
     }
