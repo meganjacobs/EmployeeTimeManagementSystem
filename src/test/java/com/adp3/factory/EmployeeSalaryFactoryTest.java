@@ -1,8 +1,7 @@
 package com.adp3.factory;
 
-import com.adp3.entity.EmployeeSalary;
-import org.junit.After;
-import org.junit.Before;
+import com.adp3.entity.bridging.EmployeeSalary;
+import com.adp3.factory.bridging.EmployeeSalaryFactory;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

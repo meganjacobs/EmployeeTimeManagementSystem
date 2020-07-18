@@ -1,6 +1,7 @@
 package com.adp3.factory;
 
-import com.adp3.entity.EmployeeRole;
+import com.adp3.entity.bridging.EmployeeRole;
+import com.adp3.factory.bridging.EmployeeRoleFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

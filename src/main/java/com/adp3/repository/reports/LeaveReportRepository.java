@@ -1,6 +1,7 @@
-package com.adp3.repository;
+package com.adp3.repository.reports;
 
-import com.adp3.entity.LeaveReport;
+import com.adp3.entity.reports.LeaveReport;
+import com.adp3.repository.Repository;
 
 import java.util.Set;
 /**
@@ -10,7 +11,7 @@ import java.util.Set;
  * Description: LeaveReportRepository - extends member methods of parent "Repository"
  */
 
-public interface LeaveReportRepository extends Repository <LeaveReport,String> {
+public interface LeaveReportRepository extends Repository<LeaveReport,String> {
     //Retrieves collection specific to LeaveReportRepository
     Set<LeaveReport> getAll();
 }

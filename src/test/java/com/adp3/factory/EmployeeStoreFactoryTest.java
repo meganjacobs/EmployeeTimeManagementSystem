@@ -1,7 +1,8 @@
 package com.adp3.factory;
 
 
-import com.adp3.entity.EmployeeStore;
+import com.adp3.entity.bridging.EmployeeStore;
+import com.adp3.factory.bridging.EmployeeStoreFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

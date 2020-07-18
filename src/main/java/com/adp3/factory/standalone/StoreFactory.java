@@ -1,8 +1,6 @@
-package com.adp3.factory;
+package com.adp3.factory.standalone;
 
-import com.adp3.entity.EmployeeSalary;
-import com.adp3.entity.Store;
-import com.adp3.util.GenericHelper;
+import com.adp3.entity.standalone.Store;
 
 /**
  * Author: Riyaad Ryklief

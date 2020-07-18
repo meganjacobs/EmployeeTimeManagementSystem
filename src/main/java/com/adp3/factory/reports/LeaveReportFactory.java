@@ -1,8 +1,6 @@
-package com.adp3.factory;
+package com.adp3.factory.reports;
 
-import com.adp3.entity.Employee;
-import com.adp3.entity.Leave;
-import com.adp3.entity.LeaveReport;
+import com.adp3.entity.reports.LeaveReport;
 import com.adp3.util.GenericHelper;
 
 /**

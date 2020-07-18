@@ -1,9 +1,8 @@
 package com.adp3.repository.impl;
 
-import com.adp3.entity.Leave;
-import com.adp3.entity.LeaveReport;
-import com.adp3.factory.LeaveReportFactory;
-import com.adp3.repository.LeaveReportRepository;
+import com.adp3.entity.reports.LeaveReport;
+import com.adp3.factory.reports.LeaveReportFactory;
+import com.adp3.repository.reports.LeaveReportRepository;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;

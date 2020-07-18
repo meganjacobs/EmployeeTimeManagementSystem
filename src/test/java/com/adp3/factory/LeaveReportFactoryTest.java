@@ -1,11 +1,11 @@
 package com.adp3.factory;
 
-import com.adp3.entity.LeaveReport;
+import com.adp3.entity.reports.LeaveReport;
+import com.adp3.factory.reports.LeaveReportFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 /**
  * Author: Megan Jacobs
  * Class: Part Time

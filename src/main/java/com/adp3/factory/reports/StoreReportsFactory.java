@@ -5,9 +5,9 @@
  * Factory: StoreReportsFactory
  */
 
-package com.adp3.factory;
+package com.adp3.factory.reports;
 
-import com.adp3.entity.StoreReports;
+import com.adp3.entity.reports.StoreReports;
 import com.adp3.util.GenericHelper;
 
 public class StoreReportsFactory {

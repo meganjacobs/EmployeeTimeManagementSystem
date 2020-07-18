@@ -1,4 +1,4 @@
-package com.adp3.entity;
+package com.adp3.entity.standalone;
 
 /**
  * Author: Ayanda Nongxa

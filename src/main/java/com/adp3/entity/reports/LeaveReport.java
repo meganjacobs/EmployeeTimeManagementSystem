@@ -1,4 +1,4 @@
-package com.adp3.entity;
+package com.adp3.entity.reports;
 
 /**
  * Author: Megan Jacobs

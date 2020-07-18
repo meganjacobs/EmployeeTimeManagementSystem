@@ -1,6 +1,7 @@
 package com.adp3.factory;
 
-import com.adp3.entity.Leave;
+import com.adp3.entity.standalone.Leave;
+import com.adp3.factory.standalone.LeaveFactory;
 import org.junit.Before;
 import org.junit.Test;
 

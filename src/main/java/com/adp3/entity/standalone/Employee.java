@@ -1,6 +1,4 @@
-package com.adp3.entity;
-
-import com.adp3.factory.EmployeeFactory;
+package com.adp3.entity.standalone;
 
 import java.util.Date;
 

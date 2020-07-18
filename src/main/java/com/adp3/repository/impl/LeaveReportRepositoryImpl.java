@@ -1,7 +1,7 @@
 package com.adp3.repository.impl;
 
-import com.adp3.entity.LeaveReport;
-import com.adp3.repository.LeaveReportRepository;
+import com.adp3.entity.reports.LeaveReport;
+import com.adp3.repository.reports.LeaveReportRepository;
 
 import java.util.HashSet;
 import java.util.Set;

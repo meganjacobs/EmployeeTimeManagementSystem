@@ -1,14 +1,12 @@
 package com.adp3.factory;
 
-import com.adp3.entity.Employee;
-import org.junit.Assert;
-import org.junit.jupiter.api.AfterEach;
+import com.adp3.entity.standalone.Employee;
+import com.adp3.factory.standalone.EmployeeFactory;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
 
 class EmployeeFactoryTest {
 

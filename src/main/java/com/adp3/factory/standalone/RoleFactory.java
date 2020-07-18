@@ -1,7 +1,7 @@
-package com.adp3.Factory;
+package com.adp3.factory.standalone;
 
 
-import com.adp3.entity.Role;
+import com.adp3.entity.standalone.Role;
 import com.adp3.util.GenericHelper;
 
 /*Sanele Ngwenya

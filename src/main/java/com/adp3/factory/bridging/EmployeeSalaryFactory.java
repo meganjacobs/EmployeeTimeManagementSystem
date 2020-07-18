@@ -1,6 +1,6 @@
-package com.adp3.factory;
+package com.adp3.factory.bridging;
 
-import com.adp3.entity.EmployeeSalary;
+import com.adp3.entity.bridging.EmployeeSalary;
 
 /**
  * @author Liesl Gounden-Wentzel
