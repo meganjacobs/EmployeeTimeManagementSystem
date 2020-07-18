@@ -1,4 +1,4 @@
-package com.adp3.entity;
+package com.adp3.entity.bridge;
 
 /**
  * @Zubair Van Oudtshoorn - Part Time - 217203795

@@ -8,7 +8,8 @@
 
 package com.adp3.factory;
 
-import com.adp3.entity.StoreReports;
+import com.adp3.entity.reports.StoreReports;
+import com.adp3.factory.reports.StoreReportsFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

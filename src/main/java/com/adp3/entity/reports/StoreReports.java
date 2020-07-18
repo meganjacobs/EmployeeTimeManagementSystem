@@ -1,4 +1,4 @@
-package com.adp3.entity;
+package com.adp3.entity.reports;
 /*
 *Zangwa Steve
 * 217136664

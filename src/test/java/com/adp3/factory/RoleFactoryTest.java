@@ -1,7 +1,7 @@
 package com.adp3.factory;
 
-import com.adp3.Factory.RoleFactory;
-import com.adp3.entity.Role;
+import com.adp3.factory.standalone.RoleFactory;
+import com.adp3.entity.standalone.Role;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,8 +10,6 @@ import org.junit.Test;
 216019699
 part time
  */
-
-import static org.junit.Assert.*;
 
 public class RoleFactoryTest {
 

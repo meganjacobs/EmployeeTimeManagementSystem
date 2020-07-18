@@ -1,6 +1,7 @@
 package com.adp3.factory;
 
-import com.adp3.entity.Store;
+import com.adp3.entity.standalone.Store;
+import com.adp3.factory.standalone.StoreFactory;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

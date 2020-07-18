@@ -1,11 +1,11 @@
 package com.adp3.factory;
 
-import com.adp3.entity.LeaveReport;
+import com.adp3.entity.reports.LeaveReport;
+import com.adp3.factory.reports.LeaveReportFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 /**
  * Author: Megan Jacobs
  * Class: Part Time
@@ -18,7 +18,7 @@ public class LeaveReportFactoryTest {
     @Before
     public void setUp() throws Exception {
         this.leaveReport = new LeaveReport.Builder().build();
-        leaveReport = LeaveReportFactory.createLeaveReport("001","Sick Leave");
+        leaveReport = LeaveReportFactory.buildLeaveReport("Sick Leave");
     }
     @Test
     public void testCreateLeaveReport() {

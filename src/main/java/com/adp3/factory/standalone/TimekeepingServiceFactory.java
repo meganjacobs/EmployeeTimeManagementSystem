@@ -5,8 +5,8 @@
  * Student number: 216060117
  * Class Description: TimeKeepingService
  */
-package com.adp3.factory;
-import com.adp3.entity.*;
+package com.adp3.factory.standalone;
+import com.adp3.entity.standalone.TimekeepingService;
 
 /*
  * Author: Lungisa Lucky Mkhasakhasa
@@ -18,7 +18,7 @@ import com.adp3.entity.*;
 
 public class TimekeepingServiceFactory {
 
-    public static TimekeepingService buildTimekeepingService(int time_In,int time_Out,String empID) {
+    public static TimekeepingService buildTimekeepingService(int time_In, int time_Out, String empID) {
 
       return new TimekeepingService.Builder()
               .setTime_In(time_In)

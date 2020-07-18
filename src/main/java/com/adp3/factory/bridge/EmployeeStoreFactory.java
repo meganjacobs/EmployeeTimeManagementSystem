@@ -1,8 +1,6 @@
-package com.adp3.factory;
+package com.adp3.factory.bridge;
 
-import com.adp3.entity.EmployeeSalary;
-import com.adp3.entity.EmployeeStore;
-import com.adp3.util.GenericHelper;
+import com.adp3.entity.bridge.EmployeeStore;
 /*
  * Author: Munyaradzi Manyati
  * Class: Part Time
