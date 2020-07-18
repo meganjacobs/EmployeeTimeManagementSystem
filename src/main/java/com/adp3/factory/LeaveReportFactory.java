@@ -9,7 +9,7 @@ import com.adp3.util.GenericHelper;
  * Author: Megan Jacobs
  * Class: Part Time
  * Student number: 211137162
- * Factory: LeaveReportFactory
+ * Factory: LeaveReportFactory - generates an object of LeaveReport entity
  */
 
 public class LeaveReportFactory {

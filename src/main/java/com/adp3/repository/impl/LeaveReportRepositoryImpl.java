@@ -3,9 +3,15 @@ package com.adp3.repository.impl;
 import com.adp3.entity.LeaveReport;
 import com.adp3.repository.LeaveReportRepository;
 
-
 import java.util.HashSet;
 import java.util.Set;
+
+/**
+ * Author: Megan Jacobs
+ * Class: Part Time
+ * Student number: 211137162
+ * Description: LeaveReportRepositoryImpl - implementation of LeaveReportRepository as a concrete class
+ */
 
 public class LeaveReportRepositoryImpl implements LeaveReportRepository{
     private Set<LeaveReport> leaveReportDB;

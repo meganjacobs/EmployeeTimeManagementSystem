@@ -9,7 +9,14 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import static org.junit.Assert.*;
+/**
+ * Author: Megan Jacobs
+ * Class: Part Time
+ * Student number: 211137162
+ * Description: Test methods of LeaveReportRepository (Repository) implemented in its concrete class
+ */
 
+//Annotation of executing tests in alphabetical order
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LeaveReportRepositoryImplTest {
 
