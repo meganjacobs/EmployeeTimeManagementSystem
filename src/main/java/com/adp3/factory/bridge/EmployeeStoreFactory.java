@@ -1,6 +1,6 @@
-package com.adp3.factory.bridging;
+package com.adp3.factory.bridge;
 
-import com.adp3.entity.bridging.EmployeeStore;
+import com.adp3.entity.bridge.EmployeeStore;
 /*
  * Author: Munyaradzi Manyati
  * Class: Part Time

@@ -1,4 +1,4 @@
-package com.adp3.entity.bridging;
+package com.adp3.entity.bridge;
 
 /**
  * Author: Munyaradzi Manyati

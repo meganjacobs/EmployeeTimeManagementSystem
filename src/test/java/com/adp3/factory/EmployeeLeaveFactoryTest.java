@@ -1,7 +1,7 @@
 package com.adp3.factory;
 
-import com.adp3.entity.bridging.EmployeeLeave;
-import com.adp3.factory.bridging.EmployeeLeaveFactory;
+import com.adp3.entity.bridge.EmployeeLeave;
+import com.adp3.factory.bridge.EmployeeLeaveFactory;
 import org.junit.Assert;
 import org.junit.Test;
 /*

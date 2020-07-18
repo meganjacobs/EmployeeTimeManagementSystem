@@ -1,7 +1,7 @@
-package com.adp3.factory.bridging;
+package com.adp3.factory.bridge;
 
 
-import com.adp3.entity.bridging.EmployeeLeave;
+import com.adp3.entity.bridge.EmployeeLeave;
 
 /**
  * @author Zubair Van Oudtshoorn

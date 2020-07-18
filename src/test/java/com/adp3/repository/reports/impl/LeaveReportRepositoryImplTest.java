@@ -1,4 +1,4 @@
-package com.adp3.repository.impl;
+package com.adp3.repository.reports.impl;
 
 import com.adp3.entity.reports.LeaveReport;
 import com.adp3.factory.reports.LeaveReportFactory;
