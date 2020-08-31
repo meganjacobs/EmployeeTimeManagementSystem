@@ -17,7 +17,7 @@ public class LeaveReportFactory {
     }
 
     /*method used to create a new LeaveReport
-    * @param: leaveID - eg. record 001, record 231 etc & leaveReportDesc - eg. Annual Leave, Sick Leave etc
+    * @param: leaveReportDesc - eg. Annual Leave, Sick Leave etc
     * @return:
     * */
     public static LeaveReport buildLeaveReport(String leaveReportDesc) {
