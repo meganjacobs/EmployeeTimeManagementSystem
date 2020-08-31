@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  * Author: Megan Jacobs
  * Class: Part Time
  * Student number: 211137162
- * Description: Test methods of LeaveReportRepository (Repository) implemented in its concrete class
+ * Description: Test methods of LeaveReportRepository (IRepository) implemented in its concrete class
  */
 
 //Annotation of executing tests in alphabetical order

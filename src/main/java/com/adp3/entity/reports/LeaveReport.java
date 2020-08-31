@@ -9,20 +9,16 @@ package com.adp3.entity.reports;
 
 public class LeaveReport {
 
-    private String leaveReportID,leaveID,leaveReportDesc;
+    private String leaveReportID;
+    private String leaveReportDesc;
 
     public LeaveReport(Builder builder) {
         this.leaveReportID = builder.leaveReportID;
-        this.leaveID = builder.leaveID;
         this.leaveReportDesc = builder.leaveReportDesc;
     }
 
     public String getLeaveReportID() {
         return leaveReportID;
-    }
-
-    public String getLeaveID() {
-        return leaveID;
     }
 
     public String getLeaveReportDesc() {
@@ -33,21 +29,16 @@ public class LeaveReport {
     public String toString() {
         return "Builder{" +
                 "leaveReportID='" + leaveReportID + '\'' +
-                ", leaveID='" + leaveID + '\'' +
-                ", leaveReportDesc='" + leaveReportDesc + '\'' +
+                   ", leaveReportDesc='" + leaveReportDesc + '\'' +
                 '}';
     }
 
     public static class Builder{
-        private String leaveReportID,leaveID,leaveReportDesc;
+        private String leaveReportID;
+        private String leaveReportDesc;
 
         public Builder setLeaveReportID(String leaveReportID) {
             this.leaveReportID = leaveReportID;
-            return this;
-        }
-
-        public Builder setLeaveID(String leaveID) {
-            this.leaveID = leaveID;
             return this;
         }
 
@@ -58,7 +49,6 @@ public class LeaveReport {
 
         public Builder copy(LeaveReport leaveReport) {
             this.leaveReportID = leaveReport.leaveReportID;
-            this.leaveID = leaveReport.leaveID;
             this.leaveReportDesc = leaveReport.leaveReportDesc;
 
             return this;
