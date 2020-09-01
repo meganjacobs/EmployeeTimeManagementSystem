@@ -13,11 +13,12 @@ import com.adp3.entity.bridge.EmployeeRole;
 public class EmployeeRoleFactory {
 
 
-    public static EmployeeRole getEmployeeRole(String empId, String roleId){
-        return new EmployeeRole.Builder()
+    public static EmployeeRole createEmployeeRole(String empId, String roleId){
+        EmployeeRole employeeRole = new EmployeeRole.Builder()
         .setEmployeeId(empId)
         .setRoleId(roleId)
         .build();
+        return employeeRole;
 
         }
 }
