@@ -24,18 +24,20 @@ public class LeaveReportFactoryTest {
     public void testCreateLeaveReport() {
         //Test object does not return nulls
         Assert.assertNotNull(leaveReport);
+        System.out.println(leaveReport);
     }
 
     @Test
     public void testLeaveReportIDNotNull() {
         // Test leaveReportID is not null
         Assert.assertNotNull(leaveReport.getLeaveReportID());
+        System.out.println(leaveReport);
     }
     @Test
     public void testLeaveReportValuesEqual() {
         //Test object values are equal
-        Assert.assertEquals(leaveReport.getLeaveID(), "001");
-        Assert.assertEquals(leaveReport.getLeaveReportDesc(),"Sick Leave");
+         Assert.assertEquals(leaveReport.getLeaveReportDesc(),"Sick Leave");
+        System.out.println(leaveReport);
 
     }
 
