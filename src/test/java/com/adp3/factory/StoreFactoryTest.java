@@ -1,6 +1,7 @@
 package com.adp3.factory;
 
-import com.adp3.entity.Store;
+import com.adp3.entity.standalone.Store;
+import com.adp3.factory.standalone.StoreFactory;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -26,6 +27,7 @@ public class StoreFactoryTest {
 
         assertSame("1",store.getStoreID());
         assertEquals("1",store.getStoreID());
+        assertNotNull(store.getStoreID());
 
     }
 
@@ -34,6 +36,7 @@ public class StoreFactoryTest {
 
         assertSame("PNP", store.getStoreName());
         assertEquals("PNP",store.getStoreName());
+        assertNotNull(store.getStoreName());
 
     }
 }
