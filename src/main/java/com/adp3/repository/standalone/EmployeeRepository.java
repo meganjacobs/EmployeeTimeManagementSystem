@@ -15,7 +15,7 @@ import java.util.Set;
  * 2020
  */
 
-public class EmployeeRepository  {
+public class EmployeeRepository implements IRepository<Employee, String> {
     private Set<Employee> employeeDB;
 
     public EmployeeRepository() {
@@ -23,14 +23,15 @@ public class EmployeeRepository  {
     }
 
     /** create an employee object and persist to the repository database */
-    public Employee create( String empID, String  empName, String empLastName, String empPhoneNumber, Date empDOB ) {
-        Employee employee = EmployeeFactory.createEmployee( empID, empName, empLastName, empPhoneNumber, empDOB );
-        this.employeeDB.add( employee );
+    @Override
+    public Employee create( Employee employee ) {
+       this.employeeDB.add( employee );
 
         return employee;
     }
 
     /** read an employee object from the repository database */
+    @Override
     public Employee read( String empID ) {
         Employee employee = null;
 
@@ -45,6 +46,7 @@ public class EmployeeRepository  {
     }
 
     /** update an employee object in the repository database */
+    @Override
     public Employee update( Employee employee ) {
         Employee oldEmployee = read( employee.getEmpID() );
 
@@ -56,6 +58,7 @@ public class EmployeeRepository  {
     }
 
     /** delete an employee object from the repository database */
+    @Override
     public void delete( String empID ) {
         Employee employee = read( empID );
 
