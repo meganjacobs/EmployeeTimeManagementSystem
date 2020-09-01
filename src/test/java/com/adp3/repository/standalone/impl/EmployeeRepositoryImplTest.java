@@ -3,12 +3,17 @@ package com.adp3.repository.standalone.impl;
 import com.adp3.entity.standalone.Employee;
 import com.adp3.factory.standalone.EmployeeFactory;
 import com.adp3.repository.standalone.EmployeeRepository;
+import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
+import org.junit.runners.MethodSorters;
 
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.runners.MethodSorters.NAME_ASCENDING;
+
+@FixMethodOrder(NAME_ASCENDING)
 
 class EmployeeRepositoryImplTest {
 
@@ -17,7 +22,7 @@ class EmployeeRepositoryImplTest {
 
 
     @Test
-    void create() {
+    void a_create() {
         // test if EmployeeRepositoryImpl create method can create an employee
         Employee created = empployeeRepo.create( employee );
 
@@ -36,7 +41,7 @@ class EmployeeRepositoryImplTest {
     }
 
     @Test
-    void read() {
+    void b_read() {
 
         Employee read = empployeeRepo.read( employee.getEmpID() );
         System.out.println( read );
@@ -44,7 +49,7 @@ class EmployeeRepositoryImplTest {
     }
 
     @Test
-    void update() {
+    void c_update() {
 
         Employee update = new Employee.Builder().setEmpID("321").build() ;
         update = empployeeRepo.update( update );
@@ -52,7 +57,7 @@ class EmployeeRepositoryImplTest {
     }
 
     @Test
-    void delete() {
+    void d_delete() {
 
         empployeeRepo.delete( employee.getEmpID() );
 
