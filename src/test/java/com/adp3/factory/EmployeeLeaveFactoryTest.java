@@ -9,11 +9,15 @@ import org.junit.Test;
 *
 * Unit Tests
 * */
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 public class EmployeeLeaveFactoryTest {
     //create Object , assign values
-    EmployeeLeave employeeLeave = EmployeeLeaveFactory.calcEmployeeLeave("A16", "A1", "21/05/2020", "28/05/2020");
+    EmployeeLeave employeeLeave = EmployeeLeaveFactory.calcEmployeeLeave("A16", "A1", "21-05-2020", "28/05/2020");
 
 
     @Test
@@ -26,8 +30,9 @@ public class EmployeeLeaveFactoryTest {
         //Test all values are being received
         assertSame("A16",employeeLeave.getEmpID());
         Assert.assertEquals(employeeLeave.getLeaveID(), "A1");
-        assertSame("21/05/2020", employeeLeave.getStartDate());
+        assertSame("21-05-2020", employeeLeave.getStartDate());
         assertSame("28/05/2020", employeeLeave.getEndDate());
 
     }
+
 }
