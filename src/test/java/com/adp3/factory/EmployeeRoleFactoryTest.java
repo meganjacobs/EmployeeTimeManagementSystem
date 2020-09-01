@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 public class EmployeeRoleFactoryTest {
 
     public static void beforeClass() throws Exception {
-        EmployeeRole empR = EmployeeRoleFactory.getEmployeeRole("1001M", "Manager");
+        EmployeeRole empR = EmployeeRoleFactory.createEmployeeRole("1001M", "Manager");
 
 
     }
