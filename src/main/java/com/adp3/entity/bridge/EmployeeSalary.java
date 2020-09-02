@@ -2,17 +2,21 @@ package com.adp3.entity.bridge;
 
 /**
  * @author Liesl Gounden-Wentzel
- * desc: EmployessSalary class created using Builder Pattern
+ * desc: EmployeeSalary class created using Builder Pattern
  */
 
 public class EmployeeSalary {
 
     private String empID;
     private double empSalaryRate;
+    private double empHours;
+    private double empSalary;
 
     private EmployeeSalary(Builder builder) {
         this.empID = builder.empID;
         this.empSalaryRate = builder.empSalaryRate;
+        this.empHours = builder.empHours;
+        //this.empSalary = builder.empSalary;
     }
 
 
@@ -21,8 +25,15 @@ public class EmployeeSalary {
         return empID;
     }
 
-    public double getEmpSalary() {
+    public double getEmpSalaryRate() {
         return empSalaryRate;
+    }
+
+    public double getEmpHours() { return empHours; }
+
+    public double getEmpSalary() {
+        empSalary = getEmpHours() * getEmpSalaryRate();
+        return empSalary;
     }
 
     @Override
@@ -30,6 +41,8 @@ public class EmployeeSalary {
         return "EmployeeSalary{" +
                 "empID='" + empID + '\'' +
                 ", empSalaryRate=" + empSalaryRate +
+                ", empHours=" + empHours +
+                ", empSalary=R" + getEmpSalary() +
                 '}';
     }
 
@@ -37,6 +50,8 @@ public class EmployeeSalary {
     public static class Builder{
         private String empID;
         private double empSalaryRate;
+        private double empHours;
+
 
         public Builder setEmpID(String empID) {
             this.empID = empID;
@@ -48,10 +63,19 @@ public class EmployeeSalary {
             return this;
         }
 
+        public Builder setEmpHours(double empHours) {
+            this.empHours= empHours;
+            return this;
+        }
+
+
+
 
         public Builder copy(EmployeeSalary employeeSalary) {
             this.empID = employeeSalary.empID;
             this.empSalaryRate = employeeSalary.empSalaryRate;
+            this.empHours = employeeSalary.empHours;
+            //this.empSalary = employeeSalary.empSalary;
 
             return this;
         }

@@ -1,4 +1,4 @@
-package com.adp3.factory.bridge;
+package com.adp3.factory;
 
 import com.adp3.entity.bridge.EmployeeSalary;
 import com.adp3.factory.bridge.EmployeeSalaryFactory;
@@ -13,12 +13,13 @@ import static org.junit.Assert.*;
 
 public class EmployeeSalaryFactoryTest {
 
-    EmployeeSalary empSal = EmployeeSalaryFactory.CalcEmployeeSalary("A23",56.23);
+    EmployeeSalary empSal = EmployeeSalaryFactory.CalcEmployeeSalary("A23",56.23, 45);
 
     @Test // Testing Object Identity
     public void getEmployeeID() throws Exception {
 
             assertSame("A23",empSal.getEmpID());
+        System.out.println("Employee ID :" +empSal.getEmpID());
 
         }
 
@@ -26,11 +27,12 @@ public class EmployeeSalaryFactoryTest {
     public void getEmployeeSalary() throws Exception {
 
 
-        double rate = empSal.getEmpSalary();
-        int hours = 45;
-        double salary = rate*hours;
+        //double rate = empSal.getEmpSalary();
+        //double hours = empSal.getEmpHours();
+        double salary = empSal.getEmpSalary();
 
         assertEquals(2530.35, salary,0.1); // will pass
+        System.out.println("Employee Salary : R" + salary);
 
 
     }
