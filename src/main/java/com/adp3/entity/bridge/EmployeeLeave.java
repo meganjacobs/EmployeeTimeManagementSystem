@@ -1,7 +1,7 @@
 package com.adp3.entity.bridge;
 
 /**
- * @Zubair Van Oudtshoorn - Part Time - 217203795
+ * Zubair Van Oudtshoorn - Part Time - 217203795
  * Creation of EmployeeLeave Class
  *
  * **/
@@ -12,7 +12,8 @@ public class EmployeeLeave {
     private String startDate, endDate;
 
 
-    private EmployeeLeave(Builder builder){
+
+    public EmployeeLeave(Builder builder){
         this.empID = builder.empID;
         this.leaveID = builder.leaveID;
         this.startDate = builder.startDate;
