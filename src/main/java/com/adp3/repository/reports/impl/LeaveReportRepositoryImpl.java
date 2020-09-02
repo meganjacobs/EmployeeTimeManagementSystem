@@ -1,9 +1,6 @@
 package com.adp3.repository.reports.impl;
 
-import com.adp3.entity.bridge.EmployeeLeave;
 import com.adp3.entity.reports.LeaveReport;
-import com.adp3.repository.bridge.EmployeeLeaveRepository;
-import com.adp3.repository.bridge.impl.EmployeeLeaveRepositoryImpl;
 import com.adp3.repository.reports.LeaveReportRepository;
 
 import java.util.HashSet;
