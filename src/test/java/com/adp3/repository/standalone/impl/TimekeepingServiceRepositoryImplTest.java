@@ -1,37 +1,24 @@
 package com.adp3.repository.standalone.impl;
 
+import junit.framework.TestCase;
 
+public class TimekeepingServiceRepositoryImplTest extends TestCase {
 
-@RunWith(Arquillian.class)
-public class TimekeepingServiceRepositoryImplTest {
-    @Deployment
-    public static JavaArchive createDeployment() {
-        return ShrinkWrap.create(JavaArchive.class)
-                .addClass(TimekeepingServiceRepositoryImpl.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+    public void testGetRepository() {
     }
 
-    @org.junit.Test
-    public void getRepository() {
+    public void testGetAll() {
     }
 
-    @org.junit.Test
-    public void getAll() {
+    public void testCreate() {
     }
 
-    @org.junit.Test
-    public void create() {
+    public void testRead() {
     }
 
-    @org.junit.Test
-    public void read() {
+    public void testUpdate() {
     }
 
-    @org.junit.Test
-    public void update() {
-    }
-
-    @org.junit.Test
-    public void delete() {
+    public void testDelete() {
     }
 }
