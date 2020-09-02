@@ -10,12 +10,13 @@ package com.adp3.factory.reports;
 import com.adp3.entity.reports.StoreReports;
 import com.adp3.util.GenericHelper;
 
-public class StoreReportsFactory {
+public class StoreReportFactory {
 
 
 
-    public static StoreReports createStoreReports( String storeID, String reportDesc){
+    public static StoreReports createStoreReports(String reportDesc){
         String reportID = GenericHelper.generateID();
+        String storeID= GenericHelper.generateID();
         StoreReports storeReports;
         StoreReports.Builder builder = new StoreReports.Builder();
         builder.setReportID(reportID);
