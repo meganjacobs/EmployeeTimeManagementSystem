@@ -28,7 +28,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         return employee;
     }
 
-    /** read an employee object from the repository database */
+    /** read an employee object from the repository database  */
     @Override
     public Employee read( String empID ) {
         Employee employee = null;

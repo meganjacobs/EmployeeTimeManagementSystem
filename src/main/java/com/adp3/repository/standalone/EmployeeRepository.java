@@ -10,6 +10,6 @@ import com.adp3.repository.IRepository;
  * 2020
  */
 
-public interface EmployeeRepository  extends IRepository<Employee, String> {
+public interface EmployeeRepository  extends IRepository<Employee, String>  {
 
 }
