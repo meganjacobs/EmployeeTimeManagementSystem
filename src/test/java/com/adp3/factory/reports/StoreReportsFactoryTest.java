@@ -6,7 +6,7 @@
  */
 
 
-package com.adp3.factory;
+package com.adp3.factory.reports;
 
 import com.adp3.entity.reports.StoreReports;
 import com.adp3.factory.reports.StoreReportFactory;
