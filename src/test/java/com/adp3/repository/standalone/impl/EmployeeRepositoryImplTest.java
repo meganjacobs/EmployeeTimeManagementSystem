@@ -7,11 +7,11 @@ import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
 import org.junit.runners.MethodSorters;
 
+
+
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.runners.MethodSorters.NAME_ASCENDING;
 
 /**
  * @author Malusi Pakade
@@ -20,6 +20,7 @@ import static org.junit.runners.MethodSorters.NAME_ASCENDING;
  * 2020
  */
 
+/** responsible for executing methods in alphabetical order */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 class EmployeeRepositoryImplTest {
@@ -44,27 +45,27 @@ class EmployeeRepositoryImplTest {
         //test expected empDOB value in employee object
         assertEquals( employee.getEmpDOB(), employee.getEmpDOB() );
 
-        System.out.println("Create: " + created );
+        System.out.print("Created: " + created );
     }
 
     @Test
     void b_read() {
 
         Employee read = empployeeRepo.read( employee.getEmpID() );
-        System.out.println("Read: " + read );
+        System.out.print("Read: " + read );
 
     }
 
     @Test
     void c_update() {
 
-        Employee update = new Employee.Builder().setEmpID("321").build() ;
+        Employee update = new Employee.Builder().copy(employee).setEmpID("400").build() ;
         update = empployeeRepo.update( update );
-        System.out.println("Update: " + update );
+        System.out.print("Updated: " + update );
     }
 
     @Test
-    void d_delete() {
+    void e_delete() {
 
         empployeeRepo.delete( employee.getEmpID() );
 
@@ -73,7 +74,7 @@ class EmployeeRepositoryImplTest {
     @Test
     public void d_getAll() {
 
-        System.out.println( "Get All: " + empployeeRepo.getAll() );
+        System.out.print( "Get All: " + empployeeRepo.getAll() );
 
     }
 
