@@ -37,7 +37,7 @@ class EmployeeRoleRepositoryImplTest {
     }
 
     @Test
-    void update() {
+    void c_update() {
         EmployeeRole updated = new EmployeeRole.Builder().copy(employeeRole).setEmployeeId("101").setRoleId("Manager").build();
         updated = employeeRoleRepository.update(updated);
         System.out.println(updated);
