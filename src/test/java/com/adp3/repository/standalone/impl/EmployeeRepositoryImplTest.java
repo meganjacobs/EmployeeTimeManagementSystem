@@ -26,7 +26,7 @@ class EmployeeRepositoryImplTest {
         // test if EmployeeRepositoryImpl create method can create an employee
         Employee created = empployeeRepo.create( employee );
 
-        //test expected empID value in employee object
+        //test expected empID value in employee object.
         assertEquals("231", employee.getEmpID());
         //test expected empName value in employee object
         assertEquals("Malusi", employee.getEmpName());
