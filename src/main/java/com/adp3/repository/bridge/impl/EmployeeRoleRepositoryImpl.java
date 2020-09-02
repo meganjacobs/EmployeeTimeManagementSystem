@@ -1,8 +1,7 @@
-package com.adp3.repository.bridge;
+package com.adp3.repository.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeRole;
-import com.adp3.factory.bridge.EmployeeRoleFactory;
-import com.adp3.repository.IRepository;
+import com.adp3.repository.bridge.EmployeeRoleRepository;
 
 
 import java.util.HashSet;

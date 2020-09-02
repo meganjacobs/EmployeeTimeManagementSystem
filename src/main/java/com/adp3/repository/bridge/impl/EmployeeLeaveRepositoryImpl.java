@@ -1,8 +1,6 @@
-package com.adp3.repository.impl;
+package com.adp3.repository.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeLeave;
-import com.adp3.entity.bridge.EmployeeRole;
-import com.adp3.entity.standalone.Employee;
 import com.adp3.repository.bridge.EmployeeLeaveRepository;
 
 import java.util.HashSet;
