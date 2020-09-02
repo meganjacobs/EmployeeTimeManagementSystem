@@ -38,7 +38,7 @@ public class TimekeepingServiceRepositoryimpTest extends TestCase {
 
     public void testUpdate() {
         TimekeepingService rTimekeepingservice = new TimekeepingService.Builder()
-                .setEmployee_id("LM878")
+                .setEmployee_id("LM88")
                 .setTime_In(1500)
                 .setTime_Out(2100)
                 .copy(timekeepingservice)
@@ -49,11 +49,11 @@ public class TimekeepingServiceRepositoryimpTest extends TestCase {
 
     public void testDelete() {
 repository.delete(timekeepingservice.getempID());
-Assert.assertNull(timekeepingservice.getempID());
+Assert.assertNotNull(timekeepingservice.getempID());
     }
 
     public void testGetAll() {
 
-        Assert.assertNull(repository.getAll());
+        Assert.assertNotNull(repository.getAll());
     }
 }
