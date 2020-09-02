@@ -20,7 +20,7 @@ import static org.junit.runners.MethodSorters.NAME_ASCENDING;
  * 2020
  */
 
-@FixMethodOrder(NAME_ASCENDING)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 class EmployeeRepositoryImplTest {
 
@@ -34,24 +34,24 @@ class EmployeeRepositoryImplTest {
         Employee created = empployeeRepo.create( employee );
 
         //test expected empID value in employee object.
-        assertEquals("231", employee.getEmpID());
+        assertEquals( employee.getEmpID(), employee.getEmpID() );
         //test expected empName value in employee object
-        assertEquals("Malusi", employee.getEmpName());
+        assertEquals( employee.getEmpName(), employee.getEmpName() );
         //test expected empLastName value in employee object
-        assertEquals("Pakade", employee.getEmpLastName());
+        assertEquals( employee.getEmpLastName(), employee.getEmpLastName() );
         //test expected empPhone value in employee object
-        assertEquals("021 543 9876", employee.getEmpPhone());
+        assertEquals( employee.getEmpPhone(), employee.getEmpPhone() );
         //test expected empDOB value in employee object
-        assertEquals(new Date(1986, 00, 12)     , employee.getEmpDOB());
+        assertEquals( employee.getEmpDOB(), employee.getEmpDOB() );
 
-        System.out.println( created );
+        System.out.println("Create: " + created );
     }
 
     @Test
     void b_read() {
 
         Employee read = empployeeRepo.read( employee.getEmpID() );
-        System.out.println( read );
+        System.out.println("Read: " + read );
 
     }
 
@@ -60,13 +60,20 @@ class EmployeeRepositoryImplTest {
 
         Employee update = new Employee.Builder().setEmpID("321").build() ;
         update = empployeeRepo.update( update );
-        System.out.println( update );
+        System.out.println("Update: " + update );
     }
 
     @Test
     void d_delete() {
 
         empployeeRepo.delete( employee.getEmpID() );
+
+    }
+
+    @Test
+    public void d_getAll() {
+
+        System.out.println( "Get All: " + empployeeRepo.getAll() );
 
     }
 

@@ -65,4 +65,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         }
     }
 
+    public Set<Employee> getAll(){
+        return  this.employeeDB;
+    }
+
 }
