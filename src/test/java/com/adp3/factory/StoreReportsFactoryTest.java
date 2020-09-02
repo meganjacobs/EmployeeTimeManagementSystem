@@ -8,23 +8,23 @@
 
 package com.adp3.factory;
 
-import com.adp3.entity.reports.StoreReport;
+import com.adp3.entity.reports.StoreReports;
 import com.adp3.factory.reports.StoreReportFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class StoreReportFactoryTest {
+public class StoreReportsFactoryTest {
 
-    StoreReport storeReport = StoreReportFactory.createStoreReports("Admin");
+    StoreReports storeReports = StoreReportFactory.createStoreReports("Admin");
 
      @Test
     public void getStoreReports() throws Exception {
 
-        Assert.assertNotNull(storeReport);
-        Assert.assertNotNull(storeReport.getReportID());
-        Assert.assertEquals(storeReport.getReportDesc(),"Admin");
+        Assert.assertNotNull(storeReports);
+        Assert.assertNotNull(storeReports.getReportID());
+        Assert.assertEquals(storeReports.getReportDesc(),"Admin");
 
-         System.out.println(storeReport);
+         System.out.println(storeReports);
 
     }
 

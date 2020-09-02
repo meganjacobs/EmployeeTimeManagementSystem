@@ -6,9 +6,9 @@ package com.adp3.entity.reports;
 * Using builder pattern
  */
 
-public class StoreReport {
+public class StoreReports {
     private String reportID, reportDesc, storeID;
-    public StoreReport(Builder builder){
+    public StoreReports(Builder builder){
         this.reportID = builder.reportID;
         this.storeID = builder.storeID;
          this.reportDesc = builder.reportDesc;
@@ -65,14 +65,14 @@ public class StoreReport {
             return this;
         }
 
-        public Builder copy (StoreReport storeReport){
-            this.reportID = storeReport.reportID;
-            this.storeID = storeReport.storeID;
-            this.reportDesc = storeReport.reportDesc;
+        public Builder copy (StoreReports storeReports){
+            this.reportID = storeReports.reportID;
+            this.storeID = storeReports.storeID;
+            this.reportDesc = storeReports.reportDesc;
            return this;
         }
-        public StoreReport build() {
-            return new StoreReport(this);
+        public StoreReports build() {
+            return new StoreReports(this);
         }
 
 
