@@ -1,7 +1,9 @@
-package com.adp3.repository.bridge;
+package com.adp3.repository.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeRole;
 import com.adp3.factory.bridge.EmployeeRoleFactory;
+import com.adp3.repository.bridge.EmployeeRoleRepository;
+import com.adp3.repository.bridge.impl.EmployeeRoleRepositoryImpl;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
 import org.junit.runners.MethodSorters;

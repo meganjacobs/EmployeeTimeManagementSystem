@@ -65,4 +65,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         }
     }
 
+    /** print; created, read, updated data from the repository*/
+    public Set<Employee> getAll(){
+        return  this.employeeDB;
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.adp3.factory;
+package com.adp3.factory.bridge;
 
 
 import com.adp3.entity.bridge.EmployeeStore;

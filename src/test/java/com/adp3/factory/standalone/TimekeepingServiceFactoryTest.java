@@ -1,4 +1,4 @@
-package com.adp3.factory;
+package com.adp3.factory.standalone;
 
 /*
  * Author: Lungisa Lucky Mkhasakhasa

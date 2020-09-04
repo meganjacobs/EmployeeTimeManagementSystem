@@ -1,17 +1,14 @@
-package com.adp3.repository.reports.impl;
+package com.adp3.repository.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeLeave;
-import com.adp3.entity.standalone.Employee;
 import com.adp3.factory.bridge.EmployeeLeaveFactory;
 import com.adp3.repository.bridge.EmployeeLeaveRepository;
-import com.adp3.repository.impl.EmployeeLeaveRepositoryImpl;
+import com.adp3.repository.bridge.impl.EmployeeLeaveRepositoryImpl;
 import com.adp3.util.GenericHelper;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
-import static org.junit.Assert.*;
 
 
 //Annotation of executing tests in alphabetical order

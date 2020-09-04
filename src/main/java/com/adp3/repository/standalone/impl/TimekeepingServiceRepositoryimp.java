@@ -1,3 +1,10 @@
+/*
+ * Author: Lungisa Lucky Mkhasakhasa
+ * Class: Part Time
+ * Student number: 216060117
+ * Class Description: TimekeepingServiceFactoryInpl
+ * */
+
 package com.adp3.repository.standalone.impl;
 
 import com.adp3.entity.standalone.TimekeepingService;
@@ -5,34 +12,23 @@ import com.adp3.repository.standalone.TimekeepingServiceRepository;
 
 import java.util.*;
 
-class TimekeepingServiceRepositoryImpl implements TimekeepingServiceRepository {
-    private static TimekeepingServiceRepositoryImpl repository =null;
-    private Map<String,TimekeepingService> TimekeepingService;
-    private TimekeepingServiceRepositoryImpl()
+public class TimekeepingServiceRepositoryimp implements TimekeepingServiceRepository {
+    private static TimekeepingServiceRepositoryimp repository =null;
+    private Map<String, com.adp3.entity.standalone.TimekeepingService> TimekeepingService;
+    TimekeepingServiceRepositoryimp()
     {
-    this.TimekeepingService = new HashMap<>();}
+        this.TimekeepingService = new HashMap<>();}
 
     public static TimekeepingServiceRepository getRepository() {
-        if(repository==null)repository=new TimekeepingServiceRepositoryImpl();
+        if(repository==null)repository=new TimekeepingServiceRepositoryimp();
         return repository;
     }
-
-    @Override
-    public Set<TimekeepingService> getAll() {
-        Collection<TimekeepingService> timekeepingServices =this.TimekeepingService.values();
-        Set<TimekeepingService> set =new HashSet<>();
-        set.addAll(timekeepingServices);
-        return set;
-
-    }
-
     @Override
     public TimekeepingService create(TimekeepingService TimekeepingService) {
         this.TimekeepingService.put(TimekeepingService.getempID(),TimekeepingService);
 
         return TimekeepingService;
     }
-
     @Override
     public TimekeepingService read(String TimekeepingServiceID) {
         return this.TimekeepingService.get(TimekeepingServiceID);
@@ -47,7 +43,7 @@ class TimekeepingServiceRepositoryImpl implements TimekeepingServiceRepository {
         if(this.read(TimekeepingServiceIn.getempID())==null){
             this.delete(TimekeepingServiceIn.getempID());
             this.create(TimekeepingServiceIn);
-        };
+        }
 
         return TimekeepingServiceIn;
     }
@@ -56,4 +52,17 @@ class TimekeepingServiceRepositoryImpl implements TimekeepingServiceRepository {
     public void delete(String s) {
         this.TimekeepingService.remove(s);
     }
+
+    @Override
+    public Set<TimekeepingService> getAll() {
+        Collection<TimekeepingService> timekeepingServices =this.TimekeepingService.values();
+        Set<TimekeepingService> set =new HashSet<>();
+        set.addAll(timekeepingServices);
+        return set;
+
+    }
+
+
+
+
 }

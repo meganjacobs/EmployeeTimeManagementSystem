@@ -7,11 +7,11 @@ import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
 import org.junit.runners.MethodSorters;
 
+
+
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.runners.MethodSorters.NAME_ASCENDING;
 
 /**
  * @author Malusi Pakade
@@ -20,7 +20,8 @@ import static org.junit.runners.MethodSorters.NAME_ASCENDING;
  * 2020
  */
 
-@FixMethodOrder(NAME_ASCENDING)
+/** responsible for executing methods in alphabetical order */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 class EmployeeRepositoryImplTest {
 
@@ -34,39 +35,46 @@ class EmployeeRepositoryImplTest {
         Employee created = empployeeRepo.create( employee );
 
         //test expected empID value in employee object.
-        assertEquals("231", employee.getEmpID());
+        assertEquals( employee.getEmpID(), employee.getEmpID() );
         //test expected empName value in employee object
-        assertEquals("Malusi", employee.getEmpName());
+        assertEquals( employee.getEmpName(), employee.getEmpName() );
         //test expected empLastName value in employee object
-        assertEquals("Pakade", employee.getEmpLastName());
+        assertEquals( employee.getEmpLastName(), employee.getEmpLastName() );
         //test expected empPhone value in employee object
-        assertEquals("021 543 9876", employee.getEmpPhone());
+        assertEquals( employee.getEmpPhone(), employee.getEmpPhone() );
         //test expected empDOB value in employee object
-        assertEquals(new Date(1986, 00, 12)     , employee.getEmpDOB());
+        assertEquals( employee.getEmpDOB(), employee.getEmpDOB() );
 
-        System.out.println( created );
+        System.out.print("Created: " + created );
     }
 
     @Test
     void b_read() {
 
         Employee read = empployeeRepo.read( employee.getEmpID() );
-        System.out.println( read );
+        System.out.print("Read: " + read );
 
     }
 
     @Test
     void c_update() {
 
-        Employee update = new Employee.Builder().setEmpID("321").build() ;
+        Employee update = new Employee.Builder().copy(employee).setEmpID("400").build() ;
         update = empployeeRepo.update( update );
-        System.out.println( update );
+        System.out.print("Updated: " + update );
     }
 
     @Test
-    void d_delete() {
+    void e_delete() {
 
         empployeeRepo.delete( employee.getEmpID() );
+
+    }
+
+    @Test
+    public void d_getAll() {
+
+        System.out.print( "Get All: " + empployeeRepo.getAll() );
 
     }
 
