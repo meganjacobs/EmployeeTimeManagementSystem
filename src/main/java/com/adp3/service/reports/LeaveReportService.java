@@ -15,4 +15,9 @@ import java.util.Set;
 public interface LeaveReportService extends IService <LeaveReport,String> {
     //Retrieves collection specific to LeaveReportRepository
     Set<LeaveReport> getAll();
+    /*
+    Set<LeaveReport> index();
+    Set<LeaveReport> findByName();
+    Set<LeaveReport> findByID();
+    */
 }
