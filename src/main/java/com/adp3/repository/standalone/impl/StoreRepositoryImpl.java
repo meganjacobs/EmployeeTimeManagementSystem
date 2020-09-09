@@ -73,6 +73,7 @@ public class StoreRepositoryImpl implements StoreRepository {
     public void delete (String storeID){
         Store store = read(storeID);
         if(store != null) this.storeDB.remove(store);
+
     }
 
     @Override

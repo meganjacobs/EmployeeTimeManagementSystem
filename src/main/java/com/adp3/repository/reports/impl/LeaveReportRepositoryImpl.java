@@ -77,8 +77,7 @@ public class LeaveReportRepositoryImpl implements LeaveReportRepository{
         if (existingLeaveReport != null)
             this.leaveReportDB.remove(existingLeaveReport);
 
-
-        }
+    }
 
     /*method used to retrieve Collection of LeaveReport
      * @param: void
