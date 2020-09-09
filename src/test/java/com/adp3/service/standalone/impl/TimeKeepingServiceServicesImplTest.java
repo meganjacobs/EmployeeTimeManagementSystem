@@ -1,0 +1,61 @@
+
+
+/*
+ * Author: Lungisa Lucky Mkhasakhasa
+ * Class: Part Time
+ * Student number: 216060117
+ * Class Description: TimekeepingServiceTest
+ * */
+
+
+package com.adp3.service.standalone.impl;
+import com.adp3.entity.standalone.TimekeepingService;
+import com.adp3.factory.standalone.TimekeepingServiceFactory;
+import com.adp3.repository.standalone.impl.TimekeepingServiceRepositoryimp;
+import com.adp3.service.standalone.impl.TimeKeepingServiceServicesImpl;
+import junit.framework.TestCase;
+import org.junit.Assert;
+
+public class TimeKeepingServiceServicesImplTest extends TestCase {
+    //private TimeKeepingServiceServicesImpl repository = new TimeKeepingServiceServicesImpl();
+    TimekeepingService timekeepingservice = TimekeepingServiceFactory.buildTimekeepingService(1000,1500,"LM88");
+
+
+
+    public void testGetRepository() {
+    }
+
+    public void testCreate() {
+//        TimekeepingService cExpected = repository.create(timekeepingservice);
+//        Assert.assertEquals(cExpected.getempID(),timekeepingservice.getempID());
+
+
+    }
+
+    public void testRead() {
+
+//        TimekeepingService rTimekeepingservice  = repository.read(timekeepingservice.getempID());
+//        Assert.assertNotNull(rTimekeepingservice);
+    }
+
+    public void testUpdate() {
+        TimekeepingService rTimekeepingservice = new TimekeepingService.Builder()
+                .setEmployee_id("LM88")
+                .setTime_In(1500)
+                .setTime_Out(2100)
+                .copy(timekeepingservice)
+                .build();
+
+        Assert.assertEquals(rTimekeepingservice.getempID(),"LM878");
+    }
+
+    public void testDelete() {
+//        repository.delete(timekeepingservice.getempID());
+//        Assert.assertNotNull(timekeepingservice.getempID());
+    }
+
+    public void testGetAll() {
+
+        //Assert.assertNotNull(repository.getAll());
+    }
+}
