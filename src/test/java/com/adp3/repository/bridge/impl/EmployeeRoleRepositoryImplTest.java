@@ -6,10 +6,12 @@ import com.adp3.repository.bridge.EmployeeRoleRepository;
 import com.adp3.repository.bridge.impl.EmployeeRoleRepositoryImpl;
 import com.adp3.util.GenericHelper;
 import org.junit.FixMethodOrder;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+//import org.junit.jupiter.api.Test;
 import org.junit.runners.MethodSorters;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static junit.framework.Assert.assertEquals;
+//import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Author: Sonwabo Kasi

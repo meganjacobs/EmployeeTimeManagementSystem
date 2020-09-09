@@ -1,5 +1,7 @@
 package com.adp3.entity.bridge;
 
+import java.util.Date;
+
 /**
  * Zubair Van Oudtshoorn - Part Time - 217203795
  * Creation of EmployeeLeave Class
@@ -9,7 +11,7 @@ package com.adp3.entity.bridge;
 public class EmployeeLeave {
 
     private String empID, leaveID;
-    private String startDate, endDate;
+    private Date startDate, endDate;
 
 
 
@@ -27,11 +29,11 @@ public class EmployeeLeave {
         return leaveID;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public String getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
@@ -47,7 +49,7 @@ public class EmployeeLeave {
 
     public static class Builder {
         private String empID, leaveID;
-        private String startDate, endDate;
+        private Date startDate, endDate;
 
         public Builder setEmpID(String empID) {
             this.empID = empID;
@@ -59,12 +61,12 @@ public class EmployeeLeave {
             return this;
         }
 
-        public Builder setStartDate(String startDate) {
+        public Builder setStartDate(Date startDate) {
             this.startDate = startDate;
             return this;
         }
 
-        public Builder setEndDate(String endDate) {
+        public Builder setEndDate(Date endDate) {
             this.endDate = endDate;
             return this;
         }
