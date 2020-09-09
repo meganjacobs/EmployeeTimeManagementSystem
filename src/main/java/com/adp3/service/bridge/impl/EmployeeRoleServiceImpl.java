@@ -1,8 +1,9 @@
-package com.adp3.service.bridge;
+package com.adp3.service.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeRole;
 import com.adp3.repository.bridge.EmployeeRoleRepository;
 import com.adp3.repository.bridge.impl.EmployeeRoleRepositoryImpl;
+import com.adp3.service.bridge.EmployeeRoleService;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -66,7 +67,7 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
         Set<EmployeeRole> employeeRoles= getAll();
         Set<EmployeeRole> employeeRoleStartWithA = new HashSet<>();
         for (EmployeeRole employeeRole :employeeRoles) {
-            for (employeeRole.getRoleID().trim().toLowerCase().startsWith("a")) {
+            if (employeeRole.getRoleID().trim().toLowerCase().startsWith("a")) {
                 employeeRoleStartWithA.add(employeeRole);
             }
 

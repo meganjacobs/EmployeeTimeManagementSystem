@@ -1,7 +1,9 @@
-package com.adp3.service.bridge;
+package com.adp3.service.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeRole;
 import com.adp3.factory.bridge.EmployeeRoleFactory;
+import com.adp3.service.bridge.EmployeeRoleService;
+import com.adp3.service.bridge.impl.EmployeeRoleServiceImpl;
 import com.adp3.util.GenericHelper;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
