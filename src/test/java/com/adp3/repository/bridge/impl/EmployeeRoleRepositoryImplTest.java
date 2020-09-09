@@ -4,6 +4,7 @@ import com.adp3.entity.bridge.EmployeeRole;
 import com.adp3.factory.bridge.EmployeeRoleFactory;
 import com.adp3.repository.bridge.EmployeeRoleRepository;
 import com.adp3.repository.bridge.impl.EmployeeRoleRepositoryImpl;
+import com.adp3.util.GenericHelper;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 //import org.junit.jupiter.api.Test;
@@ -21,15 +22,17 @@ import static junit.framework.Assert.assertEquals;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-class EmployeeRoleRepositoryImplTest {
+public class EmployeeRoleRepositoryImplTest {
 
     private static EmployeeRoleRepository employeeRoleRepository = new EmployeeRoleRepositoryImpl();
-    private EmployeeRole employeeRole= EmployeeRoleFactory.createEmployeeRole("101","Manageer");
+    private static String empId = GenericHelper.generateID();
+    private EmployeeRole employeeRole = EmployeeRoleFactory.createEmployeeRole(empId,"Manageer");
+
 
     @Test
     void a_create() {
         EmployeeRole created = employeeRoleRepository.create(employeeRole);
-        assertEquals(employeeRole,created);
+        assertEquals(employeeRole, created);
         System.out.println(created);
 
     }
@@ -38,25 +41,24 @@ class EmployeeRoleRepositoryImplTest {
     void b_read() {
         EmployeeRole read = employeeRoleRepository.read(employeeRole.getEmpID());
         System.out.println(employeeRole);
-
     }
 
     @Test
     void c_update() {
-        EmployeeRole updated = new EmployeeRole.Builder().copy(employeeRole).setEmployeeId("101").setRoleId("Manager").build();
+        EmployeeRole updated = new EmployeeRole.Builder().copy(employeeRole).setEmployeeId(empId).setRoleId("Manager").build();
         updated = employeeRoleRepository.update(updated);
         System.out.println(updated);
 
     }
 
     @Test
-    public void e_getAll() {
+    void d_getAll() {
         System.out.println(employeeRoleRepository.getAll());
     }
 
 
     @Test
-    void d_delete() {
+    void e_delete() {
         employeeRoleRepository.delete(employeeRole.getEmpID());
     }
 }
