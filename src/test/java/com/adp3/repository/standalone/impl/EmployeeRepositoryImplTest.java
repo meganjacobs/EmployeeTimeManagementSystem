@@ -4,10 +4,8 @@ import com.adp3.entity.standalone.Employee;
 import com.adp3.factory.standalone.EmployeeFactory;
 import com.adp3.repository.standalone.EmployeeRepository;
 import org.junit.FixMethodOrder;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
-
 
 import java.util.Date;
 
@@ -23,14 +21,14 @@ import static org.junit.Assert.assertEquals;
 /** responsible for executing methods in alphabetical order */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-class EmployeeRepositoryImplTest {
+public class EmployeeRepositoryImplTest {
 
     private static EmployeeRepository empployeeRepo = new EmployeeRepositoryImpl();
     private Employee employee = EmployeeFactory.createEmployee("231","Malusi", "Pakade", "021 543 9876", new Date(1986, 00, 12));
 
 
     @Test
-    void a_create() {
+    public void a_create() {
         // test if EmployeeRepositoryImpl create method can create an employee
         Employee created = empployeeRepo.create( employee );
 
@@ -45,27 +43,27 @@ class EmployeeRepositoryImplTest {
         //test expected empDOB value in employee object
         assertEquals( employee.getEmpDOB(), employee.getEmpDOB() );
 
-        System.out.print("Created: " + created );
+        System.out.println("Created: " + created );
     }
 
     @Test
-    void b_read() {
+    public void b_read() {
 
         Employee read = empployeeRepo.read( employee.getEmpID() );
-        System.out.print("Read: " + read );
+        System.out.println("Read: " + read );
 
     }
 
     @Test
-    void c_update() {
+    public void c_update() {
 
         Employee update = new Employee.Builder().copy(employee).setEmpID("400").build() ;
         update = empployeeRepo.update( update );
-        System.out.print("Updated: " + update );
+        System.out.println("Updated: " + update );
     }
 
     @Test
-    void e_delete() {
+    public void e_delete() {
 
         empployeeRepo.delete( employee.getEmpID() );
 

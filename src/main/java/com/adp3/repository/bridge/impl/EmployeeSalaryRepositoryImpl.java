@@ -60,10 +60,10 @@ public class EmployeeSalaryRepositoryImpl implements EmployeeSalaryRepository {
     @Override
     public EmployeeSalary update(EmployeeSalary employeeSalary) {
         //update the object
-
-        if(employeeSalary != null) {
-            delete(employeeSalary.getEmpID());
-            //this.salaryDB.remove(employeeSalary);
+        EmployeeSalary oldEmp = read(employeeSalary.getEmpID());
+        if(oldEmp != null) {
+           // delete(employeeSalary.getEmpID());
+            this.salaryDB.remove(oldEmp);
             this.salaryDB.add(employeeSalary);
 
         }

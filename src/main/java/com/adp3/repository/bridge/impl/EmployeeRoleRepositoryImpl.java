@@ -1,8 +1,8 @@
 package com.adp3.repository.bridge.impl;
 
+
 import com.adp3.entity.bridge.EmployeeRole;
 import com.adp3.repository.bridge.EmployeeRoleRepository;
-
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,23 +16,22 @@ import java.util.Set;
 public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
 
     private Set<EmployeeRole> employeeRoleDB;
+    private static EmployeeRoleRepository employeeRoleRepository =null;
 
     public EmployeeRoleRepositoryImpl(){
         this.employeeRoleDB = new HashSet<>();
     }
 
+    public static EmployeeRoleRepository getRepository() {
+        if (employeeRoleRepository == null) employeeRoleRepository = new EmployeeRoleRepositoryImpl();
+        return employeeRoleRepository;
 
 
-     public EmployeeRole read(String empId) {
-        EmployeeRole employeeRole = null;
-        for (EmployeeRole e : this.employeeRoleDB){
-            if (e.getEmpID().equalsIgnoreCase(empId)){
-                employeeRole = e;
-                break;
-            }
-        }
-        this.employeeRoleDB.add(employeeRole);
-        return null;
+    }
+
+    @Override
+    public Set<EmployeeRole> getAll() {
+        return this.employeeRoleDB;
     }
 
     @Override
@@ -41,26 +40,37 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
         return employeeRole;
     }
 
+    @Override
+    public EmployeeRole read(String empRole) {
+        for (EmployeeRole ep : this.employeeRoleDB) {
+            if (ep.getRoleID().equalsIgnoreCase(empRole))
+
+                return ep;
+        }
+        return null;
+    }
 
     @Override
     public EmployeeRole update(EmployeeRole employeeRole) {
-        EmployeeRole olDemployeeRole = read(employeeRole.getEmpID());
-        if (olDemployeeRole != null);
-        this.employeeRoleDB.remove(olDemployeeRole);
+        EmployeeRole empRole = read(employeeRole.getEmpID());
+        if (empRole != null)
+        this.employeeRoleDB.remove(employeeRole);
         this.employeeRoleDB.add(employeeRole);
         return employeeRole;
     }
 
     @Override
+<<<<<<< HEAD
     public boolean delete(String empId) {
         EmployeeRole employeeRole = read(empId);
         if (employeeRole !=null)this.employeeRoleDB.remove(employeeRole);
+=======
+    public void delete(String empRole) {
+        EmployeeRole employeeRole = read(empRole);
+        if (employeeRole !=null)
+            this.employeeRoleDB.remove(employeeRole);
+>>>>>>> UpStream/master
 
         return false;
-    }
-
-    @Override
-    public Set<EmployeeRole> getAll() {
-        return this.employeeRoleDB;
     }
 }
