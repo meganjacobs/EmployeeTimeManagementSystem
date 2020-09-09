@@ -67,9 +67,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public boolean delete(String s) {
+    public void delete(String s) {
 
-        return this.emp_repo.delete( s );
+        this.emp_repo.delete( s );
 
     }
 }
