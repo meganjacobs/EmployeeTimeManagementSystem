@@ -15,11 +15,17 @@ import java.util.Set;
 
 public class StoreReportsRepositoryImpl implements StoreReportsRepository {
 
-
+    private static StoreReportsRepository repository = null;
 
     private Set<StoreReports> storeReportsDB;
     public StoreReportsRepositoryImpl(){
         this.storeReportsDB = new HashSet<>();
+    }
+
+    public static StoreReportsRepository getRepository(){
+        if (repository == null) repository = new StoreReportsRepositoryImpl();
+        return repository;
+
     }
 
     /*method used to create a new StoreReport

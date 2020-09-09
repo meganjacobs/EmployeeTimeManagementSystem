@@ -1,4 +1,4 @@
-package com.adp3.repository.standalone.Imp;
+package com.adp3.repository.standalone.impl;
 
 import com.adp3.entity.standalone.Role;
 import com.adp3.repository.standalone.RoleRepository;
