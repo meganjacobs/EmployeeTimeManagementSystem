@@ -15,8 +15,15 @@ import java.util.Set;
 public class StoreRepositoryImpl implements StoreRepository {
 
     private Set<Store> storeDB;
-
+    private static StoreRepository repository = null;
     public StoreRepositoryImpl() {this.storeDB = new HashSet<>();}
+
+    public static StoreRepository getRepository(){
+
+        if (repository == null) repository = new StoreRepositoryImpl();
+        return repository;
+
+    }
 
     /*method used to create a new Store
      * @param: storeName, storeId - eg. store name, store ID
@@ -58,7 +65,7 @@ public class StoreRepositoryImpl implements StoreRepository {
         return store;
     }
 
-    /*method used to delete a new Store
+    /*method used to delete a Store
      * @param: storeName, storeId - eg. store name "Cape Town", store ID "01"
      * @return: Store
      * */
