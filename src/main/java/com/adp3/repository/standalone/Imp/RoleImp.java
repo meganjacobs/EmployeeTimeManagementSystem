@@ -13,11 +13,18 @@ import java.util.Set;
 
 
 public class RoleImp implements RoleRepository {
-private static RoleImp repository;
-private Set<Role> role;
-private RoleImp(){
+
+    private static RoleImp repository= null;
+    private Set<Role> role;
+
+    private RoleImp(){
     this.role = new HashSet<>();
 }
+    public static RoleRepository getRepository(){
+        if(repository == null)repository = new RoleImp();
+        return repository;
+    }
+
 
     public Set<Role> getAll() {
         return this.role;
