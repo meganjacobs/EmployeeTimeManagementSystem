@@ -2,6 +2,7 @@ package com.adp3.repository.standalone.impl;
 
 import com.adp3.entity.standalone.Employee;
 import com.adp3.repository.standalone.EmployeeRepository;
+import com.adp3.service.standalone.EmployeeService;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,9 +16,20 @@ import java.util.Set;
 
 public class EmployeeRepositoryImpl implements EmployeeRepository {
     private Set<Employee> employeeDB;
+    private static EmployeeRepository emp_repository = null;
 
     public EmployeeRepositoryImpl() {
         this.employeeDB = new HashSet<>();
+    }
+
+
+    public static EmployeeRepository getRepository(){
+        if(emp_repository == null){
+            emp_repository = new EmployeeRepositoryImpl();
+
+        }
+
+        return emp_repository;
     }
 
     /** create an employee object and persist to the repository database */
@@ -64,7 +76,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         if( employee != null ){
             this.employeeDB.remove( employee );
         }
-
+       // return false;
     }
 
     /** print; created, read, updated data from the repository*/
