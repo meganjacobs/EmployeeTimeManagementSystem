@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 public class EmployeeLeaveFactoryTest {
     //create Object , assign values
-    EmployeeLeave employeeLeave = EmployeeLeaveFactory.calcEmployeeLeave("A16", "A1", "21-05-2020", "28/05/2020");
+    EmployeeLeave employeeLeave = EmployeeLeaveFactory.calcEmployeeLeave("A16", "A1", new Date(2020,6,02), new Date(2020,6,05));
 
 
     @Test
@@ -30,8 +30,8 @@ public class EmployeeLeaveFactoryTest {
         //Test all values are being received
         assertSame("A16",employeeLeave.getEmpID());
         Assert.assertEquals(employeeLeave.getLeaveID(), "A1");
-        assertSame("21-05-2020", employeeLeave.getStartDate());
-        assertSame("28/05/2020", employeeLeave.getEndDate());
+        assertEquals(new Date(2020,6,02), employeeLeave.getStartDate());
+        assertEquals(new Date(2020,6,05), employeeLeave.getEndDate());
 
     }
 
