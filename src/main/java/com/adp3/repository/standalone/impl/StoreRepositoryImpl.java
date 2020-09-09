@@ -70,10 +70,10 @@ public class StoreRepositoryImpl implements StoreRepository {
      * @return: Store
      * */
     @Override
-    public boolean delete (String storeID){
+    public void delete (String storeID){
         Store store = read(storeID);
         if(store != null) this.storeDB.remove(store);
-        return false;
+
     }
 
     @Override

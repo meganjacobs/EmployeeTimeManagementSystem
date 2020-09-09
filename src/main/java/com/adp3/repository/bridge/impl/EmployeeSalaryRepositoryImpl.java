@@ -78,14 +78,13 @@ public class EmployeeSalaryRepositoryImpl implements EmployeeSalaryRepository {
      * @return: void
      * */
     @Override
-    public boolean delete(String empID) {
+    public void delete(String empID) {
         EmployeeSalary existingEmployeeSalary = read(empID);
         if (existingEmployeeSalary!= null) {
             this.salaryDB.remove(existingEmployeeSalary);
 
         }
 
-        return false;
     }
 
 

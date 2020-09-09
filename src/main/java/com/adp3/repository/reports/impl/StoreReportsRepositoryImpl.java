@@ -73,11 +73,10 @@ public class StoreReportsRepositoryImpl implements StoreReportsRepository {
      * @return: StoreReport
      * */
     @Override
-    public boolean delete(String storeReportsId) {
+    public void delete(String storeReportsId) {
         StoreReports storeReports = read(storeReportsId);
         if (storeReports != null)
             this.storeReportsDB.remove(storeReports);
-        return false;
     }
     /*method used to retrieve Collection of StoreReport
      * @param: void

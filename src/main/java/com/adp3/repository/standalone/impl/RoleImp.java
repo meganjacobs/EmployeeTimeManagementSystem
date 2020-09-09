@@ -44,10 +44,9 @@ private RoleImp(){
     }
 
 
-    public boolean delete(String sDelete) {
+    public void delete(String sDelete) {
     this.role.remove(sDelete);
 
-        return false;
     }
 
 

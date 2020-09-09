@@ -60,17 +60,10 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
     }
 
     @Override
-<<<<<<< HEAD
-    public boolean delete(String empId) {
-        EmployeeRole employeeRole = read(empId);
-        if (employeeRole !=null)this.employeeRoleDB.remove(employeeRole);
-=======
+
     public void delete(String empRole) {
         EmployeeRole employeeRole = read(empRole);
         if (employeeRole !=null)
             this.employeeRoleDB.remove(employeeRole);
->>>>>>> UpStream/master
-
-        return false;
     }
 }

@@ -40,9 +40,9 @@ public class LeaveRepositoryImpl implements LeaveRepository {
                 }
 
                 @Override
-                public boolean delete(String s) {
+                public void delete(String s) {
 
-                    return false;
+
                 }
 
                 @Override
@@ -86,13 +86,11 @@ public class LeaveRepositoryImpl implements LeaveRepository {
 
 
     @Override
-    public boolean delete (String leaveID) {
+    public void delete (String leaveID) {
         Leave existingLeave = read(leaveID);
         if (existingLeave != null)
             this.leaveDB.remove(existingLeave);
 
-
-        return false;
     }
 
     @Override

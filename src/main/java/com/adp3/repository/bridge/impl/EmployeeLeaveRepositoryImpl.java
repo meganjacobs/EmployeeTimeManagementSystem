@@ -70,12 +70,11 @@ public class EmployeeLeaveRepositoryImpl implements EmployeeLeaveRepository {
      * */
 
     @Override
-    public boolean delete(String empID) {
+    public void delete(String empID) {
         EmployeeLeave employeeLeaveRecord = read(empID);
         if (employeeLeaveRecord !=null)
             this.empLeaveDB.remove(employeeLeaveRecord);
 
-        return false;
     }
 
     @Override
