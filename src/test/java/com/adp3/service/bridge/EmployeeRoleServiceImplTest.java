@@ -2,6 +2,7 @@ package com.adp3.service.bridge;
 
 import com.adp3.entity.bridge.EmployeeRole;
 import com.adp3.factory.bridge.EmployeeRoleFactory;
+import com.adp3.util.GenericHelper;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
 import org.junit.runners.MethodSorters;
@@ -18,13 +19,11 @@ import static org.junit.jupiter.api.Assertions.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class EmployeeRoleServiceImplTest {
 
-    private  static EmployeeRoleService employeeRoleService = EmployeeRoleServiceImpl.getEmployeRoleService();
-    private  static EmployeeRole employeeRole = EmployeeRoleFactory.createEmployeeRole("1001","Managerr");
+    private  static EmployeeRoleService employeeRoleService = EmployeeRoleServiceImpl.getEmployeeRoleService();
+    private static String empId = GenericHelper.generateID();
+    private  static EmployeeRole employeeRole = EmployeeRoleFactory.createEmployeeRole(empId,"Managerr");
 
-    @Test
-    void getEmployeRoleService() {
 
-    }
 
     @Test
     void a_create() {
@@ -42,7 +41,7 @@ class EmployeeRoleServiceImplTest {
 
     @Test
     void c_update() {
-        EmployeeRole updated = new EmployeeRole.Builder().copy(employeeRole).setEmployeeId("101").setRoleId("Manager").build();
+        EmployeeRole updated = new EmployeeRole.Builder().copy(employeeRole).setEmployeeId(empId).setRoleId("Manager").build();
         updated = employeeRoleService.update(updated);
         System.out.println(updated);
 
@@ -57,5 +56,9 @@ class EmployeeRoleServiceImplTest {
     @Test
     void e_delete() {
         employeeRoleService.delete(employeeRole.getEmpID());
+    }
+
+    @Test
+    void getAllRolesStartWith() {
     }
 }

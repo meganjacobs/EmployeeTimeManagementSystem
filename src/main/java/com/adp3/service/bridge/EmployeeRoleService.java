@@ -14,5 +14,7 @@ import java.util.Set;
 public interface EmployeeRoleService extends IService<EmployeeRole,String> {
     Set<EmployeeRole> getAll();
 
+    Set<EmployeeRole> getAllEmployeeRolesStartWith();
+
 
 }

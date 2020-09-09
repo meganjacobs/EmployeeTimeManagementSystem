@@ -31,7 +31,7 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
 
     @Override
     public Set<EmployeeRole> getAll() {
-        return null;
+        return this.employeeRoleDB;
     }
 
     @Override
@@ -41,9 +41,9 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
     }
 
     @Override
-    public EmployeeRole read(String roleId) {
+    public EmployeeRole read(String empRole) {
         for (EmployeeRole ep : this.employeeRoleDB) {
-            if (ep.getRoleID().equalsIgnoreCase(roleId))
+            if (ep.getRoleID().equalsIgnoreCase(empRole))
 
                 return ep;
         }
@@ -52,16 +52,16 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
 
     @Override
     public EmployeeRole update(EmployeeRole employeeRole) {
-        EmployeeRole empRole = read(employeeRole.getRoleID());
+        EmployeeRole empRole = read(employeeRole.getEmpID());
         if (empRole != null)
-            this.employeeRoleDB.remove(employeeRole);
+        this.employeeRoleDB.remove(employeeRole);
         this.employeeRoleDB.add(employeeRole);
-        return null;
+        return employeeRole;
     }
 
     @Override
-    public void delete(String roleID) {
-        EmployeeRole employeeRole = read(roleID);
+    public void delete(String empRole) {
+        EmployeeRole employeeRole = read(empRole);
         if (employeeRole !=null)
             this.employeeRoleDB.remove(employeeRole);
 

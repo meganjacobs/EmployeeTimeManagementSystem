@@ -4,6 +4,7 @@ import com.adp3.entity.bridge.EmployeeRole;
 import com.adp3.repository.bridge.EmployeeRoleRepository;
 import com.adp3.repository.bridge.impl.EmployeeRoleRepositoryImpl;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Set;
  */
 public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
-    private static EmployeeRoleService employeRoleService = null;
+    private static EmployeeRoleService employeeRoleService = null;
     private EmployeeRoleRepository employeeRoleRepository;
 
     private EmployeeRoleServiceImpl(){
@@ -22,12 +23,10 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
     }
 
-    public static EmployeeRoleService getEmployeRoleService(){
-        if (employeRoleService == null) employeRoleService = new EmployeeRoleServiceImpl();
-        return employeRoleService;
+    public static EmployeeRoleService getEmployeeRoleService(){
+        if (employeeRoleService == null) employeeRoleService = new EmployeeRoleServiceImpl();
+        return employeeRoleService;
     }
-
-
 
 
     @Override
@@ -60,5 +59,18 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
     public Set<EmployeeRole> getAll() {
         this.employeeRoleRepository.getAll();
         return null;
+    }
+
+    @Override
+    public Set<EmployeeRole> getAllEmployeeRolesStartWith() {
+        Set<EmployeeRole> employeeRoles= getAll();
+        Set<EmployeeRole> employeeRoleStartWithA = new HashSet<>();
+        for (EmployeeRole employeeRole :employeeRoles) {
+            for (employeeRole.getRoleID().trim().toLowerCase().startsWith("a")) {
+                employeeRoleStartWithA.add(employeeRole);
+            }
+
+        }
+        return employeeRoleStartWithA;
     }
 }
