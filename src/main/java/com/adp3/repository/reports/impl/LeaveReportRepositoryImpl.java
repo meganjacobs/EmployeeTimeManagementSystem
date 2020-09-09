@@ -72,13 +72,14 @@ public class LeaveReportRepositoryImpl implements LeaveReportRepository{
      * @return: void
      * */
     @Override
-    public void delete (String leaveReportID) {
+    public boolean delete (String leaveReportID) {
         LeaveReport existingLeaveReport = read(leaveReportID);
         if (existingLeaveReport != null)
             this.leaveReportDB.remove(existingLeaveReport);
 
 
-        }
+        return false;
+    }
 
     /*method used to retrieve Collection of LeaveReport
      * @param: void

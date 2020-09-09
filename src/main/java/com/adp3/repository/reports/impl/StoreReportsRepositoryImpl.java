@@ -15,11 +15,17 @@ import java.util.Set;
 
 public class StoreReportsRepositoryImpl implements StoreReportsRepository {
 
-
+    private static StoreReportsRepository repository = null;
 
     private Set<StoreReports> storeReportsDB;
     public StoreReportsRepositoryImpl(){
         this.storeReportsDB = new HashSet<>();
+    }
+
+    public static StoreReportsRepository getRepository(){
+        if (repository == null) repository = new StoreReportsRepositoryImpl();
+        return repository;
+
     }
 
     /*method used to create a new StoreReport
@@ -67,10 +73,11 @@ public class StoreReportsRepositoryImpl implements StoreReportsRepository {
      * @return: StoreReport
      * */
     @Override
-    public void delete(String storeReportsId) {
+    public boolean delete(String storeReportsId) {
         StoreReports storeReports = read(storeReportsId);
         if (storeReports != null)
             this.storeReportsDB.remove(storeReports);
+        return false;
     }
     /*method used to retrieve Collection of StoreReport
      * @param: void

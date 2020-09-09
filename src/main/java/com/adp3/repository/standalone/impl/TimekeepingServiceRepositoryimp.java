@@ -49,8 +49,9 @@ public class TimekeepingServiceRepositoryimp implements TimekeepingServiceReposi
     }
 
     @Override
-    public void delete(String s) {
+    public boolean delete(String s) {
         this.TimekeepingService.remove(s);
+        return false;
     }
 
     @Override

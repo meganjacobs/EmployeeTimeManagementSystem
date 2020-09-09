@@ -52,10 +52,11 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
     }
 
     @Override
-    public void delete(String empId) {
+    public boolean delete(String empId) {
         EmployeeRole employeeRole = read(empId);
         if (employeeRole !=null)this.employeeRoleDB.remove(employeeRole);
 
+        return false;
     }
 
     @Override
