@@ -55,14 +55,16 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         return  employee;
     }
 
-    /** delete an employee object from the repository database */
+    /** delete an employee object from the repository database
+     * @return*/
     @Override
-    public void delete( String empID ) {
+    public void delete(String empID ) {
         Employee employee = read( empID );
 
         if( employee != null ){
             this.employeeDB.remove( employee );
         }
+
     }
 
     /** print; created, read, updated data from the repository*/

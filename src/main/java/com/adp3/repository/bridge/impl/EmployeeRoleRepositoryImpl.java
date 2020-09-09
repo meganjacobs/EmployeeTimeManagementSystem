@@ -60,10 +60,10 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
     }
 
     @Override
+
     public void delete(String empRole) {
         EmployeeRole employeeRole = read(empRole);
         if (employeeRole !=null)
             this.employeeRoleDB.remove(employeeRole);
-
     }
 }
