@@ -1,6 +1,10 @@
 package com.adp3.service.reports;
 
+import com.adp3.entity.reports.LeaveReport;
 import com.adp3.service.IService;
+
+import java.util.Set;
+
 /**
  * Author: Megan Jacobs
  * Class: Part Time
@@ -8,5 +12,7 @@ import com.adp3.service.IService;
  * Description: LeaveReportService - extends member methods of parent "IService"
  */
 
-public interface LeaveReportService extends IService {
+public interface LeaveReportService extends IService <LeaveReport,String> {
+    //Retrieves collection specific to LeaveReportRepository
+    Set<LeaveReport> getAll();
 }
