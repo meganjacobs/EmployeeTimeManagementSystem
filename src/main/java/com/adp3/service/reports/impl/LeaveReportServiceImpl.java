@@ -1,6 +1,5 @@
 package com.adp3.service.reports.impl;
 
-import com.adp3.entity.bridge.EmployeeSalary;
 import com.adp3.entity.reports.LeaveReport;
 import com.adp3.repository.reports.LeaveReportRepository;
 import com.adp3.repository.reports.impl.LeaveReportRepositoryImpl;

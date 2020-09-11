@@ -1,5 +1,5 @@
 package com.adp3.repository.bridge.impl;
-import org.junit.Assert.*;
+import com.adp3.repository.bridge.EmployeeStoreRepository;
 import com.adp3.entity.bridge.EmployeeStore;
 import java.util.HashSet;
 import java.util.Set;

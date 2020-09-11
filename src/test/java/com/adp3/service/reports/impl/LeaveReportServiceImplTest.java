@@ -2,8 +2,6 @@ package com.adp3.service.reports.impl;
 
 import com.adp3.entity.reports.LeaveReport;
 import com.adp3.factory.reports.LeaveReportFactory;
-import com.adp3.repository.reports.LeaveReportRepository;
-import com.adp3.repository.reports.impl.LeaveReportRepositoryImpl;
 import com.adp3.service.reports.LeaveReportService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -39,7 +37,10 @@ public class LeaveReportServiceImplTest {
 
     @Test
     public void c_update() {
-        LeaveReport updated = new LeaveReport.Builder().copy(leaveReport).setLeaveReportDesc("Updated request").build();
+        LeaveReport updated = new LeaveReport.Builder()
+                .copy(leaveReport)
+                .setLeaveReportDesc("Updated request")
+                .build();
         updated = leaveReportService.update(updated);
         System.out.println("Updated : " + updated);
     }

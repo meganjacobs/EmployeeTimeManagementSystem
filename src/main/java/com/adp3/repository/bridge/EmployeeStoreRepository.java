@@ -1,4 +1,4 @@
-package com.adp3.repository.bridge.impl;
+package com.adp3.repository.bridge;
 
 import com.adp3.entity.bridge.EmployeeStore;
 import com.adp3.repository.IRepository;
