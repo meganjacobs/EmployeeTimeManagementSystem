@@ -1,5 +1,7 @@
 package com.adp3.entity.reports;
 
+import java.io.Serializable;
+
 /**
  * Author: Megan Jacobs
  * Class: Part Time
@@ -7,15 +9,17 @@ package com.adp3.entity.reports;
  * Class Description: LeaveReport
  */
 
-public class LeaveReport {
+public class LeaveReport implements Serializable {
 
     private String leaveReportID;
     private String leaveReportDesc;
 
-    public LeaveReport(Builder builder) {
+    private LeaveReport(Builder builder) {
         this.leaveReportID = builder.leaveReportID;
         this.leaveReportDesc = builder.leaveReportDesc;
     }
+
+    public LeaveReport(){}
 
     public String getLeaveReportID() {
         return leaveReportID;
