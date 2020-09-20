@@ -19,7 +19,7 @@ public class LeaveReport implements Serializable {
         this.leaveReportDesc = builder.leaveReportDesc;
     }
 
-    public LeaveReport(){}
+    private LeaveReport(){}
 
     public String getLeaveReportID() {
         return leaveReportID;
