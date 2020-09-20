@@ -8,6 +8,6 @@ public class HomeController {
 
     @RequestMapping({"/", "/index","/home"})
     String home(){
-        return "Cape Town Students\n \t where 2 is better tham 1\nEmployeeTimeManagement Application: ";
+        return "EmployeeTimeManagement Application... ";
     }
 }
