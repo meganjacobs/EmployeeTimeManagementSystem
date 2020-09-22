@@ -8,18 +8,18 @@ import java.util.Set;
  * Author: Munyaradzi Manyati
  * Class: Part Time
  * Student number: 215211855
- * Class Description: EmployeeStoreRepositoryImp
+ * Class Description: EmployeeStoreRepositoryImpl
  */
 
-public class EmployeeStoreRepositoryImp implements EmployeeStoreRepository {
+public class EmployeeStoreRepositoryImpl implements EmployeeStoreRepository {
 
     private static EmployeeStoreRepository repository  = null;
     private Set<EmployeeStore> empStoreDB;
 
-    private EmployeeStoreRepositoryImp(){ this.empStoreDB = new HashSet<>(); }
+    private EmployeeStoreRepositoryImpl(){ this.empStoreDB = new HashSet<>(); }
 
     public static EmployeeStoreRepository getRepository(){
-        if(repository == null)  repository = new EmployeeStoreRepositoryImp();
+        if(repository == null)  repository = new EmployeeStoreRepositoryImpl();
         return repository;
     }
 
@@ -56,7 +56,7 @@ public class EmployeeStoreRepositoryImp implements EmployeeStoreRepository {
         this.empStoreDB.remove(EmpStore);
         this.empStoreDB.add(t);
         return t;
-        }
+    }
 
 
 
