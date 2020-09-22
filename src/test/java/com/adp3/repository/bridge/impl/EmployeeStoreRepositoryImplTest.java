@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class EmployeeStoreServiceImpTest {
+public class EmployeeStoreRepositoryImplTest {
 
     @Test
     public void getAll() {
@@ -24,6 +24,5 @@ public class EmployeeStoreServiceImpTest {
 
     @Test
     public void delete() {
-
     }
 }
