@@ -9,15 +9,23 @@ import com.adp3.entity.bridge.EmployeeStore;
  */
 
 public class EmployeeStoreFactory {
+    private static EmployeeStore employeeStore = null;
 
-    public static EmployeeStore getEmployeeStore(String storeID, String empID){
+
+    public EmployeeStoreFactory() {
+
+    }
+
+    public static EmployeeStore createEmployeeStore(String empID, String storeID) {
         //String EmployeeStore = GenericHelper.generateID();
-
         return new EmployeeStore.Builder()
-        .setStoreID(storeID)
-        .setEmpID(empID)
-        .build();
+                .setEmpID(empID)
+                .setStoreID(storeID)
+                .build();
 
 
+    }
+    public static String testClass(){
+        return " does it work: ? ";
     }
 }

@@ -21,9 +21,7 @@ public class EmployeeStoreServiceImpl implements EmployeeStoreService {
     private static EmployeeStoreService empStoreService = null;
     private EmployeeStoreRepository empStoreDB;
 
-    private EmployeeStoreServiceImpl() {
-        this.empStoreDB = EmployeeStoreRepositoryImpl.getRepository();
-    }
+    EmployeeStoreServiceImpl() { this.empStoreDB = EmployeeStoreRepositoryImpl.getRepository(); }
 
     public static EmployeeStoreService getEmpStoreService() {
         if (empStoreService == null) empStoreService = new EmployeeStoreServiceImpl();
@@ -31,31 +29,34 @@ public class EmployeeStoreServiceImpl implements EmployeeStoreService {
     }
 
     @Override
-    public Set<EmployeeStore> getAll() {
+    public Set<EmployeeStore> getAll()
+    {
         return this.empStoreDB.getAll();
-
     }
 
     @Override
-    public EmployeeStore create(EmployeeStore t) {
+    public EmployeeStore create(EmployeeStore t)
+    {
         this.empStoreDB.create(t);
         return t;
-
     }
 
     @Override
-    public EmployeeStore read(String s) {
+    public EmployeeStore read(String s)
+    {
         return this.empStoreDB.read(s);
     }
 
     @Override
-    public EmployeeStore update(EmployeeStore t) {
+    public EmployeeStore update(EmployeeStore t)
+    {
         return this.empStoreDB.update(t);
     }
 
 
     @Override
-    public void delete(String s) {
+    public void delete(String s)
+    {
         this.empStoreDB.delete(s);
     }
 }
