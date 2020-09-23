@@ -40,7 +40,7 @@ public class LeaveReportController {
      * @param: leaveReportID - eg. record 001, record 231 etc
      * @return: LeaveReport
      * */
-    @GetMapping ("/read/{id}")
+    @GetMapping ("/read/{leaveReportID}")
     public LeaveReport read(@PathVariable String leaveReportID) {
         return leaveReportService.read(leaveReportID);
     }
@@ -58,12 +58,12 @@ public class LeaveReportController {
      * @param: leaveReportID - eg. record 001, record 231 etc
      * @return: void
      * */
-    @GetMapping ("/delete/{id}")
-    public void delete(@PathVariable String id) {
-        leaveReportService.delete(id);
+    @DeleteMapping ("/delete/{leaveReportID}")
+    public void delete(@PathVariable String leaveReportID) {
+        leaveReportService.delete(leaveReportID);
     }
 
-    /*method used to retrieve Collection of LeaveReport
+    /* exposes method used to retrieve Collection of LeaveReport
      * @param: void
      * @return: Set
      * */
