@@ -1,5 +1,5 @@
 package com.adp3.repository.bridge.impl;
-import org.junit.Assert.*;
+import com.adp3.repository.bridge.EmployeeStoreRepository;
 import com.adp3.entity.bridge.EmployeeStore;
 import java.util.HashSet;
 import java.util.Set;
@@ -8,18 +8,18 @@ import java.util.Set;
  * Author: Munyaradzi Manyati
  * Class: Part Time
  * Student number: 215211855
- * Class Description: EmployeeStoreRepositoryImp
+ * Class Description: EmployeeStoreRepositoryImpl
  */
 
-public class EmployeeStoreRepositoryImp implements EmployeeStoreRepository {
+public class EmployeeStoreRepositoryImpl implements EmployeeStoreRepository {
 
     private static EmployeeStoreRepository repository  = null;
-    private Set<EmployeeStore> empStoreDB;
+    private static Set<EmployeeStore> empStoreDB;
 
-    private EmployeeStoreRepositoryImp(){ this.empStoreDB = new HashSet<>(); }
+    EmployeeStoreRepositoryImpl(){ this.empStoreDB = new HashSet<>(); }
 
-    public static EmployeeStoreRepository getRepository(){
-        if(repository == null)  repository = new EmployeeStoreRepositoryImp();
+    public static EmployeeStoreRepository getRepository() {
+        if(repository == null)  repository = new EmployeeStoreRepositoryImpl();
         return repository;
     }
 
@@ -38,13 +38,16 @@ public class EmployeeStoreRepositoryImp implements EmployeeStoreRepository {
 
     @Override
     public EmployeeStore read(String s) {
-
-        for(EmployeeStore em : this.empStoreDB) {
-            if(em.getStoreID().equalsIgnoreCase(s)) return em;
-            if(em.getEmpID().equalsIgnoreCase(s)) return em;
-            return em;
+        EmployeeStore employeeStore = null;
+        for (EmployeeStore em : this.empStoreDB) {
+            // if(em.getStoreID().equalsIgnoreCase(s)) return em;
+            if (em.getEmpID().equalsIgnoreCase(s)) {
+                employeeStore = em;
+                break;
+            }
         }
-        return null;
+            return employeeStore;
+
     }
 
     @Override
@@ -52,11 +55,12 @@ public class EmployeeStoreRepositoryImp implements EmployeeStoreRepository {
 
 
         EmployeeStore EmpStore = read(t.getEmpID());
-        if (EmpStore != null);
-        this.empStoreDB.remove(EmpStore);
-        this.empStoreDB.add(t);
-        return t;
+        if (EmpStore != null) {
+            this.empStoreDB.remove(EmpStore);
+            this.empStoreDB.add(t);
         }
+        return t;
+    }
 
 
 

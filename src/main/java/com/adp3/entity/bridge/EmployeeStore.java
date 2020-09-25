@@ -8,33 +8,34 @@ package com.adp3.entity.bridge;
  */
 
 public class EmployeeStore {
-    private String empID, storeID;
+    private String empID;
+    private String storeID;
 
-    private EmployeeStore(Builder builder) {
+    public EmployeeStore(Builder builder) {
         this.empID = builder.empID;
         this.storeID = builder.storeID;
+    }
 
+    private EmployeeStore() {
     }
 
     public String getEmpID() {
         return empID;
     }
-
     public String getStoreID() {
         return storeID;
     }
-
     @Override
     public String toString() {
         return "EmployeeStore{" +
                 "empID='" + empID + '\'' +
-                ", storeID='" + storeID + '\'' +
-                '}';
+                "StoreID='" + storeID + "}" + "\n Finished";
     }
 
     public static class Builder {
 
-        private String empID, storeID;
+        private String empID;
+        private String storeID;
 
         public Builder setEmpID(String empID) {
             this.empID = empID;
@@ -57,6 +58,8 @@ public class EmployeeStore {
         public EmployeeStore build() {
             return new EmployeeStore(this);
         }
+
+
     }
 
 }

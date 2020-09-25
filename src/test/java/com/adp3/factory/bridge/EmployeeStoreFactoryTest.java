@@ -2,7 +2,6 @@ package com.adp3.factory.bridge;
 
 
 import com.adp3.entity.bridge.EmployeeStore;
-import com.adp3.factory.bridge.EmployeeStoreFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +14,8 @@ import static org.junit.Assert.*;
  * Test: EmployeeStoreFactory
  */
 public class EmployeeStoreFactoryTest {
-    EmployeeStore employeeStore = EmployeeStoreFactory.getEmployeeStore("A16","1");
+    private String empID;
+    EmployeeStore employeeStore = EmployeeStoreFactory.createEmployeeStore(empID, "bebe");
 
 
     @Test
@@ -23,18 +23,10 @@ public class EmployeeStoreFactoryTest {
         // Test empID and ad storeID is not null;
 
         Assert.assertNotNull(employeeStore.getEmpID());
-        Assert.assertNotNull(employeeStore.getStoreID());
+
 
     }
-    @Test
-    // Testing Object Identity and Equality for storeID
-    public void getStoreID() {
 
-
-            assertSame("A16",employeeStore.getStoreID());
-            assertEquals("A16",employeeStore.getStoreID());
-
-        }
 
         @Test
         // Testing Object Identity and Equality for EmpID

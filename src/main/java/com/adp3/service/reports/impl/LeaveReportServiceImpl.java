@@ -1,10 +1,10 @@
 package com.adp3.service.reports.impl;
 
-import com.adp3.entity.bridge.EmployeeSalary;
 import com.adp3.entity.reports.LeaveReport;
 import com.adp3.repository.reports.LeaveReportRepository;
 import com.adp3.repository.reports.impl.LeaveReportRepositoryImpl;
 import com.adp3.service.reports.LeaveReportService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
@@ -14,7 +14,7 @@ import java.util.Set;
  * Student number: 211137162
  * Description: LeaveReportServiceImpl - implementation of LeaveReportService as a concrete class
  */
-
+@Service
 public class LeaveReportServiceImpl implements LeaveReportService {
     private static LeaveReportService service = null;
     private static LeaveReportRepository repository;
