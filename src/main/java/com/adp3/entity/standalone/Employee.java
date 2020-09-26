@@ -83,6 +83,17 @@ public class Employee {
             return this;
         }
 
+        /** this method is used to copy unchanged data during an update to the database */
+        public Employee.Builder copy(Employee employee) {
+            this.empID = employee.empID;
+            this.empName = employee.empName;
+            this.empLastName = employee.empLastName;
+            this.empPhoneNumber = employee.empPhoneNumber;
+            this.empDOB = employee.empDOB;
+
+            return this;
+        }
+
         public Employee build() {
             return new Employee(this);
         }

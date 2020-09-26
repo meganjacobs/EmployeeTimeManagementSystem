@@ -1,0 +1,62 @@
+package com.adp3.service.bridge.impl;
+
+import com.adp3.entity.bridge.EmployeeLeave;
+import com.adp3.repository.bridge.EmployeeLeaveRepository;
+import com.adp3.repository.bridge.impl.EmployeeLeaveRepositoryImpl;
+import com.adp3.service.bridge.EmpLeaveService;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * Author: Ayanda Nongxa
+ * desc: Leave Service Implementation
+ * Class: Part Time
+ * *Student number: 204513723
+ */
+
+public class LeaveServiceImpl implements EmpLeaveService {
+
+    private static LeaveService service = null;
+    private LeaveRepository repository;
+
+    private ServiceImpl(){
+        this.repository = LeaveRepositoryImpl.getRepository();
+    }
+
+    public static LeaveService getService(){
+        if (service == null) service = new LeaveServiceImpl();
+        return service;
+
+    }
+
+
+
+
+    @Override
+    public Leave create(EmployeeLeave employeeLeave) {
+        return this.repository.create(employeeLeave);
+    }
+
+    @Override
+    public Leave read(String s) {
+        return this.repository.read(s);
+    }
+
+    @Override
+    public Leave update(Leave Leave) {
+        return this.repository.update(Leave);
+    }
+
+    @Override
+    public void delete(String leaveID) {
+
+        this.repository.delete(leaveID);
+
+    }
+
+    @Override
+    public Set<Leave> getAll() {
+        return this.repository.getAll();
+    }
+

@@ -14,12 +14,17 @@ import java.util.Set;
  */
 
 public class LeaveReportRepositoryImpl implements LeaveReportRepository{
+    private static LeaveReportRepository repository = null;
     private Set<LeaveReport> leaveReportDB;
-
     public LeaveReportRepositoryImpl() {
         this.leaveReportDB = new HashSet<>();
     }
 
+    public static LeaveReportRepository getRepository(){
+        if (repository == null) repository = new LeaveReportRepositoryImpl();
+        return repository;
+
+    }
     /*method used to create a new LeaveReport
      * @param: leaveReportDesc - eg. Annual Leave, Sick Leave etc
      * @return: LeaveReport
@@ -53,8 +58,9 @@ public class LeaveReportRepositoryImpl implements LeaveReportRepository{
     @Override
     public LeaveReport update(LeaveReport leaveReport) {
         //update the object
+        LeaveReport existingLeaveReport = read(leaveReport.getLeaveReportID());
         if(leaveReport != null) {
-            this.leaveReportDB.remove(leaveReport);
+            this.leaveReportDB.remove(existingLeaveReport);
             this.leaveReportDB.add(leaveReport);
         }
 
@@ -71,8 +77,7 @@ public class LeaveReportRepositoryImpl implements LeaveReportRepository{
         if (existingLeaveReport != null)
             this.leaveReportDB.remove(existingLeaveReport);
 
-
-        }
+    }
 
     /*method used to retrieve Collection of LeaveReport
      * @param: void
