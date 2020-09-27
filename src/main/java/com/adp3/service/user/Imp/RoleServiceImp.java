@@ -1,8 +1,9 @@
 package com.adp3.service.user.Imp;
 
 import com.adp3.entity.standalone.Role;
-import com.adp3.repository.standalone.Imp.RoleImp;
+//import com.adp3.repository.standalone.Imp.RoleImp;
 import com.adp3.repository.standalone.RoleRepository;
+import com.adp3.repository.standalone.impl.RoleImp;
 import com.adp3.service.user.RoleService;
 
 /* Name: Sanele Ngwenya
