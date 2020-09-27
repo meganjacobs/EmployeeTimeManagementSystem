@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/EmployeeRole")
+@RequestMapping("/employeeRole")
 public class EmployeeRoleController {
 
     @Autowired
@@ -22,16 +22,21 @@ public class EmployeeRoleController {
     }
 
     @GetMapping("/read {employeeRoleId}")
-    public EmployeeRole read(@PathVariable String employeeRoleId){
+    public EmployeeRole read(@PathVariable String employeeRoleId)
+    {
         return employeeRoleService.read(employeeRoleId);
     }
+
     @PutMapping("/update")
-    public EmployeeRole update(EmployeeRole employeeRole) {
+    public EmployeeRole update(EmployeeRole employeeRole)
+    {
         employeeRoleService.update(employeeRole);
         return employeeRole;
     }
+
     @DeleteMapping("/deleting{employeeRoleId}")
-    public void delete(@PathVariable String employeeRoleId){
+    public void delete(@PathVariable String employeeRoleId)
+    {
             employeeRoleService.delete(employeeRoleId);
     }
 
