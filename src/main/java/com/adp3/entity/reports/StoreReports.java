@@ -6,32 +6,30 @@ package com.adp3.entity.reports;
 * Using builder pattern
  */
 
-public class StoreReports {
-    private String reportID, reportDesc, storeID;
+import java.io.Serializable;
+
+public class StoreReports implements Serializable {
+    private String reportID, reportDesc;
     public StoreReports(Builder builder){
         this.reportID = builder.reportID;
-        this.storeID = builder.storeID;
-         this.reportDesc = builder.reportDesc;
+        this.reportDesc = builder.reportDesc;
 
     }
+
+    public StoreReports(){}
+
     public String getReportID() {
         return reportID;
     }
     public String getReportDesc() {
         return reportDesc;
     }
-
-    public String getStoreID() {
-        return storeID;
-    }
-
     @Override
     public String toString() {
         return "Store_Reports{" +
                 "ReportID='" + reportID + '\'' +
                 ", ReportDesc='" + reportDesc + '\'' +
-                ", StoredID='" + storeID + '\'' +
-                '}';
+                                '}';
     }
 
     public void getReportID(String reportID) {
@@ -42,9 +40,6 @@ public class StoreReports {
         this.reportDesc = reportDesc;
     }
 
-    public void getStoreID(String storeID) {
-        this.storeID = storeID;
-    }
 
     public static class Builder {
        private String reportID,storeID, reportDesc;
@@ -55,24 +50,19 @@ public class StoreReports {
 
         }
 
-        public Builder setStoreID(String storeID) {
-            this.storeID = storeID;
-            return this;
-        }
 
         public Builder setReportDesc(String reportDesc) {
             this.reportDesc = reportDesc;
             return this;
         }
 
+
+        public StoreReports build() { return new StoreReports(this);
+        }
         public Builder copy (StoreReports storeReports){
             this.reportID = storeReports.reportID;
-            this.storeID = storeReports.storeID;
             this.reportDesc = storeReports.reportDesc;
-           return this;
-        }
-        public StoreReports build() {
-            return new StoreReports(this);
+            return this;
         }
 
 
