@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
 public class EmployeeServiceImplTest {
 
     private static EmployeeService emp_service = EmployeeServiceImpl.getEmpService();
-    private Employee employee = EmployeeFactory.createEmployee("231","Malusi", "Pakade", "021 543 9876", new Date(1986, 00, 12));
+    private Employee employee = EmployeeFactory.createEmployee("Malusi", "Pakade", "021 543 9876", new Date(1986, 00, 12));
 
 
     @Test
@@ -51,7 +51,7 @@ public class EmployeeServiceImplTest {
         //test expected empLastName value in employee object
         assertEquals( employee.getEmpLastName(), employee.getEmpLastName() );
         //test expected empPhone value in employee object
-        assertEquals( employee.getEmpPhone(), employee.getEmpPhone() );
+        assertEquals( employee.getEmpPhoneNumber(), employee.getEmpPhoneNumber() );
         //test expected empDOB value in employee object
         assertEquals( employee.getEmpDOB(), employee.getEmpDOB() );
 

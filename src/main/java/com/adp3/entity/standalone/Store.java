@@ -1,5 +1,7 @@
 package com.adp3.entity.standalone;
 
+import java.io.Serializable;
+
 /**
  * Author: Riyaad Ryklief
  * Class: Part Time
@@ -7,9 +9,11 @@ package com.adp3.entity.standalone;
  * Entity: Store
  */
 
-public class Store {
+public class Store implements Serializable {
 
     private String storeID, storeName;
+
+    private Store(){}
 
     private Store(Builder builder) {
         this.storeID = builder.storeID;

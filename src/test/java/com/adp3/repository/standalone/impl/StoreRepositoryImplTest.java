@@ -22,7 +22,7 @@ public class StoreRepositoryImplTest {
 
     private static StoreRepository repository = new StoreRepositoryImpl();
     private static String storeID = GenericHelper.generateID();
-    private static Store store = StoreFactory.createStore("Cape Town",storeID);
+    private static Store store = StoreFactory.createStore("Cape Town");
 
     @Test
     public void a_create() {
