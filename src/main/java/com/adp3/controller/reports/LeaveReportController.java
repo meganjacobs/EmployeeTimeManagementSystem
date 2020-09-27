@@ -19,7 +19,7 @@ import java.util.Set;
 
 
 @RestController
-@RequestMapping ("/leaveReport")
+@RequestMapping ("/leaveReporting")
 public class LeaveReportController {
 
     //access to LeaveReportService bean using Spring autowired annotation

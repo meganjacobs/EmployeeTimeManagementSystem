@@ -9,16 +9,16 @@
 
 
 package com.adp3.service.standalone.impl;
-import com.adp3.entity.standalone.TimekeepingService;
-import com.adp3.factory.standalone.TimekeepingServiceFactory;
-import com.adp3.repository.standalone.impl.TimekeepingServiceRepositoryimp;
-import com.adp3.service.standalone.impl.TimeKeepingServiceServicesImpl;
+import com.adp3.entity.standalone.Timekeeping;
+import com.adp3.factory.standalone.TimekeepingFactory;
+import com.adp3.repository.standalone.impl.TimekeepingRepositoryimp;
+import com.adp3.service.standalone.impl.TimeKeepingServiceImpl;
 import junit.framework.TestCase;
 import org.junit.Assert;
 
-public class TimeKeepingServiceServicesImplTest extends TestCase {
+public class TimeKeepingServiceImplTest extends TestCase {
     //private TimeKeepingServiceServicesImpl repository = new TimeKeepingServiceServicesImpl();
-    TimekeepingService timekeepingservice = TimekeepingServiceFactory.buildTimekeepingService(1000,1500,"LM88");
+    Timekeeping timekeepingservice = TimekeepingFactory.buildTimekeepingService(1000,1500,"LM88");
 
 
 
@@ -39,7 +39,7 @@ public class TimeKeepingServiceServicesImplTest extends TestCase {
     }
 
     public void testUpdate() {
-        TimekeepingService rTimekeepingservice = new TimekeepingService.Builder()
+        Timekeeping rTimekeepingservice = new Timekeeping.Builder()
                 .setEmployee_id("LM88")
                 .setTime_In(1500)
                 .setTime_Out(2100)
