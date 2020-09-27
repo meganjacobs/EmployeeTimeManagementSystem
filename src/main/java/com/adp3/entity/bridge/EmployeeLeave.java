@@ -1,5 +1,7 @@
 package com.adp3.entity.bridge;
 
+import com.adp3.entity.standalone.Employee;
+
 import java.util.Date;
 
 /**
@@ -13,7 +15,9 @@ public class EmployeeLeave {
     private String empID, leaveID;
     private Date startDate, endDate;
 
+    private EmployeeLeave(){
 
+    }
 
     public EmployeeLeave(Builder builder){
         this.empID = builder.empID;
