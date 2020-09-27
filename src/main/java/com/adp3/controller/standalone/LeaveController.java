@@ -1,9 +1,10 @@
 package com.adp3.controller.standalone;
 
+import com.adp3.entity.reports.LeaveReport;
 import com.adp3.entity.standalone.Leave;
 import com.adp3.factory.standalone.LeaveFactory;
-import com.adp3.service.standalone.LeaveService;
-import com.adp3.service.standalone.impl.LeaveServiceImpI;
+import com.adp3.service.reports.impl.LeaveReportServiceImpl;
+import com.adp3.service.standalone.impl.LeaveServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ import java.util.Set;
 @RestController
 public class LeaveController {
     @Autowired
-    private LeaveServiceImpI leaveService;
+    private LeaveServiceImpl leaveService;
 
     @PostMapping("/create")
     public Leave create(@RequestBody Leave leave){
@@ -27,13 +28,13 @@ public class LeaveController {
      return leaveService.create(newLeave);
     }
 
-    @GetMapping("/read"{leaveID})
+    @GetMapping("/read{leaveID}")
     public Leave read(@PathVariable String leaveID){return leaveService.read(leaveID);}
 
     @PatchMapping("update")
     public Leave update(@RequestBody Leave leave){return leaveService.update(leave);}
 
-    @DeleteMapping("/delete"{leaveID})
+    @DeleteMapping("/delete{leaveID}")
     public void delete(@PathVariable String leaveID){ leaveService.delete(leaveID);}
 
     @GetMapping("/all")
