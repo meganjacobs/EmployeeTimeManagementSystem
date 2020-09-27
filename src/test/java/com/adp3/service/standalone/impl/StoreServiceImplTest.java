@@ -26,7 +26,7 @@ public class StoreServiceImplTest {
 
     private static StoreService service = StoreServiceImpl.getService();
     private static String storeID = GenericHelper.generateID();
-    private static Store store = StoreFactory.createStore("Cape Town",storeID);
+    private static Store store = StoreFactory.createStore("Cape Town");
 
     @Test
     public void d_getAll() {
