@@ -10,7 +10,9 @@ public class EmployeeSalary {
     private String empID;
     private double empSalaryRate;
     private double empHours;
-    private double empSalary;
+   // private double empSalary;
+
+    private EmployeeSalary(){}
 
     private EmployeeSalary(Builder builder) {
         this.empID = builder.empID;
@@ -31,10 +33,10 @@ public class EmployeeSalary {
 
     public double getEmpHours() { return empHours; }
 
-    public double getEmpSalary() {
+    /*public double getEmpSalary() {
         empSalary = getEmpHours() * getEmpSalaryRate();
         return empSalary;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -42,7 +44,6 @@ public class EmployeeSalary {
                 "empID='" + empID + '\'' +
                 ", empSalaryRate=" + empSalaryRate +
                 ", empHours=" + empHours +
-                ", empSalary=R" + getEmpSalary() +
                 '}';
     }
 

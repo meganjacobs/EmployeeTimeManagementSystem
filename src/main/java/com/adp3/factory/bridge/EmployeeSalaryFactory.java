@@ -9,8 +9,8 @@ import com.adp3.entity.bridge.EmployeeSalary;
 
 public class EmployeeSalaryFactory {
 
-    double salary;
-    public static EmployeeSalary CalcEmployeeSalary(String empID, double rate, double hours){
+
+    public static EmployeeSalary buildEmployeeSalary(String empID, double rate, double hours){
         return new EmployeeSalary.Builder()
                 .setEmpID(empID)
                 .setEmpSalaryRate(rate)
