@@ -21,10 +21,10 @@ public class EmployeeRoleController {
       return employeeRoleService.create(employeeRole1);
     }
 
-    @GetMapping("/read {employeeRoleId}")
-    public EmployeeRole read(@PathVariable String employeeRoleId)
+    @GetMapping("/read {empID}")
+    public EmployeeRole read(@PathVariable String empID)
     {
-        return employeeRoleService.read(employeeRoleId);
+        return employeeRoleService.read(empID);
     }
 
     @PutMapping("/update")
@@ -34,10 +34,10 @@ public class EmployeeRoleController {
         return employeeRole;
     }
 
-    @DeleteMapping("/deleting{employeeRoleId}")
-    public void delete(@PathVariable String employeeRoleId)
+    @DeleteMapping("/deleting{empID}")
+    public void delete(@PathVariable String empID)
     {
-            employeeRoleService.delete(employeeRoleId);
+            employeeRoleService.delete(empID);
     }
 
     @GetMapping("/getAll")
