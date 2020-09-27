@@ -38,7 +38,7 @@ public class StoreReportsControllerTest {
     public void b_read() {
         String url =baseURL + "read storeReports"+ storeReports.getReportID();
         System.out.println("Store Report URL :"+ url);
-        ResponseEntity<StoreReports> storeReportsResponse = restTemplate.postForEntity(url,storeReports,StoreReports.class);
+        ResponseEntity<StoreReports> storeReportsResponse = restTemplate.getForEntity(url,StoreReports.class);
         assertNotNull(storeReportsResponse);
         assertNotNull(storeReportsResponse.getBody());
     }
@@ -60,7 +60,7 @@ public class StoreReportsControllerTest {
     }
 
     @Test
-    public void getAll() {
+    public void f_getAll() {
         String url = baseURL + "all";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
