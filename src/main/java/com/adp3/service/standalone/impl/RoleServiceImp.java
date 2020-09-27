@@ -1,10 +1,11 @@
-package com.adp3.service.user.Imp;
+package com.adp3.service.standalone.impl;
 
 import com.adp3.entity.standalone.Role;
-//import com.adp3.repository.standalone.Imp.RoleImp;
 import com.adp3.repository.standalone.RoleRepository;
 import com.adp3.repository.standalone.impl.RoleImp;
-import com.adp3.service.user.RoleService;
+//import com.adp3.service.user.RoleService;
+
+//import com.adp3.repository.standalone.Imp.RoleImp;
 
 /* Name: Sanele Ngwenya
         Student No.: 216019699
@@ -17,7 +18,7 @@ public class RoleServiceImp implements RoleService {
 
     private RoleServiceImp(){ this.repository = RoleImp.getRepository(); }
 
-    public static RoleService getService(){
+    public static RoleServiceImp getService(){
         RoleServiceImp service = null;
         service = new RoleServiceImp();
         return service;
