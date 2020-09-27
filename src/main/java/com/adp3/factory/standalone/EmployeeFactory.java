@@ -1,6 +1,7 @@
 package com.adp3.factory.standalone;
 
 import com.adp3.entity.standalone.Employee;
+import com.adp3.util.GenericHelper;
 
 import java.util.Date;
 
@@ -13,7 +14,9 @@ import java.util.Date;
 
 public class EmployeeFactory {
 
-    public static Employee createEmployee(String empID, String  empName, String empLastName, String empPhoneNumber, Date empDOB){
+    public static Employee createEmployee(String  empName, String empLastName, String empPhoneNumber, Date empDOB){
+        String empID = GenericHelper.generateID();
+
         return new Employee.Builder()
                 .setEmpID(empID)
                 .setEmpName(empName)

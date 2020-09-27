@@ -5,6 +5,7 @@ import com.adp3.factory.standalone.EmployeeFactory;
 import com.adp3.repository.standalone.EmployeeRepository;
 import com.adp3.repository.standalone.impl.EmployeeRepositoryImpl;
 import com.adp3.service.standalone.EmployeeService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +17,7 @@ import java.util.Set;
  * 2020
  */
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
     private static EmployeeService emp_service = null;

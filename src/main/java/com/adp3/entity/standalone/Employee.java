@@ -1,5 +1,6 @@
 package com.adp3.entity.standalone;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,10 +10,13 @@ import java.util.Date;
  * 2020
  */
 
-public class Employee {
+public class Employee implements Serializable {
+
 
     private String empID, empName, empLastName, empPhoneNumber;
     private Date empDOB;
+
+    private Employee(){ }
 
     public Employee(Builder builder) {
         this.empID = builder.empID;
@@ -45,7 +49,7 @@ public class Employee {
         return empLastName;
     }
 
-    public String getEmpPhone() {
+    public String getEmpPhoneNumber() {
         return empPhoneNumber;
     }
 
