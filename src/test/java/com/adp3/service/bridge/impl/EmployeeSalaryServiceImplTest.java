@@ -2,8 +2,6 @@ package com.adp3.service.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeSalary;
 import com.adp3.factory.bridge.EmployeeSalaryFactory;
-import com.adp3.repository.bridge.EmployeeSalaryRepository;
-import com.adp3.repository.bridge.impl.EmployeeSalaryRepositoryImpl;
 import com.adp3.service.bridge.EmployeeSalaryService;
 import com.adp3.util.GenericHelper;
 import org.junit.Assert;
@@ -13,7 +11,7 @@ import org.junit.runners.MethodSorters;
 
 import java.util.Set;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 /**
  * Author: Liesl Gounden-Wentzel
  * Class: Part Time
@@ -25,7 +23,7 @@ public class EmployeeSalaryServiceImplTest {
 
     private static EmployeeSalaryService service = new EmployeeSalaryServiceImpl().getService();
     private static String empID = GenericHelper.generateID();
-    private static EmployeeSalary empSal = EmployeeSalaryFactory.CalcEmployeeSalary(empID,56.23,45);
+    private static EmployeeSalary empSal = EmployeeSalaryFactory.buildEmployeeSalary(empID,56.23,45);
 
 
     @Test
