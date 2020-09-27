@@ -1,10 +1,10 @@
-package com.adp3.factory;
+package com.adp3.factory.bridge;
 
 import com.adp3.entity.bridge.EmployeeSalary;
-import com.adp3.factory.bridge.EmployeeSalaryFactory;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 /**
  * @author Liesl Gounden-Wentzel
@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 public class EmployeeSalaryFactoryTest {
 
-    EmployeeSalary empSal = EmployeeSalaryFactory.CalcEmployeeSalary("A23",56.23, 45);
+    EmployeeSalary empSal = EmployeeSalaryFactory.buildEmployeeSalary("A23",56.23, 45);
 
     @Test // Testing Object Identity
     public void getEmployeeID() throws Exception {
@@ -29,7 +29,7 @@ public class EmployeeSalaryFactoryTest {
 
         //double rate = empSal.getEmpSalary();
         //double hours = empSal.getEmpHours();
-        double salary = empSal.getEmpSalary();
+        double salary = empSal.getEmpSalaryRate() * empSal.getEmpHours();
 
         assertEquals(2530.35, salary,0.1); // will pass
         System.out.println("Employee Salary : R" + salary);

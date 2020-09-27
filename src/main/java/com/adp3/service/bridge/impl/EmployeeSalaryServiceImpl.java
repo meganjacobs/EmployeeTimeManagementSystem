@@ -4,7 +4,9 @@ import com.adp3.entity.bridge.EmployeeSalary;
 import com.adp3.repository.bridge.EmployeeSalaryRepository;
 import com.adp3.repository.bridge.impl.EmployeeSalaryRepositoryImpl;
 import com.adp3.service.bridge.EmployeeSalaryService;
+import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -13,7 +15,7 @@ import java.util.Set;
  * Student number: 202104133
  * Description:EmployeeSalaryServiceImpl - implementation of EmployeeSalaryService as a concrete class
  */
-
+@Service
 public class EmployeeSalaryServiceImpl implements EmployeeSalaryService {
 
     private static EmployeeSalaryService service = null;
@@ -54,4 +56,17 @@ public class EmployeeSalaryServiceImpl implements EmployeeSalaryService {
         repository.delete(s);
 
     }
+    public Set<EmployeeSalary> calcMonthlySalary(){
+        Set<EmployeeSalary> rate = getAll();
+        Set<EmployeeSalary> salary = new HashSet<>();
+        for (EmployeeSalary sal: rate){
+            double calc = sal.getEmpHours() * sal.getEmpSalaryRate();
+            salary.add(sal);
+        }
+
+        return salary;
+    }
+
+
+
 }

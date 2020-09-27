@@ -19,7 +19,7 @@ public class EmployeeSalaryRepositoryImplTest {
 
     private static EmployeeSalaryRepository repo = new EmployeeSalaryRepositoryImpl();
     private static String empID = GenericHelper.generateID();
-    private static EmployeeSalary empSal = EmployeeSalaryFactory.CalcEmployeeSalary(empID,56.23,45);
+    private static EmployeeSalary empSal = EmployeeSalaryFactory.buildEmployeeSalary(empID,56.23,45);
 
 
 
