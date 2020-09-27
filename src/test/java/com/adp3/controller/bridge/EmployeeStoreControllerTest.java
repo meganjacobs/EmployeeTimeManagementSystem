@@ -4,6 +4,12 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Author: Munyaradzi  Manyati
+ * Class: Part Time
+ * Student number: 215211855
+ * Class Description: EmployeeStoreControllerTest
+ */
 public class EmployeeStoreControllerTest {
 
     @Test
