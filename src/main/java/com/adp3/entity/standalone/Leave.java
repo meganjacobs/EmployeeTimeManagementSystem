@@ -1,5 +1,7 @@
 package com.adp3.entity.standalone;
 
+import java.io.Serializable;
+
 /**
  * Author: Ayanda Nongxa
  * Class: Part Time
@@ -7,11 +9,13 @@ package com.adp3.entity.standalone;
  * Class Description: Leave
  */
 
-public class Leave {
+public class Leave implements Serializable {
 
     private String leaveID;
     private String leaveDesc;
     private int leaveDaysAmt;
+
+    private Leave(){}
 
     private Leave(Builder builder) {
         this.leaveID = builder.leaveID;

@@ -4,6 +4,7 @@ import com.adp3.entity.standalone.Leave;
 import com.adp3.repository.standalone.LeaveRepository;
 import com.adp3.repository.standalone.impl.LeaveRepositoryImpl;
 import com.adp3.service.standalone.LeaveService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
@@ -13,7 +14,7 @@ import java.util.Set;
  * Class: Part Time
  * *Student number: 204513723
  */
-
+@Service
 public class LeaveServiceImpI implements LeaveService {
 
     private static LeaveService service = null;
