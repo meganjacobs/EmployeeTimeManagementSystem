@@ -3,6 +3,8 @@ import com.adp3.entity.standalone.Store;
 import com.adp3.repository.standalone.StoreRepository;
 import com.adp3.repository.standalone.impl.StoreRepositoryImpl;
 import com.adp3.service.standalone.StoreService;
+import org.springframework.stereotype.Service;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +14,8 @@ import java.util.Set;
  * Student number: 215187849
  * Description: StoreServiceImpl class
  */
+
+ @Service
 public class StoreServiceImpl implements StoreService {
 
     private static StoreService service = null;
@@ -24,6 +28,10 @@ public class StoreServiceImpl implements StoreService {
     public static StoreService getService(){
         if (service == null) service = new StoreServiceImpl();
         return service;
+    }
+
+    public static void setService(StoreService service) {
+        StoreServiceImpl.service = service;
     }
 
 
