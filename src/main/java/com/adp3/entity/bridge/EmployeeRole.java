@@ -10,6 +10,10 @@ package com.adp3.entity.bridge;
 public class EmployeeRole {
     private String empID, roleID;
 
+    public EmployeeRole(){
+
+    }
+
     private EmployeeRole(Builder builder) {
         this.empID = builder.empID;
         this.roleID = builder.roleID;

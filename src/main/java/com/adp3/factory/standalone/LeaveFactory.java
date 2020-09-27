@@ -15,12 +15,11 @@ public class LeaveFactory {
     private LeaveFactory(){
     }
 
-    public static Leave createLeave(String leaveDesc, int leaveDaysAmt) {
+    public static Leave createLeave(String leaveDesc) {
         String leaveID = GenericHelper.generateID();
         return new Leave.Builder()
                 .setLeaveID(leaveID)
                 .setLeaveDesc(leaveDesc)
-                .setLeaveDaysAmt(leaveDaysAmt)
                 .build();
     }
 
