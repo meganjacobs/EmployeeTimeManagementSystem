@@ -49,8 +49,8 @@ public class TimekeepingControllerTest extends TestCase {
     public void testUpdate() {
         Timekeeping updated  = new Timekeeping.Builder().copy(timekeeping).setEmployee_id("12hugh23").setTime_In(1800).setTime_Out(1000).build();
         String url = timekeepingUrl + " updated ";
-        ResponseEntity<Timekeeping> storeResponseEntity = restTemplate.postForEntity(url,updated, Timekeeping.class);
-        assertNotNull(storeResponseEntity);
+        ResponseEntity<Timekeeping> ResponseEntity = restTemplate.postForEntity(url,updated, Timekeeping.class);
+        assertNotNull(ResponseEntity);
         assertNotNull(updated);
     }
 
