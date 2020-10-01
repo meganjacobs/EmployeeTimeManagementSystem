@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 public class StoreFactoryTest {
 
-    Store store = StoreFactory.createStore("PNP","1");
+    Store store = StoreFactory.createStore("PNP");
 
     @Test
     public void createStore() {

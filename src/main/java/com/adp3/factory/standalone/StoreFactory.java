@@ -1,6 +1,7 @@
 package com.adp3.factory.standalone;
 
 import com.adp3.entity.standalone.Store;
+import com.adp3.util.GenericHelper;
 
 /**
  * Author: Riyaad Ryklief
@@ -11,13 +12,14 @@ import com.adp3.entity.standalone.Store;
 
 public class StoreFactory {
 
-        public static Store createStore(String storeName, String storeID) {
-
+        public static Store createStore(String storeName) {
+            String storeID = GenericHelper.generateID();
               return new Store.Builder()
                     .setStoreID(storeID)
                     .setStoreName(storeName)
                     .build();
         }
+
 
 }
 

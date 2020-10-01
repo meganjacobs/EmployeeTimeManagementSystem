@@ -16,11 +16,9 @@ public class StoreReportFactory {
 
     public static StoreReports createStoreReports(String reportDesc){
         String reportID = GenericHelper.generateID();
-        String storeID= GenericHelper.generateID();
         StoreReports storeReports;
         StoreReports.Builder builder = new StoreReports.Builder();
         builder.setReportID(reportID);
-        builder.setStoreID(storeID);
         builder.setReportDesc(reportDesc);
         storeReports = builder
                 .build();
