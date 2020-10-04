@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
  * *Student number: 204513723
  */
 
-public class LeaveServiceImpITest {
+public class LeaveServiceImplTest {
 
     @Test
     public void create() {

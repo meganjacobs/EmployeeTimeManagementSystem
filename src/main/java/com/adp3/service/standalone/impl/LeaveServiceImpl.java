@@ -15,17 +15,17 @@ import java.util.Set;
  * *Student number: 204513723
  */
 @Service
-public class LeaveServiceImpI implements LeaveService {
+public class LeaveServiceImpl implements LeaveService {
 
     private static LeaveService service = null;
     private LeaveRepository repository;
 
-    private LeaveServiceImpI() {
+    private LeaveServiceImpl() {
         this.repository = LeaveRepositoryImpl.getRepository();
     }
 
     public static LeaveService getService() {
-        if (service == null) service = new LeaveServiceImpI();
+        if (service == null) service = new LeaveServiceImpl();
         return service;
 
     }
