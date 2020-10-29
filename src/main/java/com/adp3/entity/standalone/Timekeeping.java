@@ -7,13 +7,13 @@ package com.adp3.entity.standalone;
  * Class Description: TimeKeepingService
  */
 
-public class TimekeepingService {
+public class Timekeeping {
 
     private int time_In;
     private int time_Out;
     private String empID;
 
-    private TimekeepingService(Builder builder){
+    private Timekeeping(Builder builder){
         this.time_In = builder.time_In;
         this.time_Out = builder.time_Out;
         this.empID = builder.empID;
@@ -65,7 +65,7 @@ public class TimekeepingService {
             return this;
         }
 
-        public Builder copy(TimekeepingService timekeepingService){
+        public Builder copy(Timekeeping timekeepingService){
 
           this.time_In= timekeepingService.time_In;
             this.time_Out= timekeepingService.time_Out;
@@ -75,9 +75,9 @@ public class TimekeepingService {
 
         }
 
-        public TimekeepingService build(){
+        public Timekeeping build(){
 
-            return new TimekeepingService(this);
+            return new Timekeeping(this);
         }
 
 

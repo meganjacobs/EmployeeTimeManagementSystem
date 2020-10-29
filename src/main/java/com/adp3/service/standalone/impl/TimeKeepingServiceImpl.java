@@ -1,23 +1,24 @@
 package com.adp3.service.standalone.impl;
 
-import com.adp3.repository.standalone.TimekeepingServiceRepository;
-import com.adp3.repository.standalone.impl.TimekeepingServiceRepositoryimp;
+import com.adp3.repository.standalone.TimekeepingRepository;
+import com.adp3.repository.standalone.impl.TimekeepingRepositoryimp;
 import com.adp3.service.standalone.TimeKeepingServices;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
+@Service
+public class TimeKeepingServiceImpl implements TimeKeepingServices {
 
-public class TimeKeepingServiceServicesImpl implements TimeKeepingServices {
+    private static TimeKeepingServiceImpl service=null;
 
-    private static TimeKeepingServiceServicesImpl service=null;
+    private TimekeepingRepository repository;
 
-    private TimekeepingServiceRepository repository;
-
-    private TimeKeepingServiceServicesImpl(){
-        this.repository= TimekeepingServiceRepositoryimp.getRepository();
+    private TimeKeepingServiceImpl(){
+        this.repository= TimekeepingRepositoryimp.getRepository();
         }
 
-    public static TimeKeepingServiceServicesImpl getService() {
-        if(service == null) service= new TimeKeepingServiceServicesImpl();
+    public static TimeKeepingServiceImpl getService() {
+        if(service == null) service= new TimeKeepingServiceImpl();
         return service;
     }
 

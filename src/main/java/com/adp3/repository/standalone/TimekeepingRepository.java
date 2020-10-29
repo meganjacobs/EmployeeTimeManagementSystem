@@ -5,12 +5,12 @@
  * Description: TimekeepingServiceRepository - extends member methods of parent "IRepository"
  */
 package com.adp3.repository.standalone;
-import com.adp3.entity.standalone.TimekeepingService;
+import com.adp3.entity.standalone.Timekeeping;
 import com.adp3.repository.IRepository;
 
 import java.util.Set;
 
-public interface  TimekeepingServiceRepository extends IRepository<TimekeepingService,String> {
-Set<TimekeepingService> getAll();
+public interface  TimekeepingRepository extends IRepository<Timekeeping,String> {
+Set<Timekeeping> getAll();
 
 }
