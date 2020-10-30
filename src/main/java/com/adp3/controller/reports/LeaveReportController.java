@@ -1,8 +1,16 @@
 package com.adp3.controller.reports;
 
+import com.adp3.entity.bridge.EmployeeLeave;
 import com.adp3.entity.reports.LeaveReport;
+import com.adp3.entity.standalone.Leave;
 import com.adp3.factory.reports.LeaveReportFactory;
+import com.adp3.service.bridge.impl.EmpLeaveServiceImpl;
+import com.adp3.service.bridge.impl.EmployeeStoreServiceImpl;
 import com.adp3.service.reports.impl.LeaveReportServiceImpl;
+import com.adp3.service.standalone.EmployeeService;
+import com.adp3.service.standalone.impl.EmployeeServiceImpl;
+import com.adp3.service.standalone.impl.LeaveServiceImpl;
+import com.adp3.service.standalone.impl.StoreServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +33,9 @@ public class LeaveReportController {
     //access to LeaveReportService bean using Spring autowired annotation
     @Autowired
     private LeaveReportServiceImpl leaveReportService;
+    //access to EmployeeService bean using Spring autowired annotation
+    @Autowired
+    private EmpLeaveServiceImpl employeeLeaveService;
 
     /* exposes method used to create a new LeaveReport
      * @param: leaveReportDesc - eg. Annual Leave, Sick Leave etc
@@ -32,6 +43,12 @@ public class LeaveReportController {
      * */
     @PostMapping ("/create")
     public LeaveReport create(@RequestBody LeaveReport leaveReport){
+       /* boolean leaveReportExists = false;
+        boolean employeeleaveExists = false;
+        EmployeeLeave employeeLeave = employeeLeaveService.read(leaveReport.getLeaveReportDesc());
+        if (employeeLeave != null) {
+
+        }*/
         LeaveReport newLeaveReport = LeaveReportFactory.buildLeaveReport(leaveReport.getLeaveReportDesc());
         return leaveReportService.create(newLeaveReport);
     }
