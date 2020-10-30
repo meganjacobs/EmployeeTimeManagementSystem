@@ -2,6 +2,7 @@ package com.adp3.repository.reports;
 
 import com.adp3.entity.reports.LeaveReport;
 import com.adp3.repository.IRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Set;
 /**
@@ -11,7 +12,7 @@ import java.util.Set;
  * Description: LeaveReportRepository - extends member methods of parent "IRepository"
  */
 
-public interface LeaveReportRepository extends IRepository<LeaveReport,String> {
+public interface LeaveReportRepository extends JpaRepository<LeaveReport,String> {
     //Retrieves collection specific to LeaveReportRepository
     Set<LeaveReport> getAll();
 }
