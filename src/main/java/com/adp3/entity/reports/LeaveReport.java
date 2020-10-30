@@ -1,5 +1,7 @@
 package com.adp3.entity.reports;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
@@ -8,18 +10,18 @@ import java.io.Serializable;
  * Student number: 211137162
  * Class Description: LeaveReport
  */
-
+@Entity
 public class LeaveReport implements Serializable {
-
+    @Id
     private String leaveReportID;
     private String leaveReportDesc;
+
+    protected LeaveReport(){}
 
     private LeaveReport(Builder builder) {
         this.leaveReportID = builder.leaveReportID;
         this.leaveReportDesc = builder.leaveReportDesc;
     }
-
-    private LeaveReport(){}
 
     public String getLeaveReportID() {
         return leaveReportID;
