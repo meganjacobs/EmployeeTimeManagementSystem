@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LeaveReportServiceImplTest {
 
-    private static LeaveReportService leaveReportService= LeaveReportServiceImpl.getService();
+    private static LeaveReportService leaveReportService;
     private static LeaveReport leaveReport = LeaveReportFactory.buildLeaveReport("Original request");
 
     @Test
