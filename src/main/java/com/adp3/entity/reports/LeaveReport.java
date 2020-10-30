@@ -3,6 +3,7 @@ package com.adp3.entity.reports;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Author: Megan Jacobs
@@ -64,7 +65,18 @@ public class LeaveReport implements Serializable {
             return new LeaveReport(this);
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Builder builder = (Builder) o;
+            return leaveReportID.equals(builder.leaveReportID);
+        }
 
+        @Override
+        public int hashCode() {
+            return Objects.hash(leaveReportID);
+        }
     }
 
 }
