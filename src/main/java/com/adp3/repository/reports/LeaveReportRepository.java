@@ -13,6 +13,5 @@ import java.util.Set;
  */
 
 public interface LeaveReportRepository extends JpaRepository<LeaveReport,String> {
-    //Retrieves collection specific to LeaveReportRepository
-    Set<LeaveReport> getAll();
+
 }
