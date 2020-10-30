@@ -1,3 +1,4 @@
+/*
 package com.adp3.repository.reports.impl;
 
 import com.adp3.entity.reports.LeaveReport;
@@ -56,3 +57,4 @@ public class LeaveReportRepositoryImplTest {
         System.out.println("GetAll : " + repository.getAll());
     }
 }
+*/
