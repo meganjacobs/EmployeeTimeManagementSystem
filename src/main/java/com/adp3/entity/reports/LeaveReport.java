@@ -17,6 +17,7 @@ public class LeaveReport implements Serializable {
     private String leaveReportID;
     private String empID, leaveID, storeID;
 
+    // access modifier change to accommodate APA rules
     protected LeaveReport(){}
 
     private LeaveReport(Builder builder) {
