@@ -2,11 +2,12 @@ package com.adp3.service.reports.impl;
 
 import com.adp3.entity.reports.LeaveReport;
 import com.adp3.repository.reports.LeaveReportRepository;
-import com.adp3.repository.reports.impl.LeaveReportRepositoryImpl;
 import com.adp3.service.reports.LeaveReportService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Author: Megan Jacobs
@@ -16,48 +17,45 @@ import java.util.Set;
  */
 @Service
 public class LeaveReportServiceImpl implements LeaveReportService {
-    private static LeaveReportService service = null;
+
+    @Autowired
     private static LeaveReportRepository repository;
-
-    private LeaveReportServiceImpl (){
-        this.repository = LeaveReportRepositoryImpl.getRepository();  }
-
-        public static LeaveReportService getService(){
-        if (service == null) service = new LeaveReportServiceImpl();
-        return service;
-    }
 
     @Override
     public LeaveReport create(LeaveReport t) {
 
-        try{ this.repository.create(t);
+        try{ repository.save(t);
         }
         catch(Exception e){
-            if (repository!= null){
-
+            if (repository.existsById(t.getLeaveReportID())){
+                System.out.println("Record exists: " + t.getLeaveReportID());
             }
         }return t;
     }
 
     @Override
     public LeaveReport read(String s) {
-        return this.repository.read(s);
+        return repository.getOne(s);
     }
 
     @Override
     public LeaveReport update(LeaveReport t) {
-        return this.repository.update(t);
+        if (repository.existsById(t.getLeaveReportID())){
+        return repository.save(t);}
+        return null;
     }
 
     @Override
     public void delete(String s) {
-        repository.delete(s);
-
+        if (repository.existsById(s)){
+        repository.deleteById(s);
+        }
+        else System.out.println("Record does not exist");
     }
 
     @Override
     public Set<LeaveReport> getAll() {
-        return this.repository.getAll();
+       return repository.findAll().stream().collect(Collectors.toSet());
     }
 /*
     @Override

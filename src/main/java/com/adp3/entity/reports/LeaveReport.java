@@ -1,6 +1,9 @@
 package com.adp3.entity.reports;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Author: Megan Jacobs
@@ -8,18 +11,18 @@ import java.io.Serializable;
  * Student number: 211137162
  * Class Description: LeaveReport
  */
-
+@Entity
 public class LeaveReport implements Serializable {
-
+    @Id
     private String leaveReportID;
     private String leaveReportDesc;
+
+    protected LeaveReport(){}
 
     private LeaveReport(Builder builder) {
         this.leaveReportID = builder.leaveReportID;
         this.leaveReportDesc = builder.leaveReportDesc;
     }
-
-    private LeaveReport(){}
 
     public String getLeaveReportID() {
         return leaveReportID;
@@ -62,7 +65,18 @@ public class LeaveReport implements Serializable {
             return new LeaveReport(this);
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Builder builder = (Builder) o;
+            return leaveReportID.equals(builder.leaveReportID);
+        }
 
+        @Override
+        public int hashCode() {
+            return Objects.hash(leaveReportID);
+        }
     }
 
 }
