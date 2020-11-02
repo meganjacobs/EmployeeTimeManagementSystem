@@ -61,7 +61,7 @@ public class LeaveReportController {
 
         if (employeeLeaveExists && employeeStoreExists)
             return leaveReportService.create(leaveReport);
-        else return LeaveReportFactory.buildLeaveReport(leaveReport.getEmpID(), leaveReport.getLeaveID(), leaveReport.getStoreID());
+        else return LeaveReportFactory.buildLeaveReport(employeeLeave.getEmpID(), employeeLeave.getLeaveID(), employeeStore.getStoreID());
     }
 
     /* exposes method used to read a LeaveReport
