@@ -3,6 +3,7 @@ package com.adp3.service.reports.impl;
 import com.adp3.entity.reports.LeaveReport;
 import com.adp3.factory.reports.LeaveReportFactory;
 import com.adp3.service.reports.LeaveReportService;
+import org.hibernate.Session;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -11,6 +12,8 @@ import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.Assert;
+
 
 /**
  * Author: Megan Jacobs
@@ -32,13 +35,14 @@ public class LeaveReportServiceImplTest {
     @Before
     public void setup() {
         leaveReport = LeaveReportFactory.buildLeaveReport("emp001", "001", "cpt001");
-        leaveReportService.create(leaveReport);
+        //leaveReportService.create(leaveReport);
     }
 
     @Test
     public void a_create() {
         LeaveReport created = leaveReportService.create(leaveReport);
         System.out.println("Created : " + created);
+        Assert.notNull(created, ("Created : " + created));
     }
 
     @Test
