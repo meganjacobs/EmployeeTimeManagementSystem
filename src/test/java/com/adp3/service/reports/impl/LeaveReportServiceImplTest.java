@@ -35,7 +35,7 @@ public class LeaveReportServiceImplTest {
     @Before
     public void setup() {
         leaveReport = LeaveReportFactory.buildLeaveReport("emp001", "001", "cpt001");
-        //leaveReportService.create(leaveReport);
+        leaveReportService.create(leaveReport);
     }
 
     @Test
@@ -66,11 +66,13 @@ public class LeaveReportServiceImplTest {
     @Test
     public void e_delete() {
         leaveReportService.delete(leaveReport.getLeaveReportID());
-        System.out.println("Deleted :" + leaveReportService.getAll());
+        Assert.hasText(leaveReport.getEmpID(),("Deleted :" + leaveReport.getLeaveReportID()));
+        System.out.println(("Deleted leaveReportID: " + leaveReport.getLeaveReportID()));
     }
 
     @Test
     public void d_getAll() {
+        Assert.notEmpty(leaveReportService.getAll(),"GetAll : " + leaveReportService.getAll());
         System.out.println("GetAll : " + leaveReportService.getAll());
     }
 }
