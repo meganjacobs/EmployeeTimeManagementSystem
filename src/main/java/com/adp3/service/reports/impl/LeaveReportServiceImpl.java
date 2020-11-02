@@ -4,8 +4,11 @@ import com.adp3.entity.reports.LeaveReport;
 import com.adp3.repository.reports.LeaveReportRepository;
 import com.adp3.service.reports.LeaveReportService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -19,18 +22,17 @@ import java.util.stream.Collectors;
 public class LeaveReportServiceImpl implements LeaveReportService {
 
     @Autowired
-    private static LeaveReportRepository repository;
+    LeaveReportRepository repository;
+
 
     @Override
     public LeaveReport create(LeaveReport t) {
 
-        try{ repository.save(t);
+    if (repository.existsById(t.getLeaveReportID())) {
+            System.out.println("Record exists: " + t.getLeaveReportID());
         }
-        catch(Exception e){
-            if (repository.existsById(t.getLeaveReportID())){
-                System.out.println("Record exists: " + t.getLeaveReportID());
-            }
-        }return t;
+        else repository.save(t);
+        return t;
     }
 
     @Override
@@ -41,8 +43,9 @@ public class LeaveReportServiceImpl implements LeaveReportService {
     @Override
     public LeaveReport update(LeaveReport t) {
         if (repository.existsById(t.getLeaveReportID())){
-        return repository.save(t);}
-        return null;
+        return create(t);
+        }
+        else return null;
     }
 
     @Override
@@ -57,24 +60,5 @@ public class LeaveReportServiceImpl implements LeaveReportService {
     public Set<LeaveReport> getAll() {
        return repository.findAll().stream().collect(Collectors.toSet());
     }
-/*
-    @Override
-    public Set<LeaveReport> index() {
-        try{}
-        catch(Exception e){}
-        return null;
-    }
-
-    @Override
-    public Set<LeaveReport> findByName() {
-        return null;
-    }
-
-    @Override
-    public Set<LeaveReport> findByID() {
-        return null;
-    }
-
- */
 
 }
