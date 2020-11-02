@@ -4,11 +4,9 @@ import com.adp3.entity.reports.LeaveReport;
 import com.adp3.repository.reports.LeaveReportRepository;
 import com.adp3.service.reports.LeaveReportService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
+import javax.transaction.Transactional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -19,6 +17,7 @@ import java.util.stream.Collectors;
  * Description: LeaveReportServiceImpl - implementation of LeaveReportService as a concrete class
  */
 @Service
+@Transactional
 public class LeaveReportServiceImpl implements LeaveReportService {
 
     @Autowired
@@ -37,7 +36,7 @@ public class LeaveReportServiceImpl implements LeaveReportService {
 
     @Override
     public LeaveReport read(String s) {
-        return repository.getOne(s);
+        return repository.findById(s).orElse(null);
     }
 
     @Override
