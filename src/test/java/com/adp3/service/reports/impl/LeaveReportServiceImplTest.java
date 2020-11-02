@@ -3,11 +3,18 @@ package com.adp3.service.reports.impl;
 import com.adp3.entity.reports.LeaveReport;
 import com.adp3.factory.reports.LeaveReportFactory;
 import com.adp3.service.reports.LeaveReportService;
+import org.hibernate.Session;
+import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.Assert;
 
-import static org.junit.Assert.*;
+
 /**
  * Author: Megan Jacobs
  * Class: Part Time
@@ -15,18 +22,27 @@ import static org.junit.Assert.*;
  * Description: Test methods of LeaveReportService (IService) implemented in its concrete class
  */
 
-//Annotation of executing tests in alphabetical order
+//Annotation for executing tests in alphabetical order
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class LeaveReportServiceImplTest {
 
-    private static LeaveReportService leaveReportService= LeaveReportServiceImpl.getService();
-    private static LeaveReport leaveReport = LeaveReportFactory.buildLeaveReport("Original request");
+    @Autowired
+    LeaveReportService leaveReportService;
+    LeaveReport leaveReport;
+
+    @Before
+    public void setup() {
+        leaveReport = LeaveReportFactory.buildLeaveReport("emp001", "001", "cpt001");
+        leaveReportService.create(leaveReport);
+    }
 
     @Test
     public void a_create() {
         LeaveReport created = leaveReportService.create(leaveReport);
-        assertEquals(leaveReport.getLeaveReportID(), created.getLeaveReportID());
         System.out.println("Created : " + created);
+        Assert.notNull(created, ("Created : " + created));
     }
 
     @Test
@@ -39,7 +55,9 @@ public class LeaveReportServiceImplTest {
     public void c_update() {
         LeaveReport updated = new LeaveReport.Builder()
                 .copy(leaveReport)
-                .setLeaveReportDesc("Updated request")
+                .setEmpID("emp002")
+                .setLeaveID("002")
+                .setStoreID("cpt002")
                 .build();
         updated = leaveReportService.update(updated);
         System.out.println("Updated : " + updated);
@@ -48,11 +66,13 @@ public class LeaveReportServiceImplTest {
     @Test
     public void e_delete() {
         leaveReportService.delete(leaveReport.getLeaveReportID());
-        System.out.println("Deleted :" + leaveReportService.getAll());
+        Assert.hasText(leaveReport.getEmpID(),("Deleted :" + leaveReport.getLeaveReportID()));
+        System.out.println(("Deleted leaveReportID: " + leaveReport.getLeaveReportID()));
     }
 
     @Test
     public void d_getAll() {
+        Assert.notEmpty(leaveReportService.getAll(),"GetAll : " + leaveReportService.getAll());
         System.out.println("GetAll : " + leaveReportService.getAll());
     }
 }

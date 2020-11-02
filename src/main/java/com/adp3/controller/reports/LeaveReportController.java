@@ -1,7 +1,11 @@
 package com.adp3.controller.reports;
 
+import com.adp3.entity.bridge.EmployeeLeave;
+import com.adp3.entity.bridge.EmployeeStore;
 import com.adp3.entity.reports.LeaveReport;
 import com.adp3.factory.reports.LeaveReportFactory;
+import com.adp3.service.bridge.impl.EmpLeaveServiceImpl;
+import com.adp3.service.bridge.impl.EmployeeStoreServiceImpl;
 import com.adp3.service.reports.impl.LeaveReportServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +29,12 @@ public class LeaveReportController {
     //access to LeaveReportService bean using Spring autowired annotation
     @Autowired
     private LeaveReportServiceImpl leaveReportService;
+    //creates EmployeeLeaveService bean using Spring autowired annotation
+    @Autowired
+    private EmpLeaveServiceImpl employeeLeaveService;
+    //creates EmployeeStoreService bean using Spring autowired annotation
+    @Autowired
+    private EmployeeStoreServiceImpl employeeStoreService;
 
     /* exposes method used to create a new LeaveReport
      * @param: leaveReportDesc - eg. Annual Leave, Sick Leave etc
@@ -32,8 +42,26 @@ public class LeaveReportController {
      * */
     @PostMapping ("/create")
     public LeaveReport create(@RequestBody LeaveReport leaveReport){
-        LeaveReport newLeaveReport = LeaveReportFactory.buildLeaveReport(leaveReport.getLeaveReportDesc());
-        return leaveReportService.create(newLeaveReport);
+        boolean employeeLeaveExists = false;
+        boolean employeeStoreExists = false;
+
+        EmployeeLeave employeeLeave = null;
+        try {
+            employeeLeave = employeeLeaveService.read(leaveReport.getLeaveID());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (employeeLeave != null) {
+            employeeLeaveExists = true;
+        }
+        EmployeeStore employeeStore = employeeStoreService.read(leaveReport.getStoreID());
+        if (employeeStore != null) {
+            employeeStoreExists = true;
+        }
+
+        if (employeeLeaveExists && employeeStoreExists)
+            return leaveReportService.create(leaveReport);
+        else return LeaveReportFactory.buildLeaveReport(employeeLeave.getEmpID(), employeeLeave.getLeaveID(), employeeStore.getStoreID());
     }
 
     /* exposes method used to read a LeaveReport
