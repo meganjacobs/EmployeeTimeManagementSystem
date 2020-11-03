@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Race {
+public class gitRace {
 
     @Id
     private String id;
@@ -28,6 +28,7 @@ public class Race {
         return "Race{" +
                 "id='" + id + '\'' +
                 ", description='" + description + '\'' +;
+
     }
 
     public static class Builder {
@@ -36,6 +37,7 @@ public class Race {
         public Gender.Builder id(String id) {
             this.id = id;
             return this;
+
     }
 
     }
