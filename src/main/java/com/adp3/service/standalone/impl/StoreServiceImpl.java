@@ -66,9 +66,10 @@ public class StoreServiceImpl implements StoreService {
      * @return: Store
      * */
     @Override
-    public boolean delete(String s) {
-        this.repository.deleteById(s);
-        if (this.repository.existsById(s)) return false;
-        return true;
+    public void delete(String s) {
+        if (repository.existsById(s)){
+            repository.deleteById(s);
+        }
+        else System.out.println("Record does not exist");
     }
 }
