@@ -23,7 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class EmployeeRoleServiceImplTest {
     @Autowired
-    private  static EmployeeRoleService employeeRoleService;
+    private EmployeeRoleService employeeRoleService;
     private static String empId = GenericHelper.generateID();
     private  static EmployeeRole employeeRole = EmployeeRoleFactory.createEmployeeRole(empId,"Managerr");
 
