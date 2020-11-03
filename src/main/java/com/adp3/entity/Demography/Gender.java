@@ -1,17 +1,19 @@
+package com.adp3.entity.Demography;
+
 import com.adp3.entity.standalone.Leave;
 
-import javax.persistence.Entity
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
 
 @Entity
-public class Gender {
+public class Gender{
 
     @Id
-    private String id,
+    private String id;
     private String description;
 
-    private Gender(){}
+    private Gender(Builder builder){}
 
     protected Gender(Leave.Builder builder){
         this.id = builder.id;
@@ -23,7 +25,7 @@ public class Gender {
     }
 
     public String getDescription(){
-        return description
+        return description;
     }
 
     public static class Builder {
@@ -42,11 +44,11 @@ public class Gender {
         public Builder copy(Gender gender){
             this.id = gender.id;
             this.description = gender.description;
-            return this
+            return this;
         }
 
         public Gender build(){
-            return new Gender(builder this);
+            return new Gender(this);
         }
     }
 
