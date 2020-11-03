@@ -9,6 +9,7 @@ import org.junit.FixMethodOrder;
 //import org.junit.jupiter.api.Test;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 //import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,8 +22,8 @@ import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class EmployeeRoleServiceImplTest {
-
-    private  static EmployeeRoleService employeeRoleService = EmployeeRoleServiceImpl.getEmployeeRoleService();
+    @Autowired
+    private  static EmployeeRoleService employeeRoleService;
     private static String empId = GenericHelper.generateID();
     private  static EmployeeRole employeeRole = EmployeeRoleFactory.createEmployeeRole(empId,"Managerr");
 
