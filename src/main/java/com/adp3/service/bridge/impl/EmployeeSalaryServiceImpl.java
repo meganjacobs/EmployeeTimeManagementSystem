@@ -63,7 +63,10 @@ public class EmployeeSalaryServiceImpl implements EmployeeSalaryService {
             double calc = sal.getEmpHours() * sal.getEmpSalaryRate();
             salary.add(sal);
         }
+
         return salary;
     }
+
+
 
 }
