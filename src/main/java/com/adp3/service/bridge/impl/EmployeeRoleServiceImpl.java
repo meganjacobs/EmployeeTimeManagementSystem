@@ -2,12 +2,13 @@ package com.adp3.service.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeRole;
 import com.adp3.repository.bridge.EmployeeRoleRepository;
-import com.adp3.repository.bridge.impl.EmployeeRoleRepositoryImpl;
 import com.adp3.service.bridge.EmployeeRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Author: Sonwabo Kasi
@@ -18,49 +19,39 @@ import java.util.Set;
 @Service
 public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
-    private static EmployeeRoleService employeeRoleService = null;
+    @Autowired
     private EmployeeRoleRepository employeeRoleRepository;
-
-    private EmployeeRoleServiceImpl(){
-        this.employeeRoleRepository = EmployeeRoleRepositoryImpl.getRepository();
-
-    }
-
-    public static EmployeeRoleService getEmployeeRoleService(){
-        if (employeeRoleService == null) employeeRoleService = new EmployeeRoleServiceImpl();
-        return employeeRoleService;
-    }
 
 
     @Override
     public EmployeeRole create(EmployeeRole employeeRole) {
-        this.employeeRoleRepository.create(employeeRole);
+        if (employeeRole.getEmpID() !=null && (employeeRole.getRoleID() !=null))
+        this.employeeRoleRepository.save(employeeRole);
         return employeeRole;
     }
 
     @Override
     public EmployeeRole read(String s) {
-        this.employeeRoleRepository.read(s);
+        this.employeeRoleRepository.findById(s).orElseGet(null);
         return null;
 
     }
 
     @Override
     public EmployeeRole update(EmployeeRole employeeRole) {
-        this.employeeRoleRepository.update(employeeRole);
+        this.employeeRoleRepository.save(employeeRole);
         return employeeRole;
     }
 
     @Override
     public void delete(String s) {
-        this.employeeRoleRepository.delete(s);
-        return;
+        this.employeeRoleRepository.deleteById(s);
 
     }
 
     @Override
     public Set<EmployeeRole> getAll() {
-        this.employeeRoleRepository.getAll();
+        this.employeeRoleRepository.findAll().stream().collect(Collectors.toSet()) ;
         return null;
     }
 

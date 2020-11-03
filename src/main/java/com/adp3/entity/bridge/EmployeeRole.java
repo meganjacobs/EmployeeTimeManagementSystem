@@ -1,4 +1,7 @@
 package com.adp3.entity.bridge;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 
 /**
  * Author: Sonwabo Kasi
@@ -6,11 +9,15 @@ package com.adp3.entity.bridge;
  * Student number: 214293939
  * Class Description: EmployeeRole
  */
-
+@Entity
+@IdClass(EmployeeRoleId.class  )
 public class EmployeeRole {
-    private String empID, roleID;
+    @Id
+    private String empID;
+    @Id
+    private String roleID;
 
-    public EmployeeRole(){
+    protected EmployeeRole(){
 
     }
 
@@ -60,4 +67,18 @@ public class EmployeeRole {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        EmployeeRole that = (EmployeeRole) o;
+
+        return empID.equals(that.empID);
+    }
+
+    @Override
+    public int hashCode() {
+        return empID.hashCode();
+    }
 }
