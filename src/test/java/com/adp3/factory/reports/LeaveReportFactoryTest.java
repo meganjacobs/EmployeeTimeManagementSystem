@@ -18,7 +18,7 @@ public class LeaveReportFactoryTest {
     @Before
     public void setUp() throws Exception {
         this.leaveReport = new LeaveReport.Builder().build();
-        leaveReport = LeaveReportFactory.buildLeaveReport("Sick Leave");
+        leaveReport = LeaveReportFactory.buildLeaveReport("emp001","001","cpt001");
     }
     @Test
     public void testCreateLeaveReport() {
@@ -31,13 +31,13 @@ public class LeaveReportFactoryTest {
     public void testLeaveReportIDNotNull() {
         // Test leaveReportID is not null
         Assert.assertNotNull(leaveReport.getLeaveReportID());
-        System.out.println(leaveReport);
+        System.out.println(leaveReport.getLeaveReportID());
     }
     @Test
     public void testLeaveReportValuesEqual() {
         //Test object values are equal
-         Assert.assertEquals(leaveReport.getLeaveReportDesc(),"Sick Leave");
-        System.out.println(leaveReport);
+         Assert.assertEquals(leaveReport.getEmpID(),"emp001");
+        System.out.println(leaveReport.getEmpID());
 
     }
 

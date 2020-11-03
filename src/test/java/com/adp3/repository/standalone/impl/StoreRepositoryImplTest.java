@@ -1,3 +1,4 @@
+/*
 package com.adp3.repository.standalone.impl;
 
 import com.adp3.entity.standalone.Store;
@@ -7,33 +8,39 @@ import com.adp3.util.GenericHelper;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import static org.junit.Assert.*;
 
+*/
 /**
  * Author: Riyaad Ryklief
  * Class: Part Time
  * Student number: 215187849
  * Description: StoreRepositoryTest - this class tests the methods in StoreRepositoryImpl"
- */
+ *//*
+
 
 //Annotation of executing tests in alphabetical order
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class StoreRepositoryImplTest {
 
-    private static StoreRepository repository = new StoreRepositoryImpl();
+    @Autowired
+    //private StoreRepository repository;
+    private static StoreRepository repository;
     private static String storeID = GenericHelper.generateID();
     private static Store store = StoreFactory.createStore("Cape Town");
 
     @Test
     public void a_create() {
-        Store created = repository.create(store);
+        Store created = repository.save(store);
         assertEquals(store.getStoreID(), created.getStoreID());
         System.out.println("CREATED: " + created);
     }
 
     @Test
     public void b_read() {
-        Store read = repository.read(store.getStoreID());
+        Store read = repository.findById(store.getStoreID());
         System.out.println("READ: " + read);
     }
 
@@ -55,6 +62,6 @@ public class StoreRepositoryImplTest {
     }
     @Test
     public void d_getAll() {
-        System.out.println("GET ALL: "+repository.getAll());
+        System.out.println("GET ALL: "+repository.findAll());
     }
-}
+}*/

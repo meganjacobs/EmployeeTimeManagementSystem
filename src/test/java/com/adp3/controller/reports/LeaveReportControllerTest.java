@@ -2,7 +2,7 @@ package com.adp3.controller.reports;
 
 import com.adp3.entity.reports.LeaveReport;
 import com.adp3.factory.reports.LeaveReportFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,52 +29,57 @@ public class LeaveReportControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
-    final String baseURL="http://localhost:8080/leaveReport/";
+    String baseURL="http://localhost:8080/leaveReport/";
     private ResponseEntity leaveReportResponseEntity = null;
-    private ObjectMapper mapper = new ObjectMapper();
-    //private JsonNode root = mapper.readTree(leaveReportResponse.getBody());
+    LeaveReport leaveReport;
 
-
-    final LeaveReport leaveReport = LeaveReportFactory.buildLeaveReport("compassionate");
-
+    @Before
+    public void setup() {
+        leaveReport = LeaveReportFactory.buildLeaveReport("emp001", "001", "cpt001");
+    }
     @Test
     public void a_create(){ // Test PostMapping
          leaveReportResponseEntity =
                 restTemplate.postForEntity(baseURL + "create", MediaType.APPLICATION_JSON,LeaveReport.class);
         assertNotNull(leaveReportResponseEntity.getBody());
         System.out.println("POST LeaveReport : " + leaveReportResponseEntity.getBody());
-        assertEquals(HttpStatus.OK,leaveReportResponseEntity.getStatusCode());
     }
 
     @Test
     public void b_read() { // Test GetMapping
          leaveReportResponseEntity =
                 restTemplate.getForEntity(baseURL + "read/"+ leaveReport.getLeaveReportID(), LeaveReport.class);
-        System.out.println("GET LeaveReport : "+ leaveReport);
-        assertEquals(HttpStatus.OK,leaveReportResponseEntity.getStatusCode());
+         System.out.println("GET LeaveReport : "+ leaveReport);
     }
 
     @Test
     public void c_update() { // Test PutMapping
         LeaveReport original =
         restTemplate.getForObject(baseURL + "read/" + leaveReport.getLeaveReportID(), LeaveReport.class);
-        restTemplate.put(baseURL + "update/" + "updated", original );
-        LeaveReport updatedLeaveReport =
-                restTemplate.getForObject(baseURL + "leaveReport/" + leaveReport.getLeaveReportID(), LeaveReport.class);
-        assertNotNull(updatedLeaveReport);
-        System.out.println("PUT LeaveReport : " + original);
+        System.out.println("Original leaveReport:  " + leaveReport);
+        if (leaveReport.getLeaveReportID()!= null){
+            LeaveReport updated = new LeaveReport.Builder()
+                    .copy(leaveReport)
+                    .setEmpID("emp009")
+                    .setLeaveID("009")
+                    .setStoreID("cpt009")
+                    .build();
+
+        restTemplate.put(baseURL + "update/" + "updated", updated);
+            assertNotNull(updated);
+        System.out.println("PUT LeaveReport : " + updated); }
     }
 
     @Test
     public void e_delete() { // Test DeleteMapping
         restTemplate.delete(baseURL + "delete/" + leaveReport.getLeaveReportID());
-        System.out.println("DELETED LeaveReport :  " + baseURL + "/deleted:" + leaveReport.getLeaveReportID());
+        System.out.println("DELETED LeaveReport :  " +leaveReport.getLeaveReportID());
     }
 
     @Test
     public void d_getAll() {
         HttpHeaders headers = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<>(null, headers);
+        HttpEntity<LeaveReport> entity = new HttpEntity<>(null, headers);
         ResponseEntity<String> result = restTemplate/*.withBasicAuth("Megan", "Password")*/
                 .exchange(baseURL + "getAll/", HttpMethod.GET,entity, String.class);
             System.out.println("GETall LeaveReport: " + result.getBody());
