@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Gender{
+public class Gender {
 
     @Id
     private String id;
