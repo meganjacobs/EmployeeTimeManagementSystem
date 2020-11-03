@@ -2,6 +2,8 @@ package com.adp3.repository.standalone;
 
 import com.adp3.entity.standalone.Employee;
 import com.adp3.repository.IRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
@@ -12,8 +14,8 @@ import java.util.Set;
  * 2020
  */
 
-public interface EmployeeRepository  extends IRepository<Employee, String>  {
+@Repository
+public interface EmployeeRepository extends JpaRepository<Employee, String> {
 
-    Set<Employee> getAll();
 
 }

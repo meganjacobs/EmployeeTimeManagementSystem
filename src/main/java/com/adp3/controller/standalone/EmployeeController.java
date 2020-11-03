@@ -24,10 +24,12 @@ public class EmployeeController {
 
     @PostMapping("/create")
     public Employee create(@RequestBody Employee employee) {
+
         Employee newEmployee = EmployeeFactory.createEmployee( employee.getEmpName(), employee.getEmpLastName(), employee.getEmpPhoneNumber(), employee.getEmpDOB() );
 
         return employeeService.create( newEmployee );
     }
+
 
     @GetMapping("/read/{id}")
     public Employee read(@PathVariable String id){
@@ -41,15 +43,16 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable String id){
+    public boolean delete(@PathVariable String id){
 
-        employeeService.delete(id);
         System.out.println("Deleted Employee");
+        return employeeService.delete(id);
     }
 
     @GetMapping("/all")
     public Set<Employee> getAll() {
 
         return employeeService.getAll();
+
     }
 }
