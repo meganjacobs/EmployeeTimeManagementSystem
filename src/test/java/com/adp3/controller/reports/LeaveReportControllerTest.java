@@ -2,7 +2,7 @@ package com.adp3.controller.reports;
 
 import com.adp3.entity.reports.LeaveReport;
 import com.adp3.factory.reports.LeaveReportFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,14 +29,14 @@ public class LeaveReportControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
-    final String baseURL="http://localhost:8080/leaveReport/";
+    String baseURL="http://localhost:8080/leaveReport/";
     private ResponseEntity leaveReportResponseEntity = null;
-    private ObjectMapper mapper = new ObjectMapper();
-    //private JsonNode root = mapper.readTree(leaveReportResponse.getBody());
+    LeaveReport leaveReport;
 
-
-    final LeaveReport leaveReport = LeaveReportFactory.buildLeaveReport("compassionate");
-
+    @Before
+    public void setup() {
+        leaveReport = LeaveReportFactory.buildLeaveReport("emp001", "001", "cpt001");
+    }
     @Test
     public void a_create(){ // Test PostMapping
          leaveReportResponseEntity =
@@ -50,8 +50,8 @@ public class LeaveReportControllerTest {
     public void b_read() { // Test GetMapping
          leaveReportResponseEntity =
                 restTemplate.getForEntity(baseURL + "read/"+ leaveReport.getLeaveReportID(), LeaveReport.class);
-        System.out.println("GET LeaveReport : "+ leaveReport);
-        assertEquals(HttpStatus.OK,leaveReportResponseEntity.getStatusCode());
+        assertNotNull(leaveReportResponseEntity.getBody());
+         System.out.println("GET LeaveReport : "+ leaveReport);
     }
 
     @Test

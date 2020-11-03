@@ -9,55 +9,73 @@ import java.util.Objects;
  * Author: Megan Jacobs
  * Class: Part Time
  * Student number: 211137162
- * Class Description: LeaveReport
+ * Class Description: LeaveReport returns manager view of employeeLeave per Store
  */
 @Entity
 public class LeaveReport implements Serializable {
     @Id
     private String leaveReportID;
-    private String leaveReportDesc;
+    private String empID, leaveID, storeID;
 
+    // access modifier change to accommodate APA rules
     protected LeaveReport(){}
 
     private LeaveReport(Builder builder) {
         this.leaveReportID = builder.leaveReportID;
-        this.leaveReportDesc = builder.leaveReportDesc;
+        this.empID = builder.empID;
+        this.leaveID = builder.leaveID;
+        this.storeID = builder.storeID;
     }
 
     public String getLeaveReportID() {
         return leaveReportID;
     }
 
-    public String getLeaveReportDesc() {
-        return leaveReportDesc;
-    }
+    public String getEmpID() { return empID; }
+
+    public String getStoreID() { return storeID; }
+
+    public String getLeaveID() { return leaveID; }
 
     @Override
     public String toString() {
         return "Builder{" +
                 "leaveReportID='" + leaveReportID + '\'' +
-                   ", leaveReportDesc='" + leaveReportDesc + '\'' +
+                   ", employeeID='" + empID + '\'' +
+                    ", leaveID='" + leaveID + '\'' +
+                        ", storeID='" + storeID + '\'' +
                 '}';
     }
 
     public static class Builder{
         private String leaveReportID;
-        private String leaveReportDesc;
+        private String empID, leaveID, storeID;
 
         public Builder setLeaveReportID(String leaveReportID) {
             this.leaveReportID = leaveReportID;
             return this;
         }
 
-        public Builder setLeaveReportDesc(String leaveReportDesc) {
-            this.leaveReportDesc = leaveReportDesc;
+        public Builder setEmpID(String empID) {
+            this.empID = empID;
+            return this;
+        }
+
+        public Builder setStoreID(String storeID) {
+            this.storeID = storeID;
+            return this;
+        }
+
+        public Builder setLeaveID(String leaveID) {
+            this.leaveID = leaveID;
             return this;
         }
 
         public Builder copy(LeaveReport leaveReport) {
             this.leaveReportID = leaveReport.leaveReportID;
-            this.leaveReportDesc = leaveReport.leaveReportDesc;
-
+            this.empID = leaveReport.empID;
+            this.leaveID = leaveReport.leaveID;
+            this.storeID = leaveReport.storeID;
             return this;
         }
 
