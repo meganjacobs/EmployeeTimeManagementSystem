@@ -1,10 +1,10 @@
 package com.adp3.service.standalone.impl;
+
 import com.adp3.entity.standalone.Store;
 import com.adp3.repository.standalone.StoreRepository;
 import com.adp3.service.standalone.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
