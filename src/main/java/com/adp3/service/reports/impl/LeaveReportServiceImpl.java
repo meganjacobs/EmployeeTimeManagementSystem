@@ -6,6 +6,7 @@ import com.adp3.service.reports.LeaveReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,33 +17,34 @@ import java.util.stream.Collectors;
  * Description: LeaveReportServiceImpl - implementation of LeaveReportService as a concrete class
  */
 @Service
+@Transactional
 public class LeaveReportServiceImpl implements LeaveReportService {
 
     @Autowired
-    private static LeaveReportRepository repository;
+    LeaveReportRepository repository;
+
 
     @Override
     public LeaveReport create(LeaveReport t) {
 
-        try{ repository.save(t);
+    if (repository.existsById(t.getLeaveReportID())) {
+            System.out.println("Record exists: " + t.getLeaveReportID());
         }
-        catch(Exception e){
-            if (repository.existsById(t.getLeaveReportID())){
-                System.out.println("Record exists: " + t.getLeaveReportID());
-            }
-        }return t;
+        else repository.save(t);
+        return t;
     }
 
     @Override
     public LeaveReport read(String s) {
-        return repository.getOne(s);
+        return repository.findById(s).orElse(null);
     }
 
     @Override
     public LeaveReport update(LeaveReport t) {
         if (repository.existsById(t.getLeaveReportID())){
-        return repository.save(t);}
-        return null;
+        return create(t);
+        }
+        else return null;
     }
 
     @Override
@@ -58,24 +60,5 @@ public class LeaveReportServiceImpl implements LeaveReportService {
     public Set<LeaveReport> getAll() {
        return repository.findAll().stream().collect(Collectors.toSet());
     }
-/*
-    @Override
-    public Set<LeaveReport> index() {
-        try{}
-        catch(Exception e){}
-        return null;
-    }
-
-    @Override
-    public Set<LeaveReport> findByName() {
-        return null;
-    }
-
-    @Override
-    public Set<LeaveReport> findByID() {
-        return null;
-    }
-
- */
 
 }
