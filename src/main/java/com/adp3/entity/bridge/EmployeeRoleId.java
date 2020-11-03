@@ -10,20 +10,23 @@ import java.util.Objects;
  * Class Description:
  */
 public class EmployeeRoleId implements Serializable {
-    private  String empId,roleId;
+    private  String empID,roleID;
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() !=o.getClass())
-           return false;
+        if (o == null || getClass() != o.getClass()) return false;
+
         EmployeeRoleId that = (EmployeeRoleId) o;
-        return  empId.equals(that.empId) && roleId.equals(that.roleId);
+
+        if (!empID.equals(that.empID)) return false;
+        return roleID.equals(that.roleID);
     }
 
     @Override
-    public  int hashCode(){
-        return  Objects.hash(empId,roleId);
+    public int hashCode() {
+        int result = empID.hashCode();
+        result = 31 * result + roleID.hashCode();
+        return result;
     }
-
 }
