@@ -3,12 +3,7 @@ package com.adp3.factory.standalone;
 import com.adp3.entity.standalone.Leave;
 import com.adp3.util.GenericHelper;
 
-/**
- * Author: Ayanda Nongxa
- * Class: Part Time
- * Student number:204513723
- * Class Description: LeaveFactory
- */
+https://github.com/anongxa/EmployeeTimeManagementSystem.git
 
 public class LeaveFactory {
 

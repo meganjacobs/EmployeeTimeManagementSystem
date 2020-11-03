@@ -3,6 +3,7 @@ package com.adp3.entity.user;
 import java.io.Serializable;
 import java.util.Objects;
 
+
 public class EmployeeLeaveId implements Serializable {
     private String employeeId;leaveId;
 
