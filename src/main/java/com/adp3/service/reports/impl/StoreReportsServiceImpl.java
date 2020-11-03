@@ -47,6 +47,7 @@ public class  StoreReportsServiceImpl implements StoreReportsService {
 
     @Override
     public void delete(String s) {
-        this.repository.delete(s);
+      this.repository.delete(s);
+
     }
 }

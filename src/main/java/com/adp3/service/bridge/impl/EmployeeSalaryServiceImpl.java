@@ -52,10 +52,9 @@ public class EmployeeSalaryServiceImpl implements EmployeeSalaryService {
     }
 
     @Override
-    public boolean delete(String s) {
+    public void delete(String s) {
         repository.delete(s);
 
-        return false;
     }
     public Set<EmployeeSalary> calcMonthlySalary(){
         Set<EmployeeSalary> rate = getAll();

@@ -1,11 +1,13 @@
 package com.adp3.service.standalone.impl;
 
 import com.adp3.entity.standalone.Employee;
+import com.adp3.factory.standalone.EmployeeFactory;
 import com.adp3.repository.standalone.EmployeeRepository;
 import com.adp3.repository.standalone.impl.EmployeeRepositoryImpl;
 import com.adp3.service.standalone.EmployeeService;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -67,10 +69,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public boolean delete(String s) {
+    public void delete(String s) {
 
         this.emp_repo.delete( s );
 
-        return false;
     }
 }

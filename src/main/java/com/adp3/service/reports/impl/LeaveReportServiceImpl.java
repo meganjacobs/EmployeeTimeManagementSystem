@@ -60,7 +60,7 @@ public class LeaveReportServiceImpl implements LeaveReportService {
         repository.deleteById(s);
         }
         else System.out.println("Record does not exist");
-     }
+    }
 
     @Override
     public Set<LeaveReport> getAll() {

@@ -6,7 +6,13 @@ import com.adp3.repository.bridge.impl.EmployeeLeaveRepositoryImpl;
 import com.adp3.service.bridge.EmpLeaveService;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Zubair Van Oudtshoorn
@@ -46,11 +52,10 @@ public class EmpLeaveServiceImpl implements EmpLeaveService {
     }
 
     @Override
-    public boolean delete(String empID) {
+    public void delete(String empID) {
 
         this.repository.delete(empID);
 
-        return false;
     }
 
     @Override
