@@ -3,11 +3,11 @@ package com.adp3.service.bridge.impl;
 import com.adp3.entity.bridge.EmployeeSalary;
 import com.adp3.factory.bridge.EmployeeSalaryFactory;
 import com.adp3.service.bridge.EmployeeSalaryService;
-import com.adp3.util.GenericHelper;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -21,9 +21,10 @@ import static org.junit.Assert.assertEquals;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeSalaryServiceImplTest {
 
-    private static EmployeeSalaryService service = new EmployeeSalaryServiceImpl().getService();
-    private static String empID = GenericHelper.generateID();
-    private static EmployeeSalary empSal = EmployeeSalaryFactory.buildEmployeeSalary(empID,56.23,45);
+    @Autowired
+    private static EmployeeSalaryService service;
+    //private static String empID = GenericHelper.generateID();
+    private static EmployeeSalary empSal = EmployeeSalaryFactory.buildEmployeeSalary("A1234",56.23,45);
 
 
     @Test
@@ -48,7 +49,7 @@ public class EmployeeSalaryServiceImplTest {
 
     @Test
     public void c_update() {
-        EmployeeSalary updated = new EmployeeSalary.Builder().copy(empSal).setEmpHours(41).setEmpSalaryRate(40.2).build();
+        EmployeeSalary updated = new EmployeeSalary.Builder().copy(empSal).setEmpHours(41).setEmpRate(40.2).build();
         updated = service.update(updated);
         Assert.assertEquals(empSal.getEmpID(),updated.getEmpID());
         Assert.assertNotEquals(empSal.getEmpHours(),updated.getEmpHours());

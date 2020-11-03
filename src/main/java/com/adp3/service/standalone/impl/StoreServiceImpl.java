@@ -1,12 +1,13 @@
 package com.adp3.service.standalone.impl;
+
 import com.adp3.entity.standalone.Store;
 import com.adp3.repository.standalone.StoreRepository;
-import com.adp3.repository.standalone.impl.StoreRepositoryImpl;
 import com.adp3.service.standalone.StoreService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Author: Riyaad Ryklief
@@ -18,26 +19,12 @@ import java.util.Set;
  @Service
 public class StoreServiceImpl implements StoreService {
 
-    private static StoreService service = null;
+    @Autowired
     private StoreRepository repository;
-
-    private StoreServiceImpl() {
-            this.repository = StoreRepositoryImpl.getRepository();
-    }
-
-    public static StoreService getService(){
-        if (service == null) service = new StoreServiceImpl();
-        return service;
-    }
-
-    public static void setService(StoreService service) {
-        StoreServiceImpl.service = service;
-    }
-
 
     @Override
     public Set<Store> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
@@ -58,31 +45,31 @@ public class StoreServiceImpl implements StoreService {
      * */
     @Override
     public Store create(Store t) {
-        return this.repository.create(t);
+        return this.repository.save(t);
     }
     /*method used to read a new Store
      * @param: storeName, storeId - eg. store name "Cape Town", store ID "01"
      * @return: Store
      * */
     @Override
-    public Store read(String s) {
-        return this.repository.read(s);
-    }
+    public Store read(String s) {return this.repository.findById(s).orElseGet(null);}
     /*method used to update a new Store
      * @param: storeName, storeId - eg. store name "Cape Town", store ID "01"
      * @return: Store
      * */
     @Override
     public Store update(Store t) {
-        return this.repository.update(t);
+        return this.repository.save(t);
     }
     /*method used to delete a Store
      * @param: storeName, storeId - eg. store name "Cape Town", store ID "01"
      * @return: Store
      * */
     @Override
-    public boolean delete(String s) {
-        this.repository.delete(s);
-        return false;
+    public void delete(String s) {
+        if (repository.existsById(s)){
+            repository.deleteById(s);
+        }
+        else System.out.println("Record does not exist");
     }
 }
