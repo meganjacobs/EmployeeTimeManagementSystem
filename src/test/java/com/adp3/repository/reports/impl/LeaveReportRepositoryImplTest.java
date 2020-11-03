@@ -1,3 +1,4 @@
+/*
 package com.adp3.repository.reports.impl;
 
 import com.adp3.entity.reports.LeaveReport;
@@ -9,12 +10,13 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import static org.junit.Assert.*;
-/**
+*
  * Author: Megan Jacobs
  * Class: Part Time
  * Student number: 211137162
  * Description: Test methods of LeaveReportRepository (IRepository) implemented in its concrete class
- */
+
+
 
 //Annotation of executing tests in alphabetical order
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -55,3 +57,4 @@ public class LeaveReportRepositoryImplTest {
         System.out.println("GetAll : " + repository.getAll());
     }
 }
+*/

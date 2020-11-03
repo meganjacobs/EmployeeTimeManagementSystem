@@ -17,14 +17,16 @@ public class LeaveReportFactory {
     }
 
     /*method used to create a new LeaveReport
-    * @param: leaveReportDesc - eg. Annual Leave, Sick Leave etc
-    * @return:
+    * @param: empID, leaveID, storeID
+    * @return: employeeLeave per Store
     * */
-    public static LeaveReport buildLeaveReport(String leaveReportDesc) {
+    public static LeaveReport buildLeaveReport(String empID,String leaveID,String storeID) {
         String leaveReportID = GenericHelper.generateID();
         return new LeaveReport.Builder()
                 .setLeaveReportID(leaveReportID)
-                .setLeaveReportDesc(leaveReportDesc)
+                .setEmpID(empID)
+                .setLeaveID(leaveID)
+                .setStoreID(storeID)
                 .build();
     }
 
