@@ -60,7 +60,7 @@ public class EmployeeSalaryControllerTest {
         ResponseEntity<EmployeeSalary> responseEntity = restTemplate.getForEntity(url, EmployeeSalary.class);
         assertNotNull(responseEntity);
         //assertEquals(empSal.getEmpID(), responseEntity.getBody().getEmpID());
-        System.out.println("Called data using EmpID: "+ empSal.getEmpID()+"\tEmp Rate: " + empSal.getEmpSalaryRate()+"\tEmp Hours: "+empSal.getEmpHours());
+        System.out.println("Called data using EmpID: "+ empSal.getEmpID()+"\tEmp Rate: " + empSal.getEmpRate()+"\tEmp Hours: "+empSal.getEmpHours());
     }
 
     @Test
