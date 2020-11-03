@@ -2,13 +2,12 @@ package com.adp3.service.standalone.impl;
 
 import com.adp3.entity.standalone.Store;
 import com.adp3.factory.standalone.StoreFactory;
-import com.adp3.repository.standalone.StoreRepository;
-import com.adp3.repository.standalone.impl.StoreRepositoryImpl;
 import com.adp3.service.standalone.StoreService;
 import com.adp3.util.GenericHelper;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -23,8 +22,8 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class StoreServiceImplTest {
 
-
-    private static StoreService service = StoreServiceImpl.getService();
+    @Autowired
+    private static StoreService service;
     private static String storeID = GenericHelper.generateID();
     private static Store store = StoreFactory.createStore("Cape Town");
 

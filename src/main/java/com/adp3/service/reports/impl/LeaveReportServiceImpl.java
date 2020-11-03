@@ -46,11 +46,12 @@ public class LeaveReportServiceImpl implements LeaveReportService {
     }
 
     @Override
-    public void delete(String s) {
+    public boolean delete(String s) {
         if (repository.existsById(s)){
         repository.deleteById(s);
         }
         else System.out.println("Record does not exist");
+        return false;
     }
 
     @Override

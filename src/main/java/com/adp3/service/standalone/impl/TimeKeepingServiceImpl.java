@@ -50,8 +50,9 @@ public class TimeKeepingServiceImpl implements TimeKeepingServices {
     }
 
     @Override
-    public void delete(String s) {
+    public boolean delete(String s) {
 repository.delete(s);
+        return false;
     }
 
 

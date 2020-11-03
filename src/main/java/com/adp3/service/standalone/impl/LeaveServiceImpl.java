@@ -47,10 +47,11 @@ public class LeaveServiceImpl implements LeaveService {
     }
 
     @Override
-    public void delete(String leaveID) {
+    public boolean delete(String leaveID) {
 
         this.repository.delete(leaveID);
 
+        return false;
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.adp3.entity.standalone;
 
-import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
 
 /**
  * Author: Riyaad Ryklief
@@ -8,12 +10,14 @@ import java.io.Serializable;
  * Student number: 215187849
  * Entity: Store
  */
+@Entity
+public class Store  {
 
-public class Store implements Serializable {
+    @Id
+    private String storeID;
+    private String storeName;
 
-    private String storeID, storeName;
-
-    private Store(){}
+    protected Store(){}
 
     private Store(Builder builder) {
         this.storeID = builder.storeID;
@@ -61,5 +65,18 @@ public class Store implements Serializable {
         public Store build() {
             return new Store(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Store store = (Store) o;
+        return storeID.equals(store.storeID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(storeID);
     }
 }
