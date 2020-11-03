@@ -1,26 +1,28 @@
+
+
 package com.adp3.service.bridge.impl;
+
 
 import com.adp3.entity.bridge.EmployeeStore;
 import com.adp3.factory.bridge.EmployeeStoreFactory;
 import com.adp3.service.bridge.EmployeeStoreService;
 import com.adp3.util.GenericHelper;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.assertEquals;
 
-/*
+ /*
  * Author: Munyaradzi Manyati
  * Class: Part Time
  * Student number: 215211855
  * Class Description: EmployeeStoreServiceImplTest.
- */
+ /*/
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeStoreServiceImplTest {
-
-    private static EmployeeStoreService employeeStoreService =  EmployeeStoreServiceImpl.getEmpStoreService();
+@Autowired
+    private static EmployeeStoreService employeeStoreService;
     private static String empID = GenericHelper.generateID();
     EmployeeStore employeeStore = EmployeeStoreFactory.createEmployeeStore(empID, "Bebe");
 

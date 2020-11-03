@@ -1,5 +1,10 @@
 package com.adp3.entity.bridge;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import java.util.Objects;
+
 /**
  * Author: Munyaradzi Manyati
  * Class: Part Time
@@ -7,16 +12,18 @@ package com.adp3.entity.bridge;
  * Class Description: EmployeeStore
  */
 
+@Entity
+@IdClass(EmployeeStoreID.class)
 public class EmployeeStore {
-    private String empID;
-    private String storeID;
+@Id
+    private String empID,storeID;
 
     public EmployeeStore(Builder builder) {
         this.empID = builder.empID;
         this.storeID = builder.storeID;
     }
 
-    private EmployeeStore() {
+    protected EmployeeStore() {
     }
 
     public String getEmpID() {
@@ -62,4 +69,16 @@ public class EmployeeStore {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeStore that = (EmployeeStore) o;
+        return empID.equals(that.empID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(empID);
+    }
 }

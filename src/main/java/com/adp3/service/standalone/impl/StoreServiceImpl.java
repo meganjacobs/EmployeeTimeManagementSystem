@@ -81,7 +81,8 @@ public class StoreServiceImpl implements StoreService {
      * @return: Store
      * */
     @Override
-    public void delete(String s) {
+    public boolean delete(String s) {
         this.repository.delete(s);
+        return false;
     }
 }
