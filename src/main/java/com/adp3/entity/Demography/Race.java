@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Race {
 
     @Id
-    private String id,
+    private String id;
     private String description;
 
     private Race(){}
@@ -27,7 +27,7 @@ public class Race {
     public String toString() {
         return "Race{" +
                 "id='" + id + '\'' +
-                ", description='" + description + '\'' +
+                ", description='" + description + '\'' +;
     }
 
     public static class Builder {
@@ -37,4 +37,5 @@ public class Race {
             this.id = id;
             return this;
     }
-}
+
+    }

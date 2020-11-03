@@ -45,6 +45,7 @@ public class Leave implements Serializable {
     }
 
     public static class Builder {
+        public String id;
         private String leaveID;
         private String leaveDesc;
         private int leaveDaysAmt;
