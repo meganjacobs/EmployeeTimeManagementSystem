@@ -3,7 +3,6 @@ package com.adp3.service.bridge.impl;
 import com.adp3.entity.bridge.EmployeeSalary;
 import com.adp3.factory.bridge.EmployeeSalaryFactory;
 import com.adp3.service.bridge.EmployeeSalaryService;
-import com.adp3.util.GenericHelper;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -24,8 +23,8 @@ public class EmployeeSalaryServiceImplTest {
 
     @Autowired
     private static EmployeeSalaryService service;
-    private static String empID = GenericHelper.generateID();
-    private static EmployeeSalary empSal = EmployeeSalaryFactory.buildEmployeeSalary(empID,56.23,45);
+    //private static String empID = GenericHelper.generateID();
+    private static EmployeeSalary empSal = EmployeeSalaryFactory.buildEmployeeSalary("A1234",56.23,45);
 
 
     @Test

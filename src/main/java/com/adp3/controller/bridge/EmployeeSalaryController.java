@@ -1,7 +1,6 @@
 package com.adp3.controller.bridge;
 
 import com.adp3.entity.bridge.EmployeeSalary;
-import com.adp3.entity.standalone.Employee;
 import com.adp3.factory.bridge.EmployeeSalaryFactory;
 import com.adp3.service.bridge.impl.EmployeeSalaryServiceImpl;
 import com.adp3.service.standalone.impl.EmployeeServiceImpl;
@@ -34,20 +33,20 @@ public class EmployeeSalaryController {
     //exposes method used to create a new EmployeeSalary
     @PostMapping("/create")
     public EmployeeSalary create(@RequestBody EmployeeSalary empSal){
-        boolean employeeExist = false;
-
-       // System.out.println(empSal.getEmpID());
-
-        Employee employee = employeeService.read(empSal.getEmpID());   //calling employee.java
-        if (employee != null) {
-            employeeExist = true;
-        }
-
-        if (employeeExist)
-            return employeeSalaryService.create(empSal);
-        else return EmployeeSalaryFactory.buildEmployeeSalary("", empSal.getEmpRate(), empSal.getEmpHours());
-      // EmployeeSalary newEmployeeSalary = EmployeeSalaryFactory.buildEmployeeSalary(empSal.getEmpID(),empSal.getEmpSalaryRate(),empSal.getEmpHours());
-        //return employeeSalaryService.create(empSal);
+//        boolean employeeExist = false;
+//
+//       // System.out.println(empSal.getEmpID());
+//
+//        Employee employee = employeeService.read(empSal.getEmpID());   //calling employee.java
+//        if (employee != null) {
+//            employeeExist = true;
+//        }
+//
+//        if (employeeExist)
+//            return employeeSalaryService.create(empSal);
+//        else return EmployeeSalaryFactory.buildEmployeeSalary("", empSal.getEmpRate(), empSal.getEmpHours());
+       EmployeeSalary newEmployeeSalary = EmployeeSalaryFactory.buildEmployeeSalary(empSal.getEmpID(),empSal.getEmpRate(),empSal.getEmpHours());
+        return employeeSalaryService.create(empSal);
 
     }
 
