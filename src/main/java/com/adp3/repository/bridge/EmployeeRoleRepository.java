@@ -2,6 +2,8 @@ package com.adp3.repository.bridge;
 
 import com.adp3.entity.bridge.EmployeeRole;
 import com.adp3.repository.IRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 
 import java.util.Set;
@@ -12,7 +14,8 @@ import java.util.Set;
  * Student number: 214293939
  * Class Description:
  */
-public interface EmployeeRoleRepository extends IRepository<EmployeeRole,String> {
-    Set<EmployeeRole> getAll();
+@Repository
+public interface EmployeeRoleRepository extends JpaRepository<EmployeeRole,String>
+{
 
 }
