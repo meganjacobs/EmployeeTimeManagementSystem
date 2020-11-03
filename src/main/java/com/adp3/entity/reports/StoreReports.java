@@ -6,17 +6,23 @@ package com.adp3.entity.reports;
 * Using builder pattern
  */
 
-import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+@Entity
 public class StoreReports implements Serializable {
-    private String reportID, reportDesc;
+    @Id
+    private String reportID;
+    private String reportDesc;
+
     public StoreReports(Builder builder){
         this.reportID = builder.reportID;
         this.reportDesc = builder.reportDesc;
 
     }
 
-    public StoreReports(){}
+    protected StoreReports(){}
 
     public String getReportID() {
         return reportID;
