@@ -51,10 +51,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public boolean delete(String str) {
+    public void delete(String str) {
 
         this.emp_repo.deleteById( str );
 
-        return false;
     }
 }
