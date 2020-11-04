@@ -2,13 +2,13 @@ package com.adp3.service.standalone.impl;
 
 import com.adp3.entity.standalone.Leave;
 import com.adp3.repository.standalone.LeaveRepository;
-import com.adp3.repository.standalone.impl.LeaveRepositoryImpl;
 import com.adp3.service.standalone.LeaveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Author: Ayanda Nongxa
@@ -31,12 +31,12 @@ public class LeaveServiceImpl implements LeaveService {
 
     @Override
     public Leave read(String s) {
-        return this.repository.findById(s).orElseGet(supplier: null);
+        return this.repository.findById(s).orElseGet( null);
     }
 
     @Override
     public Leave update(Leave leave) {
-        if (this .repository.existsById(leave.id())){
+        if (this .repository.existsById(leave.getLeaveID())){
         return this.repository.save(leave);
         }
         return null;
@@ -50,7 +50,7 @@ public class LeaveServiceImpl implements LeaveService {
 
     @Override
     public Set<Leave> getAll() {
-        return this.repository.getAll();
+       return repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
