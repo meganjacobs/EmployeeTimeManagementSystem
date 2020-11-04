@@ -1,14 +1,13 @@
 package com.adp3.service.standalone.impl;
 
 import com.adp3.entity.standalone.Employee;
-import com.adp3.factory.standalone.EmployeeFactory;
 import com.adp3.repository.standalone.EmployeeRepository;
-import com.adp3.repository.standalone.impl.EmployeeRepositoryImpl;
 import com.adp3.service.standalone.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author Malusi Pakade
@@ -20,58 +19,42 @@ import java.util.Set;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private static EmployeeService emp_service = null;
+    @Autowired
     private EmployeeRepository emp_repo ;
-
-    private EmployeeServiceImpl(){
-
-        this.emp_repo = EmployeeRepositoryImpl.getRepository();
-
-    }
-
-
-    public static EmployeeService getEmpService() {
-
-        if (emp_service == null) {
-            emp_service = new EmployeeServiceImpl();
-        }
-
-        return  emp_service;
-    }
-
 
     @Override
     public Set<Employee> getAll() {
 
-        return this.emp_repo.getAll();
+        return this.emp_repo.findAll().stream().collect(Collectors.toSet());
 
     }
 
     @Override
-    public Employee create(Employee employee) {
+    public Employee create(Employee emp) {
 
-        return this.emp_repo.create( employee );
-
-    }
-
-    @Override
-    public Employee read(String s) {
-
-        return this.emp_repo.read( s );
+        return this.emp_repo.save( emp );
 
     }
 
     @Override
-    public Employee update(Employee t) {
+    public Employee read(String str) {
 
-        return this.emp_repo.update( t );
+        return this.emp_repo.findById( str ).orElse( null );
 
     }
 
     @Override
-    public void delete(String s) {
+    public Employee update(Employee emp) {
 
-        this.emp_repo.delete( s );
+        return this.emp_repo.save( emp);
 
+    }
+
+    @Override
+    public boolean delete(String str) {
+
+        this.emp_repo.deleteById( str );
+
+        return false;
     }
 }
