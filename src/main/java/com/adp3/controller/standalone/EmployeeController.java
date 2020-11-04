@@ -30,7 +30,6 @@ public class EmployeeController {
         return employeeService.create( newEmployee );
     }
 
-
     @GetMapping("/read/{id}")
     public Employee read(@PathVariable String id){
 
