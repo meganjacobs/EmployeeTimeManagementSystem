@@ -1,22 +1,28 @@
 package com.adp3.entity.bridge;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+
 /**
  * Author: Munyaradzi Manyati
  * Class: Part Time
  * Student number: 215211855
  * Class Description: EmployeeStore
  */
-
+@Entity
+@IdClass(EmployeeStoreId.class)
 public class EmployeeStore {
-    private String empID;
-    private String storeID;
+
+    @Id
+    private String empID, storeID;
 
     public EmployeeStore(Builder builder) {
         this.empID = builder.empID;
         this.storeID = builder.storeID;
     }
 
-    private EmployeeStore() {
+    protected EmployeeStore() {
     }
 
     public String getEmpID() {
