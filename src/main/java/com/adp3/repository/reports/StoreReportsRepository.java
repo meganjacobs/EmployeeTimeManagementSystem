@@ -9,6 +9,6 @@ import java.util.Set;
 public interface StoreReportsRepository extends JpaRepository<StoreReports, String> {
 
 
-    Set<StoreReports> getAll();
+    //Set<StoreReports> getAll();
 }
 
