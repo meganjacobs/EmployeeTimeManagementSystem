@@ -20,32 +20,32 @@ public class StoreReportsController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public StoreReports create(StoreReports storeReports){
-        StoreReports newStoreReports = StoreReportFactory.createStoreReports(storeReports.getReportDesc());
+        StoreReports newStoreReports = StoreReportFactory.createStoreReports("1","2","3");
         return storeReportsService.create(newStoreReports);
-   }
-   /*
+    }
+    /*
 
-    */
-   @GetMapping("/read/{storeReportsId}")
-   public  StoreReports read(@PathVariable String ReportId){
-       return storeReportsService.read(ReportId);
-   }
-   /*
+     */
+    @GetMapping("/read/{storeReportsId}")
+    public  StoreReports read(@PathVariable String ReportId){
+        return storeReportsService.read(ReportId);
+    }
+    /*
 
-    */
-   @PutMapping("/update")
-   public StoreReports update(@RequestBody StoreReports storeReports){
-       return storeReportsService.update(storeReports);
-   }
-   /*
+     */
+    @PutMapping("/update")
+    public StoreReports update(@RequestBody StoreReports storeReports){
+        return storeReportsService.update(storeReports);
+    }
+    /*
 
-    */
-   public void delete(@PathVariable String reportId){
-       storeReportsService.delete(reportId);
-   }
+     */
+    public void delete(@PathVariable String reportId){
+        storeReportsService.delete(reportId);
+    }
 
     @GetMapping("/all")
-   public Set<StoreReports> getAll(){
+    public Set<StoreReports> getAll(){
         return storeReportsService.getAll();
-   }
+    }
 }
