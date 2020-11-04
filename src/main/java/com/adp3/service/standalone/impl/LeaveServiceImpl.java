@@ -46,9 +46,6 @@ public class LeaveServiceImpl implements LeaveService {
     public void delete(String leaveID) {
 
         this.repository.deleteById(leaveID);
-        if(this.repository.deleteById(s)) return false;
-        else return true
-
     }
 
     @Override
