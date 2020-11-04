@@ -8,11 +8,8 @@ import com.adp3.util.GenericHelper;
 import org.junit.FixMethodOrder;
 //import org.junit.jupiter.api.Test;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 //import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,20 +19,18 @@ import org.springframework.test.context.junit4.SpringRunner;
  * Student number: 214293939
  * Class Description:
  */
-@SpringBootTest
-@RunWith(SpringRunner.class)
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class EmployeeRoleServiceImplTest {
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+class EmployeeRoleServiceImplTest {
     @Autowired
-    private EmployeeRoleService employeeRoleService;
-    private String empId = GenericHelper.generateID();
-    private EmployeeRole employeeRole = EmployeeRoleFactory.createEmployeeRole(empId,"Managerr");
+    private  static EmployeeRoleService employeeRoleService;
+    private static String empId = GenericHelper.generateID();
+    private  static EmployeeRole employeeRole = EmployeeRoleFactory.createEmployeeRole(empId,"Managerr");
 
 
 
     @Test
-    public void a_create() {
+    void a_create() {
         EmployeeRole created = employeeRoleService.create(employeeRole);
         //assertEquals(employeeRole, created);
         System.out.println(created);
@@ -43,13 +38,13 @@ public class EmployeeRoleServiceImplTest {
     }
 
     @Test
-    public void b_read() {
+    void b_read() {
         EmployeeRole read = employeeRoleService.read(employeeRole.getEmpID());
         System.out.println(employeeRole);
     }
 
     @Test
-    public void c_update() {
+    void c_update() {
         EmployeeRole updated = new EmployeeRole.Builder().copy(employeeRole).setEmployeeId(empId).setRoleId("Manager").build();
         updated = employeeRoleService.update(updated);
         System.out.println(updated);
@@ -57,17 +52,17 @@ public class EmployeeRoleServiceImplTest {
     }
 
     @Test
-    public void d_getAll() {
+    void d_getAll() {
         System.out.println(employeeRoleService.getAll());
     }
 
 
     @Test
-    public void e_delete() {
+    void e_delete() {
         employeeRoleService.delete(employeeRole.getEmpID());
     }
 
     @Test
-    public void getAllRolesStartWith() {
+    void getAllRolesStartWith() {
     }
 }

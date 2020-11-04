@@ -2,10 +2,8 @@ package com.adp3.repository.bridge;
 
 
 import com.adp3.entity.bridge.EmployeeSalary;
-import com.adp3.repository.IRepository;
-
-
-import java.util.Set;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * Author: Liesl Gounden-Wentzel
@@ -13,7 +11,9 @@ import java.util.Set;
  * Student number: 202104133
  * Description: EmployeeSalaryRepository
  */
-public interface EmployeeSalaryRepository extends IRepository<EmployeeSalary,String> {
+
+@Repository
+public interface EmployeeSalaryRepository extends JpaRepository<EmployeeSalary, String> {
     //Retrieves collection specific to EmployeeSalaryRepository
-    Set<EmployeeSalary> getAll();
+    //Set<EmployeeSalary> getAll();
 }
