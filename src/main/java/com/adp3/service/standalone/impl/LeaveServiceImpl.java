@@ -4,8 +4,10 @@ import com.adp3.entity.standalone.Leave;
 import com.adp3.repository.standalone.LeaveRepository;
 import com.adp3.repository.standalone.impl.LeaveRepositoryImpl;
 import com.adp3.service.standalone.LeaveService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -18,44 +20,51 @@ import java.util.Set;
 public class LeaveServiceImpl implements LeaveService {
 
     private static LeaveService service = null;
+    @Autowired
     private LeaveRepository repository;
-
-    private LeaveServiceImpl() {
-        this.repository = LeaveRepositoryImpl.getRepository();
-    }
-
-    public static LeaveService getService() {
-        if (service == null) service = new LeaveServiceImpl();
-        return service;
-
-    }
 
 
     @Override
     public Leave create(Leave leave) {
-        return this.repository.create(leave);
+        return this.repository.save(leave);
     }
 
     @Override
     public Leave read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(supplier: null);
     }
 
     @Override
     public Leave update(Leave leave) {
-        return this.repository.update(leave);
+        if (this .repository.existsById(leave.id())){
+        return this.repository.save(leave);
+        }
+        return null;
     }
 
     @Override
     public void delete(String leaveID) {
 
-        this.repository.delete(leaveID);
-
+        this.repository.deleteById(leaveID);
     }
 
     @Override
     public Set<Leave> getAll() {
         return this.repository.getAll();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LeaveServiceImpl that = (LeaveServiceImpl) o;
+        return Objects.equals(repository, that.repository);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(repository);
+    }
 }
+
 
