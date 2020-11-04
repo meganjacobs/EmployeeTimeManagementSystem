@@ -3,7 +3,8 @@
  * Class: Part Time
  * Student number: 217136664
  * Description: LeaveReportRepositoryImpl - implementation of LeaveReportRepository as a concrete class
- */
+ *//*
+
 
 package com.adp3.repository.reports.impl;
 
@@ -28,10 +29,12 @@ public class StoreReportsRepositoryImpl implements StoreReportsRepository {
 
     }
 
-    /*method used to create a new StoreReport
-     * @param: StoreReportDesc
-     * @return: StoreReport
-     * */
+    */
+/*method used to create a new StoreReport
+ * @param: StoreReportDesc
+ * @return: StoreReport
+ * *//*
+
         @Override
     public StoreReports create(StoreReports storeReports) {
 
@@ -39,15 +42,17 @@ public class StoreReportsRepositoryImpl implements StoreReportsRepository {
             return storeReports;
     }
 
-    /*method used to read StoreReport
-     * @param: StoreReportDesc
-     * @return: StoreReport
-     * */
+    */
+/*method used to read StoreReport
+ * @param: StoreReportDesc
+ * @return: StoreReport
+ * *//*
+
     @Override
     public StoreReports read(String storeReportsId) {
         StoreReports storeReports = null;
         for(StoreReports storeReports1 : this.storeReportsDB) {
-            if (storeReports1.getReportID().equalsIgnoreCase(storeReportsId)) {
+            if (storeReports1.getStoreReportID().equalsIgnoreCase(storeReportsId)) {
                 storeReports = storeReports1;
                 break;
             }
@@ -55,35 +60,42 @@ public class StoreReportsRepositoryImpl implements StoreReportsRepository {
         return storeReports;
     }
 
-    /*method used to update StoreReport
-     * @param: StoreReportDesc
-     * @return: StoreReport
-     * */
+    */
+/*method used to update StoreReport
+ * @param: StoreReportDesc
+ * @return: StoreReport
+ * *//*
+
     @Override
     public StoreReports update (StoreReports storeReports) {
-        StoreReports oldStoreReports = read(storeReports.getReportID());
+        StoreReports oldStoreReports = read(storeReports.getStoreReportID());
         if (oldStoreReports != null) {
             this.storeReportsDB.remove(oldStoreReports);
             this.storeReportsDB.add(storeReports);
         }
         return storeReports;
     }
-    /*method used to delete StoreReport
-     * @param: StoreReportDesc
-     * @return: StoreReport
-     * */
+    */
+/*method used to delete StoreReport
+ * @param: StoreReportDesc
+ * @return: StoreReport
+ * *//*
+
     @Override
     public void delete(String storeReportsId) {
         StoreReports storeReports = read(storeReportsId);
         if (storeReports != null)
             this.storeReportsDB.remove(storeReports);
     }
-    /*method used to retrieve Collection of StoreReport
-     * @param: void
-     * @return: Set
-     * */
+    */
+/*method used to retrieve Collection of StoreReport
+ * @param: void
+ * @return: Set
+ * *//*
+
     @Override
     public Set<StoreReports> getAll(){
         return this.storeReportsDB;
     }
 }
+**/
