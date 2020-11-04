@@ -19,7 +19,7 @@ public class Leave implements Serializable {
     private String leaveDesc;
     private int leaveDaysAmt;
 
-    private Leave(){}
+    protected Leave(){}
 
     private Leave(Builder builder) {
         this.leaveID = builder.leaveID;
