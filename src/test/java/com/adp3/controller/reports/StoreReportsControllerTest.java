@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
 public class StoreReportsControllerTest {
-    StoreReports storeReports = StoreReportFactory.createStoreReports("Work experience");
+    StoreReports storeReports = StoreReportFactory.createStoreReports("Work Experience", "123", "23");
     @Autowired
     private TestRestTemplate restTemplate;
     private String baseURL = "http://localhost:8080/storeReports";
@@ -36,7 +36,7 @@ public class StoreReportsControllerTest {
     }
     @Test
     public void b_read() {
-        String url =baseURL + "read storeReports"+ storeReports.getReportID();
+        String url =baseURL + "read storeReports"+ storeReports.getStoreReportID();
         System.out.println("Store Report URL :"+ url);
         ResponseEntity<StoreReports> storeReportsResponse = restTemplate.getForEntity(url,StoreReports.class);
         assertNotNull(storeReportsResponse);
@@ -54,7 +54,7 @@ public class StoreReportsControllerTest {
     }
     @Test
     public void e_delete() {
-        String url =baseURL + "delete/" + storeReports.getReportID();
+        String url =baseURL + "delete/" + storeReports.getStoreReportID();
         System.out.println("Store Report URL :"+ url);
         restTemplate.delete(url);
     }

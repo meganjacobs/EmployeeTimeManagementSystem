@@ -5,7 +5,7 @@
  * Description: Test methods of storeReportRepository (IRepository) implemented in its concrete class
  */
 
-
+/**
 package com.adp3.repository.reports.impl;
 
 import com.adp3.entity.reports.StoreReports;
@@ -26,30 +26,31 @@ public class StoreReportsRepositoryImplTest {
     @Test
     public void a_create() {
         StoreReports created = storeReportsRepository.create(storeReports);
-        Assert.assertEquals(storeReports.getReportID(), created.getReportID());
+        Assert.assertEquals(storeReports.getStoreReportID(), created.getStoreReportID();
         System.out.println("Create: " + created);
     }
 
     @Test
     public void b_read() {
-        StoreReports read = storeReportsRepository.read(storeReports.getReportID());
+        StoreReports read = storeReportsRepository.read(storeReports.getStoreReportID());
         System.out.println("Read: "+ read);
     }
 
     @Test
     public void c_update() {
-        StoreReports updated = new StoreReports.Builder().copy(storeReports).setReportDesc("Employee StoreReport").build();
+        StoreReports updated = new StoreReports.Builder().copy(storeReports).setStoreReportID("Employee StoreReport").build();
         updated = storeReportsRepository.update(updated);
         System.out.println("Update: "+updated);
     }
 
     @Test
     public void e_delete() {
-        storeReportsRepository.delete(storeReports.getReportID());
+        storeReportsRepository.delete(storeReports.getStoreReportID());
     }
 
     @Test
     public void d_getAll() {
-        storeReportsRepository.delete(storeReports.getReportID());
+        storeReportsRepository.delete(storeReports.getStoreReportID());
     }
 }
+**/

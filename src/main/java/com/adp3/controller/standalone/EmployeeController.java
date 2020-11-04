@@ -42,10 +42,10 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable String id){
+    public void delete(@PathVariable String id){
 
         System.out.println("Deleted Employee");
-        return employeeService.delete(id);
+        employeeService.delete(id);
     }
 
     @GetMapping("/all")
