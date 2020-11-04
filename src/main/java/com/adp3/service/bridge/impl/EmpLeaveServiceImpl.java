@@ -2,8 +2,8 @@ package com.adp3.service.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeLeave;
 import com.adp3.repository.bridge.EmployeeLeaveRepository;
-import com.adp3.repository.bridge.impl.EmployeeLeaveRepositoryImpl;
 import com.adp3.service.bridge.EmpLeaveService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 /**
  * @author Zubair Van Oudtshoorn
@@ -22,45 +23,40 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class EmpLeaveServiceImpl implements EmpLeaveService {
 
-    private static EmpLeaveService service = null;
+    //private static EmpLeaveService service = null;
+    @Autowired
     private EmployeeLeaveRepository repository;
-
-    private EmpLeaveServiceImpl(){
-        this.repository = EmployeeLeaveRepositoryImpl.getRepository();
-    }
-
-    public static EmpLeaveService getService(){
-        if (service == null) service = new EmpLeaveServiceImpl();
-        return service;
-
-    }
-
-
     @Override
     public EmployeeLeave create(EmployeeLeave employeeLeave) {
-        return this.repository.create(employeeLeave);
+        return this.repository.save(employeeLeave);
     }
 
     @Override
     public EmployeeLeave read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
     }
 
     @Override
     public EmployeeLeave update(EmployeeLeave employeeLeave) {
-        return this.repository.update(employeeLeave);
+        if( this.repository.existsById(employeeLeave.getEmpID())){
+            return this.repository.save(employeeLeave);}
+        return null;
     }
+
 
     @Override
     public void delete(String empID) {
 
-        this.repository.delete(empID);
+        if (repository.existsById(empID)){
+            repository.deleteById(empID);
+        }
+        else System.out.println("No Available Record");
 
     }
 
     @Override
     public Set<EmployeeLeave> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     /*@Override
