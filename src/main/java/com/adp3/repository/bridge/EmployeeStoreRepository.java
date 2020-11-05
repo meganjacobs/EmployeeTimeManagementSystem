@@ -2,6 +2,8 @@ package com.adp3.repository.bridge;
 
 import com.adp3.entity.bridge.EmployeeStore;
 import com.adp3.repository.IRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
@@ -12,8 +14,10 @@ import java.util.Set;
  * Class Description: EmployeeStoreRepository
  */
 
-public  interface EmployeeStoreRepository extends IRepository<EmployeeStore, String> {
-    Set<EmployeeStore> getAll();
+@Repository
+public  interface EmployeeStoreRepository extends JpaRepository<EmployeeStore, String> {
+
 
 
 }
+
