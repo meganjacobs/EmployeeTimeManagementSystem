@@ -1,5 +1,7 @@
 package com.adp3.entity.standalone;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
@@ -9,13 +11,15 @@ import java.io.Serializable;
  * Class Description: Leave
  */
 
+@Entity
 public class Leave implements Serializable {
 
+    @Id
     private String leaveID;
     private String leaveDesc;
     private int leaveDaysAmt;
 
-    private Leave(){}
+    protected Leave(){}
 
     private Leave(Builder builder) {
         this.leaveID = builder.leaveID;
@@ -45,6 +49,8 @@ public class Leave implements Serializable {
     }
 
     public static class Builder {
+        public String id;
+        public String description;
         private String leaveID;
         private String leaveDesc;
         private int leaveDaysAmt;

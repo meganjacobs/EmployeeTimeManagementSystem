@@ -6,6 +6,7 @@ import com.adp3.service.standalone.EmployeeService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 
@@ -22,8 +23,9 @@ import static org.junit.Assert.*;
 
 public class EmployeeServiceImplTest {
 
-    private static EmployeeService emp_service = EmployeeServiceImpl.getEmpService();
-    private Employee employee = EmployeeFactory.createEmployee("Malusi", "Pakade", "021 543 9876", new Date(1986, 00, 12));
+    @Autowired
+    private EmployeeService emp_service;
+    private static  Employee employee = EmployeeFactory.createEmployee("Malusi", "Pakade", "021 543 9876", new Date(1986, 00, 12));
 
 
     @Test
