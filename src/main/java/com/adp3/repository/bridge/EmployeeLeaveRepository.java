@@ -1,7 +1,8 @@
 package com.adp3.repository.bridge;
 
 import com.adp3.entity.bridge.EmployeeLeave;
-import com.adp3.repository.IRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
         /**
@@ -9,10 +10,10 @@ import java.util.Set;
         * desc: Employess Leave Repository
          * Student#: 217203795
         */
-
-public interface EmployeeLeaveRepository extends IRepository<EmployeeLeave,String> {
+@Repository
+public interface EmployeeLeaveRepository extends JpaRepository<EmployeeLeave, String> {
     //Retrieves collection specific to EmployeeLeaveRepository
-    Set<EmployeeLeave> getAll();
+    //Set<EmployeeLeave> getAll();
 
 
 }
