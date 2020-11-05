@@ -1,10 +1,23 @@
 package com.adp3.entity.bridge;
 
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Embeddable
 public class EmployeeLeaveId implements Serializable {
     private String empID;
+    private String leaveID;
+
+    public EmployeeLeaveId(){
+
+    }
+
+    public EmployeeLeaveId(String empID, String leaveID){
+        this.empID = empID;
+        this.leaveID = leaveID;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -19,7 +32,4 @@ public class EmployeeLeaveId implements Serializable {
     public int hashCode() {
         return Objects.hash(empID, leaveID);
     }
-
-    private String leaveID;
-
 }
