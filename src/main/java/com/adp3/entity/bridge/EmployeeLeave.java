@@ -2,6 +2,9 @@ package com.adp3.entity.bridge;
 
 import com.adp3.entity.standalone.Employee;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import java.util.Date;
 
 /**
@@ -9,13 +12,16 @@ import java.util.Date;
  * Creation of EmployeeLeave Class
  *
  * **/
-
+@Entity
+@IdClass(EmployeeLeaveId.class)
 public class EmployeeLeave {
 
-    private String empID, leaveID;
+    @Id
+    private String leaveID, empID;
+
     private Date startDate, endDate;
 
-    private EmployeeLeave(){
+    protected EmployeeLeave(){
 
     }
 
