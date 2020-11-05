@@ -11,7 +11,7 @@ import javax.persistence.IdClass;
  * Class Description: EmployeeStore
  */
 @Entity
-@IdClass(EmployeeStoreId.class)
+@IdClass(EmployeeStoreID.class)
 public class EmployeeStore {
 
     @Id

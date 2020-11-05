@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 public class EmployeeStoreRepositoryImplTest {
 
 
-    private static EmployeeStoreRepository empStoreRepo = new EmployeeStoreRepositoryImpl() ;
+    private static EmployeeStoreRepository empStoreRepo;
     private static String empID = GenericHelper.generateID();
     private static EmployeeStore employeeStore = EmployeeStoreFactory.createEmployeeStore(empID, "bebe");
 
