@@ -30,7 +30,7 @@ import static org.junit.Assert.*;
 public class EmpLeaveServiceImplTest {
 
     @Autowired
-    private static EmpLeaveServiceImpl service;
+    private EmpLeaveServiceImpl service;
     private static String empID = GenericHelper.generateID();
     EmployeeLeave empLeave;
 

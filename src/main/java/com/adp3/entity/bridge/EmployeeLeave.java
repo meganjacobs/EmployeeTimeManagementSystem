@@ -5,6 +5,7 @@ import com.adp3.entity.standalone.Employee;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,11 +14,12 @@ import java.util.Date;
  *
  * **/
 @Entity
-@IdClass(EmployeeLeaveId.class)
-public class EmployeeLeave {
+//@IdClass(EmployeeLeaveId.class)
+public class EmployeeLeave implements Serializable {
 
     @Id
-    private String leaveID, empID;
+    private String  empID;
+    private String leaveID;
 
     private Date startDate, endDate;
 
