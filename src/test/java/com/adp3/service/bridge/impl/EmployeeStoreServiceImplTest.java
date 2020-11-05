@@ -6,12 +6,7 @@ import com.adp3.service.bridge.EmployeeStoreService;
 import com.adp3.util.GenericHelper;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.WebApplicationType;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,20 +17,12 @@ import static org.junit.Assert.assertEquals;
  * Class Description: EmployeeStoreServiceImplTest.
  */
 
-
-@SpringBootTest
-@RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeStoreServiceImplTest {
-@Autowired
-    private EmployeeStoreService employeeStoreService;
-    private static String empID = GenericHelper.generateID();
-    EmployeeStore employeeStore;
 
-    public void a_a(){
-        employeeStore = EmployeeStoreFactory.createEmployeeStore(empID, "Bebe");
-        employeeStoreService.create(employeeStore);
-    }
+    private static EmployeeStoreService employeeStoreService =  EmployeeStoreServiceImpl.getEmpStoreService();
+    private static String empID = GenericHelper.generateID();
+    EmployeeStore employeeStore = EmployeeStoreFactory.createEmployeeStore(empID, "Bebe");
 
     @Test
     public void d_getAll() {

@@ -2,12 +2,13 @@ package com.adp3.service.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeStore;
 import com.adp3.repository.bridge.EmployeeStoreRepository;
+import com.adp3.repository.bridge.impl.EmployeeStoreRepositoryImpl;
 import com.adp3.service.bridge.EmployeeStoreService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * Author: Munyaradzi Manyati
@@ -18,37 +19,45 @@ import java.util.stream.Collectors;
 @Service
 public class EmployeeStoreServiceImpl implements EmployeeStoreService {
 
-    @Autowired
+    private static EmployeeStoreService empStoreService = null;
     private EmployeeStoreRepository empStoreDB;
 
-    @Override
-    public Set<EmployeeStore> getAll() {
-        return this.empStoreDB.findAll().stream().collect(Collectors.toSet());
+    EmployeeStoreServiceImpl() { this.empStoreDB = EmployeeStoreRepositoryImpl.getRepository(); }
+
+    public static EmployeeStoreService getEmpStoreService() {
+        if (empStoreService == null) empStoreService = new EmployeeStoreServiceImpl();
+        return empStoreService;
     }
 
     @Override
-    public EmployeeStore create(EmployeeStore t) {
-        this.empStoreDB.save(t);
+    public Set<EmployeeStore> getAll()
+    {
+        return this.empStoreDB.getAll();
+    }
+
+    @Override
+    public EmployeeStore create(EmployeeStore t)
+    {
+        this.empStoreDB.create(t);
         return t;
     }
 
     @Override
-    public EmployeeStore read(String s) {
-        return this.empStoreDB.findById(s).orElse(null);
+    public EmployeeStore read(String s)
+    {
+        return this.empStoreDB.read(s);
     }
 
     @Override
-    public EmployeeStore update(EmployeeStore t) {
-        if (this.empStoreDB.existsById(t.getEmpID())) {
-            return this.empStoreDB.save(t);
-        }
-        return null;
+    public EmployeeStore update(EmployeeStore t)
+    {
+        return this.empStoreDB.update(t);
     }
 
 
     @Override
-    public void delete(String s) {
-        this.empStoreDB.deleteById(s);
-
+    public void delete(String s)
+    {
+        this.empStoreDB.delete(s);
     }
 }

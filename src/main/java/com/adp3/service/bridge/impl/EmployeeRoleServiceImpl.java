@@ -54,7 +54,7 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
     @Override
     public void delete(String s) {
         this.employeeRoleRepository.delete(s);
-
+        return;
 
     }
 
