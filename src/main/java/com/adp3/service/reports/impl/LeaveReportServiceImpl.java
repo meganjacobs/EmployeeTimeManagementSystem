@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -61,12 +60,11 @@ public class LeaveReportServiceImpl implements LeaveReportService {
         repository.deleteById(s);
         }
         else System.out.println("Record does not exist");
-
     }
 
     @Override
     public Set<LeaveReport> getAll() {
-       return new HashSet<>(repository.findAll());
+       return repository.findAll().stream().collect(Collectors.toSet());
     }
 
 }

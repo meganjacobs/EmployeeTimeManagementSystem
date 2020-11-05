@@ -1,4 +1,4 @@
-/*package com.adp3.repository.bridge.impl;
+package com.adp3.repository.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeStore;
 import com.adp3.factory.bridge.EmployeeStoreFactory;
@@ -10,18 +10,18 @@ import org.junit.runners.MethodSorters;
 
 import static org.junit.Assert.assertEquals;
 
-
+/*
  * Author: Munyaradzi Manyati
  * Class: Part Time
  * Student number: 215211855
  * Class Description: EmployeeStoreRepositoryImplTest.
-
+ */
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeStoreRepositoryImplTest {
 
 
-    private static EmployeeStoreRepository empStoreRepo;
+    private static EmployeeStoreRepository empStoreRepo = new EmployeeStoreRepositoryImpl() ;
     private static String empID = GenericHelper.generateID();
     private static EmployeeStore employeeStore = EmployeeStoreFactory.createEmployeeStore(empID, "bebe");
 
@@ -58,4 +58,4 @@ public class EmployeeStoreRepositoryImplTest {
         System.out.println("Deleted :" + empStoreRepo.getAll());
     }
 
-}*/
+}

@@ -25,7 +25,7 @@ import java.util.Set;
 @RequestMapping("/employeestore")
 public class EmployeeStoreController {
 
-    @Autowired
+    @MockBean
     private EmployeeStoreServiceImpl empStoreService;
 
     @Autowired
