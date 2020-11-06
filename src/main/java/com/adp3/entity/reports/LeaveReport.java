@@ -39,12 +39,12 @@ public class LeaveReport implements Serializable {
 
     @Override
     public String toString() {
-        return "Builder{" +
-                "leaveReportID='" + leaveReportID + '\'' +
+        return "...............\nLeaveReport {" +
+                "leaveReportID='" + leaveReportID.substring(0,13) + '\'' +
                    ", employeeID='" + empID + '\'' +
                     ", leaveID='" + leaveID + '\'' +
                         ", storeID='" + storeID + '\'' +
-                '}';
+                '}' + "\n";
     }
 
     public static class Builder{
