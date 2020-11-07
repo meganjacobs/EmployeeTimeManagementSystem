@@ -29,9 +29,8 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
     }
 
     @Override
-    public EmployeeRole read(String s) {
-        this.employeeRoleRepository.findById(s);
-        return null;
+    public EmployeeRole read(String empId) {
+       return this.employeeRoleRepository.findById(empId).orElseGet(null);
 
     }
 
@@ -42,8 +41,10 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
     }
 
     @Override
-    public void delete(String s) {
-        this.employeeRoleRepository.deleteById(s);
+    public void delete(String empId) {
+        if(employeeRoleRepository.existsById(empId)){
+            employeeRoleRepository.deleteById(empId);
+        }
 
     }
 

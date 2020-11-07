@@ -42,7 +42,7 @@ public class EmployeeRoleServiceImplTest {
 
     @Test
     public void b_read() {
-        EmployeeRole read = employeeRoleService.read(employeeRole.getEmpID());
+        EmployeeRole read = employeeRoleService.read(empId);
         System.out.println(employeeRole);
     }
 
@@ -62,7 +62,7 @@ public class EmployeeRoleServiceImplTest {
 
     @Test
     public void e_delete() {
-        employeeRoleService.delete(employeeRole.getEmpID());
+        employeeRoleService.delete(empId);
     }
 
     @Test

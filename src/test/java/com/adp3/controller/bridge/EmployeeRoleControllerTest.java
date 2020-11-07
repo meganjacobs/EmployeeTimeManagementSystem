@@ -48,9 +48,9 @@ public class EmployeeRoleControllerTest {
         System.out.println("Saved data" + employeeRole);
         ResponseEntity<EmployeeRole> postResponse = testRestTemplate.withBasicAuth(username,password).postForEntity(url , employeeRole, EmployeeRole.class);
         System.out.println(postResponse.toString());
-        employeeRole= postResponse.getBody();
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+        employeeRole= postResponse.getBody();
         //assertEquals(employeeRole.getEmpID(),empId);
         assertEquals(HttpStatus.OK,postResponse.getStatusCode());
         System.out.println(baseURL);
