@@ -16,17 +16,20 @@ public class EmployeeRoleId implements Serializable {
     private  String empId,roleId;
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() !=o.getClass())
-           return false;
+        if (o == null || getClass() != o.getClass()) return false;
+
         EmployeeRoleId that = (EmployeeRoleId) o;
-        return  empId.equals(that.empId) && roleId.equals(that.roleId);
+
+        if (!empId.equals(that.empId)) return false;
+        return roleId.equals(that.roleId);
     }
 
     @Override
-    public  int hashCode(){
-        return  Objects.hash(empId,roleId);
+    public int hashCode() {
+        int result = empId.hashCode();
+        result = 31 * result + roleId.hashCode();
+        return result;
     }
-
 }
