@@ -14,7 +14,9 @@ import javax.persistence.IdClass;
 @IdClass(EmployeeRoleId.class)
 public class EmployeeRole {
     @Id
-    private String empID, roleID;
+    private String empID;
+    @Id
+    private String roleID;
 
     protected EmployeeRole(){
 
