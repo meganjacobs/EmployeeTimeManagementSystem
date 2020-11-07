@@ -1,5 +1,7 @@
 package com.adp3.entity.bridge;
 
+import javax.persistence.Embeddable;
+import javax.persistence.IdClass;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -9,6 +11,7 @@ import java.util.Objects;
  * Student number: 214293939
  * Class Description:
  */
+
 public class EmployeeRoleId implements Serializable {
     private  String empId,roleId;
 

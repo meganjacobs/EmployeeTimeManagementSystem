@@ -16,6 +16,6 @@ import java.util.Set;
  */
 @Repository
 public interface EmployeeRoleRepository extends JpaRepository<EmployeeRole,String> {
-    Set<EmployeeRole> getAll();
+   // Set<EmployeeRole> getAll();
 
 }
