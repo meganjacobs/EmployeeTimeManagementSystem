@@ -18,7 +18,7 @@ public class EmployeeRoleController {
     @PostMapping("/create")
     public EmployeeRole create(@RequestBody EmployeeRole employeeRole)
     { EmployeeRole employeeRole1 = EmployeeRoleFactory.createEmployeeRole(employeeRole.getEmpID(), employeeRole.getRoleID());
-      return employeeRoleService.create(employeeRole1);
+      return employeeRoleService.create(employeeRole);
     }
 
     @GetMapping("/read {empID}")

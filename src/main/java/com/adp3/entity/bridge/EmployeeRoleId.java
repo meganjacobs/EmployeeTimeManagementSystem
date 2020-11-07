@@ -1,9 +1,6 @@
 package com.adp3.entity.bridge;
 
-import javax.persistence.Embeddable;
-import javax.persistence.IdClass;
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  * Author: Sonwabo Kasi
@@ -11,9 +8,8 @@ import java.util.Objects;
  * Student number: 214293939
  * Class Description:
  */
-
 public class EmployeeRoleId implements Serializable {
-    private  String empId,roleId;
+    private String empID,roleID;
 
     @Override
     public boolean equals(Object o) {
@@ -22,14 +18,14 @@ public class EmployeeRoleId implements Serializable {
 
         EmployeeRoleId that = (EmployeeRoleId) o;
 
-        if (!empId.equals(that.empId)) return false;
-        return roleId.equals(that.roleId);
+        return  (!empID.equals(that.empID)) &&
+        roleID.equals(that.roleID);
     }
 
     @Override
     public int hashCode() {
-        int result = empId.hashCode();
-        result = 31 * result + roleId.hashCode();
+        int result = empID.hashCode();
+        result = 31 * result + roleID.hashCode();
         return result;
     }
 }
