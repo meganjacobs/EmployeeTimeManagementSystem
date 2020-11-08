@@ -1,3 +1,4 @@
+/*
 package com.adp3.repository.bridge.impl;
 
 
@@ -7,12 +8,14 @@ import com.adp3.repository.bridge.EmployeeRoleRepository;
 import java.util.HashSet;
 import java.util.Set;
 
+*/
 /**
  * Author: Sonwabo Kasi
  * Class: Part Time
  * Student number: 214293939
  * Class Description:
- */
+ *//*
+
 public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
 
     private Set<EmployeeRole> employeeRoleDB;
@@ -67,3 +70,4 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
             this.employeeRoleDB.remove(employeeRole);
     }
 }
+*/

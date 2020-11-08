@@ -22,6 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * Student number: 214293939
  * Class Description:
  */
+
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -29,12 +30,10 @@ public class EmployeeRoleServiceImplTest {
     @Autowired
     private EmployeeRoleService employeeRoleService;
     private static String empId = GenericHelper.generateID();
-    private  static EmployeeRole employeeRole = EmployeeRoleFactory.createEmployeeRole(empId,"Managerr");
-
-
+    private EmployeeRole employeeRole = EmployeeRoleFactory.createEmployeeRole(empId,"Managerr");
 
     @Test
-   public void a_create() {
+    public void a_create() {
         EmployeeRole created = employeeRoleService.create(employeeRole);
         //assertEquals(employeeRole, created);
         System.out.println(created);

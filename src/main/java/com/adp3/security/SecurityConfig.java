@@ -18,7 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private String USER_ROLE = "user";
     private String ADMIN_ROLE = "admin";
 
-     @Override
+    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("Super")
