@@ -14,6 +14,7 @@ import java.util.Objects;
  */
 
 @Entity
+@Table(name = "leave_table")
 public class Leave implements Serializable {
 
     @Id
