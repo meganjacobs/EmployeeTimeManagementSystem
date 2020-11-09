@@ -13,6 +13,7 @@ import java.util.Set;
  * Student number: 215211855
  * Class Description: EmployeeStoreRepository
  */
+
 @Repository
 public  interface EmployeeStoreRepository extends JpaRepository<EmployeeStore,String>{
 
