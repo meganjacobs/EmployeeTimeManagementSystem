@@ -1,9 +1,7 @@
 package com.adp3.controller.standalone;
 
-import com.adp3.entity.reports.LeaveReport;
 import com.adp3.entity.standalone.Leave;
 import com.adp3.factory.standalone.LeaveFactory;
-import com.adp3.service.reports.impl.LeaveReportServiceImpl;
 import com.adp3.service.standalone.impl.LeaveServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +22,8 @@ public class LeaveController {
 
     @PostMapping("/create")
     public Leave create(@RequestBody Leave leave){
-     Leave newLeave = LeaveFactory.createLeave(leave.getLeaveDesc());
-     return leaveService.create(newLeave);
+        Leave newLeave = LeaveFactory.createLeave(leave.getLeaveDescription());
+        return leaveService.create(newLeave);
     }
 
     @GetMapping("/read{leaveID}")
