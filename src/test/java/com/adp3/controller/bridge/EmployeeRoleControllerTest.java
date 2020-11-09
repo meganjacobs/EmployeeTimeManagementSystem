@@ -51,8 +51,8 @@ public class EmployeeRoleControllerTest {
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         employeeRole= postResponse.getBody();
-        //assertEquals(employeeRole.getEmpID(),empId);
-        assertEquals(HttpStatus.OK,postResponse.getStatusCode());
+        assertEquals(employeeRole.getEmpID(),postResponse.getBody().getEmpID());
+       // assertEquals(HttpStatus.OK,postResponse.getStatusCode());
         System.out.println(baseURL);
         System.out.println("Posted data" + employeeRole);
 

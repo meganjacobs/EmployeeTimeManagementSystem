@@ -24,13 +24,13 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
     @Override
     public EmployeeRole create(EmployeeRole employeeRole) {
-        this.employeeRoleRepository.save(employeeRole);
-        return employeeRole;
+        return this.employeeRoleRepository.save(employeeRole);
+
     }
 
     @Override
-    public EmployeeRole read(String empId) {
-       return this.employeeRoleRepository.findById(empId).orElseGet(null);
+    public EmployeeRole read(String s) {
+       return this.employeeRoleRepository.findById(s).orElseGet(null);
 
     }
 
