@@ -1,10 +1,12 @@
 package com.adp3.service.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeRole;
+import com.adp3.entity.bridge.EmployeeRoleId;
 import com.adp3.factory.bridge.EmployeeRoleFactory;
 import com.adp3.service.bridge.EmployeeRoleService;
 import com.adp3.service.bridge.impl.EmployeeRoleServiceImpl;
 import com.adp3.util.GenericHelper;
+import org.junit.Before;
 import org.junit.FixMethodOrder;
 //import org.junit.jupiter.api.Test;
 import org.junit.Test;
@@ -29,8 +31,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class EmployeeRoleServiceImplTest {
     @Autowired
     private EmployeeRoleService employeeRoleService;
-    private static String empId = GenericHelper.generateID();
-    private EmployeeRole employeeRole = EmployeeRoleFactory.createEmployeeRole(empId,"Managerr");
+    private static final String empId = GenericHelper.generateID();
+    EmployeeRole employeeRole;
+
+    @Before
+    public void prep(){
+        employeeRole = EmployeeRoleFactory.createEmployeeRole(empId,"Managerr");
+        employeeRoleService.create(employeeRole);
+
+    }
 
     @Test
     public void a_create() {
@@ -43,7 +52,7 @@ public class EmployeeRoleServiceImplTest {
     @Test
     public void b_read() {
         EmployeeRole read = employeeRoleService.read(employeeRole.getEmpID());
-        System.out.println(employeeRole);
+        System.out.println(read);
     }
 
     @Test

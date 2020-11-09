@@ -11,11 +11,11 @@ import javax.persistence.IdClass;
  * Class Description: EmployeeRole
  */
 @Entity
-@IdClass(EmployeeRoleId.class)
+//@IdClass(EmployeeRoleId.class)
 public class EmployeeRole {
     @Id
     private String empID;
-    @Id
+    //@Id
     private String roleID;
 
     protected EmployeeRole(){
