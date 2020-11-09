@@ -10,11 +10,11 @@ public class LeaveFactory {
     private LeaveFactory(){
     }
 
-    public static Leave createLeave(String leaveDesc) {
+    public static Leave createLeave(String leaveDescription) {
         String leaveID = GenericHelper.generateID();
         return new Leave.Builder()
                 .setLeaveID(leaveID)
-                .setLeaveDesc(leaveDesc)
+                .setLeaveDescription(leaveDescription)
                 .build();
     }
 
