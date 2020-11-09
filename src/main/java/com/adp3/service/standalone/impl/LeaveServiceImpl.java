@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 @Service
 public class LeaveServiceImpl implements LeaveService {
 
-    private static LeaveService service = null;
     @Autowired
     private LeaveRepository repository;
 
@@ -37,7 +36,7 @@ public class LeaveServiceImpl implements LeaveService {
     @Override
     public Leave update(Leave leave) {
         if (this .repository.existsById(leave.getLeaveID())){
-        return this.repository.save(leave);
+            return this.repository.save(leave);
         }
         return null;
     }
@@ -50,21 +49,7 @@ public class LeaveServiceImpl implements LeaveService {
 
     @Override
     public Set<Leave> getAll() {
-       return repository.findAll().stream().collect(Collectors.toSet());
+        return repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        LeaveServiceImpl that = (LeaveServiceImpl) o;
-        return Objects.equals(repository, that.repository);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(repository);
-    }
 }
-
-
