@@ -38,19 +38,19 @@ public class EmployeeStoreServiceImplTest {
 
     @Test
     public void d_getAll() {
-        System.out.println("Get All : " + employeeStoreService.getAll());
+        System.out.println("Get All : "  + employeeStoreService.getAll());
     }
 
     @Test
     public void a_create() {
         employeeStoreService.create(employeeStore);
-        System.out.println("employeeStore created: " + employeeStore);
+        System.out.println("employeeStore created: "  + employeeStore);
     }
 
     @Test
     public void b_read() {
         EmployeeStore read = employeeStoreService.read(employeeStore.getEmpID());
-        System.out.println("employeeStore read : " + read);
+        System.out.println("employeeStore read : "  + read);
     }
 
     @Test

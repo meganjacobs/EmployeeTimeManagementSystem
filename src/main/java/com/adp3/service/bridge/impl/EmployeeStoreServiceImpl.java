@@ -15,12 +15,13 @@ import java.util.stream.Collectors;
  * Student number: 215211855
  * Class Description: EmployeeStoreServiceImpl
  */
+
 @Service
 public class EmployeeStoreServiceImpl implements EmployeeStoreService {
 
     private static EmployeeStoreService empStoreService = null;
     @Autowired
-    EmployeeStoreRepository empStoreDB;
+    EmployeeStoreRepository  empStoreDB;
 
     @Override
     public Set<EmployeeStore> getAll()
