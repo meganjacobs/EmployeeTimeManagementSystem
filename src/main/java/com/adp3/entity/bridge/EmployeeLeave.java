@@ -2,6 +2,10 @@ package com.adp3.entity.bridge;
 
 import com.adp3.entity.standalone.Employee;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,13 +13,17 @@ import java.util.Date;
  * Creation of EmployeeLeave Class
  *
  * **/
+@Entity
+//@IdClass(EmployeeLeaveId.class)
+public class EmployeeLeave implements Serializable {
 
-public class EmployeeLeave {
+    @Id
+    private String  empID;
+    private String leaveID;
 
-    private String empID, leaveID;
     private Date startDate, endDate;
 
-    private EmployeeLeave(){
+    protected EmployeeLeave(){
 
     }
 

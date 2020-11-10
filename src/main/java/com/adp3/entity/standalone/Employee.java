@@ -1,5 +1,7 @@
 package com.adp3.entity.standalone;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,13 +12,15 @@ import java.util.Date;
  * 2020
  */
 
+@Entity
 public class Employee implements Serializable {
 
-
-    private String empID, empName, empLastName, empPhoneNumber;
+    @Id
+    private String empID;
+    private String empName, empLastName, empPhoneNumber;
     private Date empDOB;
 
-    private Employee(){ }
+    protected Employee(){ }
 
     public Employee(Builder builder) {
         this.empID = builder.empID;

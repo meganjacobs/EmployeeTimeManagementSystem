@@ -3,6 +3,7 @@ package com.adp3.controller.standalone;
 import com.adp3.entity.standalone.Employee;
 import com.adp3.factory.standalone.EmployeeFactory;
 import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
@@ -18,6 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.swing.text.html.parser.Entity;
 import java.util.Date;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 /**
  * @author Malusi Pakade
@@ -31,10 +33,11 @@ import static org.junit.Assert.assertNotNull;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeControllerTest {
 
+    private Employee employee =  EmployeeFactory.createEmployee("Malusi", "Pakade", "021 543 9876", new Date(1986, 00, 12));
+
     @Autowired
     private TestRestTemplate restTemplate;
     private  String baseUrl = "http://localhost:8080/employee/";
-    private Employee employee =  EmployeeFactory.createEmployee("Malusi", "Pakade", "021 543 9876", new Date(1986, 00, 12));
 
 
     @Test
@@ -53,8 +56,10 @@ public class EmployeeControllerTest {
         ResponseEntity<Employee> postResponse = restTemplate.postForEntity(url, employee, Employee.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
-        System.out.println("Create Test: ");
-        System.out.println(postResponse.getBody());
+        employee = postResponse.getBody();
+        System.out.println("Create Test: " + employee );
+        assertEquals( employee.getEmpID(), postResponse.getBody().getEmpID());
+
     }
 
     @Test

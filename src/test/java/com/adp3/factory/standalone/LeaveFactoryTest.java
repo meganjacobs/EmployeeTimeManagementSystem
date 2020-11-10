@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  * Class Description: LeaveFactoryTest
  */
 public class LeaveFactoryTest {
-  
+
     Leave leave;
     @Before
     public void setUp() throws Exception {
@@ -21,7 +21,7 @@ public class LeaveFactoryTest {
 
     @Test
     public void createLeave() {
-        assertSame("Annual", leave.getLeaveDesc());
+        assertSame("Annual", leave.getLeaveDescription());
         assertEquals(3, leave.getLeaveDaysAmt());
         assertNotNull(leave.getLeaveID());
     }
