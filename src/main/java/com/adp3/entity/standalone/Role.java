@@ -1,5 +1,7 @@
 package com.adp3.entity.standalone;
 
+import java.io.Serializable;
+
 /**
  * Author: Sanele Ngwenya
  * Class: Part Time
@@ -7,7 +9,8 @@ package com.adp3.entity.standalone;
  * Class Description: Role
  */
 
-public class Role {
+
+public class Role implements Serializable {
     private String roleID;
     private String roleDesc;
 
