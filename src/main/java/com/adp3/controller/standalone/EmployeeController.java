@@ -24,8 +24,8 @@ public class EmployeeController {
 
     @PostMapping("/create")
     public Employee create(@RequestBody Employee employee) {
-        Employee newEmployee = EmployeeFactory.createEmployee( employee.getEmpName(), employee.getEmpLastName(), employee.getEmpPhoneNumber(), employee.getEmpDOB() );
 
+        Employee newEmployee = EmployeeFactory.createEmployee( employee.getEmpName(), employee.getEmpLastName(), employee.getEmpPhoneNumber(), employee.getEmpDOB() );
         return employeeService.create( newEmployee );
     }
 
@@ -37,19 +37,21 @@ public class EmployeeController {
 
     @PostMapping("/update/")
     public Employee update(@RequestBody Employee employee){
+
         return employeeService.update( employee );
     }
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable String id){
 
-        employeeService.delete(id);
         System.out.println("Deleted Employee");
+        employeeService.delete(id);
     }
 
     @GetMapping("/all")
     public Set<Employee> getAll() {
 
         return employeeService.getAll();
+
     }
 }
