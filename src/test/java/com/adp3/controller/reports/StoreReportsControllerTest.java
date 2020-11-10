@@ -31,7 +31,7 @@ public class StoreReportsControllerTest {
 
         String url =baseURL + "create StoreReports";
         System.out.println(url);
-        ResponseEntity<StoreReports> storeReportsResponse = restTemplate.withBasicAuth("St","stv@123").postForEntity(url,storeReports,StoreReports.class);
+        ResponseEntity<StoreReports> storeReportsResponse = restTemplate.withBasicAuth("Steve","stv@123").postForEntity(url,storeReports,StoreReports.class);
         assertNotNull(storeReportsResponse);
         assertNotNull(storeReportsResponse.getBody());
         System.out.println(storeReportsResponse);
