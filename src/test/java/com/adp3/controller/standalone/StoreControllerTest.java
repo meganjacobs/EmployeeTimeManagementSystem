@@ -26,12 +26,13 @@ import static org.junit.Assert.*;
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-
 public class StoreControllerTest {
 
     private  Store store = StoreFactory.createStore("PNP");
+    private static  String SECURITY_USERNAME = "Riyaad";
+    private static  String SECURITY_PASSWORD = "1234";
+
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -45,7 +46,9 @@ public class StoreControllerTest {
     public void a_create() {
         String url = URL + "create";
         System.out.println("Store Create URL:  " + url);
-        ResponseEntity<Store> storeResponseEntity = restTemplate.postForEntity(url, store, Store.class);
+        ResponseEntity<Store> storeResponseEntity = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, store, Store.class);
         assertNotNull(storeResponseEntity);
         assertNotNull(storeResponseEntity.getBody());
         store = storeResponseEntity.getBody();
@@ -61,7 +64,9 @@ public class StoreControllerTest {
     public void b_read() {
         String url = URL + "read" + store.getStoreID();
         System.out.println("Store Read URL:  " + url);
-        ResponseEntity<Store> storeResponseEntity = restTemplate.getForEntity(url, Store.class);
+        ResponseEntity<Store> storeResponseEntity = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url, Store.class);
         assertNotNull(storeResponseEntity);
         assertNotNull(storeResponseEntity.getBody());
     }
@@ -76,7 +81,9 @@ public class StoreControllerTest {
         String url = URL + "update";
         System.out.println("Store Update URL:  " + url);
         System.out.println("Updated Store Name: " + updated);
-        ResponseEntity<Store> storeResponseEntity = restTemplate.postForEntity(url,updated, Store.class);
+        ResponseEntity<Store> storeResponseEntity = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url,updated, Store.class);
         assertNotNull(storeResponseEntity);
         assertNotNull(updated);
     }
@@ -102,7 +109,9 @@ public class StoreControllerTest {
         System.out.println("Get all URL:  " + url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> responseEntity = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(responseEntity.getBody());
         assertNotNull(responseEntity);
     }
