@@ -1,3 +1,4 @@
+/*
 package com.adp3.repository.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeStore;
@@ -10,12 +11,14 @@ import org.junit.runners.MethodSorters;
 
 import static org.junit.Assert.assertEquals;
 
+*/
 /*
  * Author: Munyaradzi Manyati
  * Class: Part Time
  * Student number: 215211855
  * Class Description: EmployeeStoreRepositoryImplTest.
- */
+ *//*
+
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeStoreRepositoryImplTest {
@@ -59,3 +62,5 @@ public class EmployeeStoreRepositoryImplTest {
     }
 
 }
+
+*/

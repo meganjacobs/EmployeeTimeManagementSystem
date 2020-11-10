@@ -9,10 +9,7 @@ import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
@@ -32,6 +29,9 @@ import static org.junit.Assert.assertNotNull;
 public class EmployeeSalaryControllerTest {
 
     private static EmployeeSalary empSal = EmployeeSalaryFactory.buildEmployeeSalary("A1234",52.12,40.5);
+    private static String SECURITY_USERNAME = "User";
+    private static String SECURITY_PASSWORD = "Password";
+
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -45,22 +45,27 @@ public class EmployeeSalaryControllerTest {
         System.out.println("URL: " + url);
         System.out.println("Post Data: " + empSal);
         System.out.println("ID: "+ empSal.getEmpID());
-        ResponseEntity<EmployeeSalary> postResponseEntity = restTemplate.postForEntity(url, empSal, EmployeeSalary.class);
-        assertNotNull(postResponseEntity);
-        assertNotNull(postResponseEntity.getBody());
-        empSal = postResponseEntity.getBody();
+        ResponseEntity<EmployeeSalary> postResponse = restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .postForEntity(url, empSal, EmployeeSalary.class);
+        assertNotNull(postResponse);
+        assertNotNull(postResponse.getBody());
+        empSal = postResponse.getBody();
         System.out.println("Saved data: " + empSal);
-        assertEquals(empSal.getEmpID(),postResponseEntity.getBody().getEmpID());
+        //assertEquals(HttpStatus.FORBIDDEN, postResponseEntity.getStatusCode());
+        assertEquals(empSal.getEmpID(),postResponse.getBody().getEmpID());
     }
 
     @Test
     public void b_read() {
         String url = baseURl + "read" + empSal.getEmpID();
         System.out.println("URL:  " + url);
-        ResponseEntity<EmployeeSalary> responseEntity = restTemplate.getForEntity(url, EmployeeSalary.class);
+        ResponseEntity<EmployeeSalary> responseEntity = restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .getForEntity(url, EmployeeSalary.class);
         assertNotNull(responseEntity);
         //assertEquals(empSal.getEmpID(), responseEntity.getBody().getEmpID());
-        System.out.println("Called data using EmpID: "+ empSal.getEmpID()+"\tEmp Rate: " + empSal.getEmpSalaryRate()+"\tEmp Hours: "+empSal.getEmpHours());
+        System.out.println("Called data using EmpID: "+ empSal.getEmpID()+"\tEmp Rate: " + empSal.getEmpRate()+"\tEmp Hours: "+empSal.getEmpHours());
     }
 
     @Test
@@ -71,7 +76,9 @@ public class EmployeeSalaryControllerTest {
         String url = baseURl + "update";
         System.out.println("URL:  " + url);
         System.out.println("Old Hours for EmpID: " + empSal.getEmpID() + "\tHours: "+empSal.getEmpHours());
-        ResponseEntity<EmployeeSalary> ResponseEntity = restTemplate.postForEntity(url,updated, EmployeeSalary.class);
+        ResponseEntity<EmployeeSalary> ResponseEntity = restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .postForEntity(url,updated, EmployeeSalary.class);
         assertNotNull(ResponseEntity);
         assertNotNull(updated);
         System.out.println("New Hours for EmpID: " + empSal.getEmpID() + "\tHours: "+updated.getEmpHours());
@@ -83,7 +90,8 @@ public class EmployeeSalaryControllerTest {
         System.out.println("URL: "+url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> responseEntity = restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(responseEntity);
         System.out.println(responseEntity.getBody());
         assertNotNull(responseEntity.getBody());
@@ -94,6 +102,8 @@ public class EmployeeSalaryControllerTest {
 
         String url = baseURl + "delete" + empSal.getEmpID();
         System.out.println("URL:  " + url);
-        restTemplate.delete(url);
+        restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .delete(url);
     }
 }

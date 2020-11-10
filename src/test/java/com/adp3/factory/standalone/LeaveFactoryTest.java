@@ -1,7 +1,6 @@
 package com.adp3.factory.standalone;
 
 import com.adp3.entity.standalone.Leave;
-import com.adp3.factory.standalone.LeaveFactory;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,16 +12,16 @@ import static org.junit.Assert.*;
  * Class Description: LeaveFactoryTest
  */
 public class LeaveFactoryTest {
-  
+
     Leave leave;
     @Before
     public void setUp() throws Exception {
-        leave = LeaveFactory.createLeave("Annual",3);
+        leave = LeaveFactory.createLeave("Annual");
     }
 
     @Test
     public void createLeave() {
-        assertSame("Annual", leave.getLeaveDesc());
+        assertSame("Annual", leave.getLeaveDescription());
         assertEquals(3, leave.getLeaveDaysAmt());
         assertNotNull(leave.getLeaveID());
     }

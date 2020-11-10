@@ -6,8 +6,11 @@ import com.adp3.repository.standalone.EmployeeRepository;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,14 +26,15 @@ import static org.junit.Assert.assertEquals;
 
 public class EmployeeRepositoryImplTest {
 
-    private static EmployeeRepository empployeeRepo = new EmployeeRepositoryImpl();
+    @Autowired
+    private static EmployeeRepository emp_repo;
     private Employee employee = EmployeeFactory.createEmployee("Malusi", "Pakade", "021 543 9876", new Date(1986, 00, 12));
 
 
     @Test
     public void a_create() {
         // test if EmployeeRepositoryImpl create method can create an employee
-        Employee created = empployeeRepo.create( employee );
+        Employee created = emp_repo.save( employee );
 
         //test expected empID value in employee object.
         assertEquals( employee.getEmpID(), employee.getEmpID() );
@@ -47,9 +51,9 @@ public class EmployeeRepositoryImplTest {
     }
 
     @Test
-    public void b_read() {
+    public void b_read(String str) {
 
-        Employee read = empployeeRepo.read( employee.getEmpID() );
+        Employee read = emp_repo.findById( employee.getEmpID() ).orElseGet( null);
         System.out.println("Read: " + read );
 
     }
@@ -57,22 +61,22 @@ public class EmployeeRepositoryImplTest {
     @Test
     public void c_update() {
 
-        Employee update = new Employee.Builder().copy(employee).setEmpID("400").build() ;
-        update = empployeeRepo.update( update );
-        System.out.println("Updated: " + update );
+      //  create( employee.getEmpID() );
+        //System.out.println("Updated: " + update );
     }
 
     @Test
     public void e_delete() {
 
-        empployeeRepo.delete( employee.getEmpID() );
+        this.emp_repo.deleteById(  employee.getEmpID() );
+        System.out.println("Deleted: " + employee.getEmpID() );
 
     }
 
     @Test
     public void d_getAll() {
 
-        System.out.print( "Get All: " + empployeeRepo.getAll() );
+        System.out.print( "Get All: " + emp_repo.findAll().stream().collect( Collectors.toSet()));
 
     }
 

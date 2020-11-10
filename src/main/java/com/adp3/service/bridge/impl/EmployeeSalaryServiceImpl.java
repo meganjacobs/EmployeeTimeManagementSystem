@@ -2,12 +2,12 @@ package com.adp3.service.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeSalary;
 import com.adp3.repository.bridge.EmployeeSalaryRepository;
-import com.adp3.repository.bridge.impl.EmployeeSalaryRepositoryImpl;
 import com.adp3.service.bridge.EmployeeSalaryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Author: Liesl Gounden-Wentzel
@@ -15,57 +15,56 @@ import java.util.Set;
  * Student number: 202104133
  * Description:EmployeeSalaryServiceImpl - implementation of EmployeeSalaryService as a concrete class
  */
+
 @Service
 public class EmployeeSalaryServiceImpl implements EmployeeSalaryService {
 
-    private static EmployeeSalaryService service = null;
+
+
+    @Autowired
     private EmployeeSalaryRepository repository;
 
-    EmployeeSalaryServiceImpl(){
-        this.repository = EmployeeSalaryRepositoryImpl.getRepository();
-    }
 
-    public static EmployeeSalaryService getService(){
-        if (service == null)
-            service = new EmployeeSalaryServiceImpl();
-        return service;
-    }
 
     @Override
     public Set<EmployeeSalary> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public EmployeeSalary create(EmployeeSalary empSal) {
-        return this.repository.create(empSal);
+        return this.repository.save(empSal);
     }
 
     @Override
     public EmployeeSalary read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
     }
 
     @Override
     public EmployeeSalary update(EmployeeSalary t) {
-        return this.repository.update(t);
+        if( this.repository.existsById(t.getEmpID())){
+        return this.repository.save(t);}
+        return null;
     }
 
     @Override
     public void delete(String s) {
-        repository.delete(s);
+        repository.deleteById(s);
+
 
     }
-    public Set<EmployeeSalary> calcMonthlySalary(){
-        Set<EmployeeSalary> rate = getAll();
-        Set<EmployeeSalary> salary = new HashSet<>();
-        for (EmployeeSalary sal: rate){
-            double calc = sal.getEmpHours() * sal.getEmpSalaryRate();
-            salary.add(sal);
-        }
 
-        return salary;
+
+    public EmployeeSalary calcSalary(EmployeeSalary t){
+
+        Double salary = t.getEmpHours() * t.getEmpRate();
+
+        return new EmployeeSalary.Builder().setEmpSalary(salary).build();
+
     }
+
+
 
 
 

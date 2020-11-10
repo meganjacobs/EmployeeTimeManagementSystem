@@ -14,5 +14,5 @@ import java.util.Set;
 
 public interface EmployeeSalaryService extends IService <EmployeeSalary, String> {
     Set<EmployeeSalary> getAll();
-    Set<EmployeeSalary> calcMonthlySalary();
+    //Set<EmployeeSalary> calcEmployeeSalary();
 }

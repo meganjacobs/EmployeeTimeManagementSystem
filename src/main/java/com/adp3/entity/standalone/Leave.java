@@ -1,5 +1,11 @@
 package com.adp3.entity.standalone;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.Objects;
+
 /**
  * Author: Ayanda Nongxa
  * Class: Part Time
@@ -7,15 +13,20 @@ package com.adp3.entity.standalone;
  * Class Description: Leave
  */
 
-public class Leave {
+@Entity
+@Table(name = "leave_table")
+public class Leave implements Serializable {
 
+    @Id
     private String leaveID;
-    private String leaveDesc;
+    private String leaveDescription;
     private int leaveDaysAmt;
+
+    protected Leave(){}
 
     private Leave(Builder builder) {
         this.leaveID = builder.leaveID;
-        this.leaveDesc = builder.leaveDesc;
+        this.leaveDescription = builder.leaveDescription;
         this.leaveDaysAmt = builder.leaveDaysAmt;
     }
 
@@ -23,8 +34,8 @@ public class Leave {
         return leaveID;
     }
 
-    public String getLeaveDesc() {
-        return leaveDesc;
+    public String getLeaveDescription() {
+        return leaveDescription;
     }
 
     public int getLeaveDaysAmt() {
@@ -35,14 +46,16 @@ public class Leave {
     public String toString() {
         return "Leave{" +
                 "leaveID=" + leaveID +
-                ", leaveDesc=" + leaveDesc +
+                ", leaveDesc=" + leaveDescription +
                 ", leaveDaysAmt=" + leaveDaysAmt +
                 '}';
     }
 
     public static class Builder {
+        public String id;
+        public String description;
         private String leaveID;
-        private String leaveDesc;
+        private String leaveDescription;
         private int leaveDaysAmt;
 
         public Builder setLeaveID(String leaveID) {
@@ -51,8 +64,8 @@ public class Leave {
 
         }
 
-        public Builder setLeaveDesc(String leaveDesc) {
-            this.leaveDesc = leaveDesc;
+        public Builder setLeaveDescription(String leaveDescription) {
+            this.leaveDescription = leaveDescription;
             return this;
         }
 
@@ -63,7 +76,7 @@ public class Leave {
 
         public Builder copy(Leave leave) {
             this.leaveID = leave.leaveID;
-            this.leaveDesc = leave.leaveDesc;
+            this.leaveDescription = leave.leaveDescription;
             this.leaveDaysAmt = leave.leaveDaysAmt;
             return this;
         }
@@ -71,5 +84,18 @@ public class Leave {
         public Leave build() {
             return new Leave(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Leave leave = (Leave) o;
+        return leaveID.equals(leave.leaveID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(leaveID);
     }
 }

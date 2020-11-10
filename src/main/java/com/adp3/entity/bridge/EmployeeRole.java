@@ -1,14 +1,26 @@
 package com.adp3.entity.bridge;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+
 /**
  * Author: Sonwabo Kasi
  * Class: Part Time
  * Student number: 214293939
  * Class Description: EmployeeRole
  */
-
+@Entity
+//@IdClass(EmployeeRoleId.class)
 public class EmployeeRole {
-    private String empID, roleID;
+    @Id
+    private String empID;
+    //@Id
+    private String roleID;
+
+    protected EmployeeRole(){
+
+    }
 
     private EmployeeRole(Builder builder) {
         this.empID = builder.empID;

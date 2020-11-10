@@ -1,3 +1,4 @@
+/*
 package com.adp3.repository.bridge.impl;
 
 import com.adp3.entity.bridge.EmployeeRole;
@@ -13,12 +14,14 @@ import org.junit.runners.MethodSorters;
 import static junit.framework.Assert.assertEquals;
 //import static org.junit.jupiter.api.Assertions.*;
 
+*/
 /**
  * Author: Sonwabo Kasi
  * Class: Part Time
  * Student number: 214293939
  * Class Description:
- */
+ *//*
+
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -62,3 +65,4 @@ public class EmployeeRoleRepositoryImplTest {
         employeeRoleRepository.delete(employeeRole.getEmpID());
     }
 }
+*/
