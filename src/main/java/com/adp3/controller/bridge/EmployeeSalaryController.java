@@ -19,7 +19,7 @@ import java.util.Set;
  */
 
 @RestController
-@RequestMapping("/employeeSalary")
+@RequestMapping("/employee_time_management/employeeSalary")
 public class EmployeeSalaryController {
 
 

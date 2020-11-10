@@ -6,7 +6,6 @@ import com.adp3.service.bridge.EmployeeSalaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -55,16 +54,17 @@ public class EmployeeSalaryServiceImpl implements EmployeeSalaryService {
 
 
     }
-    public Set<EmployeeSalary> calcEmployeeSalary(){
-        Set<EmployeeSalary> rate = getAll();
-        Set<EmployeeSalary> salary = new HashSet<>();
-        for (EmployeeSalary sal: rate){
-            double calc = sal.getEmpHours() * sal.getEmpRate();
-            salary.add(sal);
-        }
 
-        return salary;
+
+    public EmployeeSalary calcSalary(EmployeeSalary t){
+
+        Double salary = t.getEmpHours() * t.getEmpRate();
+
+        return new EmployeeSalary.Builder().setEmpSalary(salary).build();
+
     }
+
+
 
 
 
