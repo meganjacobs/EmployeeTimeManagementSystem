@@ -16,7 +16,7 @@ public class EmployeeSalaryFactory {
     public static EmployeeSalary buildEmployeeSalary(String empID, double rate, double hours){
 
         Date d = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMM");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
         String date = formatter.format(d);
         String empSalId = date+empID;
         return new EmployeeSalary.Builder()
@@ -25,6 +25,7 @@ public class EmployeeSalaryFactory {
                 .setEmpID(empID)
                 .setEmpRate(rate)
                 .setEmpHours(hours)
+                .setEmpSalary(rate*hours)
                 .build();
 
 
