@@ -8,9 +8,12 @@ import com.adp3.service.bridge.impl.EmpLeaveServiceImpl;
 import com.adp3.service.bridge.impl.EmployeeStoreServiceImpl;
 import com.adp3.service.reports.impl.LeaveReportServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Author: Megan Jacobs
@@ -41,27 +44,43 @@ public class LeaveReportController {
      * @return: LeaveReport
      * */
     @PostMapping ("/create")
-    public LeaveReport create(@RequestBody LeaveReport leaveReport){
+    public ResponseEntity<LeaveReport> create(@RequestBody LeaveReport leaveReport){
         boolean employeeLeaveExists = false;
         boolean employeeStoreExists = false;
 
+        if (leaveReport==null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        if (leaveReportService.read(leaveReport.getLeaveReportID()).equals(leaveReportService.read(leaveReport.getLeaveReportID()))) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+
         EmployeeLeave employeeLeave = null;
         try {
-            employeeLeave = employeeLeaveService.read(leaveReport.getLeaveID());
+            employeeLeave = employeeLeaveService.read(leaveReport.getEmpID());
         } catch (Exception e) {
             e.printStackTrace();
         }
         if (employeeLeave != null) {
             employeeLeaveExists = true;
         }
-        EmployeeStore employeeStore = employeeStoreService.read(leaveReport.getStoreID());
+        EmployeeStore employeeStore = null;
+        try {
+            employeeStore = employeeStoreService.read(leaveReport.getStoreID());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (employeeStore != null) {
             employeeStoreExists = true;
         }
 
-        if (employeeLeaveExists && employeeStoreExists)
-            return leaveReportService.create(leaveReport);
-        else return LeaveReportFactory.buildLeaveReport(employeeLeave.getEmpID(), employeeLeave.getLeaveID(), employeeStore.getStoreID());
+        if (employeeLeaveExists && employeeStoreExists) {
+            leaveReportService.create(leaveReport);
+            return new ResponseEntity<>(leaveReport, HttpStatus.CREATED);
+        }
+
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     /* exposes method used to read a LeaveReport
@@ -97,7 +116,7 @@ public class LeaveReportController {
      * */
     @GetMapping ("/getAll")
     public Set<LeaveReport> getAll() {
-        return leaveReportService.getAll();
+        return leaveReportService.getAll().stream().collect(Collectors.toSet());
     }
 
 }
