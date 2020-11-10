@@ -40,7 +40,7 @@ public class LeaveReport implements Serializable {
     @Override
     public String toString() {
         return "...............\nLeaveReport {" +
-                "leaveReportID='" + leaveReportID.substring(0,13) + '\'' +
+                "leaveReportID='" + leaveReportID + '\'' +
                    ", employeeID='" + empID + '\'' +
                     ", leaveID='" + leaveID + '\'' +
                         ", storeID='" + storeID + '\'' +
