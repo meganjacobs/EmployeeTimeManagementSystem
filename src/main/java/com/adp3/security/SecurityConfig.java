@@ -50,6 +50,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT,"/employee_time_management/employeeSalary/update").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.DELETE,"/employee_time_management/employeeSalary/delete").hasRole(ADMIN_ROLE)
                 .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST,"/employee_time_management/Store/create").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET,"/employee_time_management/Store/read", "/employee_time_management/Store/getAll").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.PUT,"/employee_time_management/Store/update").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.DELETE,"/employee_time_management/Store/delete").hasRole(ADMIN_ROLE)
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST,"/employee_time_management/StoreReports/create").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET,"/employee_time_management/StoreReports/read", "/employee_time_management/StoreReports/getAll").hasRole(USER_ROLE)
+                .antMatchers(HttpMethod.PUT,"/employee_time_management/StoreReports/update").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.DELETE,"/employee_time_management/StoreReports/delete").hasRole(ADMIN_ROLE)
+                .and()
+
                 .csrf().disable()
                 .formLogin().disable();
     }
