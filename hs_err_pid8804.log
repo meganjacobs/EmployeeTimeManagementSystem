@@ -1,0 +1,1619 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 517672 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:389), pid=8804, tid=0x00002968
+#
+# JRE version: OpenJDK Runtime Environment (8.0_265-b01) (build 1.8.0_265-b01)
+# Java VM: OpenJDK Server VM (25.265-b01 mixed mode windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x3127f800):  JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=10600, stack(0x31790000,0x317e0000)]
+
+Stack: [0x31790000,0x317e0000],  sp=0x317ddb70,  free space=310k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x1b166b]
+V  [jvm.dll+0x1a9968]
+V  [jvm.dll+0x7de11]
+V  [jvm.dll+0x7e317]
+V  [jvm.dll+0x959c4]
+V  [jvm.dll+0x341fe0]
+V  [jvm.dll+0x3798f9]
+V  [jvm.dll+0x260b95]
+V  [jvm.dll+0x338538]
+V  [jvm.dll+0x339234]
+V  [jvm.dll+0x323106]
+V  [jvm.dll+0x616b3]
+V  [jvm.dll+0x61daf]
+V  [jvm.dll+0x182310]
+V  [jvm.dll+0x1c1f56]
+C  [msvcr100.dll+0x5c556]
+C  [msvcr100.dll+0x5c600]
+C  [KERNEL32.DLL+0x1cf29]
+C  [ntdll.dll+0x65fed]
+C  [ntdll.dll+0x65fc1]
+C  0x00000000
+
+
+Current CompileTask:
+C2:  55223 5769   !   4       org.springframework.util.ReflectionUtils::doWithMethods (193 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x32cca400 JavaThread "task-2" [_thread_blocked, id=12292, stack(0x37250000,0x372a0000)]
+  0x32cc6c00 JavaThread "http-nio-auto-1-Acceptor" daemon [_thread_in_native, id=13532, stack(0x37fc0000,0x38010000)]
+  0x32cc8000 JavaThread "http-nio-auto-1-ClientPoller" daemon [_thread_in_native, id=6780, stack(0x37f70000,0x37fc0000)]
+  0x32cc9c00 JavaThread "http-nio-auto-1-exec-10" daemon [_thread_blocked, id=6472, stack(0x37f20000,0x37f70000)]
+  0x32cc6800 JavaThread "http-nio-auto-1-exec-9" daemon [_thread_blocked, id=8288, stack(0x37ed0000,0x37f20000)]
+  0x32cc7400 JavaThread "http-nio-auto-1-exec-8" daemon [_thread_blocked, id=8792, stack(0x37e80000,0x37ed0000)]
+  0x326e5800 JavaThread "http-nio-auto-1-exec-7" daemon [_thread_blocked, id=1352, stack(0x37e30000,0x37e80000)]
+  0x326e5000 JavaThread "http-nio-auto-1-exec-6" daemon [_thread_blocked, id=504, stack(0x37de0000,0x37e30000)]
+  0x326e4c00 JavaThread "http-nio-auto-1-exec-5" daemon [_thread_blocked, id=11072, stack(0x37d90000,0x37de0000)]
+  0x326e3c00 JavaThread "http-nio-auto-1-exec-4" daemon [_thread_blocked, id=3064, stack(0x37d40000,0x37d90000)]
+  0x326e2800 JavaThread "http-nio-auto-1-exec-3" daemon [_thread_blocked, id=13460, stack(0x37cf0000,0x37d40000)]
+  0x326e3000 JavaThread "http-nio-auto-1-exec-2" daemon [_thread_blocked, id=1016, stack(0x37ca0000,0x37cf0000)]
+  0x326e2000 JavaThread "http-nio-auto-1-exec-1" daemon [_thread_blocked, id=9168, stack(0x37c50000,0x37ca0000)]
+  0x326e4400 JavaThread "http-nio-auto-1-BlockPoller" daemon [_thread_in_native, id=11724, stack(0x37c00000,0x37c50000)]
+  0x343d0400 JavaThread "HikariPool-1 housekeeper" daemon [_thread_blocked, id=14068, stack(0x37200000,0x37250000)]
+  0x35103400 JavaThread "task-1" [_thread_blocked, id=9480, stack(0x36d10000,0x36d60000)]
+  0x33337000 JavaThread "mysql-cj-abandoned-connection-cleanup" daemon [_thread_blocked, id=13996, stack(0x36bc0000,0x36c10000)]
+  0x35d6c400 JavaThread "container-0" [_thread_blocked, id=6868, stack(0x36b70000,0x36bc0000)]
+  0x35d6bc00 JavaThread "Catalina-utility-2" [_thread_blocked, id=12788, stack(0x36a20000,0x36a70000)]
+  0x32c2d800 JavaThread "Catalina-utility-1" [_thread_blocked, id=9356, stack(0x33d20000,0x33d70000)]
+  0x312f1800 JavaThread "Service Thread" daemon [_thread_blocked, id=13780, stack(0x31830000,0x31880000)]
+  0x312ca400 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=10704, stack(0x317e0000,0x31830000)]
+=>0x3127f800 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=10600, stack(0x31790000,0x317e0000)]
+  0x3127f000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=11716, stack(0x31740000,0x31790000)]
+  0x3127e400 JavaThread "Monitor Ctrl-Break" daemon [_thread_in_native, id=12432, stack(0x316f0000,0x31740000)]
+  0x31271400 JavaThread "Attach Listener" daemon [_thread_blocked, id=7904, stack(0x316a0000,0x316f0000)]
+  0x31270800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=10236, stack(0x31650000,0x316a0000)]
+  0x3102b800 JavaThread "Finalizer" daemon [_thread_blocked, id=12340, stack(0x31100000,0x31150000)]
+  0x31025400 JavaThread "Reference Handler" daemon [_thread_blocked, id=10436, stack(0x310b0000,0x31100000)]
+  0x00d6c400 JavaThread "main" [_thread_in_native, id=6224, stack(0x01b80000,0x01bd0000)]
+
+Other Threads:
+  0x01e0ec00 VMThread [stack: 0x31060000,0x310b0000] [id=9492]
+  0x312f2000 WatcherThread [stack: 0x31880000,0x318d0000] [id=6204]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 126208K, used 86905K [0x254c0000, 0x2df40000, 0x2f600000)
+  eden space 115200K, 75% used [0x254c0000,0x2a99e528,0x2c540000)
+  from space 11008K, 0% used [0x2c540000,0x2c540000,0x2d000000)
+  to   space 7936K, 0% used [0x2d000000,0x2d000000,0x2d7c0000)
+ ParOldGen       total 32256K, used 29448K [0x11200000, 0x13180000, 0x254c0000)
+  object space 32256K, 91% used [0x11200000,0x12ec22a0,0x13180000)
+ Metaspace       used 40810K, capacity 42354K, committed 42368K, reserved 42368K
+
+Card table byte_map: [0x2f600000,0x2f700000] byte_map_base: 0x2f577000
+
+Marking Bits: (ParMarkBitMap*) 0x56396ee0
+ Begin Bits: [0x2f8f0000, 0x30080000)
+ End Bits:   [0x30080000, 0x30810000)
+
+Polling page: 0x00d50000
+
+CodeCache: size=245760Kb used=15134Kb max_used=15134Kb free=230625Kb
+ bounds [0x01e10000, 0x02ce0000, 0x10e10000]
+ total_blobs=5409 nmethods=5168 adapters=155
+ compilation: enabled
+
+Compilation events (250 events):
+Event: 52.779 Thread 0x312ca400 5767       3       org.springframework.util.ReflectionUtils::hasSameParams (26 bytes)
+Event: 52.782 Thread 0x312ca400 nmethod 5767 0x02c94e48 code [0x02c94f80, 0x02c95398]
+Event: 52.786 Thread 0x312ca400 5768       3       org.springframework.boot.test.mock.mockito.MockitoPostProcessor$SpyPostProcessor::postProcessAfterInitialization (19 bytes)
+Event: 52.787 Thread 0x312ca400 nmethod 5768 0x02c94648 code [0x02c947a0, 0x02c94c98]
+Event: 52.787 Thread 0x312ca400 5770       3       org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor::postProcessAfterInitialization (2 bytes)
+Event: 52.787 Thread 0x312ca400 nmethod 5770 0x02c8c648 code [0x02c8c740, 0x02c8c820]
+Event: 52.787 Thread 0x312ca400 5771       3       org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor::postProcessAfterInitialization (2 bytes)
+Event: 52.787 Thread 0x312ca400 nmethod 5771 0x02c94408 code [0x02c94500, 0x02c945e0]
+Event: 52.787 Thread 0x312ca400 5773       3       org.springframework.transaction.annotation.AnnotationTransactionAttributeSource::isCandidateClass (46 bytes)
+Event: 52.788 Thread 0x312ca400 nmethod 5773 0x02c98348 code [0x02c984c0, 0x02c989b0]
+Event: 52.788 Thread 0x312ca400 5772       3       org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator::postProcessAfterInitialization (38 bytes)
+Event: 52.789 Thread 0x312ca400 nmethod 5772 0x02c97d08 code [0x02c97e40, 0x02c98204]
+Event: 52.789 Thread 0x312ca400 5775       3       org.springframework.aop.framework.AbstractAdvisingBeanPostProcessor::isEligible (61 bytes)
+Event: 52.790 Thread 0x312ca400 nmethod 5775 0x02c922c8 code [0x02c92440, 0x02c929a4]
+Event: 52.790 Thread 0x312ca400 5776       3       org.springframework.beans.factory.config.BeanExpressionContext::hashCode (8 bytes)
+Event: 52.790 Thread 0x312ca400 nmethod 5776 0x02c940c8 code [0x02c941e0, 0x02c9434c]
+Event: 52.790 Thread 0x312ca400 5774       1       org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator::determineCandidateConstructors (2 bytes)
+Event: 52.791 Thread 0x312ca400 nmethod 5774 0x02c97b08 code [0x02c97c00, 0x02c97ca0]
+Event: 52.792 Thread 0x312ca400 5777       3       org.springframework.beans.factory.config.BeanExpressionContext::equals (49 bytes)
+Event: 52.793 Thread 0x312ca400 nmethod 5777 0x02c97608 code [0x02c97720, 0x02c97a60]
+Event: 52.793 Thread 0x312ca400 5779       3       org.springframework.core.convert.support.GenericConversionService$ConverterCacheKey::equals (55 bytes)
+Event: 52.793 Thread 0x312ca400 nmethod 5779 0x02c91bc8 code [0x02c91d00, 0x02c92178]
+Event: 52.794 Thread 0x312ca400 5778       3       org.springframework.expression.common.LiteralExpression::getValue (6 bytes)
+Event: 52.794 Thread 0x312ca400 nmethod 5778 0x02c91908 code [0x02c91a20, 0x02c91b40]
+Event: 52.795 Thread 0x312ca400 5780       3       org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker::postProcessBeforeInitialization (2 bytes)
+Event: 52.795 Thread 0x312ca400 nmethod 5780 0x02c916c8 code [0x02c917c0, 0x02c918a0]
+Event: 52.796 Thread 0x312ca400 5781       1       org.springframework.data.util.Pair::getFirst (5 bytes)
+Event: 52.797 Thread 0x312ca400 nmethod 5781 0x02c914c8 code [0x02c915c0, 0x02c91660]
+Event: 52.797 Thread 0x3127f800 nmethod 5764 0x02c9c2c8 code [0x02c9c460, 0x02c9cc50]
+Event: 52.797 Thread 0x312ca400 5782       1       org.springframework.data.util.Pair::getSecond (5 bytes)
+Event: 52.798 Thread 0x3127f800 5769   !   4       org.springframework.util.ReflectionUtils::doWithMethods (193 bytes)
+Event: 52.798 Thread 0x312ca400 nmethod 5782 0x02c9c0c8 code [0x02c9c1c0, 0x02c9c260]
+Event: 52.798 Thread 0x312ca400 5783       3       org.springframework.data.util.ParentTypeAwareTypeInformation::getType (5 bytes)
+Event: 52.799 Thread 0x312ca400 nmethod 5783 0x02c9ba88 code [0x02c9bbe0, 0x02c9bef8]
+Event: 52.805 Thread 0x312ca400 5786       3       java.util.regex.Pattern$BnM::optimize (179 bytes)
+Event: 52.807 Thread 0x312ca400 nmethod 5786 0x02c9a9c8 code [0x02c9ab80, 0x02c9b50c]
+Event: 52.808 Thread 0x312ca400 5787       3       java.util.Spliterators$EmptySpliterator$OfRef::tryAdvance (6 bytes)
+Event: 52.808 Thread 0x312ca400 nmethod 5787 0x02c9a508 code [0x02c9a640, 0x02c9a86c]
+Event: 52.808 Thread 0x312ca400 5788       3       java.util.Spliterators$EmptySpliterator::tryAdvance (7 bytes)
+Event: 52.809 Thread 0x312ca400 nmethod 5788 0x02c9a108 code [0x02c9a220, 0x02c9a3ec]
+Event: 52.809 Thread 0x312ca400 5789       3       java.util.HashMap$HashMapSpliterator::getFence (53 bytes)
+Event: 52.810 Thread 0x312ca400 nmethod 5789 0x02c99dc8 code [0x02c99ee0, 0x02c9a040]
+Event: 52.810 Thread 0x312ca400 5790       3       org.springframework.data.mapping.model.Property$$Lambda$738/25821903::matches (13 bytes)
+Event: 52.810 Thread 0x312ca400 nmethod 5790 0x02c99a88 code [0x02c99ba0, 0x02c99cec]
+Event: 52.811 Thread 0x312ca400 5791       1       java.text.DecimalFormatSymbols::getZeroDigit (5 bytes)
+Event: 52.812 Thread 0x312ca400 nmethod 5791 0x02c99888 code [0x02c99980, 0x02c99a20]
+Event: 52.812 Thread 0x312ca400 5792       3       org.springframework.data.mapping.model.AnnotationBasedPersistentProperty$$Lambda$751/32904762::apply (12 bytes)
+Event: 52.812 Thread 0x312ca400 nmethod 5792 0x02c99448 code [0x02c99580, 0x02c997ac]
+Event: 52.812 Thread 0x312ca400 5793       3       org.springframework.data.mapping.model.AnnotationBasedPersistentProperty::lambda$null$8 (6 bytes)
+Event: 52.813 Thread 0x312ca400 nmethod 5793 0x02c991c8 code [0x02c992e0, 0x02c993ac]
+Event: 52.813 Thread 0x312ca400 5794       3       org.springframework.data.mapping.model.AnnotationBasedPersistentProperty$$Lambda$752/32922198::apply (8 bytes)
+Event: 52.814 Thread 0x312ca400 nmethod 5794 0x02c9d8c8 code [0x02c9daa0, 0x02c9e2f0]
+Event: 52.814 Thread 0x312ca400 5795       3       org.springframework.data.util.StreamUtils::fromNullable (15 bytes)
+Event: 52.816 Thread 0x312ca400 nmethod 5795 0x02c9ea08 code [0x02c9ebe0, 0x02c9f2f0]
+Event: 52.816 Thread 0x312ca400 5797       3       java.util.stream.Streams$AbstractStreamBuilderImpl::estimateSize (9 bytes)
+Event: 52.816 Thread 0x312ca400 nmethod 5797 0x02c98ec8 code [0x02c98fc0, 0x02c990a0]
+Event: 52.816 Thread 0x312ca400 5798       3       org.springframework.data.repository.util.ReactiveWrappers$$Lambda$300/30659122::apply (8 bytes)
+Event: 52.820 Thread 0x312ca400 nmethod 5798 0x02c9f8c8 code [0x02c9fb20, 0x02ca084c]
+Event: 52.820 Thread 0x312ca400 5799       3       org.springframework.data.util.ReflectionUtils::returnTypeAndParameters (28 bytes)
+Event: 52.824 Thread 0x312ca400 nmethod 5799 0x02ca14c8 code [0x02ca1720, 0x02ca230c]
+Event: 52.824 Thread 0x312ca400 5800   !   3       java.util.stream.Streams$2::run (47 bytes)
+Event: 52.825 Thread 0x312ca400 nmethod 5800 0x02ca2d48 code [0x02ca2ea0, 0x02ca3310]
+Event: 52.825 Thread 0x312ca400 5796       3       org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator::getAdvicesAndAdvisorsForBean (30 bytes)
+Event: 52.826 Thread 0x312ca400 nmethod 5796 0x02ca3588 code [0x02ca36c0, 0x02ca39a4]
+Event: 52.826 Thread 0x312ca400 5801       1       org.springframework.util.ConcurrentReferenceHashMap::access$200 (5 bytes)
+Event: 52.826 Thread 0x312ca400 nmethod 5801 0x02ca3ac8 code [0x02ca3bc0, 0x02ca3c40]
+Event: 52.880 Thread 0x312ca400 5804       3       org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor::postProcessAfterInitialization (2 bytes)
+Event: 52.881 Thread 0x312ca400 nmethod 5804 0x02ca3cc8 code [0x02ca3dc0, 0x02ca3ea0]
+Event: 52.881 Thread 0x312ca400 5805       3       org.springframework.boot.web.server.ErrorPageRegistrarBeanPostProcessor::postProcessAfterInitialization (2 bytes)
+Event: 52.881 Thread 0x312ca400 nmethod 5805 0x02ca3f08 code [0x02ca4000, 0x02ca40e0]
+Event: 52.889 Thread 0x312ca400 5806       3       org.springframework.aop.framework.autoproxy.AbstractBeanFactoryAwareAdvisingPostProcessor::isEligible (26 bytes)
+Event: 52.890 Thread 0x312ca400 nmethod 5806 0x02ca4148 code [0x02ca4280, 0x02ca45d8]
+Event: 52.890 Thread 0x312ca400 5808       3       org.springframework.core.MethodParameter::adaptAnnotationArray (2 bytes)
+Event: 52.890 Thread 0x312ca400 nmethod 5808 0x02ca4708 code [0x02ca4800, 0x02ca48e0]
+Event: 52.890 Thread 0x312ca400 5807       3       org.springframework.aop.framework.AbstractAdvisingBeanPostProcessor::isEligible (9 bytes)
+Event: 52.891 Thread 0x312ca400 nmethod 5807 0x02ca4948 code [0x02ca4a60, 0x02ca4c4c]
+Event: 52.892 Thread 0x312ca400 5809       3       org.springframework.context.support.ApplicationListenerDetector::requiresDestruction (5 bytes)
+Event: 52.892 Thread 0x312ca400 nmethod 5809 0x02ca4d08 code [0x02ca4e20, 0x02ca4fe0]
+Event: 52.893 Thread 0x312ca400 5810   !   3       org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory::createBean (247 bytes)
+Event: 52.901 Thread 0x312ca400 nmethod 5810 0x02ca5048 code [0x02ca5460, 0x02ca7b58]
+Event: 52.901 Thread 0x312ca400 5811   !   3       org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory::doCreateBean (507 bytes)
+Event: 52.915 Thread 0x312ca400 nmethod 5811 0x02ca9188 code [0x02ca97a0, 0x02cad504]
+Event: 52.915 Thread 0x312ca400 5813       3       org.springframework.data.util.ParameterizedTypeInformation::flattenTypeVariable (34 bytes)
+Event: 52.916 Thread 0x312ca400 nmethod 5813 0x02cafe88 code [0x02cb0000, 0x02cb06c4]
+Event: 52.916 Thread 0x312ca400 5812       1       org.springframework.beans.PropertyEditorRegistrySupport::getConversionService (5 bytes)
+Event: 52.916 Thread 0x312ca400 nmethod 5812 0x02cb0848 code [0x02cb0940, 0x02cb09e0]
+Event: 52.923 Thread 0x312ca400 5814       3       java.util.regex.Pattern::compile (10 bytes)
+Event: 52.923 Thread 0x312ca400 nmethod 5814 0x02cb0a48 code [0x02cb0b60, 0x02cb0c8c]
+Event: 52.924 Thread 0x312ca400 5815       3       java.util.Spliterators::spliterator (16 bytes)
+Event: 52.925 Thread 0x312ca400 nmethod 5815 0x02cb0d48 code [0x02cb0e80, 0x02cb1118]
+Event: 52.925 Thread 0x312ca400 5816       3       java.util.Arrays$ArrayList::spliterator (10 bytes)
+Event: 52.926 Thread 0x312ca400 nmethod 5816 0x02cb1308 code [0x02cb1460, 0x02cb1758]
+Event: 52.926 Thread 0x312ca400 5817       3       org.springframework.data.util.Optionals::toStream (26 bytes)
+Event: 52.929 Thread 0x312ca400 nmethod 5817 0x02cb1988 code [0x02cb1be0, 0x02cb2894]
+Event: 52.929 Thread 0x312ca400 5820       3       org.springframework.data.util.Lazy::get (21 bytes)
+Event: 52.929 Thread 0x312ca400 nmethod 5820 0x02cb32c8 code [0x02cb3400, 0x02cb35b8]
+Event: 52.929 Thread 0x312ca400 5818       3       org.springframework.data.mapping.model.Property::isMethodWithSingleParameterOfType (38 bytes)
+Event: 52.931 Thread 0x312ca400 nmethod 5818 0x02cb3688 code [0x02cb37e0, 0x02cb3e38]
+Event: 52.931 Thread 0x312ca400 5819       3       org.springframework.data.mapping.model.AnnotationBasedPersistentProperty$$Lambda$750/19196458::get$Lambda (9 bytes)
+Event: 52.932 Thread 0x312ca400 nmethod 5819 0x02cb40c8 code [0x02cb41e0, 0x02cb4380]
+Event: 52.932 Thread 0x312ca400 5822       3       java.util.Spliterators::spliterator (25 bytes)
+Event: 52.933 Thread 0x312ca400 nmethod 5822 0x02cb4448 code [0x02cb4580, 0x02cb4878]
+Event: 52.942 Thread 0x312ca400 5823       3       org.springframework.data.util.Streamable$$Lambda$282/25445847::iterator (10 bytes)
+Event: 52.943 Thread 0x312ca400 nmethod 5823 0x02cb4a88 code [0x02cb4ba0, 0x02cb4d0c]
+Event: 53.003 Thread 0x312ca400 5825       3       java.util.Collections$SetFromMap::remove (19 bytes)
+Event: 53.004 Thread 0x312ca400 nmethod 5825 0x02cb4dc8 code [0x02cb4ee0, 0x02cb508c]
+Event: 53.005 Thread 0x312ca400 5826       3       org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator::postProcessProperties (2 bytes)
+Event: 53.006 Thread 0x312ca400 nmethod 5826 0x02cb5148 code [0x02cb5240, 0x02cb5320]
+Event: 53.006 Thread 0x312ca400 5827       3       org.springframework.boot.test.mock.mockito.MockitoPostProcessor::postProcessPropertyValues (16 bytes)
+Event: 53.007 Thread 0x312ca400 nmethod 5827 0x02cb5388 code [0x02cb54e0, 0x02cb59cc]
+Event: 53.013 Thread 0x312ca400 5828       3       org.springframework.beans.factory.support.AbstractBeanDefinition::isPrototype (10 bytes)
+Event: 53.013 Thread 0x312ca400 nmethod 5828 0x02cb5d48 code [0x02cb5e60, 0x02cb5fcc]
+Event: 53.013 Thread 0x312ca400 5829       3       org.springframework.beans.factory.support.AbstractBeanFactory::requiresDestruction (41 bytes)
+Event: 53.014 Thread 0x312ca400 nmethod 5829 0x02cb6048 code [0x02cb6180, 0x02cb64f8]
+Event: 53.015 Thread 0x312ca400 5830       3       org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor::postProcessBeforeInitialization (15 bytes)
+Event: 53.017 Thread 0x312ca400 nmethod 5830 0x02cb65c8 code [0x02cb6740, 0x02cb6c90]
+Event: 53.017 Thread 0x312ca400 5831       3       org.springframework.boot.context.properties.ConfigurationPropertiesBean::get (17 bytes)
+Event: 53.018 Thread 0x312ca400 nmethod 5831 0x02cb6f88 code [0x02cb70e0, 0x02cb7584]
+Event: 53.018 Thread 0x312ca400 5832       3       org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor::postProcessBeforeInitialization (2 bytes)
+Event: 53.018 Thread 0x312ca400 nmethod 5832 0x02cb7788 code [0x02cb7880, 0x02cb7960]
+Event: 53.018 Thread 0x312ca400 5833       3       org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$1::invokeInitMethods (1 bytes)
+Event: 53.018 Thread 0x312ca400 nmethod 5833 0x02cb79c8 code [0x02cb7ac0, 0x02cb7b80]
+Event: 53.019 Thread 0x312ca400 5834       3       org.springframework.core.convert.TypeDescriptor::valueOf (42 bytes)
+Event: 53.020 Thread 0x312ca400 nmethod 5834 0x02cb7c08 code [0x02cb7d80, 0x02cb8370]
+Event: 53.020 Thread 0x312ca400 5835       3       org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator::postProcessBeforeInitialization (2 bytes)
+Event: 53.021 Thread 0x312ca400 nmethod 5835 0x02cb8608 code [0x02cb8700, 0x02cb87e0]
+Event: 53.021 Thread 0x312ca400 5836       3       org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerPostProcessor::postProcessBeforeInitialization (2 bytes)
+Event: 53.021 Thread 0x312ca400 nmethod 5836 0x02cb8848 code [0x02cb8940, 0x02cb8a20]
+Event: 53.021 Thread 0x312ca400 5837       3       org.springframework.beans.PropertyAccessorUtils::getNestedPropertySeparatorIndex (118 bytes)
+Event: 53.023 Thread 0x312ca400 nmethod 5837 0x02cb8a88 code [0x02cb8be0, 0x02cb918c]
+Event: 53.023 Thread 0x312ca400 5839       3       org.springframework.core.convert.support.GenericConversionService::getConverter (106 bytes)
+Event: 53.024 Thread 0x312ca400 nmethod 5839 0x02cb9488 code [0x02cb9620, 0x02cb9d9c]
+Event: 53.024 Thread 0x312ca400 5840       3       org.springframework.core.convert.support.GenericConversionService$ConverterCacheKey::<init> (15 bytes)
+Event: 53.025 Thread 0x312ca400 nmethod 5840 0x02cba0c8 code [0x02cba1e0, 0x02cba320]
+Event: 53.025 Thread 0x312ca400 5841       3       org.springframework.core.convert.TypeDescriptor::<init> (39 bytes)
+Event: 53.026 Thread 0x312ca400 nmethod 5841 0x02cba3c8 code [0x02cba500, 0x02cba940]
+Event: 53.026 Thread 0x312ca400 5838       1       org.springframework.beans.AbstractNestablePropertyAccessor$PropertyHandler::isWritable (5 bytes)
+Event: 53.026 Thread 0x312ca400 nmethod 5838 0x02cbab08 code [0x02cbac00, 0x02cbaca0]
+Event: 53.029 Thread 0x312ca400 5842       3       org.springframework.data.mapping.model.AnnotationBasedPersistentProperty::doFindAnnotation (40 bytes)
+Event: 53.030 Thread 0x312ca400 nmethod 5842 0x02cbad08 code [0x02cbae80, 0x02cbb538]
+Event: 53.030 Thread 0x312ca400 5843       3       org.springframework.data.mapping.model.AnnotationBasedPersistentProperty::isAnnotationPresent (9 bytes)
+Event: 53.031 Thread 0x312ca400 nmethod 5843 0x02cbb8c8 code [0x02cbb9e0, 0x02cbbbec]
+Event: 53.031 Thread 0x312ca400 5844       1       org.hibernate.metamodel.model.domain.internal.AbstractType::getJavaType (5 bytes)
+Event: 53.031 Thread 0x312ca400 nmethod 5844 0x02cbbcc8 code [0x02cbbdc0, 0x02cbbe60]
+Event: 53.035 Thread 0x312ca400 5845       1       org.springframework.data.repository.core.support.RepositoryFragment$StructuralRepositoryFragment::getSignatureContributor (5 bytes)
+Event: 53.035 Thread 0x312ca400 nmethod 5845 0x02cbbec8 code [0x02cbbfc0, 0x02cbc060]
+Event: 53.078 Thread 0x312ca400 5846       3       sun.misc.ProxyGenerator::generateStaticInitializer (457 bytes)
+Event: 53.102 Thread 0x312ca400 nmethod 5846 0x02cbc0c8 code [0x02cbcbe0, 0x02cc3374]
+Event: 53.102 Thread 0x312ca400 5847       1       org.springframework.beans.GenericTypeAwarePropertyDescriptor::getBeanClass (5 bytes)
+Event: 53.102 Thread 0x312ca400 nmethod 5847 0x02cc98c8 code [0x02cc99c0, 0x02cc9a60]
+Event: 53.102 Thread 0x312ca400 5848       1       org.springframework.core.convert.Property::getWriteMethod (5 bytes)
+Event: 53.102 Thread 0x312ca400 nmethod 5848 0x02cc9ac8 code [0x02cc9bc0, 0x02cc9c60]
+Event: 53.104 Thread 0x312ca400 5849       3       java.util.concurrent.locks.ReentrantReadWriteLock$Sync::exclusiveCount (5 bytes)
+Event: 53.104 Thread 0x312ca400 nmethod 5849 0x02cc9cc8 code [0x02cc9dc0, 0x02cc9e80]
+Event: 53.112 Thread 0x312ca400 5850       3       java.util.HashMap$KeySpliterator::tryAdvance (138 bytes)
+Event: 53.113 Thread 0x312ca400 nmethod 5850 0x02cc9f08 code [0x02cca080, 0x02cca5f0]
+Event: 53.113 Thread 0x312ca400 5851   !   3       com.sun.proxy.$Proxy110::annotationType (29 bytes)
+Event: 53.114 Thread 0x312ca400 nmethod 5851 0x02cca8c8 code [0x02ccaa00, 0x02ccad38]
+Event: 53.117 Thread 0x312ca400 5853       3       java.util.stream.FindOps$FindSink::accept (18 bytes)
+Event: 53.118 Thread 0x312ca400 nmethod 5853 0x02ccaf08 code [0x02ccb000, 0x02ccb100]
+Event: 53.118 Thread 0x312ca400 5854       3       org.springframework.data.mapping.model.AnnotationBasedPersistentProperty$$Lambda$750/19196458::apply (12 bytes)
+Event: 53.122 Thread 0x312ca400 nmethod 5854 0x02ccb188 code [0x02ccb400, 0x02ccc35c]
+Event: 53.124 Thread 0x312ca400 5855       3       org.springframework.data.util.TypeDiscoverer::resolveType (24 bytes)
+Event: 53.125 Thread 0x312ca400 nmethod 5855 0x02cccdc8 code [0x02cccf40, 0x02ccd678]
+Event: 53.126 Thread 0x312ca400 5856       1       java.util.stream.MatchOps$MatchOp::getOpFlags (8 bytes)
+Event: 53.126 Thread 0x312ca400 nmethod 5856 0x02ccda48 code [0x02ccdb40, 0x02ccdbe0]
+Event: 53.134 Thread 0x312ca400 5857       3       org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor$$Lambda$795/30897754::matches (9 bytes)
+Event: 53.134 Thread 0x312ca400 nmethod 5857 0x02ccdc48 code [0x02ccdd60, 0x02ccdf6c]
+Event: 53.134 Thread 0x312ca400 5858       3       org.springframework.data.repository.core.support.DefaultRepositoryInformation::isQueryMethod (21 bytes)
+Event: 53.137 Thread 0x312ca400 nmethod 5858 0x02cce048 code [0x02cce260, 0x02cceec4]
+Event: 53.138 Thread 0x312ca400 5859       3       org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor$$Lambda$794/21006017::doWith (11 bytes)
+Event: 53.138 Thread 0x312ca400 nmethod 5859 0x02ccf7c8 code [0x02ccf8e0, 0x02ccfa4c]
+Event: 53.200 Thread 0x312ca400 5860       3       org.springframework.beans.PropertyValue::<init> (90 bytes)
+Event: 53.202 Thread 0x312ca400 nmethod 5860 0x02ccfb08 code [0x02ccfca0, 0x02cd0398]
+Event: 53.206 Thread 0x312ca400 5861       3       org.springframework.beans.CachedIntrospectionResults::getPropertyDescriptor (65 bytes)
+Event: 53.208 Thread 0x312ca400 nmethod 5861 0x02cd0748 code [0x02cd0900, 0x02cd113c]
+Event: 53.228 Thread 0x312ca400 5862       3       sun.reflect.ClassFileAssembler::opc_dup (11 bytes)
+Event: 53.229 Thread 0x312ca400 nmethod 5862 0x02cd1448 code [0x02cd1580, 0x02cd17cc]
+Event: 53.233 Thread 0x312ca400 5863       3       java.util.stream.ForEachOps$ForEachOp$OfRef::accept (11 bytes)
+Event: 53.233 Thread 0x312ca400 nmethod 5863 0x02cd1948 code [0x02cd1a60, 0x02cd1bcc]
+Event: 53.245 Thread 0x312ca400 5864       3       org.springframework.util.ConcurrentReferenceHashMap$WeakEntryReference::get (8 bytes)
+Event: 53.246 Thread 0x312ca400 nmethod 5864 0x02cd1c88 code [0x02cd1da0, 0x02cd1f40]
+Event: 53.248 Thread 0x312ca400 5865       1       java.util.HashMap$Values::size (8 bytes)
+Event: 53.248 Thread 0x312ca400 nmethod 5865 0x02cd1fc8 code [0x02cd20c0, 0x02cd2160]
+Event: 53.249 Thread 0x312ca400 5866       1       org.springframework.data.mapping.model.Property::getType (5 bytes)
+Event: 53.249 Thread 0x312ca400 nmethod 5866 0x02cd21c8 code [0x02cd22c0, 0x02cd2360]
+Event: 53.253 Thread 0x312ca400 5867       1       org.springframework.util.ConcurrentReferenceHashMap$Segment::access$300 (5 bytes)
+Event: 53.253 Thread 0x312ca400 nmethod 5867 0x02cd23c8 code [0x02cd24c0, 0x02cd2540]
+Event: 53.362 Thread 0x312ca400 5868       3       org.springframework.core.convert.support.GenericConversionService::canConvert (29 bytes)
+Event: 53.363 Thread 0x312ca400 nmethod 5868 0x02cd25c8 code [0x02cd2700, 0x02cd29f8]
+Event: 53.363 Thread 0x312ca400 5869       3       org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor::postProcessMergedBeanDefinition (16 bytes)
+Event: 53.364 Thread 0x312ca400 nmethod 5869 0x02cd2b48 code [0x02cd2c60, 0x02cd2e18]
+Event: 53.364 Thread 0x312ca400 5870       3       org.springframework.context.annotation.CommonAnnotationBeanPostProcessor::postProcessMergedBeanDefinition (23 bytes)
+Event: 53.364 Thread 0x312ca400 nmethod 5870 0x02cd2f08 code [0x02cd3060, 0x02cd3330]
+Event: 53.364 Thread 0x312ca400 5871       3       org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor::requiresDestruction (11 bytes)
+Event: 53.365 Thread 0x312ca400 nmethod 5871 0x02cd3508 code [0x02cd3620, 0x02cd378c]
+Event: 53.366 Thread 0x312ca400 5872       3       org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$1::checkConfigMembers (1 bytes)
+Event: 53.366 Thread 0x312ca400 nmethod 5872 0x02cd3848 code [0x02cd3940, 0x02cd3a00]
+Event: 53.369 Thread 0x312ca400 5873   !   3       java.util.AbstractMap::equals (145 bytes)
+Event: 53.371 Thread 0x312ca400 nmethod 5873 0x02cd3a88 code [0x02cd3cc0, 0x02cd49f0]
+Event: 53.377 Thread 0x312ca400 5874       3       java.util.regex.Pattern::RemoveQEQuoting (346 bytes)
+Event: 53.380 Thread 0x312ca400 nmethod 5874 0x02cd4fc8 code [0x02cd51c0, 0x02cd5ef8]
+Event: 53.380 Thread 0x312ca400 5875       3       java.util.HashMap$KeySpliterator::characteristics (30 bytes)
+Event: 53.381 Thread 0x312ca400 nmethod 5875 0x02cd6808 code [0x02cd6920, 0x02cd6a60]
+Event: 53.381 Thread 0x312ca400 5876       3       java.util.concurrent.ConcurrentHashMap$ValueIterator::next (34 bytes)
+Event: 53.381 Thread 0x312ca400 nmethod 5876 0x02cd6b08 code [0x02cd6c40, 0x02cd6e98]
+Event: 53.423 Thread 0x312ca400 5877       1       java.lang.reflect.WeakCache::access$000 (5 bytes)
+Event: 53.423 Thread 0x312ca400 nmethod 5877 0x02cd6fc8 code [0x02cd70c0, 0x02cd7140]
+Event: 53.427 Thread 0x312ca400 5878       1       java.lang.reflect.WeakCache::access$100 (5 bytes)
+Event: 53.428 Thread 0x312ca400 nmethod 5878 0x02cd71c8 code [0x02cd72c0, 0x02cd7340]
+Event: 53.428 Thread 0x312ca400 5879       1       java.lang.reflect.WeakCache$CacheValue::hashCode (5 bytes)
+Event: 53.428 Thread 0x312ca400 nmethod 5879 0x02cd73c8 code [0x02cd74c0, 0x02cd7560]
+Event: 53.444 Thread 0x312ca400 5880       3       org.springframework.boot.autoconfigure.condition.ConditionEvaluationReport$$Lambda$811/1781245::accept (20 bytes)
+Event: 53.445 Thread 0x312ca400 nmethod 5880 0x02cd75c8 code [0x02cd76e0, 0x02cd796c]
+Event: 53.445 Thread 0x312ca400 5881       3       org.springframework.boot.autoconfigure.condition.ConditionEvaluationReport::lambda$addNoMatchOutcomeToAncestors$1 (54 bytes)
+Event: 53.447 Thread 0x312ca400 nmethod 5881 0x02cd7a48 code [0x02cd7c80, 0x02cd8ac0]
+Event: 53.453 Thread 0x312ca400 5885       1       org.springframework.boot.autoconfigure.condition.ConditionEvaluationReport$ConditionAndOutcome::getOutcome (5 bytes)
+Event: 53.454 Thread 0x312ca400 nmethod 5885 0x02cd9448 code [0x02cd9540, 0x02cd95e0]
+Event: 53.456 Thread 0x312ca400 5886       2       java.util.TreeMap::forEach (58 bytes)
+Event: 53.457 Thread 0x312ca400 nmethod 5886 0x02cd9648 code [0x02cd97a0, 0x02cd9a90]
+Event: 53.495 Thread 0x312ca400 5887       2       java.util.IdentityHashMap::init (11 bytes)
+Event: 53.495 Thread 0x312ca400 nmethod 5887 0x02cd9d48 code [0x02cd9e40, 0x02cd9fa0]
+Event: 53.515 Thread 0x312ca400 5888       2       java.util.Collections$UnmodifiableMap::isEmpty (10 bytes)
+Event: 53.516 Thread 0x312ca400 nmethod 5888 0x02cda048 code [0x02cda160, 0x02cda24c]
+Event: 53.525 Thread 0x312ca400 5890       2       org.springframework.core.annotation.AnnotationAwareOrderComparator::findOrderFromAnnotation (63 bytes)
+Event: 53.527 Thread 0x312ca400 nmethod 5890 0x02cda2c8 code [0x02cda460, 0x02cda848]
+Event: 53.561 Thread 0x312ca400 5891       2       org.springframework.transaction.annotation.AnnotationTransactionAttributeSource::findTransactionAttribute (6 bytes)
+Event: 53.562 Thread 0x312ca400 nmethod 5891 0x02cdac08 code [0x02cdad20, 0x02cdae0c]
+Event: 53.562 Thread 0x312ca400 5892       2       org.springframework.transaction.annotation.AnnotationTransactionAttributeSource::findTransactionAttribute (6 bytes)
+Event: 53.562 Thread 0x312ca400 nmethod 5892 0x02cdae88 code [0x02cdafa0, 0x02cdb08c]
+Event: 53.576 Thread 0x312ca400 5894       2       sun.invoke.util.Wrapper::isDoubleWord (15 bytes)
+Event: 53.577 Thread 0x312ca400 nmethod 5894 0x02cdb108 code [0x02cdb200, 0x02cdb2e0]
+Event: 53.584 Thread 0x312ca400 5897       2       java.util.LinkedHashSet::<init> (27 bytes)
+Event: 53.585 Thread 0x312ca400 nmethod 5897 0x02cdb348 code [0x02cdb4a0, 0x02cdb644]
+Event: 53.607 Thread 0x312ca400 5898       2       java.util.IdentityHashMap::capacity (29 bytes)
+Event: 53.607 Thread 0x312ca400 nmethod 5898 0x02cdb788 code [0x02cdb8a0, 0x02cdb98c]
+Event: 53.607 Thread 0x312ca400 5899       2       org.springframework.context.event.GenericApplicationListenerAdapter::resolveDeclaredEventType (57 bytes)
+Event: 53.609 Thread 0x312ca400 nmethod 5899 0x02cdba08 code [0x02cdbb60, 0x02cdbdbc]
+Event: 53.623 Thread 0x312ca400 5900       2       com.sun.org.apache.xalan.internal.utils.SecuritySupport::getSystemProperty (15 bytes)
+Event: 53.624 Thread 0x312ca400 nmethod 5900 0x02cdbf48 code [0x02cdc060, 0x02cdc18c]
+Event: 53.624 Thread 0x312ca400 5901       2       com.sun.org.apache.xalan.internal.utils.SecuritySupport$4::run (8 bytes)
+Event: 53.626 Thread 0x312ca400 nmethod 5901 0x02cdc248 code [0x02cdc3a0, 0x02cdc5a8]
+Event: 53.626 Thread 0x312ca400 5902   !   2       com.sun.org.apache.xalan.internal.utils.SecuritySupport::readJAXPProperty (171 bytes)
+Event: 53.630 Thread 0x312ca400 nmethod 5902 0x02cdc848 code [0x02cdcae0, 0x02cdd6ec]
+Event: 53.692 Thread 0x312ca400 5903   !   2       com.sun.org.apache.xalan.internal.utils.XMLSecurityManager::getSystemProperty (126 bytes)
+Event: 53.695 Thread 0x312ca400 nmethod 5903 0x02cde488 code [0x02cde660, 0x02cdec98]
+Event: 53.928 Thread 0x312ca400 5904       1       java.util.regex.Pattern::flags (5 bytes)
+Event: 53.929 Thread 0x312ca400 nmethod 5904 0x02cdf648 code [0x02cdf740, 0x02cdf7e0]
+Event: 54.340 Thread 0x312ca400 5905       1       java.util.logging.LogManager::access$1400 (5 bytes)
+Event: 54.340 Thread 0x312ca400 nmethod 5905 0x02cdf848 code [0x02cdf940, 0x02cdf9c0]
+
+GC Heap History (52 events):
+Event: 3.140 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 9472K, used 8192K [0x254c0000, 0x25f40000, 0x2f600000)
+  eden space 8192K, 100% used [0x254c0000,0x25cc0000,0x25cc0000)
+  from space 1280K, 0% used [0x25e00000,0x25e00000,0x25f40000)
+  to   space 1280K, 0% used [0x25cc0000,0x25cc0000,0x25e00000)
+ ParOldGen       total 22016K, used 0K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 0% used [0x11200000,0x11200000,0x12780000)
+ Metaspace       used 3166K, capacity 3212K, committed 3264K, reserved 4480K
+Event: 3.147 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 9472K, used 1226K [0x254c0000, 0x25f40000, 0x2f600000)
+  eden space 8192K, 0% used [0x254c0000,0x254c0000,0x25cc0000)
+  from space 1280K, 95% used [0x25cc0000,0x25df2a98,0x25e00000)
+  to   space 1280K, 0% used [0x25e00000,0x25e00000,0x25f40000)
+ ParOldGen       total 22016K, used 4K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 0% used [0x11200000,0x11201000,0x12780000)
+ Metaspace       used 3166K, capacity 3212K, committed 3264K, reserved 4480K
+}
+Event: 4.930 GC heap before
+{Heap before GC invocations=2 (full 0):
+ PSYoungGen      total 9472K, used 9418K [0x254c0000, 0x25f40000, 0x2f600000)
+  eden space 8192K, 100% used [0x254c0000,0x25cc0000,0x25cc0000)
+  from space 1280K, 95% used [0x25cc0000,0x25df2a98,0x25e00000)
+  to   space 1280K, 0% used [0x25e00000,0x25e00000,0x25f40000)
+ ParOldGen       total 22016K, used 4K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 0% used [0x11200000,0x11201000,0x12780000)
+ Metaspace       used 4952K, capacity 5078K, committed 5120K, reserved 5504K
+Event: 4.938 GC heap after
+Heap after GC invocations=2 (full 0):
+ PSYoungGen      total 9472K, used 1274K [0x254c0000, 0x25f40000, 0x2f600000)
+  eden space 8192K, 0% used [0x254c0000,0x254c0000,0x25cc0000)
+  from space 1280K, 99% used [0x25e00000,0x25f3e848,0x25f40000)
+  to   space 1280K, 0% used [0x25cc0000,0x25cc0000,0x25e00000)
+ ParOldGen       total 22016K, used 632K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 2% used [0x11200000,0x1129e000,0x12780000)
+ Metaspace       used 4952K, capacity 5078K, committed 5120K, reserved 5504K
+}
+Event: 5.457 GC heap before
+{Heap before GC invocations=3 (full 0):
+ PSYoungGen      total 9472K, used 9466K [0x254c0000, 0x25f40000, 0x2f600000)
+  eden space 8192K, 100% used [0x254c0000,0x25cc0000,0x25cc0000)
+  from space 1280K, 99% used [0x25e00000,0x25f3e848,0x25f40000)
+  to   space 1280K, 0% used [0x25cc0000,0x25cc0000,0x25e00000)
+ ParOldGen       total 22016K, used 632K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 2% used [0x11200000,0x1129e000,0x12780000)
+ Metaspace       used 5726K, capacity 5925K, committed 6016K, reserved 6528K
+Event: 5.465 GC heap after
+Heap after GC invocations=3 (full 0):
+ PSYoungGen      total 9472K, used 1264K [0x254c0000, 0x25f40000, 0x2f600000)
+  eden space 8192K, 0% used [0x254c0000,0x254c0000,0x25cc0000)
+  from space 1280K, 98% used [0x25cc0000,0x25dfc120,0x25e00000)
+  to   space 1280K, 0% used [0x25e00000,0x25e00000,0x25f40000)
+ ParOldGen       total 22016K, used 1493K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 6% used [0x11200000,0x113754a0,0x12780000)
+ Metaspace       used 5726K, capacity 5925K, committed 6016K, reserved 6528K
+}
+Event: 6.491 GC heap before
+{Heap before GC invocations=4 (full 0):
+ PSYoungGen      total 9472K, used 9456K [0x254c0000, 0x25f40000, 0x2f600000)
+  eden space 8192K, 100% used [0x254c0000,0x25cc0000,0x25cc0000)
+  from space 1280K, 98% used [0x25cc0000,0x25dfc120,0x25e00000)
+  to   space 1280K, 0% used [0x25e00000,0x25e00000,0x25f40000)
+ ParOldGen       total 22016K, used 1493K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 6% used [0x11200000,0x113754a0,0x12780000)
+ Metaspace       used 6471K, capacity 6712K, committed 6784K, reserved 7552K
+Event: 6.496 GC heap after
+Heap after GC invocations=4 (full 0):
+ PSYoungGen      total 9472K, used 1272K [0x254c0000, 0x25f40000, 0x2f600000)
+  eden space 8192K, 0% used [0x254c0000,0x254c0000,0x25cc0000)
+  from space 1280K, 99% used [0x25e00000,0x25f3e0e0,0x25f40000)
+  to   space 1280K, 0% used [0x25cc0000,0x25cc0000,0x25e00000)
+ ParOldGen       total 22016K, used 2312K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 10% used [0x11200000,0x114422a8,0x12780000)
+ Metaspace       used 6471K, capacity 6712K, committed 6784K, reserved 7552K
+}
+Event: 8.457 GC heap before
+{Heap before GC invocations=5 (full 0):
+ PSYoungGen      total 9472K, used 9464K [0x254c0000, 0x25f40000, 0x2f600000)
+  eden space 8192K, 100% used [0x254c0000,0x25cc0000,0x25cc0000)
+  from space 1280K, 99% used [0x25e00000,0x25f3e0e0,0x25f40000)
+  to   space 1280K, 0% used [0x25cc0000,0x25cc0000,0x25e00000)
+ ParOldGen       total 22016K, used 2312K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 10% used [0x11200000,0x114422a8,0x12780000)
+ Metaspace       used 7232K, capacity 7501K, committed 7552K, reserved 7552K
+Event: 8.465 GC heap after
+Heap after GC invocations=5 (full 0):
+ PSYoungGen      total 9472K, used 1271K [0x254c0000, 0x26240000, 0x2f600000)
+  eden space 8192K, 0% used [0x254c0000,0x254c0000,0x25cc0000)
+  from space 1280K, 99% used [0x25cc0000,0x25dfdd60,0x25e00000)
+  to   space 2816K, 0% used [0x25f80000,0x25f80000,0x26240000)
+ ParOldGen       total 22016K, used 3135K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 14% used [0x11200000,0x1150fcc0,0x12780000)
+ Metaspace       used 7232K, capacity 7501K, committed 7552K, reserved 7552K
+}
+Event: 8.930 GC heap before
+{Heap before GC invocations=6 (full 0):
+ PSYoungGen      total 9472K, used 9463K [0x254c0000, 0x26240000, 0x2f600000)
+  eden space 8192K, 100% used [0x254c0000,0x25cc0000,0x25cc0000)
+  from space 1280K, 99% used [0x25cc0000,0x25dfdd60,0x25e00000)
+  to   space 2816K, 0% used [0x25f80000,0x25f80000,0x26240000)
+ ParOldGen       total 22016K, used 3135K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 14% used [0x11200000,0x1150fcc0,0x12780000)
+ Metaspace       used 7944K, capacity 8230K, committed 8320K, reserved 8576K
+Event: 8.942 GC heap after
+Heap after GC invocations=6 (full 0):
+ PSYoungGen      total 11264K, used 2015K [0x254c0000, 0x269c0000, 0x2f600000)
+  eden space 8448K, 0% used [0x254c0000,0x254c0000,0x25d00000)
+  from space 2816K, 71% used [0x25f80000,0x26177fa0,0x26240000)
+  to   space 2560K, 0% used [0x25d00000,0x25d00000,0x25f80000)
+ ParOldGen       total 22016K, used 3139K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 14% used [0x11200000,0x11510cc0,0x12780000)
+ Metaspace       used 7944K, capacity 8230K, committed 8320K, reserved 8576K
+}
+Event: 9.485 GC heap before
+{Heap before GC invocations=7 (full 0):
+ PSYoungGen      total 11264K, used 10463K [0x254c0000, 0x269c0000, 0x2f600000)
+  eden space 8448K, 100% used [0x254c0000,0x25d00000,0x25d00000)
+  from space 2816K, 71% used [0x25f80000,0x26177fa0,0x26240000)
+  to   space 2560K, 0% used [0x25d00000,0x25d00000,0x25f80000)
+ ParOldGen       total 22016K, used 3139K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 14% used [0x11200000,0x11510cc0,0x12780000)
+ Metaspace       used 8687K, capacity 9011K, committed 9088K, reserved 9600K
+Event: 9.497 GC heap after
+Heap after GC invocations=7 (full 0):
+ PSYoungGen      total 11008K, used 1586K [0x254c0000, 0x26a40000, 0x2f600000)
+  eden space 8448K, 0% used [0x254c0000,0x254c0000,0x25d00000)
+  from space 2560K, 61% used [0x25d00000,0x25e8c9e0,0x25f80000)
+  to   space 2560K, 0% used [0x267c0000,0x267c0000,0x26a40000)
+ ParOldGen       total 22016K, used 3821K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 17% used [0x11200000,0x115bb5c0,0x12780000)
+ Metaspace       used 8687K, capacity 9011K, committed 9088K, reserved 9600K
+}
+Event: 11.426 GC heap before
+{Heap before GC invocations=8 (full 0):
+ PSYoungGen      total 11008K, used 10034K [0x254c0000, 0x26a40000, 0x2f600000)
+  eden space 8448K, 100% used [0x254c0000,0x25d00000,0x25d00000)
+  from space 2560K, 61% used [0x25d00000,0x25e8c9e0,0x25f80000)
+  to   space 2560K, 0% used [0x267c0000,0x267c0000,0x26a40000)
+ ParOldGen       total 22016K, used 3821K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 17% used [0x11200000,0x115bb5c0,0x12780000)
+ Metaspace       used 9631K, capacity 9954K, committed 9984K, reserved 10624K
+Event: 11.439 GC heap after
+Heap after GC invocations=8 (full 0):
+ PSYoungGen      total 19456K, used 1648K [0x254c0000, 0x26a40000, 0x2f600000)
+  eden space 16896K, 0% used [0x254c0000,0x254c0000,0x26540000)
+  from space 2560K, 64% used [0x267c0000,0x2695c2c0,0x26a40000)
+  to   space 2560K, 0% used [0x26540000,0x26540000,0x267c0000)
+ ParOldGen       total 22016K, used 4184K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 19% used [0x11200000,0x116160c8,0x12780000)
+ Metaspace       used 9631K, capacity 9954K, committed 9984K, reserved 10624K
+}
+Event: 14.247 GC heap before
+{Heap before GC invocations=9 (full 0):
+ PSYoungGen      total 19456K, used 18544K [0x254c0000, 0x26a40000, 0x2f600000)
+  eden space 16896K, 100% used [0x254c0000,0x26540000,0x26540000)
+  from space 2560K, 64% used [0x267c0000,0x2695c2c0,0x26a40000)
+  to   space 2560K, 0% used [0x26540000,0x26540000,0x267c0000)
+ ParOldGen       total 22016K, used 4184K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 19% used [0x11200000,0x116160c8,0x12780000)
+ Metaspace       used 11041K, capacity 11503K, committed 11520K, reserved 11648K
+Event: 14.259 GC heap after
+Heap after GC invocations=9 (full 0):
+ PSYoungGen      total 18944K, used 2324K [0x254c0000, 0x26a40000, 0x2f600000)
+  eden space 16384K, 0% used [0x254c0000,0x254c0000,0x264c0000)
+  from space 2560K, 90% used [0x26540000,0x267852e8,0x267c0000)
+  to   space 2560K, 0% used [0x267c0000,0x267c0000,0x26a40000)
+ ParOldGen       total 22016K, used 4564K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 20% used [0x11200000,0x116750c8,0x12780000)
+ Metaspace       used 11041K, capacity 11503K, committed 11520K, reserved 11648K
+}
+Event: 15.083 GC heap before
+{Heap before GC invocations=10 (full 0):
+ PSYoungGen      total 18944K, used 18708K [0x254c0000, 0x26a40000, 0x2f600000)
+  eden space 16384K, 100% used [0x254c0000,0x264c0000,0x264c0000)
+  from space 2560K, 90% used [0x26540000,0x267852e8,0x267c0000)
+  to   space 2560K, 0% used [0x267c0000,0x267c0000,0x26a40000)
+ ParOldGen       total 22016K, used 4564K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 20% used [0x11200000,0x116750c8,0x12780000)
+ Metaspace       used 12625K, capacity 13104K, committed 13184K, reserved 13696K
+Event: 15.093 GC heap after
+Heap after GC invocations=10 (full 0):
+ PSYoungGen      total 18688K, used 2552K [0x254c0000, 0x27500000, 0x2f600000)
+  eden space 16128K, 0% used [0x254c0000,0x254c0000,0x26480000)
+  from space 2560K, 99% used [0x267c0000,0x26a3e058,0x26a40000)
+  to   space 3328K, 0% used [0x26480000,0x26480000,0x267c0000)
+ ParOldGen       total 22016K, used 5471K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 24% used [0x11200000,0x11757e98,0x12780000)
+ Metaspace       used 12625K, capacity 13104K, committed 13184K, reserved 13696K
+}
+Event: 15.519 GC heap before
+{Heap before GC invocations=11 (full 0):
+ PSYoungGen      total 18688K, used 18680K [0x254c0000, 0x27500000, 0x2f600000)
+  eden space 16128K, 100% used [0x254c0000,0x26480000,0x26480000)
+  from space 2560K, 99% used [0x267c0000,0x26a3e058,0x26a40000)
+  to   space 3328K, 0% used [0x26480000,0x26480000,0x267c0000)
+ ParOldGen       total 22016K, used 5471K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 24% used [0x11200000,0x11757e98,0x12780000)
+ Metaspace       used 13953K, capacity 14481K, committed 14592K, reserved 14720K
+Event: 15.526 GC heap after
+Heap after GC invocations=11 (full 0):
+ PSYoungGen      total 19456K, used 2098K [0x254c0000, 0x27400000, 0x2f600000)
+  eden space 16128K, 0% used [0x254c0000,0x254c0000,0x26480000)
+  from space 3328K, 63% used [0x26480000,0x2668c9e8,0x267c0000)
+  to   space 3072K, 0% used [0x27100000,0x27100000,0x27400000)
+ ParOldGen       total 22016K, used 6224K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 28% used [0x11200000,0x11814140,0x12780000)
+ Metaspace       used 13953K, capacity 14481K, committed 14592K, reserved 14720K
+}
+Event: 16.424 GC heap before
+{Heap before GC invocations=12 (full 0):
+ PSYoungGen      total 19456K, used 18226K [0x254c0000, 0x27400000, 0x2f600000)
+  eden space 16128K, 100% used [0x254c0000,0x26480000,0x26480000)
+  from space 3328K, 63% used [0x26480000,0x2668c9e8,0x267c0000)
+  to   space 3072K, 0% used [0x27100000,0x27100000,0x27400000)
+ ParOldGen       total 22016K, used 6224K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 28% used [0x11200000,0x11814140,0x12780000)
+ Metaspace       used 14577K, capacity 15137K, committed 15232K, reserved 15744K
+Event: 16.433 GC heap after
+Heap after GC invocations=12 (full 0):
+ PSYoungGen      total 28928K, used 1596K [0x254c0000, 0x27400000, 0x2f600000)
+  eden space 25856K, 0% used [0x254c0000,0x254c0000,0x26e00000)
+  from space 3072K, 51% used [0x27100000,0x2728f3c0,0x27400000)
+  to   space 3072K, 0% used [0x26e00000,0x26e00000,0x27100000)
+ ParOldGen       total 22016K, used 6494K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 29% used [0x11200000,0x11857950,0x12780000)
+ Metaspace       used 14577K, capacity 15137K, committed 15232K, reserved 15744K
+}
+Event: 16.718 GC heap before
+{Heap before GC invocations=13 (full 0):
+ PSYoungGen      total 28928K, used 27414K [0x254c0000, 0x27400000, 0x2f600000)
+  eden space 25856K, 99% used [0x254c0000,0x26df6700,0x26e00000)
+  from space 3072K, 51% used [0x27100000,0x2728f3c0,0x27400000)
+  to   space 3072K, 0% used [0x26e00000,0x26e00000,0x27100000)
+ ParOldGen       total 22016K, used 6494K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 29% used [0x11200000,0x11857950,0x12780000)
+ Metaspace       used 14749K, capacity 15317K, committed 15360K, reserved 15744K
+Event: 16.728 GC heap after
+Heap after GC invocations=13 (full 0):
+ PSYoungGen      total 28928K, used 776K [0x254c0000, 0x283c0000, 0x2f600000)
+  eden space 25856K, 0% used [0x254c0000,0x254c0000,0x26e00000)
+  from space 3072K, 25% used [0x26e00000,0x26ec23a0,0x27100000)
+  to   space 3328K, 0% used [0x28080000,0x28080000,0x283c0000)
+ ParOldGen       total 22016K, used 7125K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 32% used [0x11200000,0x118f5498,0x12780000)
+ Metaspace       used 14749K, capacity 15317K, committed 15360K, reserved 15744K
+}
+Event: 17.721 GC heap before
+{Heap before GC invocations=14 (full 0):
+ PSYoungGen      total 28928K, used 26632K [0x254c0000, 0x283c0000, 0x2f600000)
+  eden space 25856K, 100% used [0x254c0000,0x26e00000,0x26e00000)
+  from space 3072K, 25% used [0x26e00000,0x26ec23a0,0x27100000)
+  to   space 3328K, 0% used [0x28080000,0x28080000,0x283c0000)
+ ParOldGen       total 22016K, used 7125K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 32% used [0x11200000,0x118f5498,0x12780000)
+ Metaspace       used 15167K, capacity 15788K, committed 15872K, reserved 16768K
+Event: 17.728 GC heap after
+Heap after GC invocations=14 (full 0):
+ PSYoungGen      total 44800K, used 1201K [0x254c0000, 0x283c0000, 0x2f600000)
+  eden space 41472K, 0% used [0x254c0000,0x254c0000,0x27d40000)
+  from space 3328K, 36% used [0x28080000,0x281ac6b8,0x283c0000)
+  to   space 3328K, 0% used [0x27d40000,0x27d40000,0x28080000)
+ ParOldGen       total 22016K, used 7535K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 34% used [0x11200000,0x1195bcb0,0x12780000)
+ Metaspace       used 15167K, capacity 15788K, committed 15872K, reserved 16768K
+}
+Event: 19.800 GC heap before
+{Heap before GC invocations=15 (full 0):
+ PSYoungGen      total 44800K, used 24930K [0x254c0000, 0x283c0000, 0x2f600000)
+  eden space 41472K, 57% used [0x254c0000,0x26bec4c8,0x27d40000)
+  from space 3328K, 36% used [0x28080000,0x281ac6b8,0x283c0000)
+  to   space 3328K, 0% used [0x27d40000,0x27d40000,0x28080000)
+ ParOldGen       total 22016K, used 7535K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 34% used [0x11200000,0x1195bcb0,0x12780000)
+ Metaspace       used 15770K, capacity 16362K, committed 16384K, reserved 16768K
+Event: 19.812 GC heap after
+Heap after GC invocations=15 (full 0):
+ PSYoungGen      total 44800K, used 2201K [0x254c0000, 0x29c40000, 0x2f600000)
+  eden space 41472K, 0% used [0x254c0000,0x254c0000,0x27d40000)
+  from space 3328K, 66% used [0x27d40000,0x27f667c8,0x28080000)
+  to   space 3328K, 0% used [0x29900000,0x29900000,0x29c40000)
+ ParOldGen       total 22016K, used 8206K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 37% used [0x11200000,0x11a03888,0x12780000)
+ Metaspace       used 15770K, capacity 16362K, committed 16384K, reserved 16768K
+}
+Event: 19.812 GC heap before
+{Heap before GC invocations=16 (full 1):
+ PSYoungGen      total 44800K, used 2201K [0x254c0000, 0x29c40000, 0x2f600000)
+  eden space 41472K, 0% used [0x254c0000,0x254c0000,0x27d40000)
+  from space 3328K, 66% used [0x27d40000,0x27f667c8,0x28080000)
+  to   space 3328K, 0% used [0x29900000,0x29900000,0x29c40000)
+ ParOldGen       total 22016K, used 8206K [0x11200000, 0x12780000, 0x254c0000)
+  object space 22016K, 37% used [0x11200000,0x11a03888,0x12780000)
+ Metaspace       used 15770K, capacity 16362K, committed 16384K, reserved 16768K
+Event: 19.908 GC heap after
+Heap after GC invocations=16 (full 1):
+ PSYoungGen      total 44800K, used 0K [0x254c0000, 0x29c40000, 0x2f600000)
+  eden space 41472K, 0% used [0x254c0000,0x254c0000,0x27d40000)
+  from space 3328K, 0% used [0x27d40000,0x27d40000,0x28080000)
+  to   space 3328K, 0% used [0x29900000,0x29900000,0x29c40000)
+ ParOldGen       total 18944K, used 6943K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 36% used [0x11200000,0x118c7c28,0x12480000)
+ Metaspace       used 15770K, capacity 16362K, committed 16384K, reserved 16768K
+}
+Event: 22.552 GC heap before
+{Heap before GC invocations=17 (full 1):
+ PSYoungGen      total 44800K, used 41472K [0x254c0000, 0x29c40000, 0x2f600000)
+  eden space 41472K, 100% used [0x254c0000,0x27d40000,0x27d40000)
+  from space 3328K, 0% used [0x27d40000,0x27d40000,0x28080000)
+  to   space 3328K, 0% used [0x29900000,0x29900000,0x29c40000)
+ ParOldGen       total 18944K, used 6943K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 36% used [0x11200000,0x118c7c28,0x12480000)
+ Metaspace       used 17375K, capacity 18118K, committed 18176K, reserved 18816K
+Event: 22.573 GC heap after
+Heap after GC invocations=17 (full 1):
+ PSYoungGen      total 62208K, used 3320K [0x254c0000, 0x29c40000, 0x2f600000)
+  eden space 58880K, 0% used [0x254c0000,0x254c0000,0x28e40000)
+  from space 3328K, 99% used [0x29900000,0x29c3e060,0x29c40000)
+  to   space 3840K, 0% used [0x294c0000,0x294c0000,0x29880000)
+ ParOldGen       total 18944K, used 7384K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 38% used [0x11200000,0x11936138,0x12480000)
+ Metaspace       used 17375K, capacity 18118K, committed 18176K, reserved 18816K
+}
+Event: 25.829 GC heap before
+{Heap before GC invocations=18 (full 1):
+ PSYoungGen      total 62208K, used 62200K [0x254c0000, 0x29c40000, 0x2f600000)
+  eden space 58880K, 100% used [0x254c0000,0x28e40000,0x28e40000)
+  from space 3328K, 99% used [0x29900000,0x29c3e060,0x29c40000)
+  to   space 3840K, 0% used [0x294c0000,0x294c0000,0x29880000)
+ ParOldGen       total 18944K, used 7384K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 38% used [0x11200000,0x11936138,0x12480000)
+ Metaspace       used 20343K, capacity 21093K, committed 21248K, reserved 21888K
+Event: 25.857 GC heap after
+Heap after GC invocations=18 (full 1):
+ PSYoungGen      total 69376K, used 3832K [0x254c0000, 0x2a880000, 0x2f600000)
+  eden space 65536K, 0% used [0x254c0000,0x254c0000,0x294c0000)
+  from space 3840K, 99% used [0x294c0000,0x2987e138,0x29880000)
+  to   space 5376K, 0% used [0x2a340000,0x2a340000,0x2a880000)
+ ParOldGen       total 18944K, used 10028K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 52% used [0x11200000,0x11bcb1a8,0x12480000)
+ Metaspace       used 20343K, capacity 21093K, committed 21248K, reserved 21888K
+}
+Event: 29.607 GC heap before
+{Heap before GC invocations=19 (full 1):
+ PSYoungGen      total 69376K, used 69368K [0x254c0000, 0x2a880000, 0x2f600000)
+  eden space 65536K, 100% used [0x254c0000,0x294c0000,0x294c0000)
+  from space 3840K, 99% used [0x294c0000,0x2987e138,0x29880000)
+  to   space 5376K, 0% used [0x2a340000,0x2a340000,0x2a880000)
+ ParOldGen       total 18944K, used 10028K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 52% used [0x11200000,0x11bcb1a8,0x12480000)
+ Metaspace       used 23400K, capacity 24375K, committed 24448K, reserved 24960K
+Event: 29.641 GC heap after
+Heap after GC invocations=19 (full 1):
+ PSYoungGen      total 79104K, used 5374K [0x254c0000, 0x2b340000, 0x2f600000)
+  eden space 73728K, 0% used [0x254c0000,0x254c0000,0x29cc0000)
+  from space 5376K, 99% used [0x2a340000,0x2a87fa60,0x2a880000)
+  to   space 6656K, 0% used [0x29cc0000,0x29cc0000,0x2a340000)
+ ParOldGen       total 18944K, used 11329K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 59% used [0x11200000,0x11d10478,0x12480000)
+ Metaspace       used 23400K, capacity 24375K, committed 24448K, reserved 24960K
+}
+Event: 32.729 GC heap before
+{Heap before GC invocations=20 (full 1):
+ PSYoungGen      total 79104K, used 79102K [0x254c0000, 0x2b340000, 0x2f600000)
+  eden space 73728K, 100% used [0x254c0000,0x29cc0000,0x29cc0000)
+  from space 5376K, 99% used [0x2a340000,0x2a87fa60,0x2a880000)
+  to   space 6656K, 0% used [0x29cc0000,0x29cc0000,0x2a340000)
+ ParOldGen       total 18944K, used 11329K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 59% used [0x11200000,0x11d10478,0x12480000)
+ Metaspace       used 24812K, capacity 25804K, committed 25856K, reserved 25984K
+Event: 32.791 GC heap after
+Heap after GC invocations=20 (full 1):
+ PSYoungGen      total 80384K, used 2533K [0x254c0000, 0x2be40000, 0x2f600000)
+  eden space 73728K, 0% used [0x254c0000,0x254c0000,0x29cc0000)
+  from space 6656K, 38% used [0x29cc0000,0x29f39588,0x2a340000)
+  to   space 6400K, 0% used [0x2b800000,0x2b800000,0x2be40000)
+ ParOldGen       total 18944K, used 14097K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 74% used [0x11200000,0x11fc4620,0x12480000)
+ Metaspace       used 24812K, capacity 25804K, committed 25856K, reserved 25984K
+}
+Event: 36.488 GC heap before
+{Heap before GC invocations=21 (full 1):
+ PSYoungGen      total 80384K, used 50233K [0x254c0000, 0x2be40000, 0x2f600000)
+  eden space 73728K, 64% used [0x254c0000,0x28354ee0,0x29cc0000)
+  from space 6656K, 38% used [0x29cc0000,0x29f39588,0x2a340000)
+  to   space 6400K, 0% used [0x2b800000,0x2b800000,0x2be40000)
+ ParOldGen       total 18944K, used 14097K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 74% used [0x11200000,0x11fc4620,0x12480000)
+ Metaspace       used 26291K, capacity 27294K, committed 27308K, reserved 28032K
+Event: 36.540 GC heap after
+Heap after GC invocations=21 (full 1):
+ PSYoungGen      total 101120K, used 2842K [0x254c0000, 0x2bd80000, 0x2f600000)
+  eden space 95488K, 0% used [0x254c0000,0x254c0000,0x2b200000)
+  from space 5632K, 50% used [0x2b800000,0x2bac6888,0x2bd80000)
+  to   space 5888K, 0% used [0x2b200000,0x2b200000,0x2b7c0000)
+ ParOldGen       total 18944K, used 15232K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 80% used [0x11200000,0x120e0108,0x12480000)
+ Metaspace       used 26291K, capacity 27294K, committed 27308K, reserved 28032K
+}
+Event: 36.540 GC heap before
+{Heap before GC invocations=22 (full 2):
+ PSYoungGen      total 101120K, used 2842K [0x254c0000, 0x2bd80000, 0x2f600000)
+  eden space 95488K, 0% used [0x254c0000,0x254c0000,0x2b200000)
+  from space 5632K, 50% used [0x2b800000,0x2bac6888,0x2bd80000)
+  to   space 5888K, 0% used [0x2b200000,0x2b200000,0x2b7c0000)
+ ParOldGen       total 18944K, used 15232K [0x11200000, 0x12480000, 0x254c0000)
+  object space 18944K, 80% used [0x11200000,0x120e0108,0x12480000)
+ Metaspace       used 26291K, capacity 27294K, committed 27308K, reserved 28032K
+Event: 36.753 GC heap after
+Heap after GC invocations=22 (full 2):
+ PSYoungGen      total 101120K, used 0K [0x254c0000, 0x2bd80000, 0x2f600000)
+  eden space 95488K, 0% used [0x254c0000,0x254c0000,0x2b200000)
+  from space 5632K, 0% used [0x2b800000,0x2b800000,0x2bd80000)
+  to   space 5888K, 0% used [0x2b200000,0x2b200000,0x2b7c0000)
+ ParOldGen       total 32256K, used 14233K [0x11200000, 0x13180000, 0x254c0000)
+  object space 32256K, 44% used [0x11200000,0x11fe6700,0x13180000)
+ Metaspace       used 26291K, capacity 27294K, committed 27308K, reserved 28032K
+}
+Event: 40.131 GC heap before
+{Heap before GC invocations=23 (full 2):
+ PSYoungGen      total 101120K, used 95488K [0x254c0000, 0x2bd80000, 0x2f600000)
+  eden space 95488K, 100% used [0x254c0000,0x2b200000,0x2b200000)
+  from space 5632K, 0% used [0x2b800000,0x2b800000,0x2bd80000)
+  to   space 5888K, 0% used [0x2b200000,0x2b200000,0x2b7c0000)
+ ParOldGen       total 32256K, used 14233K [0x11200000, 0x13180000, 0x254c0000)
+  object space 32256K, 44% used [0x11200000,0x11fe6700,0x13180000)
+ Metaspace       used 30711K, capacity 31846K, committed 31872K, reserved 32128K
+Event: 40.176 GC heap after
+Heap after GC invocations=23 (full 2):
+ PSYoungGen      total 101376K, used 5877K [0x254c0000, 0x2d7c0000, 0x2f600000)
+  eden space 95488K, 0% used [0x254c0000,0x254c0000,0x2b200000)
+  from space 5888K, 99% used [0x2b200000,0x2b7bd448,0x2b7c0000)
+  to   space 7936K, 0% used [0x2d000000,0x2d000000,0x2d7c0000)
+ ParOldGen       total 32256K, used 17091K [0x11200000, 0x13180000, 0x254c0000)
+  object space 32256K, 52% used [0x11200000,0x122b0f28,0x13180000)
+ Metaspace       used 30711K, capacity 31846K, committed 31872K, reserved 32128K
+}
+Event: 43.756 GC heap before
+{Heap before GC invocations=24 (full 2):
+ PSYoungGen      total 101376K, used 101365K [0x254c0000, 0x2d7c0000, 0x2f600000)
+  eden space 95488K, 100% used [0x254c0000,0x2b200000,0x2b200000)
+  from space 5888K, 99% used [0x2b200000,0x2b7bd448,0x2b7c0000)
+  to   space 7936K, 0% used [0x2d000000,0x2d000000,0x2d7c0000)
+ ParOldGen       total 32256K, used 17091K [0x11200000, 0x13180000, 0x254c0000)
+  object space 32256K, 52% used [0x11200000,0x122b0f28,0x13180000)
+ Metaspace       used 34266K, capacity 35442K, committed 35456K, reserved 36224K
+Event: 43.838 GC heap after
+Heap after GC invocations=24 (full 2):
+ PSYoungGen      total 123136K, used 7929K [0x254c0000, 0x2df40000, 0x2f600000)
+  eden space 115200K, 0% used [0x254c0000,0x254c0000,0x2c540000)
+  from space 7936K, 99% used [0x2d000000,0x2d7be4a8,0x2d7c0000)
+  to   space 11008K, 0% used [0x2c540000,0x2c540000,0x2d000000)
+ ParOldGen       total 32256K, used 22497K [0x11200000, 0x13180000, 0x254c0000)
+  object space 32256K, 69% used [0x11200000,0x127f8778,0x13180000)
+ Metaspace       used 34266K, capacity 35442K, committed 35456K, reserved 36224K
+}
+Event: 47.258 GC heap before
+{Heap before GC invocations=25 (full 2):
+ PSYoungGen      total 123136K, used 123129K [0x254c0000, 0x2df40000, 0x2f600000)
+  eden space 115200K, 100% used [0x254c0000,0x2c540000,0x2c540000)
+  from space 7936K, 99% used [0x2d000000,0x2d7be4a8,0x2d7c0000)
+  to   space 11008K, 0% used [0x2c540000,0x2c540000,0x2d000000)
+ ParOldGen       total 32256K, used 22497K [0x11200000, 0x13180000, 0x254c0000)
+  object space 32256K, 69% used [0x11200000,0x127f8778,0x13180000)
+ Metaspace       used 37927K, capacity 39226K, committed 39296K, reserved 39296K
+Event: 47.324 GC heap after
+Heap after GC invocations=25 (full 2):
+ PSYoungGen      total 126208K, used 7310K [0x254c0000, 0x2df40000, 0x2f600000)
+  eden space 115200K, 0% used [0x254c0000,0x254c0000,0x2c540000)
+  from space 11008K, 66% used [0x2c540000,0x2cc63878,0x2d000000)
+  to   space 7936K, 0% used [0x2d000000,0x2d000000,0x2d7c0000)
+ ParOldGen       total 32256K, used 28943K [0x11200000, 0x13180000, 0x254c0000)
+  object space 32256K, 89% used [0x11200000,0x12e43f90,0x13180000)
+ Metaspace       used 37927K, capacity 39226K, committed 39296K, reserved 39296K
+}
+Event: 47.325 GC heap before
+{Heap before GC invocations=26 (full 3):
+ PSYoungGen      total 126208K, used 7310K [0x254c0000, 0x2df40000, 0x2f600000)
+  eden space 115200K, 0% used [0x254c0000,0x254c0000,0x2c540000)
+  from space 11008K, 66% used [0x2c540000,0x2cc63878,0x2d000000)
+  to   space 7936K, 0% used [0x2d000000,0x2d000000,0x2d7c0000)
+ ParOldGen       total 32256K, used 28943K [0x11200000, 0x13180000, 0x254c0000)
+  object space 32256K, 89% used [0x11200000,0x12e43f90,0x13180000)
+ Metaspace       used 37927K, capacity 39226K, committed 39296K, reserved 39296K
+Event: 47.746 GC heap after
+Heap after GC invocations=26 (full 3):
+ PSYoungGen      total 126208K, used 0K [0x254c0000, 0x2df40000, 0x2f600000)
+  eden space 115200K, 0% used [0x254c0000,0x254c0000,0x2c540000)
+  from space 11008K, 0% used [0x2c540000,0x2c540000,0x2d000000)
+  to   space 7936K, 0% used [0x2d000000,0x2d000000,0x2d7c0000)
+ ParOldGen       total 32256K, used 29448K [0x11200000, 0x13180000, 0x254c0000)
+  object space 32256K, 91% used [0x11200000,0x12ec22a0,0x13180000)
+ Metaspace       used 37927K, capacity 39226K, committed 39296K, reserved 39296K
+}
+
+Deoptimization events (146 events):
+Event: 3.208 Thread 0x00d6c400 Uncommon trap: reason=unloaded action=reinterpret pc=0x01f5aa7c method=sun.misc.URLClassPath$JarLoader.ensureOpen()V @ 26
+Event: 3.752 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x01f64070 method=sun.misc.MetaIndex.mayContain(Ljava/lang/String;)Z @ 13
+Event: 5.565 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x01f80e4c method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 5.565 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x01f80e4c method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 5.565 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x01f80e4c method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 5.579 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x01f80e4c method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 7.044 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x01ff9644 method=java.io.WinNTFileSystem.normalize(Ljava/lang/String;)Ljava/lang/String; @ 128
+Event: 8.669 Thread 0x00d6c400 Uncommon trap: reason=range_check action=make_not_entrant pc=0x020147c4 method=sun.reflect.generics.parser.SignatureParser.current()C @ 34
+Event: 9.983 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x01f36360 method=java.lang.String.indexOf([CII[CIII)I @ 3
+Event: 11.318 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x020be6e4 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 236
+Event: 11.640 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02195668 method=java.io.WinNTFileSystem.isLetter(C)Z @ 15
+Event: 13.508 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x021b0d30 method=java.net.URL.<init>(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V @ 347
+Event: 15.027 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0200e15c method=java.util.HashMap.hash(Ljava/lang/Object;)I @ 1
+Event: 15.361 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x021ec990 method=java.util.concurrent.ConcurrentHashMap.addCount(JI)V @ 34
+Event: 15.688 Thread 0x329bd800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x021707b8 method=jdk.internal.org.objectweb.asm.Type.getArgumentsAndReturnSizes(Ljava/lang/String;)I @ 47
+Event: 16.356 Thread 0x00d6c400 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x020cd0cc method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 203
+Event: 17.857 Thread 0x00d6c400 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x020cd0cc method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 203
+Event: 18.244 Thread 0x00d6c400 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x020cd0cc method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 203
+Event: 18.586 Thread 0x00d6c400 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x020cd0cc method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 203
+Event: 19.758 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02302194 method=org.springframework.core.annotation.MergedAnnotationsCollection.isMappingForType(Lorg/springframework/core/annotation/AnnotationTypeMapping;Ljava/lang/Object;)Z @ 13
+Event: 20.616 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02402784 method=org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;)Z @ 38
+Event: 20.988 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x023f4134 method=org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(Ljava/lang/String;)Lorg/springframework/beans/factory/support/RootBeanDefinition; @ 22
+Event: 21.024 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x023fffc4 method=org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(Ljava/lang/String;Z)Ljava/lang/Object; @ 20
+Event: 21.399 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x022f2fe0 method=org.springframework.util.ConcurrentReferenceHashMap$Segment.findInChain(Lorg/springframework/util/ConcurrentReferenceHashMap$Reference;Ljava/lang/Object;I)Lorg/springframework/u
+Event: 21.438 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x02414ce0 method=org.springframework.core.ResolvableType.resolveType()Lorg/springframework/core/ResolvableType; @ 117
+Event: 21.440 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x02414ce0 method=org.springframework.core.ResolvableType.resolveType()Lorg/springframework/core/ResolvableType; @ 117
+Event: 21.469 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02350ee8 method=java.lang.reflect.Method.equals(Ljava/lang/Object;)Z @ 49
+Event: 21.507 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x022f2fe0 method=org.springframework.util.ConcurrentReferenceHashMap$Segment.findInChain(Lorg/springframework/util/ConcurrentReferenceHashMap$Reference;Ljava/lang/Object;I)Lorg/springframework/u
+Event: 21.509 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x02414ce0 method=org.springframework.core.ResolvableType.resolveType()Lorg/springframework/core/ResolvableType; @ 117
+Event: 21.509 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x02414ce0 method=org.springframework.core.ResolvableType.resolveType()Lorg/springframework/core/ResolvableType; @ 117
+Event: 21.524 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x022f2fe0 method=org.springframework.util.ConcurrentReferenceHashMap$Segment.findInChain(Lorg/springframework/util/ConcurrentReferenceHashMap$Reference;Ljava/lang/Object;I)Lorg/springframework/u
+Event: 21.540 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x022f2fe0 method=org.springframework.util.ConcurrentReferenceHashMap$Segment.findInChain(Lorg/springframework/util/ConcurrentReferenceHashMap$Reference;Ljava/lang/Object;I)Lorg/springframework/u
+Event: 21.549 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x01ecc000 method=org.springframework.util.ConcurrentReferenceHashMap$Segment.findInChain(Lorg/springframework/util/ConcurrentReferenceHashMap$Reference;Ljava/lang/Object;I)Lorg/springframework/u
+Event: 21.549 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0203caa4 method=org.springframework.util.ConcurrentReferenceHashMap$Segment.findInChain(Lorg/springframework/util/ConcurrentReferenceHashMap$Reference;Ljava/lang/Object;I)Lorg/springframework/u
+Event: 21.955 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02427814 method=org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(Ljava/lang/String;Lorg/springframework/core/ResolvableType;Z)Z @ 466
+Event: 23.321 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0241803c method=org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/l
+Event: 23.672 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x024d0540 method=org.springframework.util.ConcurrentReferenceHashMap$Segment.findInChain(Lorg/springframework/util/ConcurrentReferenceHashMap$Reference;Ljava/lang/Object;I)Lorg/springframework/util/
+Event: 23.745 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x024d3c8c method=org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/l
+Event: 23.838 Thread 0x00d6c400 Uncommon trap: reason=predicate action=maybe_recompile pc=0x0210d53c method=java.lang.String.regionMatches(ZILjava/lang/String;II)Z @ 63
+Event: 26.205 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x024135f4 method=org.springframework.beans.factory.support.RootBeanDefinition.getTargetType()Ljava/lang/Class; @ 18
+Event: 26.254 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0256ed20 method=org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(Ljava/lang/String;Lorg/springframework/core/ResolvableType;Z)Z @ 499
+Event: 26.572 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0239f980 method=jdk.internal.org.objectweb.asm.Item.isEqualTo(Ljdk/internal/org/objectweb/asm/Item;)Z @ 331
+Event: 26.758 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02590660 method=java.lang.reflect.Method.equals(Ljava/lang/Object;)Z @ 1
+Event: 27.087 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x01f3a1f8 method=java.util.Properties$LineReader.readLine()I @ 252
+Event: 27.087 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x022f4c98 method=java.util.Properties$LineReader.readLine()I @ 252
+Event: 27.099 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x01eeba1c method=java.io.WinNTFileSystem.isLetter(C)Z @ 3
+Event: 27.126 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x01ef18a4 method=java.io.WinNTFileSystem.resolve(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; @ 117
+Event: 27.247 Thread 0x00d6c400 Uncommon trap: reason=predicate action=maybe_recompile pc=0x02613f5c method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 49
+Event: 27.321 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0224b31c method=java.util.concurrent.ConcurrentHashMap.get(Ljava/lang/Object;)Ljava/lang/Object; @ 76
+Event: 27.321 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0254a4fc method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 27.399 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0254a4fc method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 27.416 Thread 0x00d6c400 Uncommon trap: reason=null_check action=make_not_entrant pc=0x024d4770 method=org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(Ljava/lang/String;)Lorg/springframework/beans/factory/config/BeanDefinition; @ 10
+Event: 27.494 Thread 0x00d6c400 Uncommon trap: reason=array_check action=maybe_recompile pc=0x026446a8 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 27.494 Thread 0x00d6c400 Uncommon trap: reason=array_check action=maybe_recompile pc=0x026446a8 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 27.494 Thread 0x00d6c400 Uncommon trap: reason=array_check action=maybe_recompile pc=0x026446a8 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 27.494 Thread 0x00d6c400 Uncommon trap: reason=array_check action=maybe_recompile pc=0x026446a8 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 27.513 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0254a4fc method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 27.533 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0254a4fc method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 27.961 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x025f7788 method=java.lang.reflect.Array.newInstance(Ljava/lang/Class;I)Ljava/lang/Object; @ 2
+Event: 27.962 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x025f7788 method=java.lang.reflect.Array.newInstance(Ljava/lang/Class;I)Ljava/lang/Object; @ 2
+Event: 27.964 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x025f7788 method=java.lang.reflect.Array.newInstance(Ljava/lang/Class;I)Ljava/lang/Object; @ 2
+Event: 27.971 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x025f7788 method=java.lang.reflect.Array.newInstance(Ljava/lang/Class;I)Ljava/lang/Object; @ 2
+Event: 28.057 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02013970 method=sun.net.www.ParseUtil.encodePath(Ljava/lang/String;Z)Ljava/lang/String; @ 109
+Event: 28.187 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0254fd2c method=org.springframework.core.ResolvableType.resolveClass()Ljava/lang/Class; @ 37
+Event: 28.226 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x026b074c method=java.util.concurrent.ConcurrentHashMap.get(Ljava/lang/Object;)Ljava/lang/Object; @ 152
+Event: 28.409 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02391448 method=java.util.LinkedHashMap.get(Ljava/lang/Object;)Ljava/lang/Object; @ 20
+Event: 28.444 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0206c6c0 method=java.util.Properties.loadConvert([CII[C)Ljava/lang/String; @ 57
+Event: 29.372 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x023e1d18 method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 29.372 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x023e1d18 method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 29.378 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x023e1d18 method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 29.378 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x023e1d18 method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 31.868 Thread 0x33337000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x020406dc method=java.util.zip.ZipCoder.getBytes(Ljava/lang/String;)[B @ 32
+Event: 31.869 Thread 0x33337000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02262f58 method=java.util.zip.ZipCoder.getBytes(Ljava/lang/String;)[B @ 32
+Event: 31.871 Thread 0x33337000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x022fc858 method=java.net.URL.<init>(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V @ 57
+Event: 31.871 Thread 0x33337000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02756d90 method=java.net.URLStreamHandler.parseURL(Ljava/net/URL;Ljava/lang/String;II)V @ 57
+Event: 31.876 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x01fc1094 method=java.lang.AbstractStringBuilder.append(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder; @ 1
+Event: 31.896 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0279bb90 method=sun.reflect.generics.reflectiveObjects.TypeVariableImpl.hashCode()I @ 4
+Event: 31.907 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0279bb90 method=sun.reflect.generics.reflectiveObjects.TypeVariableImpl.hashCode()I @ 4
+Event: 33.159 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0279bb90 method=sun.reflect.generics.reflectiveObjects.TypeVariableImpl.hashCode()I @ 4
+Event: 33.160 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0279bb90 method=sun.reflect.generics.reflectiveObjects.TypeVariableImpl.hashCode()I @ 4
+Event: 34.769 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x026d31dc method=org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(Ljava/lang/String;Lorg/springframework/core/ResolvableType;Z)Z @ 53
+Event: 35.094 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x026d31dc method=org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(Ljava/lang/String;Lorg/springframework/core/ResolvableType;Z)Z @ 53
+Event: 35.154 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x026d31dc method=org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(Ljava/lang/String;Lorg/springframework/core/ResolvableType;Z)Z @ 53
+Event: 35.213 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x026d31dc method=org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(Ljava/lang/String;Lorg/springframework/core/ResolvableType;Z)Z @ 53
+Event: 35.740 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x026b2360 method=org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.predictBeanType(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Class; @ 9
+Event: 37.045 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x01f308fc method=java.lang.ClassLoader.getClassLoadingLock(Ljava/lang/String;)Ljava/lang/Object; @ 6
+Event: 37.150 Thread 0x35103400 Uncommon trap: reason=range_check action=make_not_entrant pc=0x0284335c method=java.util.zip.ZipUtils.get16([BI)I @ 10
+Event: 37.310 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x028106c0 method=org.springframework.core.annotation.AnnotationsScanner.processMethodHierarchy(Ljava/lang/Object;[ILjava/lang/Class;Lorg/springframework/core/annotation/AnnotationsProcessor;Ljava/la
+Event: 37.456 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x027a4ad0 method=org.springframework.core.annotation.AnnotationsScanner.processClassHierarchy(Ljava/lang/Object;[ILjava/lang/Class;Lorg/springframework/core/annotation/AnnotationsProcessor;ZZ)Ljava/
+Event: 37.779 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x02648b9c method=org.springframework.core.ResolvableType.equals(Ljava/lang/Object;)Z @ 66
+Event: 37.869 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0266fac8 method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 113
+Event: 38.866 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0274800c method=java.net.URI.match(CJJ)Z @ 45
+Event: 38.887 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0272cbec method=java.util.Properties$LineReader.readLine()I @ 328
+Event: 38.892 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0260bbac method=java.util.Properties.load0(Ljava/util/Properties$LineReader;)V @ 161
+Event: 39.512 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x028e16f0 method=java.util.Properties$LineReader.readLine()I @ 174
+Event: 39.512 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x026fafd8 method=java.util.Properties$LineReader.readLine()I @ 174
+Event: 39.545 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02400d40 method=sun.misc.ASCIICaseInsensitiveComparator.compare(Ljava/lang/String;Ljava/lang/String;)I @ 83
+Event: 39.675 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02071c98 method=sun.misc.MetaIndex.mayContain(Ljava/lang/String;)Z @ 38
+Event: 39.689 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0200fd68 method=sun.misc.MetaIndex.mayContain(Ljava/lang/String;)Z @ 38
+Event: 39.696 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0274d51c method=sun.nio.fs.WindowsPathParser.isSlash(C)Z @ 9
+Event: 39.696 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x021e87f8 method=sun.nio.fs.WindowsPathParser.isSlash(C)Z @ 9
+Event: 39.699 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02397778 method=sun.nio.fs.WindowsPathParser.isSlash(C)Z @ 9
+Event: 40.248 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0285e158 method=java.util.StringTokenizer.nextToken()Ljava/lang/String; @ 5
+Event: 40.314 Thread 0x35103400 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x028e7880 method=java.net.URL.<init>(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V @ 504
+Event: 40.314 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x021a8d50 method=sun.net.util.IPAddressUtil.scan(Ljava/lang/String;JJ[C)I @ 14
+Event: 41.609 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x01f128f4 method=java.util.Properties.load0(Ljava/util/Properties$LineReader;)V @ 115
+Event: 41.683 Thread 0x35103400 Uncommon trap: reason=null_check action=make_not_entrant pc=0x027bf7c0 method=java.lang.reflect.Array.newInstance(Ljava/lang/Class;I)Ljava/lang/Object; @ 2
+Event: 41.790 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0289a9d8 method=sun.reflect.generics.reflectiveObjects.WildcardTypeImpl.getLowerBounds()[Ljava/lang/reflect/Type; @ 23
+Event: 41.955 Thread 0x3478d000 Uncommon trap: reason=predicate action=maybe_recompile pc=0x020b6be4 method=java.util.regex.Pattern$SliceI.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 21
+Event: 42.111 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0287e7b4 method=org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(Ljava/lang/String;Lorg/springframework/core/ResolvableType;Z)Z @ 559
+Event: 43.308 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02863a6c method=java.util.concurrent.ConcurrentHashMap.get(Ljava/lang/Object;)Ljava/lang/Object; @ 86
+Event: 44.479 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02297534 method=java.util.concurrent.ConcurrentHashMap.transfer([Ljava/util/concurrent/ConcurrentHashMap$Node;[Ljava/util/concurrent/ConcurrentHashMap$Node;)V @ 356
+Event: 44.481 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x021e91ec method=java.util.concurrent.ConcurrentHashMap.transfer([Ljava/util/concurrent/ConcurrentHashMap$Node;[Ljava/util/concurrent/ConcurrentHashMap$Node;)V @ 356
+Event: 44.816 Thread 0x00d6c400 Uncommon trap: reason=predicate action=maybe_recompile pc=0x028601bc method=org.springframework.util.AntPathMatcher.skipSegment(Ljava/lang/String;ILjava/lang/String;)I @ 15
+Event: 44.985 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0279a8e4 method=org.springframework.core.annotation.AnnotationsScanner.isWithoutHierarchy(Ljava/lang/reflect/AnnotatedElement;Lorg/springframework/core/annotation/MergedAnnotations$SearchStrategy;)
+Event: 45.040 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0220729c method=java.io.WinNTFileSystem.isLetter(C)Z @ 3
+Event: 45.344 Thread 0x35103400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x026bf4e8 method=java.lang.Class$MethodArray.addIfNotPresent(Ljava/lang/reflect/Method;)V @ 19
+Event: 45.509 Thread 0x35103400 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x027c04a4 method=java.lang.Throwable.<init>(Ljava/lang/String;Ljava/lang/Throwable;)V @ 24
+Event: 45.887 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x021dfc2c method=org.springframework.boot.context.properties.source.ConfigurationPropertyName$Elements.charAt(II)C @ 43
+Event: 45.887 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x021dfc2c method=org.springframework.boot.context.properties.source.ConfigurationPropertyName$Elements.charAt(II)C @ 43
+Event: 46.037 Thread 0x00d6c400 Uncommon trap: reason=null_check action=make_not_entrant pc=0x028c7644 method=java.lang.Class.privateGetMethodRecursive(Ljava/lang/String;[Ljava/lang/Class;ZLjava/lang/Class$MethodArray;)Ljava/lang/reflect/Method; @ 35
+Event: 46.037 Thread 0x00d6c400 Uncommon trap: reason=null_check action=make_not_entrant pc=0x0240841c method=org.springframework.util.ClassUtils.isAssignable(Ljava/lang/Class;Ljava/lang/Class;)Z @ 14
+Event: 47.026 Thread 0x35103400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x02a4ab94 method=java.util.regex.Pattern$SliceI.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 92
+Event: 47.028 Thread 0x35103400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x02a4ab94 method=java.util.regex.Pattern$SliceI.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 92
+Event: 47.061 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x025301f8 method=org.springframework.core.annotation.TypeMappedAnnotations$IsPresent.doWithAnnotations(Ljava/lang/Object;ILjava/lang/Object;[Ljava/lang/annotation/Annotation;)Ljava/lang/Boolean; @ 2
+Event: 47.114 Thread 0x35103400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x02a4ab94 method=java.util.regex.Pattern$SliceI.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 92
+Event: 48.059 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x01efd5dc method=sun.nio.cs.UTF_8$Encoder.encode([CII[B)I @ 33
+Event: 48.249 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0276f488 method=org.springframework.core.annotation.TypeMappedAnnotations$MergedAnnotationFinder.doWithAnnotations(Ljava/lang/Object;ILjava/lang/Object;[Ljava/lang/annotation/Annotation;)Lorg/sprin
+Event: 48.516 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x022b3a8c method=org.springframework.asm.ClassReader.readUtf(II[C)Ljava/lang/String; @ 41
+Event: 49.078 Thread 0x00d6c400 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x01f25518 method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 49.078 Thread 0x00d6c400 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x01f25518 method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 49.079 Thread 0x00d6c400 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x01f25518 method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 49.079 Thread 0x00d6c400 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x01f25518 method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 49.174 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x028325e4 method=java.lang.reflect.Proxy.isProxyClass(Ljava/lang/Class;)Z @ 6
+Event: 49.186 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02868858 method=java.lang.reflect.Proxy.isProxyClass(Ljava/lang/Class;)Z @ 6
+Event: 51.026 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02648894 method=org.springframework.core.ResolvableType.equals(Ljava/lang/Object;)Z @ 32
+Event: 51.557 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02659cf8 method=org.springframework.util.ConcurrentReferenceHashMap$Segment.restructureIfNecessary(Z)V @ 41
+Event: 51.560 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x021e3610 method=org.springframework.util.ConcurrentReferenceHashMap$Segment.restructureIfNecessary(Z)V @ 41
+Event: 52.392 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02771d08 method=org.springframework.core.annotation.TypeMappedAnnotations$MergedAnnotationFinder.doWithAnnotations(Ljava/lang/Object;ILjava/lang/Object;[Ljava/lang/annotation/Annotation;)Lorg/sprin
+Event: 53.561 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02c7f548 method=org.springframework.transaction.interceptor.AbstractFallbackTransactionAttributeSource.computeTransactionAttribute(Ljava/lang/reflect/Method;Ljava/lang/Class;)Lorg/springframework/t
+Event: 53.573 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0281f05c method=org.springframework.core.annotation.AnnotationsScanner.processMethodInheritedAnnotations(Ljava/lang/Object;Ljava/lang/reflect/Method;Lorg/springframework/core/annotation/Annotat
+Event: 54.109 Thread 0x00d6c400 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x028e7880 method=java.net.URL.<init>(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V @ 504
+Event: 54.109 Thread 0x00d6c400 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0293c1b0 method=java.net.URLStreamHandler.parseURL(Ljava/net/URL;Ljava/lang/String;II)V @ 1189
+Event: 54.109 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x021a0338 method=sun.net.util.IPAddressUtil.scan(Ljava/lang/String;JJ[C)I @ 14
+Event: 54.339 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x021a7708 method=sun.misc.MetaIndex.mayContain(Ljava/lang/String;)Z @ 38
+Event: 54.340 Thread 0x00d6c400 Uncommon trap: reason=unstable_if action=reinterpret pc=0x02036644 method=java.net.URLStreamHandler.toExternalForm(Ljava/net/URL;)Ljava/lang/String; @ 24
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (250 events):
+Event: 45.522 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x28f94778) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.525 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/mvc/SimpleControllerHandlerAdapterCustomizer> (0x28fb85e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.c
+Event: 45.532 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/HandlerAdapterCustomizer> (0x28fd6268) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.569 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29068bc8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.571 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/handler/HandlerExceptionResolverCompositeCustomizer> (0x2908ed28) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDicti
+Event: 45.575 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/HandlerExceptionResolverCustomizer> (0x290b84c0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 2
+Event: 45.582 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/core/OrderedCustomizer> (0x29252fd8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.604 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x292a85b0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.607 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/view/ViewResolverCompositeCustomizer> (0x292c9ac0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line
+Event: 45.612 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/ViewResolverCustomizer> (0x292f1568) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.615 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/core/OrderedCustomizer> (0x293082b8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.617 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/InitializingBeanCustomizer> (0x29324a90) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.619 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/ApplicationContextAwareCustomizer> (0x293415d0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.632 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x2935b858) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.634 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/context/ServletContextAwareCustomizer> (0x29377be0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.636 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x29391900) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.673 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x295dc878) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.675 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/support/ApplicationObjectSupportCustomizer> (0x295febf8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, li
+Event: 45.678 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/context/support/WebApplicationObjectSupportCustomizer> (0x29624638) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.
+Event: 45.681 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/view/AbstractCachingViewResolverCustomizer> (0x29646ee8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp
+Event: 45.685 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/view/UrlBasedViewResolverCustomizer> (0x29671590) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 
+Event: 45.689 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/view/InternalResourceViewResolverCustomizer> (0x296a93f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cp
+Event: 45.693 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/core/OrderedCustomizer> (0x296d9c90) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.695 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/ViewResolverCustomizer> (0x296f4268) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.698 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/context/ServletContextAwareCustomizer> (0x297d2c68) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.700 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x297ec988) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.702 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/ApplicationContextAwareCustomizer> (0x29808cf0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.704 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x29822f78) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.714 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29865610) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.721 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/support/ApplicationObjectSupportCustomizer> (0x29887990) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, li
+Event: 45.723 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/context/support/WebApplicationObjectSupportCustomizer> (0x298ad1f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.
+Event: 45.726 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/view/ContentNegotiatingViewResolverCustomizer> (0x298d0168) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.
+Event: 45.729 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/ViewResolverCustomizer> (0x29901cf8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.731 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/core/OrderedCustomizer> (0x29918940) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.733 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/InitializingBeanCustomizer> (0x29935118) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.736 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/context/ServletContextAwareCustomizer> (0x29a13990) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.738 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x29a2d6b0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.740 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/ApplicationContextAwareCustomizer> (0x29a49a18) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.742 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x29a63ca0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.748 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29a7de70) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.751 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/aop/AopAutoConfiguration$AspectJAutoProxyingConfiguration$CglibAutoProxyConfigurationCustomizer> (0x29ab4640) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0
+Event: 45.754 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29ac1c58) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.757 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/aop/AopAutoConfiguration$AspectJAutoProxyingConfigurationCustomizer> (0x29aef970) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\v
+Event: 45.759 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29afcd60) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.763 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/aop/AopAutoConfigurationCustomizer> (0x29b20498) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp,
+Event: 45.767 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29b2e848) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.771 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/availability/ApplicationAvailabilityAutoConfigurationCustomizer> (0x29b5aae8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\cl
+Event: 45.779 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29b7e758) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.782 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/availability/ApplicationAvailabilityBeanCustomizer> (0x29c63c08) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cp
+Event: 45.792 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/availability/ApplicationAvailabilityCustomizer> (0x29c8e9f8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, l
+Event: 45.796 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/ApplicationListenerCustomizer> (0x29cb2710) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.797 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/util/EventListenerCustomizer> (0x29cbd128) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.801 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29cce238) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.803 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/transaction/jta/JtaAutoConfigurationCustomizer> (0x29cf51d8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDic
+Event: 45.806 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29d02948) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.809 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/jdbc/DataSourceAutoConfiguration$PooledDataSourceConfigurationCustomizer> (0x29d32230) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\sh
+Event: 45.815 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29d3f860) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.818 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/jdbc/metadata/DataSourcePoolMetadataProvidersConfigurationCustomizer> (0x29d6d6a0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\
+Event: 45.821 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29d7aa20) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.824 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/jdbc/DataSourceInitializationConfigurationCustomizer> (0x29da3520) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\sys
+Event: 45.831 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29db1430) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.834 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/jdbc/DataSourceAutoConfigurationCustomizer> (0x29dd7508) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDiction
+Event: 45.863 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29f16438) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.865 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/transaction/TransactionAutoConfigurationCustomizer> (0x29f3f630) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\syste
+Event: 45.878 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29f6daf8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.880 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/transaction/TransactionPropertiesCustomizer> (0x29f94d00) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictio
+Event: 45.884 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/transaction/PlatformTransactionManagerCustomizerCustomizer> (0x29fc6348) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfi
+Event: 45.890 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29feb6e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.893 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/transaction/TransactionManagerCustomizersCustomizer> (0x2a014900) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\syst
+Event: 45.917 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a164bd8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.920 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/transaction/support/AbstractPlatformTransactionManagerCustomizer> (0x2a18b988) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDict
+Event: 45.923 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/orm/jpa/JpaTransactionManagerCustomizer> (0x2a1bd840) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.927 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/transaction/support/ResourceTransactionManagerCustomizer> (0x2a1fd110) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.c
+Event: 45.930 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/transaction/PlatformTransactionManagerCustomizer> (0x2a21cda8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line
+Event: 45.932 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/transaction/TransactionManagerCustomizer> (0x2a23ab38) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.936 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/BeanFactoryAwareCustomizer> (0x2a256810) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.938 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x2a3327c0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.939 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/InitializingBeanCustomizer> (0x2a34e448) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.942 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/transaction/PlatformTransactionManagerCustomizer> (0x2a36d2b8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line
+Event: 45.944 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/transaction/TransactionManagerCustomizer> (0x2a38ad98) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.950 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a3a9068) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.952 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfigurationCustomizer> (0x2a3cffc8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDi
+Event: 45.955 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a3dd6b0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.962 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/context/ConfigurationPropertiesAutoConfigurationCustomizer> (0x2a408a68) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfi
+Event: 45.965 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a416000) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.967 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/context/LifecycleAutoConfigurationCustomizer> (0x2a43c190) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDicti
+Event: 45.971 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a44e090) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.977 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/context/LifecyclePropertiesCustomizer> (0x2a4726e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.c
+Event: 45.989 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a494228) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.991 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/support/DefaultLifecycleProcessorCustomizer> (0x2a5788a0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, l
+Event: 45.994 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/LifecycleProcessorCustomizer> (0x2a59a3e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 45.997 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/LifecycleCustomizer> (0x2a5b33e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.000 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/BeanFactoryAwareCustomizer> (0x2a5d08a0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.002 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x2a5eab30) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.005 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a5fc110) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.007 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/dao/PersistenceExceptionTranslationAutoConfigurationCustomizer> (0x2a628300) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\cla
+Event: 46.010 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a636898) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.021 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/jpa/util/JpaMetamodelCacheCleanupCustomizer> (0x2a657d78) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line
+Event: 46.023 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/DisposableBeanCustomizer> (0x2a675d10) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.066 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a6b0698) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.069 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/jpa/repository/support/JpaEvaluationContextExtensionCustomizer> (0x2a6d8360) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemD
+Event: 46.071 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/spel/spi/EvaluationContextExtensionCustomizer> (0x2a87f4f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, li
+Event: 46.083 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a8a32f8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.087 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/http/JacksonHttpMessageConvertersConfigurationCustomizer> (0x2a8cd900) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile
+Event: 46.091 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a8dbe88) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.094 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/web/config/ProjectingArgumentResolverRegistrarCustomizer> (0x2a9024a0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDiction
+Event: 46.098 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/web/config/ProjectingArgumentResolverRegistrar$$EnhancerBySpringCGLIB$$d2e0cdddCustomizer> (0x2a9332f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src
+Event: 46.101 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/annotation/ConfigurationClassEnhancer$EnhancedConfigurationCustomizer> (0x2a960ab0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfi
+Event: 46.103 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/BeanFactoryAwareCustomizer> (0x2a97cb50) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.106 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x2a996de0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.139 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a9cdda8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.142 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/info/ProjectInfoPropertiesCustomizer> (0x2a9f1d48) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cp
+Event: 46.146 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2aacd288) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.149 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/info/ProjectInfoAutoConfigurationCustomizer> (0x2aaf3380) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictio
+Event: 46.153 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2ab026b0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.155 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/jdbc/JdbcTemplateConfigurationCustomizer> (0x2ab279d8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionar
+Event: 46.161 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2ab3c6b0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.165 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/jdbc/JdbcPropertiesCustomizer> (0x2ab5e3a0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line
+Event: 46.226 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2ae0a4f8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.228 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/jdbc/support/JdbcAccessorCustomizer> (0x2ae28160) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.233 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/jdbc/core/JdbcTemplateCustomizer> (0x2ae4a8d8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.241 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/jdbc/core/JdbcOperationsCustomizer> (0x2aedea90) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.273 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/InitializingBeanCustomizer> (0x2b01bf00) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.284 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b133d18) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.287 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/jdbc/NamedParameterJdbcTemplateConfigurationCustomizer> (0x2b15d5c8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\s
+Event: 46.329 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b278b60) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.332 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/jdbc/core/namedparam/NamedParameterJdbcTemplateCustomizer> (0x2b29d100) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.
+Event: 46.338 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/jdbc/core/namedparam/NamedParameterJdbcOperationsCustomizer> (0x2b301da0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionar
+Event: 46.350 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b38e3e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.354 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/jdbc/JdbcTemplateAutoConfigurationCustomizer> (0x2b3b4578) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDicti
+Event: 46.361 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b3c2810) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.386 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/security/servlet/UserDetailsServiceAutoConfigurationCustomizer> (0x2b3eebf8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\cla
+Event: 46.396 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b40b6e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.398 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/task/TaskSchedulingAutoConfigurationCustomizer> (0x2b432628) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDic
+Event: 46.409 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b44cf60) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.430 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/task/TaskSchedulingPropertiesCustomizer> (0x2b471cd0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary
+Event: 46.439 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b4a1128) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.441 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/task/TaskSchedulerBuilderCustomizer> (0x2b4bfca8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.449 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b4ef2f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.451 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/jdbc/DataSourceTransactionManagerAutoConfiguration$DataSourceTransactionManagerConfigurationCustomizer> (0x2b528440) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\jav
+Event: 46.454 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b535a80) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.457 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/jdbc/DataSourceTransactionManagerAutoConfigurationCustomizer> (0x2b560ef0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\class
+Event: 46.459 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b630268) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.462 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/transaction/TransactionAutoConfiguration$EnableTransactionManagementConfiguration$CglibAutoProxyConfigurationCustomizer> (0x2b66e6e8) thrown at [C:\cygwin64\tmp\ojdkbu
+Event: 46.466 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b67be50) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.470 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/transaction/TransactionAutoConfiguration$EnableTransactionManagementConfigurationCustomizer> (0x2b6b1818) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-ope
+Event: 46.478 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b6bf008) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.486 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/transaction/TransactionAutoConfiguration$TransactionTemplateConfigurationCustomizer> (0x2b6f2060) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hot
+Event: 46.502 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b71b998) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.504 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/transaction/support/DefaultTransactionDefinitionCustomizer> (0x2b7404f8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary
+Event: 46.507 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/transaction/support/TransactionTemplateCustomizer> (0x2b770d28) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, lin
+Event: 46.510 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/transaction/support/TransactionOperationsCustomizer> (0x2b79ddd8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, l
+Event: 46.514 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/InitializingBeanCustomizer> (0x2b87f708) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.516 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/transaction/TransactionDefinitionCustomizer> (0x2b89d1d8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.541 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b8bacc0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.545 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/web/client/RestTemplateAutoConfigurationCustomizer> (0x2b8e3738) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\syste
+Event: 46.570 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b901620) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.582 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/autoconfigure/web/embedded/EmbeddedWebServerFactoryCustomizerAutoConfigurationCustomizer> (0x2b931d18) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\
+Event: 46.607 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b94e760) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.610 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/multipart/support/StandardServletMultipartResolverCustomizer> (0x2b974f70) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDict
+Event: 46.613 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/multipart/MultipartResolverCustomizer> (0x2b9964a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.616 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2b9a6cd0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.618 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/test/web/client/TestRestTemplateContextCustomizer$TestRestTemplateFactoryCustomizer> (0x2b9d5130) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share
+Event: 46.641 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/FactoryBeanCustomizer> (0x2bb7e480) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.644 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/ApplicationContextAwareCustomizer> (0x2bb9e068) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.649 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x2bbb82f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.678 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/web/client/RestTemplateBuilderBeanInfo> (0x2bc15900) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 46.681 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/boot/web/client/RestTemplateBuilderCustomizer> (0x2bc33780) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 21
+Event: 46.867 Thread 0x35103400 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$static$0(Lorg/hibernate/loader/plan/spi/LoadPlan;Lorg/hibernate/loader/plan/exec/spi/AliasResolutionContext;Lorg/hibernate/loader/plan/exec/process/spi/ReaderCollector;ZZ)Lorg/hibernate/l
+Event: 48.075 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x255ee8a0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.078 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/repository/core/support/RepositoryFactoryBeanSupportCustomizer> (0x25617740) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemD
+Event: 48.101 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/repository/core/support/TransactionalRepositoryFactoryBeanSupportCustomizer> (0x25b33bb8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\clas
+Event: 48.111 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/jpa/repository/support/JpaRepositoryFactoryBeanCustomizer> (0x25b632c8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictio
+Event: 48.116 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/BeanFactoryAwareCustomizer> (0x25baf120) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.119 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x25bc9698) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.122 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/InitializingBeanCustomizer> (0x25be5758) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.124 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/repository/core/support/RepositoryFactoryInformationCustomizer> (0x25c0b2f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemD
+Event: 48.128 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/FactoryBeanCustomizer> (0x25c2ee48) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.151 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/BeanClassLoaderAwareCustomizer> (0x25d25dc8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215
+Event: 48.156 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x25d3fe08) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.160 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/BeanFactoryAwareCustomizer> (0x25d5be50) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.165 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x25d762c0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.167 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/ApplicationEventPublisherAwareCustomizer> (0x25d94c08) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line
+Event: 48.208 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x25daf228) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.269 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x25e1c3d0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.272 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/core/io/support/PropertiesLoaderSupportCustomizer> (0x25e3e760) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, lin
+Event: 48.316 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/config/PropertiesFactoryBeanCustomizer> (0x25e66fc0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, 
+Event: 48.364 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/FactoryBeanCustomizer> (0x25f6c810) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.380 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/InitializingBeanCustomizer> (0x25f8b6f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.577 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x25fc7228) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.767 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/repository/core/support/PropertiesBasedNamedQueriesCustomizer> (0x25fee938) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDi
+Event: 48.774 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/repository/core/NamedQueriesCustomizer> (0x2600e810) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.851 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2606cee0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 48.854 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/repository/core/support/RepositoryFragmentsFactoryBeanCustomizer> (0x260960d8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\syste
+Event: 49.037 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/FactoryBeanCustomizer> (0x2657fa10) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.041 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/BeanFactoryAwareCustomizer> (0x2659f258) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.044 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x265b96c8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.047 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/InitializingBeanCustomizer> (0x265d5710) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.170 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2671d540) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.173 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/reflect/ProxyCustomizer> (0x2672ac40) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.182 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': com/sun/proxy/$Proxy115Customizer> (0x26744518) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.196 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/hibernate/jpa/HibernateEntityManagerCustomizer> (0x2679bfd0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.200 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': javax/persistence/EntityManagerCustomizer> (0x267b5eb8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.213 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/hibernate/query/QueryProducerCustomizer> (0x267fc940) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.230 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/orm/jpa/EntityManagerProxyCustomizer> (0x26826150) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.235 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': javax/persistence/EntityManagerCustomizer> (0x2683fe38) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.254 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x26a3c8b0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.259 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/config/AbstractFactoryBeanCustomizer> (0x26a5ec90) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, li
+Event: 49.267 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/data/jpa/repository/config/JpaMetamodelMappingContextFactoryBeanCustomizer> (0x26a8e820) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\
+Event: 49.302 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/ApplicationContextAwareCustomizer> (0x26ab5048) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.324 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x26acf5b0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.327 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/FactoryBeanCustomizer> (0x26aea1e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.383 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/BeanClassLoaderAwareCustomizer> (0x26b0a560) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215
+Event: 49.400 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x26b24498) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.403 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/BeanFactoryAwareCustomizer> (0x26b404e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.406 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x26c31060) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.408 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/InitializingBeanCustomizer> (0x26c4d0a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 49.410 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/DisposableBeanCustomizer> (0x26c691b0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 50.909 Thread 0x00d6c400 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$static$0(Ljava/lang/Object;)Lorg/springframework/expression/EvaluationContext;> (0x26ce4b28) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpr
+Event: 51.077 Thread 0x00d6c400 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$map$1(Ljava/util/function/Function;)Ljava/util/stream/Stream;> (0x27465ed0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver
+Event: 51.604 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x27e7c1a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 51.607 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': com/adp3/entity/standalone/StoreCustomizer> (0x27e95af8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 51.633 Thread 0x00d6c400 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$of$0([Ljava/lang/Object;)Ljava/util/Iterator;> (0x27f145e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 620]
+Event: 51.704 Thread 0x00d6c400 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$toStream$0(Ljava/util/Optional;)Ljava/util/stream/Stream;> (0x28088810) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp
+Event: 51.706 Thread 0x00d6c400 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.of(Ljava/lang/Object;)Ljava/util/stream/Stream;> (0x2808efb8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 620]
+Event: 51.707 Thread 0x00d6c400 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.empty()Ljava/util/stream/Stream;> (0x28091c00) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 620]
+Event: 51.729 Thread 0x00d6c400 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.fromNullable(Ljava/lang/Object;)Ljava/util/stream/Stream;> (0x2809f9a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 
+Event: 51.876 Thread 0x00d6c400 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$direct$0(Lorg/springframework/data/repository/core/support/MethodLookup$InvokedMethod;Ljava/lang/reflect/Method;)Z> (0x281866e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-
+Event: 51.884 Thread 0x00d6c400 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$direct$1(Lorg/springframework/data/repository/core/support/MethodLookup$MethodPredicate;)Ljava/util/List;> (0x28189710) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\h
+Event: 51.912 Thread 0x00d6c400 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$and$0(Lorg/springframework/data/repository/core/support/MethodLookup;)Ljava/util/List;> (0x281ade90) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm
+Event: 51.973 Thread 0x00d6c400 Exception <a 'java/lang/IncompatibleClassChangeError': Found class java.lang.Object, but interface was expected> (0x2827cfa8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 653]
+Event: 52.412 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x289cfc80) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 52.414 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': com/adp3/entity/reports/StoreReportsCustomizer> (0x289ea410) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 52.648 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x28d0d9a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 52.651 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': com/adp3/entity/bridge/EmployeeLeaveCustomizer> (0x28d28108) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 52.802 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2904e078) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 52.804 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': com/adp3/entity/reports/LeaveReportCustomizer> (0x290687e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 52.917 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29380538) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 52.920 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': com/adp3/entity/bridge/EmployeeSalaryCustomizer> (0x2939b9c0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 53.024 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x296c0500) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 53.027 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': com/adp3/entity/bridge/EmployeeStoreCustomizer> (0x296dac60) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 53.106 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x299e5748) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 53.109 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': com/adp3/entity/standalone/EmployeeCustomizer> (0x299ffeb8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 53.238 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x29d29600) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 53.240 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': com/adp3/entity/standalone/LeaveCustomizer> (0x29d42f50) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 53.372 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a055530) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 53.375 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': com/adp3/entity/bridge/EmployeeRoleCustomizer> (0x2a06fc70) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 53.500 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x2a3b6350) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 53.502 Thread 0x00d6c400 Exception <a 'java/lang/ClassNotFoundException': com/adp3/controller/reports/LeaveReportControllerTestCustomizer> (0x2a3d6138) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 215]
+Event: 54.480 Thread 0x00d6c400 Exception <a 'java/lang/IncompatibleClassChangeError': Found class java.lang.Object, but interface was expected> (0x2a776150) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 653]
+
+Events (250 events):
+Event: 53.570 loading class org/springframework/test/context/jdbc/SqlGroup done
+Event: 53.573 Thread 0x00d6c400 Uncommon trap: trap_request=0xffffffde fr.pc=0x0281f05c
+Event: 53.573 Thread 0x00d6c400 DEOPT PACKING pc=0x0281f05c sp=0x01bcee50
+Event: 53.573 Thread 0x00d6c400 DEOPT UNPACKING pc=0x01e4d6bc sp=0x01bcee1c mode 2
+Event: 53.574 loading class org/springframework/test/context/jdbc/Sql$ExecutionPhase
+Event: 53.574 loading class org/springframework/test/context/jdbc/Sql$ExecutionPhase done
+Event: 53.576 loading class org/springframework/test/context/jdbc/Sql
+Event: 53.576 loading class org/springframework/test/context/jdbc/Sql done
+Event: 53.576 loading class org/springframework/test/context/jdbc/SqlScriptsTestExecutionListener
+Event: 53.576 loading class org/springframework/test/context/jdbc/SqlScriptsTestExecutionListener done
+Event: 53.580 loading class org/springframework/test/context/event/BeforeTestMethodEvent
+Event: 53.580 loading class org/springframework/test/context/event/BeforeTestMethodEvent done
+Event: 53.582 loading class org/springframework/test/context/TestContext
+Event: 53.582 loading class org/springframework/test/context/TestContext done
+Event: 53.587 loading class org/mockito/internal/util/DefaultMockingDetails
+Event: 53.587 loading class org/mockito/internal/util/DefaultMockingDetails done
+Event: 53.596 loading class org/springframework/restdocs/ManualRestDocumentation
+Event: 53.596 loading class org/springframework/restdocs/ManualRestDocumentation done
+Event: 53.598 loading class org/springframework/restdocs$ManualRestDocumentation
+Event: 53.598 loading class org/springframework/restdocs$ManualRestDocumentation done
+Event: 53.600 loading class org/springframework/test/context/event/BeforeTestExecutionEvent
+Event: 53.600 loading class org/springframework/test/context/event/BeforeTestExecutionEvent done
+Event: 53.604 loading class org/springframework/test/context/TestContext
+Event: 53.604 loading class org/springframework/test/context/TestContext done
+Event: 53.608 loading class org/junit/runners/model/FrameworkMethod$1
+Event: 53.608 loading class org/junit/runners/model/FrameworkMethod$1 done
+Event: 53.616 loading class org/apache/http/client/HttpClient
+Event: 53.616 loading class org/apache/http/client/HttpClient done
+Event: 53.617 loading class org/apache/http/client$HttpClient
+Event: 53.617 loading class org/apache/http/client$HttpClient done
+Event: 53.618 loading class okhttp3/OkHttpClient
+Event: 53.619 loading class okhttp3/OkHttpClient done
+Event: 53.620 loading class okhttp3$OkHttpClient
+Event: 53.620 loading class okhttp3$OkHttpClient done
+Event: 53.644 loading class org/joda/time/YearMonth
+Event: 53.644 loading class org/joda/time/YearMonth done
+Event: 53.647 loading class org/joda/time$YearMonth
+Event: 53.647 loading class org/joda/time$YearMonth done
+Event: 53.697 loading class org/joda/time/YearMonth
+Event: 53.697 loading class org/joda/time/YearMonth done
+Event: 53.703 loading class org/joda/time$YearMonth
+Event: 53.703 loading class org/joda/time$YearMonth done
+Event: 53.706 loading class org/apache/http/client/HttpClient
+Event: 53.706 loading class org/apache/http/client/HttpClient done
+Event: 53.708 loading class org/apache/http/client$HttpClient
+Event: 53.709 loading class org/apache/http/client$HttpClient done
+Event: 53.711 loading class okhttp3/OkHttpClient
+Event: 53.712 loading class okhttp3/OkHttpClient done
+Event: 53.716 loading class okhttp3$OkHttpClient
+Event: 53.716 loading class okhttp3$OkHttpClient done
+Event: 53.718 loading class org/springframework/boot/web/client/RestTemplateBuilderClientHttpRequestInitializer
+Event: 53.718 loading class org/springframework/boot/web/client/RestTemplateBuilderClientHttpRequestInitializer done
+Event: 53.722 loading class org/springframework/http/client/ClientHttpRequestInitializer
+Event: 53.722 loading class org/springframework/http/client/ClientHttpRequestInitializer done
+Event: 53.726 loading class org/springframework/web/client/RestTemplate$HttpEntityRequestCallback
+Event: 53.726 loading class org/springframework/web/client/RestTemplate$HttpEntityRequestCallback done
+Event: 53.731 loading class org/springframework/web/client/RestTemplate$AcceptHeaderRequestCallback
+Event: 53.731 loading class org/springframework/web/client/RestTemplate$AcceptHeaderRequestCallback done
+Event: 53.738 loading class org/springframework/http/ReadOnlyHttpHeaders
+Event: 53.738 loading class org/springframework/http/ReadOnlyHttpHeaders done
+Event: 53.767 loading class java/time/ZoneRegion
+Event: 53.773 loading class java/time/ZoneRegion done
+Event: 53.773 loading class java/time/zone/ZoneRules
+Event: 53.832 loading class java/time/zone/ZoneRules done
+Event: 53.833 loading class java/time/zone/ZoneOffsetTransitionRule
+Event: 53.860 loading class java/time/zone/ZoneOffsetTransitionRule done
+Event: 53.861 loading class java/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser
+Event: 53.866 loading class java/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser done
+Event: 53.867 loading class java/time/format/DateTimeFormatterBuilder$ReducedPrinterParser
+Event: 53.872 loading class java/time/format/DateTimeFormatterBuilder$ReducedPrinterParser done
+Event: 53.876 loading class org/springframework/web/client/RestTemplate$ResponseEntityResponseExtractor
+Event: 53.876 loading class org/springframework/web/client/RestTemplate$ResponseEntityResponseExtractor done
+Event: 53.879 loading class org/springframework/web/client/HttpMessageConverterExtractor
+Event: 53.879 loading class org/springframework/web/client/HttpMessageConverterExtractor done
+Event: 53.883 loading class org/springframework/http/client/ClientHttpResponse
+Event: 53.883 loading class org/springframework/http/client/ClientHttpResponse done
+Event: 53.888 loading class org/springframework/web/client/UnknownContentTypeException
+Event: 53.888 loading class org/springframework/web/client/UnknownContentTypeException done
+Event: 53.892 loading class org/springframework/web/util/DefaultUriBuilderFactory$DefaultUriBuilder
+Event: 53.892 loading class org/springframework/web/util/DefaultUriBuilderFactory$DefaultUriBuilder done
+Event: 53.908 loading class org/springframework/web/util/UriComponents
+Event: 53.908 loading class org/springframework/web/util/UriComponents done
+Event: 53.912 loading class org/springframework/web/util/OpaqueUriComponents
+Event: 53.912 loading class org/springframework/web/util/OpaqueUriComponents done
+Event: 53.915 loading class org/springframework/web/util/HierarchicalUriComponents
+Event: 53.915 loading class org/springframework/web/util/HierarchicalUriComponents done
+Event: 53.930 loading class org/springframework/web/util/UriComponentsBuilder$CompositePathComponentBuilder
+Event: 53.930 loading class org/springframework/web/util/UriComponentsBuilder$CompositePathComponentBuilder done
+Event: 53.946 loading class org/springframework/web/util/UriComponentsBuilder$PathComponentBuilder
+Event: 53.946 loading class org/springframework/web/util/UriComponentsBuilder$PathComponentBuilder done
+Event: 53.975 loading class org/springframework/web/util/HierarchicalUriComponents$PathComponent
+Event: 53.975 loading class org/springframework/web/util/HierarchicalUriComponents$PathComponent done
+Event: 53.979 loading class org/springframework/web/util/UriComponentsBuilder$PathSegmentComponentBuilder
+Event: 53.979 loading class org/springframework/web/util/UriComponentsBuilder$PathSegmentComponentBuilder done
+Event: 53.988 loading class org/springframework/web/util/UriComponentsBuilder$FullPathComponentBuilder
+Event: 53.988 loading class org/springframework/web/util/UriComponentsBuilder$FullPathComponentBuilder done
+Event: 54.011 loading class org/springframework/web/util/UriComponentsBuilder$EncodingHint
+Event: 54.011 loading class org/springframework/web/util/UriComponentsBuilder$EncodingHint done
+Event: 54.014 loading class org/springframework/web/util/UriComponents$UriTemplateVariables
+Event: 54.014 loading class org/springframework/web/util/UriComponents$UriTemplateVariables done
+Event: 54.023 loading class org/springframework/web/util/HierarchicalUriComponents$1
+Event: 54.023 loading class org/springframework/web/util/HierarchicalUriComponents$1 done
+Event: 54.028 loading class org/springframework/web/util/HierarchicalUriComponents$FullPathComponent
+Event: 54.028 loading class org/springframework/web/util/HierarchicalUriComponents$FullPathComponent done
+Event: 54.032 loading class org/springframework/web/util/HierarchicalUriComponents$EncodeState
+Event: 54.032 loading class org/springframework/web/util/HierarchicalUriComponents$EncodeState done
+Event: 54.038 loading class org/springframework/web/util/HierarchicalUriComponents$UriTemplateEncoder
+Event: 54.038 loading class org/springframework/web/util/HierarchicalUriComponents$UriTemplateEncoder done
+Event: 54.042 loading class org/springframework/web/util/HierarchicalUriComponents$Type
+Event: 54.042 loading class org/springframework/web/util/HierarchicalUriComponents$Type done
+Event: 54.046 loading class org/springframework/web/util/HierarchicalUriComponents$Type$1
+Event: 54.046 loading class org/springframework/web/util/HierarchicalUriComponents$Type$1 done
+Event: 54.050 loading class org/springframework/web/util/HierarchicalUriComponents$Type$2
+Event: 54.050 loading class org/springframework/web/util/HierarchicalUriComponents$Type$2 done
+Event: 54.055 loading class org/springframework/web/util/HierarchicalUriComponents$Type$3
+Event: 54.055 loading class org/springframework/web/util/HierarchicalUriComponents$Type$3 done
+Event: 54.079 loading class org/springframework/web/util/HierarchicalUriComponents$Type$4
+Event: 54.079 loading class org/springframework/web/util/HierarchicalUriComponents$Type$4 done
+Event: 54.080 loading class org/springframework/web/util/HierarchicalUriComponents$Type$5
+Event: 54.080 loading class org/springframework/web/util/HierarchicalUriComponents$Type$5 done
+Event: 54.082 loading class org/springframework/web/util/HierarchicalUriComponents$Type$6
+Event: 54.082 loading class org/springframework/web/util/HierarchicalUriComponents$Type$6 done
+Event: 54.083 loading class org/springframework/web/util/HierarchicalUriComponents$Type$7
+Event: 54.083 loading class org/springframework/web/util/HierarchicalUriComponents$Type$7 done
+Event: 54.084 loading class org/springframework/web/util/HierarchicalUriComponents$Type$8
+Event: 54.084 loading class org/springframework/web/util/HierarchicalUriComponents$Type$8 done
+Event: 54.085 loading class org/springframework/web/util/HierarchicalUriComponents$Type$9
+Event: 54.085 loading class org/springframework/web/util/HierarchicalUriComponents$Type$9 done
+Event: 54.097 loading class org/springframework/web/util/HierarchicalUriComponents$Type$10
+Event: 54.097 loading class org/springframework/web/util/HierarchicalUriComponents$Type$10 done
+Event: 54.098 loading class org/springframework/web/util/HierarchicalUriComponents$Type$11
+Event: 54.098 loading class org/springframework/web/util/HierarchicalUriComponents$Type$11 done
+Event: 54.099 loading class org/springframework/web/util/HierarchicalUriComponents$Type$12
+Event: 54.099 loading class org/springframework/web/util/HierarchicalUriComponents$Type$12 done
+Event: 54.104 loading class org/springframework/web/util/UriComponents$VarArgsTemplateVariables
+Event: 54.104 loading class org/springframework/web/util/UriComponents$VarArgsTemplateVariables done
+Event: 54.106 loading class org/springframework/web/util/HierarchicalUriComponents$QueryUriTemplateVariables
+Event: 54.106 loading class org/springframework/web/util/HierarchicalUriComponents$QueryUriTemplateVariables done
+Event: 54.107 loading class org/springframework/web/util/UriComponents$UriTemplateVariables
+Event: 54.107 loading class org/springframework/web/util/UriComponents$UriTemplateVariables done
+Event: 54.107 loading class org/springframework/web/util/HierarchicalUriComponents
+Event: 54.107 loading class org/springframework/web/util/HierarchicalUriComponents done
+Event: 54.109 Thread 0x00d6c400 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x028e7880
+Event: 54.109 Thread 0x00d6c400 DEOPT PACKING pc=0x028e7880 sp=0x01bce9c0
+Event: 54.109 Thread 0x00d6c400 DEOPT UNPACKING pc=0x01e4d6bc sp=0x01bce9bc mode 2
+Event: 54.109 Thread 0x00d6c400 Uncommon trap: trap_request=0xffffffde fr.pc=0x0293c1b0
+Event: 54.109 Thread 0x00d6c400 DEOPT PACKING pc=0x0293c1b0 sp=0x01bce930
+Event: 54.109 Thread 0x00d6c400 DEOPT UNPACKING pc=0x01e4d6bc sp=0x01bce918 mode 2
+Event: 54.109 Thread 0x00d6c400 Uncommon trap: trap_request=0xffffff65 fr.pc=0x021a0338
+Event: 54.109 Thread 0x00d6c400 DEOPT PACKING pc=0x021a0338 sp=0x01bce8d0
+Event: 54.109 Thread 0x00d6c400 DEOPT UNPACKING pc=0x01e4d6bc sp=0x01bce85c mode 2
+Event: 54.109 loading class sun/net/www/protocol/http/HttpURLConnection
+Event: 54.177 loading class java/net/HttpURLConnection
+Event: 54.243 loading class java/net/HttpURLConnection done
+Event: 54.243 loading class sun/net/www/protocol/http/HttpURLConnection done
+Event: 54.246 loading class java/util/logging/Logger$1
+Event: 54.264 loading class java/util/logging/Logger$1 done
+Event: 54.264 loading class sun/util/logging/resources/logging
+Event: 54.265 loading class java/util/ListResourceBundle
+Event: 54.335 loading class java/util/ListResourceBundle done
+Event: 54.335 loading class sun/util/logging/resources/logging done
+Event: 54.336 loading class sun/util/logging/resources/logging_en
+Event: 54.336 loading class sun/util/logging/resources/logging_en done
+Event: 54.339 Thread 0x00d6c400 Uncommon trap: trap_request=0xffffff65 fr.pc=0x021a7708
+Event: 54.339 Thread 0x00d6c400 DEOPT PACKING pc=0x021a7708 sp=0x01bcd380
+Event: 54.339 Thread 0x00d6c400 DEOPT UNPACKING pc=0x01e4d6bc sp=0x01bcd310 mode 2
+Event: 54.340 loading class sun/util/logging/resources/logging_en_ZA
+Event: 54.340 loading class sun/util/logging/resources/logging_en_ZA done
+Event: 54.340 Thread 0x00d6c400 Uncommon trap: trap_request=0xffffff65 fr.pc=0x02036644
+Event: 54.340 Thread 0x00d6c400 DEOPT PACKING pc=0x02036644 sp=0x01bce910
+Event: 54.340 Thread 0x00d6c400 DEOPT UNPACKING pc=0x01e4d6bc sp=0x01bce914 mode 2
+Event: 54.341 loading class sun/net/www/protocol/http/HttpURLConnection$TunnelState
+Event: 54.341 loading class sun/net/www/protocol/http/HttpURLConnection$TunnelState done
+Event: 54.341 loading class sun/net/www/protocol/http/HttpURLConnection$2
+Event: 54.355 loading class sun/net/www/protocol/http/HttpURLConnection$2 done
+Event: 54.355 loading class java/net/CookieHandler
+Event: 54.401 loading class java/net/CookieHandler done
+Event: 54.401 loading class sun/net/www/protocol/http/HttpURLConnection$3
+Event: 54.401 loading class sun/net/www/protocol/http/HttpURLConnection$3 done
+Event: 54.401 loading class java/net/ResponseCache
+Event: 54.448 loading class java/net/ResponseCache done
+Event: 54.449 loading class org/springframework/http/client/SimpleBufferingClientHttpRequest
+Event: 54.449 loading class org/springframework/http/client/SimpleBufferingClientHttpRequest done
+Event: 54.473 loading class org/springframework/http/client/AbstractBufferingClientHttpRequest
+Event: 54.473 loading class org/springframework/http/client/AbstractBufferingClientHttpRequest done
+Event: 54.475 loading class org/springframework/http/client/AbstractClientHttpRequest
+Event: 54.475 loading class org/springframework/http/client/AbstractClientHttpRequest done
+Event: 54.477 loading class org/springframework/http/client/ClientHttpRequest
+Event: 54.477 loading class org/springframework/http/client/ClientHttpRequest done
+Event: 54.477 loading class org/springframework/http/client/ClientHttpRequestInitializer
+Event: 54.477 loading class org/springframework/http/client/ClientHttpRequestInitializer done
+Event: 54.477 loading class org/springframework/http/client/ClientHttpRequest
+Event: 54.477 loading class org/springframework/http/client/ClientHttpRequest done
+Event: 54.480 loading class org/springframework/http/HttpHeaders
+Event: 54.480 loading class org/springframework/http/HttpHeaders done
+Event: 54.481 loading class org/springframework/http/client/ClientHttpRequest
+Event: 54.481 loading class org/springframework/http/client/ClientHttpRequest done
+Event: 54.481 loading class org/springframework/boot/web/client/RestTemplateRequestCustomizer
+Event: 54.481 loading class org/springframework/boot/web/client/RestTemplateRequestCustomizer done
+Event: 54.481 loading class org/springframework/http/client/ClientHttpRequest
+Event: 54.481 loading class org/springframework/http/client/ClientHttpRequest done
+Event: 54.482 loading class org/springframework/http/converter/HttpMessageConverter
+Event: 54.482 loading class org/springframework/http/converter/HttpMessageConverter done
+Event: 54.482 loading class org/springframework/http/converter/HttpMessageConverter
+Event: 54.482 loading class org/springframework/http/converter/HttpMessageConverter done
+Event: 54.482 loading class org/springframework/web/client/RestTemplate$AcceptHeaderRequestCallback
+Event: 54.482 loading class org/springframework/web/client/RestTemplate$AcceptHeaderRequestCallback done
+Event: 54.482 loading class org/springframework/http/converter/HttpMessageConverter
+Event: 54.482 loading class org/springframework/http/converter/HttpMessageConverter done
+Event: 54.483 loading class org/springframework/http/converter/HttpMessageConverter
+Event: 54.483 loading class org/springframework/http/converter/HttpMessageConverter done
+Event: 54.483 loading class org/springframework/web/client/RestTemplate$AcceptHeaderRequestCallback
+Event: 54.483 loading class org/springframework/web/client/RestTemplate$AcceptHeaderRequestCallback done
+Event: 54.483 loading class java/util/stream/DistinctOps
+Event: 54.494 loading class java/util/stream/DistinctOps done
+Event: 54.494 loading class java/util/stream/DistinctOps$1
+Event: 54.541 loading class java/util/stream/DistinctOps$1 done
+Event: 54.541 Executing VM operation: Deoptimize
+Event: 54.543 Executing VM operation: Deoptimize done
+Event: 54.544 loading class java/util/stream/DistinctOps$1$2
+Event: 54.545 loading class java/util/stream/DistinctOps$1$2 done
+Event: 54.545 loading class com/fasterxml/jackson/databind/type/ClassStack
+Event: 54.545 loading class com/fasterxml/jackson/databind/type/ClassStack done
+Event: 54.583 loading class java/util/OptionalInt
+Event: 54.594 loading class java/util/OptionalInt done
+Event: 54.594 loading class java/util/OptionalLong
+Event: 54.614 loading class java/util/OptionalLong done
+Event: 54.614 loading class java/util/OptionalDouble
+Event: 54.634 loading class java/util/OptionalDouble done
+Event: 54.636 loading class com/fasterxml/jackson/databind/introspect/AnnotationCollector$OneCollector
+Event: 54.636 loading class com/fasterxml/jackson/databind/introspect/AnnotationCollector$OneCollector done
+Event: 54.723 loading class com/fasterxml/jackson/databind/introspect/AnnotationCollector$NCollector
+Event: 54.723 loading class com/fasterxml/jackson/databind/introspect/AnnotationCollector$NCollector done
+Event: 54.899 loading class com/fasterxml/jackson/annotation/JacksonAnnotationsInside
+Event: 54.899 loading class com/fasterxml/jackson/annotation/JacksonAnnotationsInside done
+Event: 54.973 loading class com/fasterxml/jackson/databind/introspect/AnnotationCollector$OneAnnotation
+Event: 54.973 loading class com/fasterxml/jackson/databind/introspect/AnnotationCollector$OneAnnotation done
+Event: 54.975 loading class com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector
+Event: 54.975 loading class com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector done
+Event: 54.995 loading class com/fasterxml/jackson/annotation/JsonAutoDetect
+Event: 54.995 loading class com/fasterxml/jackson/annotation/JsonAutoDetect done
+Event: 54.998 loading class com/fasterxml/jackson/annotation/JsonIdentityInfo
+Event: 54.998 loading class com/fasterxml/jackson/annotation/JsonIdentityInfo done
+Event: 55.013 loading class com/fasterxml/jackson/databind/JsonDeserializer$None
+Event: 55.013 loading class com/fasterxml/jackson/databind/JsonDeserializer$None done
+Event: 55.024 loading class com/fasterxml/jackson/databind/util/ArrayIterator
+Event: 55.024 loading class com/fasterxml/jackson/databind/util/ArrayIterator done
+Event: 55.055 loading class com/fasterxml/jackson/databind/ext/OptionalHandlerFactory
+Event: 55.055 loading class com/fasterxml/jackson/databind/ext/OptionalHandlerFactory done
+Event: 55.067 loading class org/w3c/dom/Document
+
+
+Dynamic libraries:
+0x00dd0000 - 0x00e56000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\bin\java.exe
+0x77010000 - 0x771ad000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x76440000 - 0x764da000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x753b0000 - 0x755c1000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x72e60000 - 0x72eff000 	C:\WINDOWS\SYSTEM32\apphelp.dll
+0x75fe0000 - 0x76059000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x75f20000 - 0x75fdf000 	C:\WINDOWS\System32\msvcrt.dll
+0x763c0000 - 0x76435000 	C:\WINDOWS\System32\sechost.dll
+0x75810000 - 0x758d1000 	C:\WINDOWS\System32\RPCRT4.dll
+0x76060000 - 0x761d9000 	C:\WINDOWS\System32\USER32.dll
+0x75040000 - 0x7505d000 	C:\WINDOWS\System32\win32u.dll
+0x76e40000 - 0x76e62000 	C:\WINDOWS\System32\GDI32.dll
+0x752d0000 - 0x753a9000 	C:\WINDOWS\System32\gdi32full.dll
+0x750c0000 - 0x7513b000 	C:\WINDOWS\System32\msvcp_win.dll
+0x751b0000 - 0x752d0000 	C:\WINDOWS\System32\ucrtbase.dll
+0x6a080000 - 0x6a292000 	C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.488_none_11b1e5df2ffd8627\COMCTL32.dll
+0x76e10000 - 0x76e36000 	C:\WINDOWS\System32\IMM32.DLL
+0x66480000 - 0x6653f000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\bin\msvcr100.dll
+0x55dd0000 - 0x5640e000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\bin\server\jvm.dll
+0x762d0000 - 0x762d6000 	C:\WINDOWS\System32\PSAPI.DLL
+0x66a40000 - 0x66a68000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x72cc0000 - 0x72cc8000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x76b10000 - 0x76b73000 	C:\WINDOWS\System32\WS2_32.dll
+0x68e80000 - 0x68e88000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x72c40000 - 0x72c4c000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\bin\verify.dll
+0x6d8a0000 - 0x6d8c1000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\bin\java.dll
+0x6d240000 - 0x6d260000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\bin\instrument.dll
+0x6ed40000 - 0x6ed53000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\bin\zip.dll
+0x764e0000 - 0x76a92000 	C:\WINDOWS\System32\SHELL32.dll
+0x734d0000 - 0x73ad9000 	C:\WINDOWS\SYSTEM32\windows.storage.dll
+0x76b80000 - 0x76e01000 	C:\WINDOWS\System32\combase.dll
+0x74a20000 - 0x74a44000 	C:\WINDOWS\SYSTEM32\Wldp.dll
+0x75d20000 - 0x75da7000 	C:\WINDOWS\System32\SHCORE.dll
+0x76e70000 - 0x76eb5000 	C:\WINDOWS\System32\shlwapi.dll
+0x74ea0000 - 0x74ebd000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x6cc20000 - 0x6cc36000 	C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\bin\breakgen.dll
+0x6cf30000 - 0x6cf46000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\bin\net.dll
+0x74800000 - 0x74856000 	C:\WINDOWS\system32\mswsock.dll
+0x71e60000 - 0x71e6f000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\bin\nio.dll
+0x74980000 - 0x74993000 	C:\WINDOWS\SYSTEM32\CRYPTSP.dll
+0x742e0000 - 0x7430f000 	C:\WINDOWS\system32\rsaenh.dll
+0x75140000 - 0x7515b000 	C:\WINDOWS\System32\bcrypt.dll
+0x74e30000 - 0x74e55000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x75060000 - 0x750bc000 	C:\WINDOWS\System32\bcryptprimitives.dll
+0x749a0000 - 0x749aa000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x74580000 - 0x745b2000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x761e0000 - 0x761e7000 	C:\WINDOWS\System32\NSI.dll
+0x6cab0000 - 0x6cac4000 	C:\WINDOWS\SYSTEM32\dhcpcsvc6.DLL
+0x6d050000 - 0x6d066000 	C:\WINDOWS\SYSTEM32\dhcpcsvc.DLL
+0x745c0000 - 0x74651000 	C:\WINDOWS\SYSTEM32\DNSAPI.dll
+0x6f190000 - 0x6f19a000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\bin\management.dll
+0x66940000 - 0x66951000 	C:\WINDOWS\system32\napinsp.dll
+0x66920000 - 0x66936000 	C:\WINDOWS\system32\pnrpnsp.dll
+0x70a90000 - 0x70aa0000 	C:\WINDOWS\system32\wshbth.dll
+0x68980000 - 0x6898e000 	C:\WINDOWS\System32\winrnr.dll
+0x71240000 - 0x71256000 	C:\WINDOWS\system32\NLAapi.dll
+0x6d190000 - 0x6d198000 	C:\Windows\System32\rasadhlp.dll
+0x6c6d0000 - 0x6c728000 	C:\WINDOWS\System32\fwpuclnt.dll
+0x6cbc0000 - 0x6cbd2000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\bin\sunec.dll
+0x6f020000 - 0x6f02a000 	C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\bin\sunmscapi.dll
+0x74f40000 - 0x7503f000 	C:\WINDOWS\System32\CRYPT32.dll
+0x74a80000 - 0x74aa1000 	C:\WINDOWS\SYSTEM32\ncrypt.dll
+0x74a50000 - 0x74a78000 	C:\WINDOWS\SYSTEM32\NTASN1.dll
+0x69600000 - 0x69788000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\lib\idea_rt.jar=62268:C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\bin -Dfile.encoding=UTF-8 
+java_command: com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit4 com.adp3.controller.reports.LeaveReportControllerTest
+java_class_path (initial): C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\lib\idea_rt.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\plugins\junit\lib\junit5-rt.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\plugins\junit\lib\junit-rt.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\charsets.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\access-bridge-32.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\access-bridge.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\cldrdata.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\dnsns.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\jaccess.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\localedata.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\nashorn.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\sunec.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\sunjce_provider.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\sunmscapi.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\sunpkcs11.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.windows.x86\jre\lib\ext\zipfs.jar;C:\Users\megan\OneDrive\2020\CPUT 2020\ADP372s\java-1.8.0-openjdk-1.8.0.265-3.b01.redhat.window
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\megan\AppData\Local\Microsoft\WindowsApps;
+USERNAME=megan
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 55 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 Build 19041 (10.0.19041.546)
+
+CPU:total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 6 model 55 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, aes, clmul, erms, 3dnowpref, tsc, tscinvbit
+
+Memory: 4k page, physical 1979564k(131464k free), swap 8008876k(0k free)
+
+vm_info: OpenJDK Server VM (25.265-b01) for windows-x86 JRE (1.8.0_265-b01), built on Aug  5 2020 12:44:14 by "build" with MS VC++ 10.0 (VS2010)
+
+time: Tue Nov 10 21:02:43 2020
+timezone: South Africa Standard Time
+elapsed time: 55 seconds (0d 0h 0m 55s)
+
