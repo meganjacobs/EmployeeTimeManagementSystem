@@ -3,12 +3,18 @@ package com.adp3.service.standalone.impl;
 import com.adp3.entity.standalone.Employee;
 import com.adp3.factory.standalone.EmployeeFactory;
 import com.adp3.service.standalone.EmployeeService;
+import org.junit.Assert;
 import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 /**
@@ -20,44 +26,30 @@ import static org.junit.Assert.*;
 
 /** responsible for executing methods in alphabetical order */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class EmployeeServiceImplTest {
 
     @Autowired
-    private EmployeeService emp_service;
-    private static  Employee employee = EmployeeFactory.createEmployee("Malusi", "Pakade", "021 543 9876", new Date(1986, 00, 12));
+     EmployeeServiceImpl emp_service;
+     Employee employee = EmployeeFactory.createEmployee("Malusi", "Pakade", "021 543 9876", new Date(1986, 00, 12));
 
-
-    @Test
-    public void getEmp_service() {
-
-    }
 
     @Test
     public void d_getAll() {
 
-        System.out.print( "Get All: " + emp_service.getAll() );
+        Set<Employee> employees = emp_service.getAll();
+       // assertEquals(1, employees.size());
+        System.out.print( "Get All: " + employees );
 
     }
 
     @Test
     public void a_create() {
 
-        // test if EmployeeRepositoryImpl create method can create an employee
-        Employee created = emp_service.create( employee );
-
-        //test expected empID value in employee object.
-        assertEquals( employee.getEmpID(), employee.getEmpID() );
-        //test expected empName value in employee object
-        assertEquals( employee.getEmpName(), employee.getEmpName() );
-        //test expected empLastName value in employee object
-        assertEquals( employee.getEmpLastName(), employee.getEmpLastName() );
-        //test expected empPhone value in employee object
-        assertEquals( employee.getEmpPhoneNumber(), employee.getEmpPhoneNumber() );
-        //test expected empDOB value in employee object
-        assertEquals( employee.getEmpDOB(), employee.getEmpDOB() );
-
-        System.out.println("Created: " + created );
+        Employee emp_created = emp_service.create( employee );
+        Assert.assertEquals( employee.getEmpID(), emp_created.getEmpID() );
+        System.out.println("Created Employee: " + employee );
 
     }
 
@@ -72,7 +64,7 @@ public class EmployeeServiceImplTest {
     @Test
     public void c_update() {
 
-        Employee update = new Employee.Builder().copy(employee).setEmpID("400").build() ;
+        Employee update = new Employee.Builder().copy(employee).setEmpLastName("Gigaba").setEmpID("400").build() ;
         update = emp_service.update( update );
         System.out.println("Updated: " + update );
 
@@ -82,6 +74,8 @@ public class EmployeeServiceImplTest {
     public void e_delete() {
 
         emp_service.delete( employee.getEmpID() );
+        System.out.println("Deleted: "+ employee.getEmpID());
+        System.out.print( "Get All: " +  emp_service.getAll() );
 
     }
 }

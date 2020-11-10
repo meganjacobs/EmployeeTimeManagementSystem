@@ -26,7 +26,6 @@ public class EmployeeController {
     public Employee create(@RequestBody Employee employee) {
 
         Employee newEmployee = EmployeeFactory.createEmployee( employee.getEmpName(), employee.getEmpLastName(), employee.getEmpPhoneNumber(), employee.getEmpDOB() );
-
         return employeeService.create( newEmployee );
     }
 
@@ -38,6 +37,7 @@ public class EmployeeController {
 
     @PostMapping("/update/")
     public Employee update(@RequestBody Employee employee){
+
         return employeeService.update( employee );
     }
 
