@@ -19,6 +19,7 @@ public class EmployeeLeave implements Serializable {
 
     @Id
     private String  empID;
+    //@Id
     private String leaveID;
 
     private Date startDate, endDate;
