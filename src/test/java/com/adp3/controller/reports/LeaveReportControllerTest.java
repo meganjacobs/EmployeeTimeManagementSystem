@@ -43,20 +43,26 @@ public class LeaveReportControllerTest {
     TestRestTemplate restTemplate;
     @Autowired
     LeaveReportServiceImpl leaveReportService;
-    String baseURL="http://localhost:8080/leaveReport/";
+    String baseURL="http://localhost:8080/employee_time_management/leaveReport/";
     private ResponseEntity leaveReportResponseEntity = null;
-    LeaveReport leaveReport= LeaveReportFactory.buildLeaveReport("emp001", "001", "cpt001");
+    LeaveReport leaveReport= LeaveReportFactory.buildLeaveReport("etms007", "lve001", "str0291");
+
 
     @Test
     public void a_create(){ // Test PostMapping
-         leaveReportResponseEntity =
+        leaveReportService.create(this.leaveReport);
+
+        if (this.leaveReport==null) {
+            System.out.println(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
+        }
+
+        else{ leaveReportResponseEntity =
                 restTemplate
                         .withBasicAuth("Super", "Password.ADP3")
-                        .postForEntity(baseURL + "create/", leaveReport,
+                        .postForEntity(baseURL + "create/", this.leaveReport,
                                 LeaveReport.class);
-        assertNotNull(leaveReportResponseEntity.getBody());
-        leaveReportService.create(leaveReport);
-        System.out.println("POST LeaveReport : " + leaveReportResponseEntity.getBody());
+            System.out.println("POST LeaveReport : " + new ResponseEntity<>(leaveReport, HttpStatus.CREATED));
+        }
     }
 
     @Test
@@ -66,7 +72,7 @@ public class LeaveReportControllerTest {
                         .withBasicAuth("User", "Password")
                         .getForEntity(baseURL + "read/"+ leaveReport
                                 .getLeaveReportID(), LeaveReport.class);
-         System.out.println("GET LeaveReport : "+ leaveReport);
+         System.out.println("GET LeaveReport : "+ new ResponseEntity<>(leaveReport,HttpStatus.FOUND));
     }
 
     @Test
@@ -75,15 +81,15 @@ public class LeaveReportControllerTest {
             System.out.println("GET LeaveReport :" + leaveReport);
             LeaveReport updated = new LeaveReport.Builder()
                     .copy(leaveReport)
-                    .setEmpID("emp009")
-                    .setLeaveID("009")
-                    .setStoreID("cpt009")
+                    .setEmpID("updated_etms007")
+                    .setLeaveID("updated_lve001")
+                    .setStoreID("updated_str3310")
                     .build();
         restTemplate
                 .withBasicAuth("Super", "Password.ADP3")
                 .put(baseURL + "update/" + "updated", updated);
             assertNotNull(updated);
-        System.out.println("PUT LeaveReport : " + updated); }
+        System.out.println("PUT LeaveReport : " + new ResponseEntity<>(updated,HttpStatus.ACCEPTED)); }
     }
 
     @Test
@@ -91,14 +97,13 @@ public class LeaveReportControllerTest {
         restTemplate
                 .withBasicAuth("Super", "Password.ADP3")
                 .delete(baseURL + "delete/" + leaveReport.getLeaveReportID());
-        System.out.println("DELETED LeaveReport :  " + leaveReport.getLeaveReportID());
+        System.out.println("DELETED LeaveReport :  " + new ResponseEntity<>(leaveReport.getLeaveReportID(),HttpStatus.GONE));
     }
 
     @Test
     public void d_getAll() {
-            ResponseEntity<Set<LeaveReport>> result = restTemplate.withBasicAuth("User", "Password")
-                .exchange(baseURL + "getAll/", HttpMethod.GET, null, new ParameterizedTypeReference<Set<LeaveReport>>() {
-                });
+            ResponseEntity result = restTemplate.withBasicAuth("User", "Password")
+                .getForEntity(baseURL + "getAll", String.class);
             System.out.println("GETall LeaveReport: " + result.getBody());
     }
 }
