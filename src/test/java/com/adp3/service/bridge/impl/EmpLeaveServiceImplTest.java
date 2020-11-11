@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Year;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Set;
@@ -36,7 +37,7 @@ public class EmpLeaveServiceImplTest {
 
     @Before
     public void setup(){
-        empLeave = EmployeeLeaveFactory.calcEmployeeLeave("A212","3",new Date(2020,6,02), new Date(2020,6,05));
+        empLeave = EmployeeLeaveFactory.calcEmployeeLeave("A212","3",new Date(Year.MIN_VALUE,6,02), new Date(2020,6,05));
         service.create(empLeave);
     }
 
