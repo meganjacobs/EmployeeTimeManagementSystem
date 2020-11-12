@@ -13,8 +13,8 @@ import java.util.Objects;
 @Entity
 public class EmployeeStore {
     @Id
-    private String  empID;
-    private String  storeID;
+    private String empID;
+    private String storeID;
 
     public EmployeeStore(Builder builder) {
         this.empID = builder.empID;
