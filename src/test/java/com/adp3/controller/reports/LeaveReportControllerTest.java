@@ -47,10 +47,8 @@ public class LeaveReportControllerTest {
     private ResponseEntity leaveReportResponseEntity = null;
     LeaveReport leaveReport= LeaveReportFactory.buildLeaveReport("etms007", "lve001", "str0291");
 
-
     @Test
     public void a_create(){ // Test PostMapping
-        leaveReportService.create(this.leaveReport);
 
         if (this.leaveReport==null) {
             System.out.println(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
@@ -61,7 +59,8 @@ public class LeaveReportControllerTest {
                         .withBasicAuth("Super", "Password.ADP3")
                         .postForEntity(baseURL + "create/", this.leaveReport,
                                 LeaveReport.class);
-            System.out.println("POST LeaveReport : " + new ResponseEntity<>(leaveReport, HttpStatus.CREATED));
+        leaveReportService.create(leaveReport);
+            System.out.println("POST LeaveReport : " + new ResponseEntity<>(this.leaveReport, HttpStatus.CREATED));
         }
     }
 
@@ -72,7 +71,7 @@ public class LeaveReportControllerTest {
                         .withBasicAuth("User", "Password")
                         .getForEntity(baseURL + "read/"+ leaveReport
                                 .getLeaveReportID(), LeaveReport.class);
-         System.out.println("GET LeaveReport : "+ new ResponseEntity<>(leaveReport,HttpStatus.FOUND));
+         System.out.println("GET LeaveReport : "+ new ResponseEntity<>(leaveReport.getLeaveReportID(),HttpStatus.FOUND));
     }
 
     @Test
@@ -85,6 +84,7 @@ public class LeaveReportControllerTest {
                     .setLeaveID("updated_lve001")
                     .setStoreID("updated_str3310")
                     .build();
+            leaveReportService.create(updated);
         restTemplate
                 .withBasicAuth("Super", "Password.ADP3")
                 .put(baseURL + "update/" + "updated", updated);
@@ -102,8 +102,8 @@ public class LeaveReportControllerTest {
 
     @Test
     public void d_getAll() {
-            ResponseEntity result = restTemplate.withBasicAuth("User", "Password")
-                .getForEntity(baseURL + "getAll", String.class);
+            ResponseEntity<Set<LeaveReport>> result = restTemplate.withBasicAuth("User", "Password")
+                .exchange(baseURL + "getAll/",HttpMethod.GET,null, new ParameterizedTypeReference<Set<LeaveReport>>(){});
             System.out.println("GETall LeaveReport: " + result.getBody());
     }
 }
