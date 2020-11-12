@@ -74,6 +74,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT,"/employee_time_management/EmployeeStore/update").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.DELETE,"/employee_time_management/EmployeeStore/delete").hasRole(ADMIN_ROLE)
                 .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST,"/employee_time_management/EmployeeLeave/create").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET,"/employee_time_management/EmployeeLeave/read", "/employee_time_management/StoreReports/getAll").hasRole(USER_ROLE)
+                .antMatchers(HttpMethod.PUT,"/employee_time_management/EmployeeLeave/update").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.DELETE,"/employee_time_management/EmployeeLeave/delete").hasRole(ADMIN_ROLE)
+                .and()
 
                 .csrf().disable()
                 .formLogin().disable();
