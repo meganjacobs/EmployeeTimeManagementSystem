@@ -56,7 +56,7 @@ public class EmployeeLeaveControllerTest {
         System.out.println("ID: "+ employeeLeave.getEmpID());
 
         ResponseEntity<EmployeeLeave> leaveResponseEntity =
-                restTemplate.withBasicAuth(SEC_USERNAME,SEC_USERNAME)
+                restTemplate.withBasicAuth("Super", "Password.ADP3")
                 .postForEntity(url, employeeLeave, EmployeeLeave.class);
 
         assertNotNull(leaveResponseEntity);
@@ -73,7 +73,7 @@ public class EmployeeLeaveControllerTest {
         String url = baseURl + "read/" + employeeLeave.getEmpID();
         System.out.println("EmployeeLeave Read URL:  " + url);
         ResponseEntity<EmployeeLeave> leaveResponseEntity =
-                restTemplate.withBasicAuth(SEC_USERNAME,SEC_USERNAME)
+                restTemplate.withBasicAuth(SEC_USERNAME,SEC_PASSWORD)
                 .getForEntity(url, EmployeeLeave.class);
         assertNotNull(leaveResponseEntity);
         assertNotNull(leaveResponseEntity.getBody());
@@ -86,7 +86,7 @@ public class EmployeeLeaveControllerTest {
         System.out.println("URL:  " + url);
         System.out.println("Updated Leave Type: " + employeeLeave.getEmpID());
         ResponseEntity<EmployeeLeave> ResponseEntity =
-                restTemplate.withBasicAuth(SEC_USERNAME,SEC_USERNAME)
+                restTemplate.withBasicAuth(SEC_USERNAME,SEC_PASSWORD)
                         .postForEntity(url,updatedRecord, EmployeeLeave.class);
         assertNotNull(ResponseEntity);
         assertNotNull(updatedRecord);
@@ -100,7 +100,7 @@ public class EmployeeLeaveControllerTest {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
         ResponseEntity<String> responseEntity =
-                restTemplate.withBasicAuth(SEC_USERNAME,SEC_USERNAME)
+                restTemplate.withBasicAuth(SEC_USERNAME,SEC_PASSWORD)
                 .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(responseEntity.getBody());
         assertNotNull(responseEntity);
