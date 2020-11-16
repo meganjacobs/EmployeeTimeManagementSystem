@@ -38,8 +38,8 @@ public class EmployeeLeaveControllerTest {
 
     private static String empID = GenericHelper.generateID();
     private static EmployeeLeave employeeLeave = EmployeeLeaveFactory.calcEmployeeLeave(empID,"3",new Date(2020,6,02), new Date(2020,6,05));
-    private static  String SEC_USERNAME = "Zubair";
-    private static  String SEC_PASSWORD = "pass123";
+    private static  String SEC_USERNAME = "Super";
+    private static  String SEC_PASSWORD = "Password.ADP3";
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -50,15 +50,18 @@ public class EmployeeLeaveControllerTest {
     public void a_create() {
 
 
-        String url = baseURl + "create";
+        String url = baseURl + "create/";
         System.out.println("URL: " + url);
         System.out.println("Post Info: " + employeeLeave);
         System.out.println("ID: "+ employeeLeave.getEmpID());
+
         ResponseEntity<EmployeeLeave> leaveResponseEntity =
-                restTemplate.withBasicAuth(SEC_USERNAME,SEC_USERNAME)
+                restTemplate.withBasicAuth("Super", "Password.ADP3")
                 .postForEntity(url, employeeLeave, EmployeeLeave.class);
+
         assertNotNull(leaveResponseEntity);
         assertNotNull(leaveResponseEntity.getBody());
+
         employeeLeave = leaveResponseEntity.getBody();
         System.out.println("Saved data: " + employeeLeave);
         assertEquals(employeeLeave.getEmpID(),leaveResponseEntity.getBody().getEmpID());
@@ -67,10 +70,10 @@ public class EmployeeLeaveControllerTest {
     @Test
     public void b_read() {
 
-        String url = baseURl + "read" + employeeLeave.getEmpID();
+        String url = baseURl + "read/" + employeeLeave.getEmpID();
         System.out.println("EmployeeLeave Read URL:  " + url);
         ResponseEntity<EmployeeLeave> leaveResponseEntity =
-                restTemplate.withBasicAuth(SEC_USERNAME,SEC_USERNAME)
+                restTemplate.withBasicAuth(SEC_USERNAME,SEC_PASSWORD)
                 .getForEntity(url, EmployeeLeave.class);
         assertNotNull(leaveResponseEntity);
         assertNotNull(leaveResponseEntity.getBody());
@@ -78,12 +81,12 @@ public class EmployeeLeaveControllerTest {
 
     @Test
     public void c_update() {
-        EmployeeLeave updatedRecord = new EmployeeLeave.Builder().copy(employeeLeave).setLeaveID("3").build();
+        EmployeeLeave updatedRecord = new EmployeeLeave.Builder().copy(employeeLeave).setLeaveID("2").build();
         String url = baseURl + "update";
         System.out.println("URL:  " + url);
         System.out.println("Updated Leave Type: " + employeeLeave.getEmpID());
         ResponseEntity<EmployeeLeave> ResponseEntity =
-                restTemplate.withBasicAuth(SEC_USERNAME,SEC_USERNAME)
+                restTemplate.withBasicAuth(SEC_USERNAME,SEC_PASSWORD)
                         .postForEntity(url,updatedRecord, EmployeeLeave.class);
         assertNotNull(ResponseEntity);
         assertNotNull(updatedRecord);
@@ -97,7 +100,7 @@ public class EmployeeLeaveControllerTest {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
         ResponseEntity<String> responseEntity =
-                restTemplate.withBasicAuth(SEC_USERNAME,SEC_USERNAME)
+                restTemplate.withBasicAuth(SEC_USERNAME,SEC_PASSWORD)
                 .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(responseEntity.getBody());
         assertNotNull(responseEntity);

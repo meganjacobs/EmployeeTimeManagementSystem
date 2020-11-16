@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 
 
 @RestController
-@RequestMapping ("/leaveReport")
+@RequestMapping ("employee_time_management/leaveReport")
 public class LeaveReportController {
 
     //access to LeaveReportService bean using Spring autowired annotation
@@ -44,17 +44,9 @@ public class LeaveReportController {
      * @return: LeaveReport
      * */
     @PostMapping ("/create")
-    public ResponseEntity<LeaveReport> create(@RequestBody LeaveReport leaveReport){
+    public LeaveReport create(@RequestBody LeaveReport leaveReport){
         boolean employeeLeaveExists = false;
         boolean employeeStoreExists = false;
-
-        if (leaveReport==null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-
-        if (leaveReportService.read(leaveReport.getLeaveReportID()).equals(leaveReportService.read(leaveReport.getLeaveReportID()))) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }
 
         EmployeeLeave employeeLeave = null;
         try {
@@ -77,10 +69,10 @@ public class LeaveReportController {
 
         if (employeeLeaveExists && employeeStoreExists) {
             leaveReportService.create(leaveReport);
-            return new ResponseEntity<>(leaveReport, HttpStatus.CREATED);
+            return leaveReport;
         }
 
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        else return null;
     }
 
     /* exposes method used to read a LeaveReport

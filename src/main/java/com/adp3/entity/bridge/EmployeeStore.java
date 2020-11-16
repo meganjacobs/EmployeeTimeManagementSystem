@@ -2,6 +2,7 @@ package com.adp3.entity.bridge;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import java.util.Objects;
 
 /**
@@ -11,10 +12,11 @@ import java.util.Objects;
  * Class Description: EmployeeStore
  */
 @Entity
+@IdClass(EmployeeStoreId.class)
 public class EmployeeStore {
     @Id
-    private String  empID;
-    private String  storeID;
+    private String empID;
+    private String storeID;
 
     public EmployeeStore(Builder builder) {
         this.empID = builder.empID;
