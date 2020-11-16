@@ -8,9 +8,12 @@ import com.adp3.service.bridge.impl.EmpLeaveServiceImpl;
 import com.adp3.service.bridge.impl.EmployeeStoreServiceImpl;
 import com.adp3.service.reports.impl.LeaveReportServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Author: Megan Jacobs
@@ -23,7 +26,7 @@ import java.util.Set;
 
 
 @RestController
-@RequestMapping ("/leaveReport")
+@RequestMapping ("employee_time_management/leaveReport")
 public class LeaveReportController {
 
     //access to LeaveReportService bean using Spring autowired annotation
@@ -47,21 +50,29 @@ public class LeaveReportController {
 
         EmployeeLeave employeeLeave = null;
         try {
-            employeeLeave = employeeLeaveService.read(leaveReport.getLeaveID());
+            employeeLeave = employeeLeaveService.read(leaveReport.getEmpID());
         } catch (Exception e) {
             e.printStackTrace();
         }
         if (employeeLeave != null) {
             employeeLeaveExists = true;
         }
-        EmployeeStore employeeStore = employeeStoreService.read(leaveReport.getStoreID());
+        EmployeeStore employeeStore = null;
+        try {
+            employeeStore = employeeStoreService.read(leaveReport.getStoreID());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (employeeStore != null) {
             employeeStoreExists = true;
         }
 
-        if (employeeLeaveExists && employeeStoreExists)
-            return leaveReportService.create(leaveReport);
-        else return LeaveReportFactory.buildLeaveReport(employeeLeave.getEmpID(), employeeLeave.getLeaveID(), employeeStore.getStoreID());
+        if (employeeLeaveExists && employeeStoreExists) {
+            leaveReportService.create(leaveReport);
+            return leaveReport;
+        }
+
+        else return null;
     }
 
     /* exposes method used to read a LeaveReport
@@ -97,7 +108,7 @@ public class LeaveReportController {
      * */
     @GetMapping ("/getAll")
     public Set<LeaveReport> getAll() {
-        return leaveReportService.getAll();
+        return leaveReportService.getAll().stream().collect(Collectors.toSet());
     }
 
 }

@@ -30,8 +30,8 @@ import static org.junit.Assert.*;
 public class StoreControllerTest {
 
     private  Store store = StoreFactory.createStore("PNP");
-    private static  String SECURITY_USERNAME = "Riyaad";
-    private static  String SECURITY_PASSWORD = "1234";
+    private static  String SECURITY_USERNAME = "Super";
+    private static  String SECURITY_PASSWORD = "Password.ADP3";
 
 
     @Autowired
@@ -44,6 +44,7 @@ public class StoreControllerTest {
      * */
     @Test
     public void a_create() {
+
         String url = URL + "create";
         System.out.println("Store Create URL:  " + url);
         ResponseEntity<Store> storeResponseEntity = restTemplate
@@ -78,7 +79,7 @@ public class StoreControllerTest {
     @Test
     public void c_update() {
         Store updated  = new Store.Builder().copy(store).setStoreName("Clicks").build();
-        String url = URL + "update";
+        String url = URL + "update/";
         System.out.println("Store Update URL:  " + url);
         System.out.println("Updated Store Name: " + updated);
         ResponseEntity<Store> storeResponseEntity = restTemplate

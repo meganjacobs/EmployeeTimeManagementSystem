@@ -44,10 +44,9 @@ public class EmployeeSalary {
 
     public double getEmpHours() { return empHours; }
 
-    /*public double getEmpSalary() {
-        empSalary = getEmpHours() * getEmpSalaryRate();
+    public double getEmpSalary() {
         return empSalary;
-    }*/
+    }
 
     @Override
     public String toString() {
@@ -92,6 +91,11 @@ public class EmployeeSalary {
 
         public Builder setEmpHours(double empHours) {
             this.empHours= empHours;
+            return this;
+        }
+
+        public Builder setEmpSalary(double empSalary) {
+            this.empSalary= empSalary;
             return this;
         }
 

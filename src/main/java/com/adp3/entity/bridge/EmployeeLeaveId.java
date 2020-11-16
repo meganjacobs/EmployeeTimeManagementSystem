@@ -4,7 +4,7 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Embeddable
+//@Embeddable
 public class EmployeeLeaveId implements Serializable {
     private String empID;
     private String leaveID;
@@ -12,6 +12,7 @@ public class EmployeeLeaveId implements Serializable {
     public EmployeeLeaveId(){
 
     }
+
 
     public EmployeeLeaveId(String empID, String leaveID){
         this.empID = empID;
