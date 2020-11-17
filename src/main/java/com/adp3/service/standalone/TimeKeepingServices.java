@@ -7,13 +7,12 @@
 
 package com.adp3.service.standalone;
 
-import com.adp3.entity.standalone.Employee;
 import com.adp3.entity.standalone.Timekeeping;
 import com.adp3.service.IService;
 
 import java.util.Set;
 
 public interface TimeKeepingServices  extends IService<Timekeeping,String> {
-    Set<Employee> getAll();
+    Set<Timekeeping> getAll();
 
 }

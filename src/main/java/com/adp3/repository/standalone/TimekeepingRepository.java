@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Set;
 
-public interface  TimekeepingRepository extends JpaRepository<Employee, String> {
+public interface  TimekeepingRepository extends JpaRepository<Timekeeping, String> {
 
 
 }
