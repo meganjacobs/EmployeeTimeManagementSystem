@@ -2,7 +2,9 @@ package com.adp3.service.standalone.impl;
 
 import com.adp3.entity.standalone.Role;
 import com.adp3.repository.standalone.RoleRepository;
-import com.adp3.repository.standalone.impl.RoleImp;
+import com.adp3.service.standalone.RoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -18,17 +20,8 @@ import java.util.stream.Collectors;
 
 public class RoleServiceImp implements RoleService {
     @Autowired
-    private static RoleRepository repository = null;
+    private RoleRepository repository;
     private RoleRepository role;
-
-    private RoleServiceImp(){ this.repository = RoleImp.getRepository(); }
-
-//    public static RoleServiceImp getService(){
-//        RoleServiceImp service = null;
-//        service = new RoleServiceImp();
-//        return service;
-//    }
-
 
     @Override
     public Set<Role> getAll() {
@@ -37,19 +30,19 @@ public class RoleServiceImp implements RoleService {
     }
 
     @Override
-    public Role create(Role roleC) {
-        return this.role.save(role);
+    public Role create(Role role) {
+        return this.repository.save(role);
     }
 
     @Override
     public Role read(String roleR) {
 
-        return this.role.findById(s).orElse(null);
+        return this.role.findById(roleR).orElse(null);
     }
 
     @Override
     public Role update(Role d) {
-        return this.role.delete(d);
+        return this.repository.save(d);
 
     }
 

@@ -1,16 +1,11 @@
-package com.adp3.service.standalone.impl;
+package com.adp3.service.standalone;
 
 import com.adp3.entity.standalone.Role;
 import com.adp3.repository.standalone.RoleRepository;
+import com.adp3.service.IService;
 
-public interface RoleService {
-    RoleRepository getAll();
+import java.util.Set;
 
-    Role create(Role roleC);
-
-    Role read(String roleR);
-
-    Role update(Role roleD);
-
-    void delete(String sDelete);
+public interface RoleService extends IService<Role,String> {
+    Set<Role> getAll();
 }
