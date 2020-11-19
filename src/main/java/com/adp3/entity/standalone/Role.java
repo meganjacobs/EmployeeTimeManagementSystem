@@ -1,5 +1,10 @@
 package com.adp3.entity.standalone;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.Objects;
+
 /**
  * Author: Sanele Ngwenya
  * Class: Part Time
@@ -7,11 +12,16 @@ package com.adp3.entity.standalone;
  * Class Description: Role
  */
 
-public class Role {
+@Entity
+
+
+
+public class Role implements Serializable {
+    @Id
     private String roleID;
     private String roleDesc;
 
-
+    protected Role(){}
     private Role(Builder builder) {
         this.roleID = builder.roleID;
         this.roleDesc = builder.roleDesc;
@@ -64,5 +74,18 @@ public class Role {
             return new Role(this);
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Builder builder = (Builder) o;
+            return Objects.equals(roleID, builder.roleID) &&
+                    Objects.equals(roleDesc, builder.roleDesc);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(roleID, roleDesc);
+        }
     }
 }
