@@ -45,7 +45,7 @@ public class TimekeepingController {
          timekeepingservices.delete(id);}
 
          @GetMapping("/all")
-            public Set<Employee> getAll() {
+         public Set<Timekeeping> getAll() {
             return timekeepingservices.getAll();
         }
 }
