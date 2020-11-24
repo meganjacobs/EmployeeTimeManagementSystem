@@ -1,4 +1,7 @@
 package com.adp3.entity.standalone;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Author: Lungisa Lucky Mkhasakhasa
@@ -6,12 +9,14 @@ package com.adp3.entity.standalone;
  * Student number: 216060117
  * Class Description: TimeKeepingService
  */
-
-public class Timekeeping {
-
+@Entity
+public class Timekeeping implements Serializable {
+    @Id
     private int time_In;
     private int time_Out;
     private String empID;
+
+    private Timekeeping(){}
 
     private Timekeeping(Builder builder){
         this.time_In = builder.time_In;

@@ -11,31 +11,36 @@ package com.adp3.repository.standalone.impl;
 
 import com.adp3.entity.standalone.Timekeeping;
 import com.adp3.factory.standalone.TimekeepingFactory;
-import junit.framework.TestCase;
+import com.adp3.repository.standalone.TimekeepingRepository;
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class TimekeepingRepositoryimpTest extends TestCase {
-   private TimekeepingRepositoryimp repository = new TimekeepingRepositoryimp();
-    Timekeeping timekeeping = TimekeepingFactory.buildTimekeepingService(1000,1500,"LM88");
+import static org.junit.Assert.assertEquals;
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class TimekeepingRepositoryimpTest{
+   @Autowired
+   private static TimekeepingRepository repository ;
+   private Timekeeping timekeeping = TimekeepingFactory.buildTimekeepingService(1000,1500,"LM88");
 
 
+        @Test
+        public void testCreate() {
+        Timekeeping create = repository.save(timekeeping);
+        assertEquals(create.getempID(),timekeeping.getempID());
+            assertEquals(timekeeping.getempID(),timekeeping.getempID());
+            assertEquals(timekeeping.getTime_In(),timekeeping.getTime_In());
+            assertEquals(timekeeping.getTime_Out(),timekeeping.getTime_Out());
+        }
+    @Test
+    public void testRead(String s) {
 
-    public void testGetRepository() {
+        Timekeeping rTimekeepings  = repository.findById(timekeeping.getempID()).orElse(null);
     }
-
-    public void testCreate() {
-        Timekeeping cExpected = repository.create(timekeeping);
-        Assert.assertEquals(cExpected.getempID(),timekeeping.getempID());
-
-
-    }
-
-    public void testRead() {
-
-        Timekeeping rTimekeepings  = repository.read(timekeeping.getempID());
-    Assert.assertNotNull(rTimekeepings);
-    }
-
+        @Test
     public void testUpdate() {
         Timekeeping rTimekeepingservice = new Timekeeping.Builder()
                 .setEmployee_id("LM88")
@@ -44,16 +49,16 @@ public class TimekeepingRepositoryimpTest extends TestCase {
                 .copy(timekeeping)
                 .build();
 
-        Assert.assertEquals(rTimekeepingservice.getempID(),"LM878");
+        assertEquals(rTimekeepingservice.getempID(),"LM878");
     }
-
+@Test
     public void testDelete() {
-repository.delete(timekeeping.getempID());
-Assert.assertNotNull(timekeeping.getempID());
-    }
 
+       this.repository.deleteById(timekeeping.getempID());
+    }
+@Test
     public void testGetAll() {
 
-        Assert.assertNotNull(repository.getAll());
+        Assert.assertNotNull(timekeeping.getempID());
     }
 }

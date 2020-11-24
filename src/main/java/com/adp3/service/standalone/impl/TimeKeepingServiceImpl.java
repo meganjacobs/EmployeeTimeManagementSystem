@@ -1,61 +1,41 @@
 package com.adp3.service.standalone.impl;
-
+import com.adp3.entity.standalone.Timekeeping;
 import com.adp3.repository.standalone.TimekeepingRepository;
-import com.adp3.repository.standalone.impl.TimekeepingRepositoryimp;
 import com.adp3.service.standalone.TimeKeepingServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.stream.Collectors;
+
+
 @Service
 public class TimeKeepingServiceImpl implements TimeKeepingServices {
+@Autowired
+private TimekeepingRepository timekeepingrepository;
 
-    private static TimeKeepingServiceImpl service=null;
-
-    private TimekeepingRepository repository;
-
-    private TimeKeepingServiceImpl(){
-        this.repository= TimekeepingRepositoryimp.getRepository();
-        }
-
-    public static TimeKeepingServiceImpl getService() {
-        if(service == null) service= new TimeKeepingServiceImpl();
-        return service;
+    @Override
+    public Set<Timekeeping> getAll() {
+        return this.timekeepingrepository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
-    public Set<TimeKeepingServices> getAll() {
-        //return repository.getAll();
-        return null;
-
+    public Timekeeping create(Timekeeping t) {
+        return this.timekeepingrepository.save(t);
     }
 
     @Override
-    public TimeKeepingServices create(TimeKeepingServices t) {
-        //return repository.create(t);
-        return null;
-
+    public Timekeeping read(String s) {
+        return this.timekeepingrepository.findById(s).orElse(null);
     }
 
     @Override
-    public TimeKeepingServices read(String s) {
-        //return repository.read(s);
-        return null;
-
-    }
-
-    @Override
-    public TimeKeepingServices update(TimeKeepingServices t) {
-       // return repository.update(t);
-        return null;
+    public Timekeeping update(Timekeeping t) {
+        return this.timekeepingrepository.save(t);
     }
 
     @Override
     public void delete(String s) {
-repository.delete(s);
+        this.timekeepingrepository.deleteById(s);
     }
-
-
-///------------------------------
-
-
 }

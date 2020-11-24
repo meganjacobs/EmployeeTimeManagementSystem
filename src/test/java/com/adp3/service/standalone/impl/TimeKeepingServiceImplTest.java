@@ -11,8 +11,6 @@
 package com.adp3.service.standalone.impl;
 import com.adp3.entity.standalone.Timekeeping;
 import com.adp3.factory.standalone.TimekeepingFactory;
-import com.adp3.repository.standalone.impl.TimekeepingRepositoryimp;
-import com.adp3.service.standalone.impl.TimeKeepingServiceImpl;
 import junit.framework.TestCase;
 import org.junit.Assert;
 

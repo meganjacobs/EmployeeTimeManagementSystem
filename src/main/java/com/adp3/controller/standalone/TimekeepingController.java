@@ -5,38 +5,47 @@ package com.adp3.controller.standalone;
  * Student number: 216060117
  * Controller:  TimekeepingServiceController
  * */
+import com.adp3.entity.standalone.Employee;
+import com.adp3.entity.standalone.Timekeeping;
+import com.adp3.factory.standalone.TimekeepingFactory;
 import com.adp3.service.standalone.TimeKeepingServices;
 import com.adp3.service.standalone.impl.TimeKeepingServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.Set;
 
 @RestController
-@RequestMapping("/Timekeeping")
+@RequestMapping("/employee_time_management/Timekeeping")
 public class TimekeepingController {
     @Autowired
    //@Qualifier("TimekeepingServiceImp")
-    private TimeKeepingServiceImpl  TimeKeepingServices;
-    @GetMapping("/read/all")
-    @ResponseBody
-    public Set<TimeKeepingServices> getAll() {
-        return TimeKeepingServices.getAll();
-    }
-    @PostMapping
-    public TimeKeepingServices create(@RequestBody TimeKeepingServices timekeepingservices) {
-      //  TimeKeepingServices newTimekeepingservices = TimekeepingFactory.buildTimekeepingService(1,1,"");
-        return TimeKeepingServices.create(timekeepingservices);
+    private TimeKeepingServices  timekeepingservices;
+    @GetMapping("/create")
+    public Timekeeping create(@RequestBody Timekeeping Timekeeping )
+    {
+        Timekeeping timekeeping = TimekeepingFactory.buildTimekeepingService(Timekeeping.getTime_In(),Timekeeping.getTime_Out(),Timekeeping.getempID());
+        return timekeepingservices.create(timekeeping);
     }
 
-    public TimeKeepingServices read(String s) {
-        return TimeKeepingServices.read(s);
+    @GetMapping("/read/{id}")
+    public Timekeeping read(@PathVariable String id)
+    {
+        return timekeepingservices.read(id);
     }
 
-    public TimeKeepingServices update(TimeKeepingServices t) {
-        return TimeKeepingServices.update(t);
+    @PostMapping("/Update/")
+    public Timekeeping update(@RequestBody Timekeeping Timekeeping) {
+
+        return timekeepingservices.update(Timekeeping);
     }
-    @DeleteMapping ("/delete/{Primary-Key}")
-    public void delete(String s) {
-        TimeKeepingServices.delete(s);
-    }
+
+    @DeleteMapping("delete/{id}")
+     void delete(@PathVariable String id) {
+         timekeepingservices.delete(id);}
+
+         @GetMapping("/all")
+         public Set<Timekeeping> getAll() {
+            return timekeepingservices.getAll();
+        }
 }
