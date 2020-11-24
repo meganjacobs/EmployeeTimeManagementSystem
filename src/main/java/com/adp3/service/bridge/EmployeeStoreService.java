@@ -14,6 +14,7 @@ import java.util.Set;
 
 public  interface EmployeeStoreService extends IService<EmployeeStore, String> {
     Set<EmployeeStore> getAll();
-
+    EmployeeStore findByID(String empID, String storeID);
+    Set<EmployeeStore>findByEmpID(String empID);
 
 }
