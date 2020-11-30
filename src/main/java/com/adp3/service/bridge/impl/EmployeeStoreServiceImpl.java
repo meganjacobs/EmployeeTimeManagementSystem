@@ -6,6 +6,7 @@ import com.adp3.service.bridge.EmployeeStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -27,6 +28,28 @@ public class EmployeeStoreServiceImpl implements EmployeeStoreService {
     public Set<EmployeeStore> getAll()
     {
         return this.empStoreDB.findAll().stream().collect(Collectors.toSet());
+    }
+
+    @Override
+    public EmployeeStore findByID(String empID, String storeID) {
+        Set<EmployeeStore> byID = findByEmpID(empID);
+        for (EmployeeStore es: byID) {
+            if (es.getStoreID().equalsIgnoreCase(storeID));
+            return es;
+        }
+        return null;
+    }
+
+    @Override
+    public Set<EmployeeStore> findByEmpID(String empID) {
+        Set<EmployeeStore> all = getAll();
+        Set<EmployeeStore> employeeStores = new HashSet<>();
+        for (EmployeeStore es: all) {
+            if (es.getEmpID().equalsIgnoreCase(empID)){
+                employeeStores.add(es);
+            }
+        }
+        return null;
     }
 
     @Override

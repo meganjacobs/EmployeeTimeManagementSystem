@@ -15,15 +15,14 @@ import java.util.Objects;
 @IdClass(EmployeeStoreId.class)
 public class EmployeeStore {
     @Id
-    private String empID;
-    private String storeID;
+    private String empID, storeID;
 
     public EmployeeStore(Builder builder) {
         this.empID = builder.empID;
         this.storeID = builder.storeID;
     }
 
-    private EmployeeStore() {
+    protected EmployeeStore() {
     }
 
     public String getEmpID() {
