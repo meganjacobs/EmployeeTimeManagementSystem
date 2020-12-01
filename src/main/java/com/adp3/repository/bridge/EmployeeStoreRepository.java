@@ -16,7 +16,6 @@ import java.util.Set;
 
 @Repository
 public  interface EmployeeStoreRepository extends JpaRepository<EmployeeStore,String>{
-EmployeeStore findByID(String empID, String storeID);
-Set<EmployeeStore>findByEmpID(String empID);
+
 }
 

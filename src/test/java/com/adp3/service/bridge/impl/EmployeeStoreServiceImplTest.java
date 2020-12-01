@@ -49,9 +49,8 @@ public class EmployeeStoreServiceImplTest {
 
     @Test
     public void b_read() {
-       // EmployeeStore read = employeeStoreService.findByEmpID(employeeStore.getEmpID());
-       /* EmployeeStore read = employeeStoreService.findByEmpID(employeeStore.empID);
-        System.out.println("employeeStore read : "  + read);*/
+        EmployeeStore read = employeeStoreService.read(employeeStore.getEmpID());
+        System.out.println("employeeStore read : "  + read);
     }
 
     @Test
