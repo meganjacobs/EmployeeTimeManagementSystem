@@ -11,10 +11,6 @@ import com.adp3.util.GenericHelper;
  */
 
 public class LeaveReportFactory {
-    private static LeaveReport leaveReport = null;
-
-    private LeaveReportFactory(){
-    }
 
     /*method used to create a new LeaveReport
     * @param: empID, leaveID, storeID
