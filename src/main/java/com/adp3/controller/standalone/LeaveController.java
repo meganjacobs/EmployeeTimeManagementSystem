@@ -14,7 +14,7 @@ import java.util.Set;
  * Class: Part Time
  * *Student number: 204513723
  */
-@RequestMapping ("/employee_time_management/leave")
+@RequestMapping ("/leave")
 @RestController
 public class LeaveController {
     @Autowired
@@ -26,13 +26,13 @@ public class LeaveController {
         return leaveService.create(newLeave);
     }
 
-    @GetMapping("/read{leaveID}")
+    @GetMapping("/read/{leaveID}")
     public Leave read(@PathVariable String leaveID){return leaveService.read(leaveID);}
 
-    @PatchMapping("/update")
+    @PatchMapping("/update/{id}")
     public Leave update(@RequestBody Leave leave){return leaveService.update(leave);}
 
-    @DeleteMapping("/delete{leaveID}")
+    @DeleteMapping("/delete/{leaveID}")
     public void delete(@PathVariable String leaveID){ leaveService.delete(leaveID);}
 
     @GetMapping("/all")
