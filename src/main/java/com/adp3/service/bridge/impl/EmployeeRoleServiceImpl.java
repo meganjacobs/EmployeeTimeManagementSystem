@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Author: Sonwabo Kasi
@@ -50,8 +51,8 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
     @Override
     public Set<EmployeeRole> getAll() {
-        this.employeeRoleRepository.findAll();
-        return null;
+        return this.employeeRoleRepository.findAll().stream().collect(Collectors.toSet());
+        //return null;
     }
 
     @Override

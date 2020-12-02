@@ -12,7 +12,7 @@ import java.util.Objects;
  * Class Description: EmployeeStore
  */
 @Entity
-@IdClass(EmployeeStoreId.class)
+//@IdClass(EmployeeStoreId.class)
 public class EmployeeStore {
     @Id
     private String empID;
@@ -23,7 +23,7 @@ public class EmployeeStore {
         this.storeID = builder.storeID;
     }
 
-    private EmployeeStore() {
+    protected EmployeeStore() {
     }
 
     public String getEmpID() {

@@ -44,7 +44,7 @@ public class EmployeeLeaveController {
         return empLeaveService.read(id);
     }
     //Method to update specified employee Leave record
-    @PostMapping("/update")
+    @PutMapping("/update/{id}")
     public EmployeeLeave update(@RequestBody EmployeeLeave empLeave){
         return empLeaveService.update(empLeave);
     }
