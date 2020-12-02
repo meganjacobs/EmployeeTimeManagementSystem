@@ -35,10 +35,10 @@ public class EmployeeController {
         return  employeeService.read(id);
     }
 
-    @PostMapping("/update/")
+    @PostMapping("/update/{id}")
     public Employee update(@RequestBody Employee employee){
 
-        return employeeService.update( employee );
+        return employeeService.update(employee);
     }
 
     @DeleteMapping("/delete/{id}")

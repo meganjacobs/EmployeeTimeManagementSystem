@@ -13,7 +13,7 @@ public class LeaveFactory {
     public static Leave createLeave(String leaveDescription) {
         String leaveID = GenericHelper.generateID();
         return new Leave.Builder()
-                .setLeaveID(leaveID)
+                    .setLeaveID(leaveID)
                 .setLeaveDescription(leaveDescription)
                 .build();
     }
