@@ -45,7 +45,11 @@ public class EmployeeStoreServiceImpl implements EmployeeStoreService {
     @Override
     public EmployeeStore update(EmployeeStore t)
     {
-        return this.empStoreDB.save(t);
+        //return this.empStoreDB.save(t);
+
+        if( this.empStoreDB.existsById(t.getEmpID())){
+            return this.empStoreDB.save(t);}
+        return null;
     }
 
     @Override

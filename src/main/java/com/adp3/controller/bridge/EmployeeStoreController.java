@@ -22,7 +22,7 @@ import java.util.Set;
 
 
 @RestController
-@RequestMapping("/employeestore")
+@RequestMapping("/employeeStore")
 public class EmployeeStoreController {
 
     @Autowired
@@ -50,25 +50,25 @@ public class EmployeeStoreController {
 
         if (employeeExist && storeExist)
             return empStoreService.create(employeeStore);
-        else return EmployeeStoreFactory.createEmployeeStore("", "");
+        else return EmployeeStoreFactory.createEmployeeStore(employeeStore.getEmpID(), employeeStore.getStoreID());
     }
 
-    @GetMapping("/read{id}")
+    @GetMapping("/read/{id}")
     public EmployeeStore read(@PathVariable String id) {
         return empStoreService.read(id);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update/{id}")
     public EmployeeStore update(@RequestBody EmployeeStore employeeStore) {
         return empStoreService.update(employeeStore);
     }
 
-    @GetMapping("/getall")
+    @GetMapping("/getAll")
     public Set<EmployeeStore> getAll() {
         return empStoreService.getAll();
     }
 
-    @DeleteMapping("/delete{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable String id) {
          this.empStoreService.delete(id);
     }
