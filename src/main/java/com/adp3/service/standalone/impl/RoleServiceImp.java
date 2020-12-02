@@ -27,7 +27,8 @@ public class RoleServiceImp implements RoleService {
     public Set<Role> getAll() {
 
         return this.repository.findAll().stream().collect(Collectors.toSet());
-    }
+   }
+
 
     @Override
     public Role create(Role role) {
@@ -42,13 +43,14 @@ public class RoleServiceImp implements RoleService {
 
     @Override
     public Role update(Role d) {
-        return this.repository.save(d);
-
+        if( this.repository.existsById(d.getRoleID())){
+            return this.repository.save(d);}
+        return null;
     }
 
     @Override
     public void delete(String s) {
-        this.role.deleteById(s);
+        this.repository.deleteById(s);
 
     }
 }

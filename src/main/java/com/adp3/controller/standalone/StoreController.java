@@ -45,7 +45,7 @@ public class StoreController {
     /* Method update StoreName, StoreID
      * Parameters: StoreName, StoreID
      * */
-    @PutMapping ("/update")
+    @PutMapping ("/update/{storeID}")
     public Store update(@RequestBody Store store) {
         return storeService.update(store);
     }

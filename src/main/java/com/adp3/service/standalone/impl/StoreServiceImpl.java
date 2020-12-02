@@ -59,7 +59,10 @@ public class StoreServiceImpl implements StoreService {
      * */
     @Override
     public Store update(Store t) {
-        return this.repository.save(t);
+
+        if( this.repository.existsById(t.getStoreID())){
+            return this.repository.save(t);}
+        return null;
     }
     /*method used to delete a Store
      * @param: storeName, storeId - eg. store name "Cape Town", store ID "01"
