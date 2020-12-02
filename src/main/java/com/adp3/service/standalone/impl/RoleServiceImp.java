@@ -27,8 +27,8 @@ public class RoleServiceImp implements RoleService {
     public Set<Role> getAll() {
 
         return this.repository.findAll().stream().collect(Collectors.toSet());
-
    }
+
 
     @Override
     public Role create(Role role) {

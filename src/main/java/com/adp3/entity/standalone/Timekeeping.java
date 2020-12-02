@@ -11,17 +11,26 @@ import java.io.Serializable;
  */
 @Entity
 public class Timekeeping implements Serializable {
+
+
+
+
     @Id
+    private String recID;
     private int time_In;
     private int time_Out;
     private String empID;
 
-    private Timekeeping(){}
+    protected Timekeeping(){}
 
     private Timekeeping(Builder builder){
+        this.recID = builder.recID;
         this.time_In = builder.time_In;
         this.time_Out = builder.time_Out;
         this.empID = builder.empID;
+    }
+    public String getRecID() {
+        return recID;
     }
 
     public int getTime_In() {
@@ -39,12 +48,14 @@ public class Timekeeping implements Serializable {
     @Override
     public String toString() {
         return "TimekeepingService{" +
+                "RecId=" + recID +
                 "time_In=" + time_In +
                 ", time_Out=" + time_Out +
                 ", empID=" + empID +
                 '}';
     }
     public static class Builder{
+            private String recID;
             private int time_In;
             private int time_Out;
             private String empID;
@@ -70,8 +81,13 @@ public class Timekeeping implements Serializable {
             return this;
         }
 
-        public Builder copy(Timekeeping timekeepingService){
+        public Builder setRecID(String recID) {
+            this.recID = recID;
+            return this;
+        }
 
+        public Builder copy(Timekeeping timekeepingService){
+            this.recID = timekeepingService.recID;
           this.time_In= timekeepingService.time_In;
             this.time_Out= timekeepingService.time_Out;
             this.empID = timekeepingService.empID;
