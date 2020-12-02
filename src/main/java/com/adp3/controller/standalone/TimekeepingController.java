@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/employee_time_management/Timekeeping")
+@RequestMapping("/Timekeeping")
 public class TimekeepingController {
     @Autowired
    //@Qualifier("TimekeepingServiceImp")
     private TimeKeepingServices  timekeepingservices;
-    @GetMapping("/create")
+    @PostMapping("/create")
     public Timekeeping create(@RequestBody Timekeeping Timekeeping )
     {
         Timekeeping timekeeping = TimekeepingFactory.buildTimekeepingService(Timekeeping.getTime_In(),Timekeeping.getTime_Out(),Timekeeping.getempID());
@@ -34,10 +34,10 @@ public class TimekeepingController {
         return timekeepingservices.read(id);
     }
 
-    @PostMapping("/Update/")
-    public Timekeeping update(@RequestBody Timekeeping Timekeeping) {
+    @PutMapping("/update/{id}")
+    public Timekeeping update(@RequestBody Timekeeping timekeeping) {
 
-        return timekeepingservices.update(Timekeeping);
+        return timekeepingservices.update(timekeeping);
     }
 
     @DeleteMapping("delete/{id}")
