@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 
 
 @RestController
-@RequestMapping ("employee_time_management/leaveReport")
+@RequestMapping ("/leaveReport")
 public class LeaveReportController {
 
     //access to LeaveReportService bean using Spring autowired annotation
@@ -48,31 +48,18 @@ public class LeaveReportController {
         boolean employeeLeaveExists = false;
         boolean employeeStoreExists = false;
 
-        EmployeeLeave employeeLeave = null;
-        try {
-            employeeLeave = employeeLeaveService.read(leaveReport.getEmpID());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        EmployeeLeave employeeLeave = employeeLeaveService.read(leaveReport.getEmpID());
         if (employeeLeave != null) {
             employeeLeaveExists = true;
         }
-        EmployeeStore employeeStore = null;
-        try {
-            employeeStore = employeeStoreService.read(leaveReport.getStoreID());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        EmployeeStore employeeStore = employeeStoreService.read(leaveReport.getStoreID());
         if (employeeStore != null) {
             employeeStoreExists = true;
         }
+        if (employeeLeaveExists && employeeStoreExists == true)
+            return leaveReportService.create(leaveReport);
+            else return leaveReportService.create(LeaveReportFactory.buildLeaveReport(leaveReport.getEmpID(), leaveReport.getLeaveID(), leaveReport.getStoreID()));
 
-        if (employeeLeaveExists && employeeStoreExists) {
-            leaveReportService.create(leaveReport);
-            return leaveReport;
-        }
-
-        else return null;
     }
 
     /* exposes method used to read a LeaveReport
@@ -88,9 +75,8 @@ public class LeaveReportController {
      * @param: leaveReport
      * @return: LeaveReport
      * */
-    @PutMapping ("/update")
-    public LeaveReport update(@RequestBody LeaveReport leaveReport) {
-        return leaveReportService.update(leaveReport);
+    @PutMapping ("/update/{id}")
+    public LeaveReport update(@RequestBody LeaveReport leaveReport) { return leaveReportService.update(leaveReport);
     }
 
     /* exposes method used to delete a LeaveReport

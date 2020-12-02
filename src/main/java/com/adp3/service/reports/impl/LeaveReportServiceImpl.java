@@ -26,12 +26,7 @@ public class LeaveReportServiceImpl implements LeaveReportService {
 
     @Override
     public LeaveReport create(LeaveReport t) {
-
-    if (repository.existsById(t.getLeaveReportID())) {
-            System.out.println("Record exists: " + t.getLeaveReportID());
-        }
-        else repository.save(t);
-        return t;
+        return repository.save(t);
     }
 
     @Override
@@ -40,18 +35,11 @@ public class LeaveReportServiceImpl implements LeaveReportService {
     }
 
     @Override
-    public LeaveReport update(LeaveReport t) {
-          if (repository.existsById(t.getLeaveReportID())){
-              LeaveReport updated = new LeaveReport.Builder()
-                      .copy(t)
-                      .setEmpID("emp002")
-                      .setLeaveID("002")
-                      .setStoreID("cpt002")
-                      .build();
-              updated = repository.save(updated);
-              return updated;
+    public LeaveReport update(LeaveReport leaveReport) {
+          if (this.repository.existsById(leaveReport.getLeaveReportID())){
+             return this.repository.save(leaveReport);
         }
-        else return null;
+        return null;
     }
 
     @Override
