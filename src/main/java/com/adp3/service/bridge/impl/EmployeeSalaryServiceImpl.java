@@ -3,6 +3,7 @@ package com.adp3.service.bridge.impl;
 import com.adp3.entity.bridge.EmployeeSalary;
 import com.adp3.repository.bridge.EmployeeSalaryRepository;
 import com.adp3.service.bridge.EmployeeSalaryService;
+import org.mockito.internal.matchers.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,15 +44,17 @@ public class EmployeeSalaryServiceImpl implements EmployeeSalaryService {
 
     @Override
     public EmployeeSalary update(EmployeeSalary t) {
-        if( this.repository.existsById(t.getEmpID())){
-        return this.repository.save(t);}
-        return null;
+//        if( this.repository.existsById(t.getEmpID())){
+//        return this.repository.save(t);}
+//        return null;
+        this.repository.save(t);
+        return t;
     }
 
     @Override
     public void delete(String s) {
         repository.deleteById(s);
-
+        System.out.println("Record Deleted");
 
     }
 

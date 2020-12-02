@@ -21,20 +21,20 @@ public class EmployeeRoleController {
       return employeeRoleService.create(employeeRole);
     }
 
-    @GetMapping("/read {empID}")
+    @GetMapping("/read/{empID}")
     public EmployeeRole read(@PathVariable String empID)
     {
         return employeeRoleService.read(empID);
     }
 
-    @PutMapping("/update")
-    public EmployeeRole update(EmployeeRole employeeRole)
+    @PutMapping("/update/{empID}")
+    public EmployeeRole update(@RequestBody EmployeeRole employeeRole)
     {
         employeeRoleService.update(employeeRole);
         return employeeRole;
     }
 
-    @DeleteMapping("/deleting{empID}")
+    @DeleteMapping("/delete/{empID}")
     public void delete(@PathVariable String empID)
     {
             employeeRoleService.delete(empID);

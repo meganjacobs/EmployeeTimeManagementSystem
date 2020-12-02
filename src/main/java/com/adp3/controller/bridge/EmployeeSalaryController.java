@@ -19,7 +19,7 @@ import java.util.Set;
  */
 
 @RestController
-@RequestMapping("/employee_time_management/employeeSalary")
+@RequestMapping("/employeeSalary")
 public class EmployeeSalaryController {
 
 
@@ -57,14 +57,14 @@ public class EmployeeSalaryController {
     }
 
     //exposes method used to update a  EmployeeSalary
-    @PostMapping("/update")
+    @PutMapping("/update/{id}")
     public EmployeeSalary update(@RequestBody EmployeeSalary empSal){
         return employeeSalaryService.update(empSal);
     }
 
     //exposes method used to get all from EmployeeSalary
-    @GetMapping("/all")
-    public Set<EmployeeSalary> getall(){
+    @GetMapping("/viewAll")
+    public Set<EmployeeSalary> getAll(){
         return employeeSalaryService.getAll();
     }
 
