@@ -18,7 +18,7 @@ public class StoreReportsController {
     @Autowired
     private StoreReportsServiceImpl storeReportsService;
 
-    @PutMapping("/create")
+    @PostMapping("/create")
     public StoreReports create(StoreReports storeReports){
          return storeReportsService.create(StoreReportFactory.createStoreReports(storeReports.getEmpID(),storeReports.getStoreID(),storeReports.getTimeServiceID()));
     }
@@ -32,9 +32,7 @@ public class StoreReportsController {
     public StoreReports update(@RequestBody StoreReports storeReports){
         return storeReportsService.update(storeReports);
     }
-    /*
 
-     */
     @DeleteMapping("/deleted/{storeReportsId}")
     public void delete(@PathVariable String storeReportsId){
         storeReportsService.delete(storeReportsId);
