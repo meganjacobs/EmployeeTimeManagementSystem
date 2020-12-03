@@ -23,7 +23,7 @@ public class StoreReportsFactoryTest {
         Assert.assertNotNull(storeReports);
         Assert.assertSame(storeReports.getEmpID(),"empFactory");
         Assert.assertSame(storeReports.getStoreID(),"storeFactory");
-        Assert.assertSame(storeReports.getTimeServiceID(),"timeFactory");
+        Assert.assertSame(storeReports.getRecID(),"timeFactory");
         Assert.assertNotEquals(storeReports.getStoreReportID(), "00000000");
         System.out.println(storeReports);
 

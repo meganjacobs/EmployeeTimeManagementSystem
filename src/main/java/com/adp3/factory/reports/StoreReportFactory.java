@@ -14,11 +14,11 @@ public class StoreReportFactory {
 
 
 
-    public static StoreReports createStoreReports(String empID, String storeID, String timeServiceID){
+    public static StoreReports createStoreReports(String empID, String storeID, String recID){
         String reportID = GenericHelper.generateID();
         return new StoreReports.Builder()
                 .setStoreReportID(reportID)
-                .setEmpID(empID).setStoreID(storeID).setTimeServiceID(timeServiceID)
+                .setEmpID(empID).setStoreID(storeID).setRecID(recID)
                 .build();
 
     }

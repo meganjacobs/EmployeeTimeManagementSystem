@@ -3,7 +3,6 @@ package com.adp3.service.reports.impl;
 import com.adp3.entity.reports.StoreReports;
 import com.adp3.factory.reports.StoreReportFactory;
 import com.adp3.service.reports.StoreReportsService;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -15,7 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Set;
 
-import static org.junit.Assert.*;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -52,7 +50,7 @@ public class StoreReportsServiceImplTest {
     @Test
     public void c_update() {
         StoreReports updated = new StoreReports.Builder().copy(storeReports).setEmpID("Employee")
-                .setStoreID("Store").setTimeServiceID("Out").build();
+                .setStoreID("Store").setRecID("Out").build();
         updated = storeReportsService.update(updated);
         System.out.println("Updated: " + updated);
     }

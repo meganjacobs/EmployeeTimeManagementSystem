@@ -16,12 +16,7 @@ public class  StoreReportsServiceImpl implements StoreReportsService {
 
     @Autowired
     StoreReportsRepository repository;
-    StoreReports storeReports = StoreReportFactory.createStoreReports("empService","storeService","timeService");
 
-    @Before
-    public void initialiseRepository(){
-        repository.save(storeReports);
-    }
     @Override
     public Set<StoreReports> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
@@ -34,7 +29,7 @@ public class  StoreReportsServiceImpl implements StoreReportsService {
 
     @Override
     public StoreReports read(String s) {
-        return this.repository.findById(s).orElse(storeReports);
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override

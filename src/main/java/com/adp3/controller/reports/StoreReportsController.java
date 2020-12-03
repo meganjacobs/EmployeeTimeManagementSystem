@@ -20,7 +20,7 @@ public class StoreReportsController {
 
     @PostMapping("/create")
     public StoreReports create(StoreReports storeReports){
-         return storeReportsService.create(StoreReportFactory.createStoreReports(storeReports.getEmpID(),storeReports.getStoreID(),storeReports.getTimeServiceID()));
+         return storeReportsService.create(StoreReportFactory.createStoreReports(storeReports.getEmpID(),storeReports.getStoreID(),storeReports.getRecID()));
     }
 
     @GetMapping("/read/{storeReportsId}")

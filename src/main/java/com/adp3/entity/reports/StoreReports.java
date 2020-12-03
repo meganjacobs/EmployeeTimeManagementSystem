@@ -15,13 +15,13 @@ import java.io.Serializable;
 public class StoreReports implements Serializable {
     @Id
     private String storeReportID;
-    private String empID, storeID, timeServiceID;
+    private String empID, storeID, recID;
 
     public StoreReports(Builder builder) {
         this.storeReportID = builder.storeReportID;
         this.empID = builder.empID;
         this.storeID = builder.storeID;
-        this.timeServiceID = builder.timeServiceID;
+        this.recID = builder.recID;
     }
 
     protected StoreReports() {
@@ -35,7 +35,7 @@ public class StoreReports implements Serializable {
 
     public String getStoreID() { return storeID; }
 
-    public String getTimeServiceID() { return timeServiceID; }
+    public String getRecID() { return recID; }
 
     @Override
     public String toString() {
@@ -47,7 +47,7 @@ public class StoreReports implements Serializable {
     }
 
     public static class Builder {
-        private String storeReportID, empID, storeID, timeServiceID;
+        private String storeReportID, empID, storeID, recID;
 
         public Builder setStoreReportID(String storeReportID) {
             this.storeReportID = storeReportID;
@@ -64,8 +64,8 @@ public class StoreReports implements Serializable {
             return this;
         }
 
-        public Builder setTimeServiceID(String timeServiceID) {
-            this.timeServiceID = timeServiceID;
+        public Builder setRecID(String recID) {
+            this.recID = recID;
             return this;
         }
 
@@ -77,7 +77,7 @@ public class StoreReports implements Serializable {
             this.storeReportID = storeReports.storeReportID;
             this.empID = storeReports.empID;
             this.storeID = storeReports.storeID;
-            this.timeServiceID = storeReports.timeServiceID;
+            this.recID = storeReports.recID;
             return this;
         }
 
