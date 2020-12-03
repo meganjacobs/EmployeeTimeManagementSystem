@@ -12,36 +12,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/race")
+@RequestMapping("/StoreReports")
 public class StoreReportsController {
 
     @Autowired
     private StoreReportsServiceImpl storeReportsService;
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @PutMapping("/create")
     public StoreReports create(StoreReports storeReports){
-        StoreReports newStoreReports = StoreReportFactory.createStoreReports("1","2","3");
-        return storeReportsService.create(newStoreReports);
+         return storeReportsService.create(StoreReportFactory.createStoreReports(storeReports.getEmpID(),storeReports.getStoreID(),storeReports.getTimeServiceID()));
     }
-    /*
 
-     */
     @GetMapping("/read/{storeReportsId}")
-    public  StoreReports read(@PathVariable String ReportId){
-        return storeReportsService.read(ReportId);
+    public  StoreReports read(@PathVariable String storeReportsId){
+        return storeReportsService.read(storeReportsId);
     }
-    /*
 
-     */
-    @PutMapping("/update")
+    @PutMapping("/update/{storeReportsId}")
     public StoreReports update(@RequestBody StoreReports storeReports){
         return storeReportsService.update(storeReports);
     }
     /*
 
      */
-    public void delete(@PathVariable String reportId){
-        storeReportsService.delete(reportId);
+    @DeleteMapping("/deleted/{storeReportsId}")
+    public void delete(@PathVariable String storeReportsId){
+        storeReportsService.delete(storeReportsId);
     }
 
     @GetMapping("/all")

@@ -39,7 +39,11 @@ public class  StoreReportsServiceImpl implements StoreReportsService {
 
     @Override
     public StoreReports update(StoreReports storeReports) {
-        return this.repository.save(storeReports);
+        if (this.repository.existsById(storeReports.getStoreReportID())){
+            return this.repository.save(storeReports);
+        }
+        return null;
+
     }
 
     @Override
