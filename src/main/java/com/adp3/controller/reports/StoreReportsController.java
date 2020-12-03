@@ -20,7 +20,8 @@ public class StoreReportsController {
 
     @PostMapping("/create")
     public StoreReports create(StoreReports storeReports){
-         return storeReportsService.create(StoreReportFactory.createStoreReports(storeReports.getEmpID(),storeReports.getStoreID(),storeReports.getRecID()));
+        StoreReports newStoreReports = StoreReportFactory.createStoreReports(storeReports.getEmpID(),storeReports.getStoreID(),storeReports.getRecID());
+         return storeReportsService.create(newStoreReports);
     }
 
     @GetMapping("/read/{storeReportsId}")
@@ -33,7 +34,7 @@ public class StoreReportsController {
         return storeReportsService.update(storeReports);
     }
 
-    @DeleteMapping("/deleted/{storeReportsId}")
+    @DeleteMapping("/delete/{storeReportsId}")
     public void delete(@PathVariable String storeReportsId){
         storeReportsService.delete(storeReportsId);
     }

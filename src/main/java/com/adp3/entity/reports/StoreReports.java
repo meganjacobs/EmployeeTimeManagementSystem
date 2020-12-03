@@ -17,7 +17,7 @@ public class StoreReports implements Serializable {
     private String storeReportID;
     private String empID, storeID, recID;
 
-    public StoreReports(Builder builder) {
+    private StoreReports(Builder builder) {
         this.storeReportID = builder.storeReportID;
         this.empID = builder.empID;
         this.storeID = builder.storeID;
