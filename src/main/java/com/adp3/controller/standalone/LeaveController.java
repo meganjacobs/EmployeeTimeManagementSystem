@@ -29,7 +29,7 @@ public class LeaveController {
     @GetMapping("/read/{leaveID}")
     public Leave read(@PathVariable String leaveID){return leaveService.read(leaveID);}
 
-    @PatchMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public Leave update(@RequestBody Leave leave){return leaveService.update(leave);}
 
     @DeleteMapping("/delete/{leaveID}")
